@@ -1,17 +1,143 @@
-<view>
-  <tabs
+   <tabs
     tabs="{{tabs}}"
-    showPlus="{{true}}"
     onTabClick="handleTabClick"
     onChange="handleTabChange"
-    onPlusClick="handlePlusClick"
     activeTab="{{activeTab}}"
     swipeable="{{true}}"
   >
-    <block a:for="{{tabs}}">
+   <block a:for="{{tabs}}">
       <tab-content key="{{index}}">
-         <view class="tab-content">content of {{item.title}}</view> 
+        <!-- <view class="tab-content">content of {{item.title}}</view> -->
+  <view class='tab-content'>
+ <view class="page-section" style="margin-top: 10px; border-top: 1px solid;border-top-color: #f3e9e9;">
+    <view class="form-row">
+      <view class="form-row-label">借款合同编号</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{jkhtbh}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">借款人公积金账号</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{jkrgjjzh}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">借款人单位名称</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{jkrdwmc}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">借款人姓名</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{jkrxm}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">借款人证件号码</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{jkrzjhm}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">贷款发放额</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{dkffe}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">贷款发放日期</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{dkffrq}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">贷款银行</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{dkyh}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">贷款状态</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{dkzt}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">贷款余额</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{dkye}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">贷款类型</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{dklx}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">贷款还款方式</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{dkhkfs}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">约定还款日</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{ydhkr}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">是否对冲</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{sfdc}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">贷款利率</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{dkll}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">应结清日期</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{yjqrq}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  </view>
       </tab-content>
     </block>
   </tabs>
-</view>
