@@ -5,6 +5,10 @@
     "pages/dkxx/dkxx"
     ],
   "window": {
-    "defaultTitle": "My App"
+    "defaultTitle": "",
+    "pullRefresh":true,
+    "backgroundColor": "#292020",
+  
+    "titleBarColor": "#fff"
   }
 }

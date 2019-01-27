@@ -1,8 +1,8 @@
 .banner {
-  height: 455rpx;
+
   width: 100%;
   background-image: url('../../image/icon/back.png');
-  background-size: contain;
+  background-size: 100%;
   background-repeat: no-repeat;
   position: relative;
   z-index: 2;

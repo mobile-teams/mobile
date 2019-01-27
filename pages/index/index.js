@@ -45,6 +45,12 @@ Page({
     grzhzt:'',
     flag:true,
     basicComponentList,
+     array:{
+       grzhye:[],
+       grzhzt:[],
+       grzh:[]
+     },
+     indexgrzh : 0
   },
    preventTurn(event){
      const path = event.currentTarget.dataset.index
@@ -75,8 +81,10 @@ Page({
         appid: "20170517000101",
         citybm:"C23020KF",
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-        xingming:"乔铁军",
-       	zjhm:"230202196701261830"
+        // xingming:"乔铁军",
+       	// zjhm:"230202196701261830"
+            xingming:"金凯",
+         zjhm:"230203197712081457"
       },
       dataType: 'json',
       contentType : 'application/json;charset=UTF-8', //contentType很重要    
@@ -87,9 +95,15 @@ Page({
           grzhye: app.fmoney(grzhye1),
           grzh:res.data.data[0].gjjxx[0].grzh,
           grzhzt:res.data.data[0].gjjxx[0].grzhzt
-        }) 
-        app.setGrzh(res.data.data[0].gjjxx[0].grzh)
-        app.setJkhtbh(res.data.data[0].dkxx[0].jkhtbh)
+        }) ;
+        app.setGrzh(res.data.data[0].gjjxx[0].grzh);
+        app.setJkhtbh(res.data.data[0].dkxx[0].jkhtbh);
+       console.log(res.data.data[0].gjjxx.length);
+        for(var i=0;i<res.data.data[0].gjjxx.length;i++){
+          this.$spliceData({"array.grzh": [0, 0,res.data.data[0].gjjxx[i].grzh]});
+          this.$spliceData({"array.grzhzt": [0, 0,res.data.data[0].gjjxx[i].grzhzt]});
+          this.$spliceData({"array.grzhye": [0, 0,res.data.data[0].gjjxx[i].grzhye]});
+        }
       }
     });
   },
@@ -113,19 +127,32 @@ Page({
       success: (res) => {
         console.log(res);
         grzhye1 = res.data.data[0].gjjxx[0].grzhye       
-        this.setData({ 
-          grzhye: grzhye1,
+        that.setData({ 
+          grzhye: app.fmoney(grzhye1),
           grzh:res.data.data[0].gjjxx[0].grzh,
           grzhzt:res.data.data[0].gjjxx[0].grzhzt
-        }) 
+        });  
         app.setGrzh(res.data.data[0].gjjxx[0].grzh)
         app.setJkhtbh(res.data.data[0].dkxx[0].jkhtbh)
       }
     });
   },
   onPullDownRefresh(){
-      this.abc1(this);
+    //刷新
+      this.load(this);
       my.stopPullDownRefresh();
     },
+  bindPickerChange(e){
+    console.log("选择下标：",e.detail.value);
+    let i =e.detail.value;
+    console.log("array中数据",this.data.array);
+    this.setData({
+          grzhye:app.fmoney(this.data.array.grzhye[i] ),
+          grzh:this.data.array.grzh[i] ,
+          grzhzt:this.data.array.grzhzt[i] ,
+    });
+     app.setGrzh(this.data.array.grzh[i])
+     //app.setJkhtbh(res.data.data[0].dkxx[0].jkhtbh)
+  },
     
 })

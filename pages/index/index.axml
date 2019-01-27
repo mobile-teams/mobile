@@ -1,4 +1,5 @@
-<view class="flex col ac banner" style="{{padding: '20px 0'}}">
+<view class="banner">
+<view class="flex col ac" style="{{padding: '20px 0'}}">
     <view class="text-white text-14" style="{{margin: '12px 0'}}">账户余额(元)</view>
   <view class="flex ac text-white" style="{{fontSize: 30}}">
   <view>{{grzhye}}</view>
@@ -11,7 +12,7 @@
      </view>
   </view>
     <view style = "text-align: center;margin;padding-top: 20rpx;color: #FFF;">
-      <picker onChange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <picker onChange="bindPickerChange" value="{{indexgrzh}}" range="{{array.grzh}}">
         <view>
           <text style = "margin-right: 5px;font-size: 12px;">{{grzh}}</text>   
           <text style="margin-left: 5px;background-color: #ff5e00;font-size: 13px;">{{grzhzt}}</text>
@@ -23,7 +24,7 @@
       <view class="todo-item" onTap="gjjxxcx" >公积金账户信息</view>
     </view> 
 </view>
-
+</view>
     <view class="list-wrap">
     <view class="list-container" style="{{ transform: 'translate3d(' +(-activeTab * 100) + 'vw, 0, 0)' }}">
       <view class="list" style="{{ height: 'auto' }}">
