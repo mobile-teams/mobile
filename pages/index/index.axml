@@ -5,6 +5,7 @@
   <view a:if="{{flag}}">  
         <image  onTap="tapName" style="{{width: '25px', height:'25px'}}" src="{{'../../image/icon/1.png'}}" ></image>
   </view>
+  
   <view a:else> 
         <image  onTap="tapName" style="{{width: '25px', height:'25px'}}" src="{{'../../image/icon/2.png'}}" ></image>
      </view>
