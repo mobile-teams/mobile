@@ -3,15 +3,17 @@ Page({
   data: {
      tabs: [
       {
-        title: '贷款账户信息',
+        title: '贷款信息',
        // badgeType: 'text',
        // badgeText: '6',
       },
       {
-        title: '贷款还款明细',
+        title: '还款明细',
         //badgeType: 'dot',
+        tabBarBackgroundColor:'#0000ff',
       },
-      { title: '贷款还款计划' },
+      { title: '还款计划' },
+      { title: '逾期明细' },
     ],
     jkthbh:'',
     jkrgjjzh:'',
@@ -35,16 +37,12 @@ Page({
       activeTab: index,
     });
   },
-  handleTabChange({ index }) {
-    this.setData({
-      activeTab: index,
-    });
-  },
-  handlePlusClick() {
-    my.alert({
-      content: 'plus clicked',
-    });
-  },
+  // handleTabChange({ index }) {
+  //   this.setData({
+  //     activeTab: index,
+  //   });
+  // },
+ 
   onLoad() {
      my.showLoading({
        content: '加载中...',

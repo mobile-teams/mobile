@@ -1,20 +1,15 @@
-<view>
    <tabs
     tabs="{{tabs}}"
-    showPlus="{{true}}"
     onTabClick="handleTabClick"
     onChange="handleTabChange"
-    onPlusClick="handlePlusClick"
     activeTab="{{activeTab}}"
     swipeable="{{true}}"
   >
    <block a:for="{{tabs}}">
       <tab-content key="{{index}}">
-        <view class="tab-content">content of {{item.title}}</view>
-      </tab-content>
-    </block>
-  </tabs>
-  <view class="page-section" style="margin-top: 10px; border-top: 1px solid;border-top-color: #f3e9e9;">
+        <!-- <view class="tab-content">content of {{item.title}}</view> -->
+  <view class='tab-content'>
+ <view class="page-section" style="margin-top: 10px; border-top: 1px solid;border-top-color: #f3e9e9;">
     <view class="form-row">
       <view class="form-row-label">借款合同编号</view>
       <view class="form-row-content">
@@ -110,7 +105,7 @@
       </view>
     </view>
   </view>
-  <view class="page-section" style="padding-bottom: 15px;">
+  <view class="page-section">
     <view class="form-row">
       <view class="form-row-label">约定还款日</view>
       <view class="form-row-content">
@@ -118,7 +113,7 @@
       </view>
     </view>
   </view>
-  <view class="page-section" style="padding-bottom: 15px;">
+  <view class="page-section">
     <view class="form-row">
       <view class="form-row-label">是否对冲</view>
       <view class="form-row-content">
@@ -126,7 +121,7 @@
       </view>
     </view>
   </view>
-  <view class="page-section" style="padding-bottom: 15px;">
+  <view class="page-section">
     <view class="form-row">
       <view class="form-row-label">贷款利率</view>
       <view class="form-row-content">
@@ -134,7 +129,7 @@
       </view>
     </view>
   </view>
-  <view class="page-section" style="padding-bottom: 15px;">
+  <view class="page-section">
     <view class="form-row">
       <view class="form-row-label">应结清日期</view>
       <view class="form-row-content">
@@ -142,5 +137,7 @@
       </view>
     </view>
   </view>
-
-</view>
+  </view>
+      </tab-content>
+    </block>
+  </tabs>
