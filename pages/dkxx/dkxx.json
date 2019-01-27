@@ -3,8 +3,7 @@
   
   "usingComponents":{
     "tabs": "mini-antui/es/tabs/index",
-    "tab-content": "mini-antui/es/tabs/tab-content/index",
-    "dkzhxx":"./dkzhxx/dkzhxx"
+    "tab-content": "mini-antui/es/tabs/tab-content/index"
   
 }
 }

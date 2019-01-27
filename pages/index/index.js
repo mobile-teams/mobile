@@ -63,7 +63,7 @@ Page({
     if(this.data.flag){
       this.setData({grzhye:"*****"});
     }else{
-      this.setData({grzhye:app.fmoney(grzhye1)});
+      this.setData({grzhye:grzhye1});
     }
     this.setData({
       flag:!this.data.flag
@@ -119,8 +119,10 @@ Page({
         appid: "20170517000101",
         citybm:"C23020KF",
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-        xingming:"乔铁军",
-       	zjhm:"230202196701261830"
+        // xingming:"乔铁军",
+       	// zjhm:"230202196701261830"
+           xingming:"金凯",
+         zjhm:"230203197712081457"
       },
       dataType: 'json',
       contentType : 'application/json;charset=UTF-8', //contentType很重要    

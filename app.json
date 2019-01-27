@@ -2,8 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/zhxx/zhxx",
-    "pages/dkxx/dkxx",
-    "pages/dkzhxx/dkzhxx"
+    "pages/dkxx/dkxx"
     ],
   "window": {
     "defaultTitle": "",
