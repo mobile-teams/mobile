@@ -57,7 +57,7 @@ Page({
     if(this.data.flag){
       this.setData({grzhye:"*****"});
     }else{
-      this.setData({grzhye:grzhye1});
+      this.setData({grzhye:app.fmoney(grzhye1)});
     }
     this.setData({
       flag:!this.data.flag
