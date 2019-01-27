@@ -84,7 +84,7 @@ Page({
         console.log(res);
         grzhye1 = res.data.data[0].gjjxx[0].grzhye       
         this.setData({ 
-          grzhye: grzhye1,
+          grzhye: app.fmoney(grzhye1),
           grzh:res.data.data[0].gjjxx[0].grzh,
           grzhzt:res.data.data[0].gjjxx[0].grzhzt
         }) 
