@@ -5,7 +5,7 @@ App({
    },
 
   onLaunch(options) {
-    // 第一次打开
+    // 第一次打开11
     // options.query == {number:1}
     console.info('App onLaunch');
   },
