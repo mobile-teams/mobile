@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex.col {
+  flex-direction: column;
+}
+
+.flex.ja {
+  justify-content: space-around;
+}
+
+.flex.jb {
+  justify-content: space-between;
+}
+
+.flex.jc {
+  justify-content: center;
+}
+
+.flex.ac {
+  align-items: center;
+}
+
+.height-100 {
+  height: 100vh;
+}
+
+.scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.text-10 {
+  font-size: 10px;
+}
+
+.text-12 {
+  font-size: 12px;
+}
+
+.text-14 {
+  font-size: 14px;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.text-grey {
+  color: #8a8a8a;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.scale-x {
+  transform: scaleX(0.5);
+}
+
+.scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sub-title {
+  color: #888;
+  font-size: 14px;
+  padding: 15px 0 9px 15px;
+}
+
+.am-list-content, .am-input-label, .am-input-control input[type=text] {
+  font-size: 14px !important;
+}
+
+.am-image-picker-list {
+  padding-bottom: 3px !important;
+}
+
+.am-accordion-header {
+  height: auto !important;
+}
+
+.am-tabs.am-tabs-horizontal.am-tabs-top {
+  height: 100vh !important;
+}
+
+input[readonly] {
+  color: rgba(0,0,0,.5) !important;
+}

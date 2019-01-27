@@ -1,0 +1,44 @@
+<view class="flex col ac banner" style="{{padding: '20px 0'}}">
+    <view class="text-white text-14" style="{{margin: '12px 0'}}">账户余额(元)</view>
+  <view class="flex ac text-white" style="{{fontSize: 30}}">
+  <view>{{grzhye}}</view>
+  <view a:if="{{flag}}">  
+        <image  onTap="tapName" style="{{width: '25px', height:'25px'}}" src="{{'../../image/icon/1.png'}}" ></image>
+  </view>
+  <view a:else> 
+        <image  onTap="tapName" style="{{width: '25px', height:'25px'}}" src="{{'../../image/icon/2.png'}}" ></image>
+     </view>
+  </view>
+    <view style = "text-align: center;margin;padding-top: 20rpx;color: #FFF;">
+      <picker onChange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view>
+          <text style = "margin-right: 5px;font-size: 12px;">{{grzh}}</text>   
+          <text style="margin-left: 5px;background-color: #ff5e00;font-size: 13px;">{{grzhzt}}</text>
+          <image style = "width: 32rpx;height: 32rpx;margin-left: 16rpx;" src="/image/arrowright.png" mode="aspectFill" />        
+        </view>
+      </picker>
+    </view>
+    <view  style = "text-align: center;padding-top: 40rpx;font-size: 15px;">
+      <view class="todo-item" onTap="gjjxxcx" >公积金账户信息</view>
+    </view> 
+</view>
+
+    <view class="list-wrap">
+    <view class="list-container" style="{{ transform: 'translate3d(' +(-activeTab * 100) + 'vw, 0, 0)' }}">
+      <view class="list" style="{{ height: 'auto' }}">
+        <block a:for="{{basicComponentList}}" a:for-item="list">
+          <list className="list-item">
+            <view slot="header" class="list-header">{{list.type}}</view>
+            <block a:for="{{list.list}}">
+              <list-item arrow="{{true}}" multipleLine="{{false}}" key="items-{{item.name}}" last="{{true}">
+                <view  data-index={{item.path}} onTap="preventTurn"  style="display: flex; align-items: center">
+                  <image  src="{{item.thumb}}" class="thumb"  mode="aspectFit" />
+                  <text class="component-name">{{item.name}}</text>
+                </view>
+              </list-item>
+            </block>
+          </list>
+        </block>
+      </view>
+    </view>
+  </view>
