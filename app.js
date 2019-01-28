@@ -33,5 +33,38 @@ App({
     const sv = v.split('.');
     return `${sv[0].replace(/\B(?=(\d{3})+\b)/g, ',')}${dot(sv[1])}`;
   })
-}
+  },
+
+  getNowFormatDate() {
+		let day = new Date();
+		let Year = 0;
+		let Month = 0;
+		let Day = 0;
+		let CurrentDate = "";
+		Year = day.getFullYear();// 支持IE和火狐浏览器.
+		Month = day.getMonth() + 1;
+		Day = day.getDate();
+		CurrentDate += Year + "-";
+		if (Month >= 10) {
+			CurrentDate += Month + "-";
+		} else {
+			CurrentDate += "0" + Month + "-";
+		}
+		if (Day >= 10) {
+			CurrentDate += Day;
+		} else {
+			CurrentDate += "0" + Day;
+		}
+		return CurrentDate;
+	},
+
+  getTwoYearAgoFormatDate() {
+		let day = new Date();
+		let Year = 0;
+		let CurrentDate = "";
+		Year = day.getFullYear()-2;// 支持IE和火狐浏览器.
+		CurrentDate = Year + "-01-01";
+		return CurrentDate;
+	},
+
 });

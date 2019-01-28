@@ -18,6 +18,15 @@ Page({
     items: [
       
     ],
+    jcxxItems:[
+
+    ],
+    zqxxItems:[
+
+    ],
+    qtxxItems:[
+
+    ],
   },
   handleTabClick({ index }) {
     this.setData({
@@ -35,10 +44,10 @@ Page({
     });
   },
   onLoad() {
-    // my.showLoading({
-    //   content: '加载中...',
-    //   delay: '1000',
-    // });
+    my.showLoading({
+      content: '加载中...',
+      delay: '1000',
+    });
     my.httpRequest({
       url: 'http://192.168.54.77:8089/app-web/personal/public/gjjywmxcx.service',
       method: 'POST',
@@ -52,29 +61,50 @@ Page({
         zjbzxbm:"C23020KF",
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         grzh:app.data.grzh,
-        ksrq:"2000-01-01",
-        jsrq:"2019-01-01"
+        ksrq:app.getTwoYearAgoFormatDate(),
+        jsrq:app.getNowFormatDate()
       },
       dataType: 'json',
       contentType : 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
-        //  my.hideLoading();
+         
          let jczqxx = res.data.data;
-         console.log(jczqxx);
-         for(var i=0; i<jczqxx.length; i++){
-            jczqxx[i].title = jczqxx[i].ywfsrq;
-            jczqxx[i].brief = jczqxx[i].ywzy;
-            jczqxx[i].extra = jczqxx[i].yue;
+         let jcxx = [];
+         let zqxx = [];
+         let qtxx = [];
+         let a=0; let b=0;let c=0;
+         for(let i=0; i<jczqxx.length; i++){
+            if(jczqxx[i].ywlx=="缴存"){
+              jcxx[a] = jczqxx[i];
+              a++;
+              continue;
+            }else if(jczqxx[i].ywlx=="提取"){
+              zqxx[b] = jczqxx[i];
+              b++;
+              continue;
+            }else{
+              qtxx[c] = jczqxx[i];
+              c++;
+              continue;
+            }
          }
-         console.log("jczqxx",jczqxx);
+        a=0;
+        b=0;
+        c=0;
         this.setData({
-          items:jczqxx
+          items:jczqxx,
+          jcxxItems:jcxx,
+          zqxxItems:zqxx,
+          qtxxItems:qtxx
         });
+        my.hideLoading();
       },
       fail:(res) => {
+        my.hideLoading();
         my.alert({content:"网络错误"});
       },
       complete:(res) => {
+        my.hideLoading();
         // my.alert({title: 'complete'});
       }
     });

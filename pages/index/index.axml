@@ -25,7 +25,7 @@
     </view> 
 </view>
 </view>
-    <view class="list-wrap">
+    <view class="list-wrap" style ="background-color: white">
     <view class="list-container" style="{{ transform: 'translate3d(' +(-activeTab * 100) + 'vw, 0, 0)' }}">
       <view class="list" style="{{ height: 'auto' }}">
         <block a:for="{{basicComponentList}}" a:for-item="list">
