@@ -2,12 +2,19 @@ const app = getApp();
 const preventTurn = () => {
   my.alert({title:'提示',content:'敬请期待...'})
 }
-const basicContainers = [
+const basicContainers1 = [
+  {
+    name: '缴存信息',
+    thumb: '/image/icon/09.png',
+    path: '../jcxx/jcxx',
+  },
   {
     name: '贷款信息',
     thumb: '/image/icon/01.png',
     path: '../dkxx/dkxx',
   },
+];
+const basicContainers = [
    {
     name: '我要提取',
     thumb: '/image/icon/02.png',
@@ -30,6 +37,10 @@ const basicContainers = [
   },
 ];
 let basicComponentList = [
+  {
+    type: '信息查询',
+    list: basicContainers1,
+  },
   {
     type: '业务办理',
     list: basicContainers,
@@ -63,7 +74,7 @@ Page({
     if(this.data.flag){
       this.setData({grzhye:"*****"});
     }else{
-      this.setData({grzhye:grzhye1});
+      this.setData({grzhye:app.fmoney(grzhye1)});
     }
     this.setData({
       flag:!this.data.flag

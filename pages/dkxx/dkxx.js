@@ -15,6 +15,7 @@ Page({
       { title: '还款计划' },
       { title: '逾期明细' },
     ],
+    activeTab:0,
     jkthbh:'',
     jkrgjjzh:'',
     jkrdwmc:'',
@@ -37,11 +38,11 @@ Page({
       activeTab: index,
     });
   },
-  // handleTabChange({ index }) {
-  //   this.setData({
-  //     activeTab: index,
-  //   });
-  // },
+   handleTabChange({ index }) {
+     this.setData({
+       activeTab: index,
+     });
+   },
  
   onLoad() {
      my.showLoading({
@@ -98,21 +99,6 @@ Page({
       },
     });
   },
-  "tabBar": {
-    "textColor": "#dddddd",
-    "selectedColor": "#49a9ee",
-    "backgroundColor": "#ffffff",
-    "items": [
-      {
-        "pagePath": "pages/index/index",
-        "name": "首页"
-      },
-      {
-        "pagePath": "pages/logs/logs",
-        "name": "日志"
-      }
-    ]
-  }
 });
 
 

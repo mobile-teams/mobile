@@ -6,10 +6,14 @@
     swipeable="{{true}}"
   >
    <block a:for="{{tabs}}">
-      <tab-content key="{{index}}">
-        <!-- <view class="tab-content">content of {{item.title}}</view> -->
-  <view class='tab-content'>
- <view class="page-section" style="margin-top: 10px; border-top: 1px solid;border-top-color: #f3e9e9;">
+      <!-- <tab-content key="{{index}}">
+ 
+      </tab-content> -->
+    </block>
+  </tabs>
+
+   <view class='tab-content' style="{{ height: activeTab === 0 ? 'auto' : 0 }}">
+  <view class="page-section" style="margin-top: 10px; border-top: 1px solid;border-top-color: #f3e9e9;">
     <view class="form-row">
       <view class="form-row-label">借款合同编号</view>
       <view class="form-row-content">
@@ -138,6 +142,6 @@
     </view>
   </view>
   </view>
-      </tab-content>
-    </block>
-  </tabs>
+  <view class='tab-content' style="{{ height: activeTab === 1 ? 'auto' : 0 }}">
+    <text>吼吼吼</text>
+    </view>
