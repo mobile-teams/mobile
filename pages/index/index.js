@@ -1,6 +1,24 @@
 const app = getApp();
+const jkhtbh = []
 const preventTurn = () => {
   my.alert({title:'提示',content:'敬请期待...'})
+}
+const preventTurn1 = (path) => {
+if(path =='../dkxx/dkxx'){
+  if(jkhtbh.length>1){
+    my.showActionSheet({
+      title: '借款合同编号',
+      items: jkhtbh,
+      cancelButtonText: '取消',
+      success: (res) => {
+        if(res.index!=-1){
+           app.setJkhtbh(jkhtbh[res.index])
+           my.navigateTo({ url: path })  
+        }
+      },
+    });
+   }else{my.navigateTo({ url: path })} 
+ }else{my.navigateTo({ url: path })}
 }
 const basicContainers1 = [
   {
@@ -65,7 +83,7 @@ Page({
   },
    preventTurn(event){
      const path = event.currentTarget.dataset.index
-     path?my.navigateTo({ url: path }): preventTurn()
+     path?preventTurn1(path): preventTurn()
    },
    gjjxxcx(){
     my.navigateTo({ url: '../zhxx/zhxx' });
@@ -94,8 +112,8 @@ Page({
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         // xingming:"乔铁军",
        	// zjhm:"230202196701261830"
-            xingming:"金凯",
-         zjhm:"230203197712081457"
+            xingming:"贺波",
+         zjhm:"230230196701060022"
       },
       dataType: 'json',
       contentType : 'application/json;charset=UTF-8', //contentType很重要    
@@ -109,6 +127,9 @@ Page({
         }) ;
         app.setGrzh(res.data.data[0].gjjxx[0].grzh);
         app.setJkhtbh(res.data.data[0].dkxx[0].jkhtbh);
+        for(var i=0;i<res.data.data[0].dkxx.length;i++){
+          jkhtbh[i]=res.data.data[0].dkxx[i].jkhtbh
+        }
        console.log(res.data.data[0].gjjxx.length);
         for(var i=0;i<res.data.data[0].gjjxx.length;i++){
           this.$spliceData({"array.grzh": [0, 0,res.data.data[0].gjjxx[i].grzh]});
@@ -132,8 +153,8 @@ Page({
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         // xingming:"乔铁军",
        	// zjhm:"230202196701261830"
-           xingming:"金凯",
-         zjhm:"230203197712081457"
+           xingming:"贺波",
+         zjhm:"230230196701060022"
       },
       dataType: 'json',
       contentType : 'application/json;charset=UTF-8', //contentType很重要    
