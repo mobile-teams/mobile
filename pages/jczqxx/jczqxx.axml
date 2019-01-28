@@ -1,0 +1,66 @@
+<view>
+  <tabs
+    tabs="{{tabs}}"
+    showPlus="{{false}}"
+    onTabClick="handleTabClick"
+    onChange="handleTabChange"
+    onPlusClick="handlePlusClick"
+    activeTab="{{activeTab}}"
+    swipeable="{{true}}"
+  >
+    <block a:for="{{tabs}}">
+      <tab-content key="{{index}}">
+        <!-- <view class="tab-content">content of {{item.title}}</view> -->
+        <view>
+          <scroll-view style="height: 100vh;" scroll-y onScrollToLower="onScrollToLower">
+            <list>
+              <block a:for="{{items}}">
+                <list-item
+                  thumb="{{item.thumb}}"
+                  arrow="{{item.arrow}}"
+                  align="{{item.align}}"
+                  index="{{index}}"
+                  onClick="onItemClick"
+                  key="items-{{index}}"
+                  last="{{index === (items.length - 1)}}"
+                >
+                  {{item.title}}
+                  <view class="am-list-brief">{{item.brief}}</view>
+                  <view slot="extra">
+                    {{item.extra}}
+                  </view>
+              </list-item>
+              </block>
+            </list>
+          </scroll-view>
+        </view>
+      </tab-content>
+    </block>
+  </tabs>
+</view>
+
+<!-- <view class='' style="{{ height: activeTab === 0 ? 'auto' : 0 }}"> -->
+  <!-- <view>
+  <scroll-view style="height: 100vh;" scroll-y onScrollToLower="onScrollToLower">
+		<list>
+			<block a:for="{{items}}">
+				<list-item
+					thumb="{{item.thumb}}"
+					arrow="{{item.arrow}}"
+					align="{{item.align}}"
+					index="{{index}}"
+					onClick="onItemClick"
+					key="items-{{index}}"
+					last="{{index === (items.length - 1)}}"
+				>
+					{{item.title}}
+					<view class="am-list-brief">{{item.brief}}</view>
+					<view slot="extra">
+						{{item.extra}}
+					</view>
+			 </list-item>
+			</block>
+		</list>
+	</scroll-view>
+  </view> -->
+<!-- </view> -->

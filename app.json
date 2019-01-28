@@ -2,13 +2,13 @@
   "pages": [
     "pages/index/index",
     "pages/zhxx/zhxx",
-    "pages/dkxx/dkxx"
-    ],
+    "pages/dkxx/dkxx",
+    "pages/jczqxx/jczqxx"
+  ],
   "window": {
     "defaultTitle": "",
-    "pullRefresh":true,
+    "pullRefresh": true,
     "backgroundColor": "#292020",
-  
     "titleBarColor": "#fff"
   }
 }

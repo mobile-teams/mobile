@@ -6,7 +6,7 @@ const basicContainers1 = [
   {
     name: '缴存信息',
     thumb: '/image/icon/09.png',
-    path: '../jcxx/jcxx',
+    path: '../jczqxx/jczqxx',
   },
   {
     name: '贷款信息',
