@@ -3,16 +3,12 @@
     onTabClick="handleTabClick"
     onChange="handleTabChange"
     activeTab="{{activeTab}}"
-    swipeable="{{true}}"
   >
    <block a:for="{{tabs}}">
-      <!-- <tab-content key="{{index}}">
- 
-      </tab-content> -->
     </block>
   </tabs>
 
-   <view class='tab-content' style="{{ height: activeTab === 0 ? 'auto' : 0 }}">
+  <view class='tab-content' style="{{display:activeTab===0?'block':'none'}}">
   <view class="page-section" style="margin-top: 10px; border-top: 1px solid;border-top-color: #f3e9e9;">
     <view class="form-row">
       <view class="form-row-label">借款合同编号</view>
@@ -142,6 +138,45 @@
     </view>
   </view>
   </view>
-  <view class='tab-content' style="{{ height: activeTab === 1 ? 'auto' : 0 }}">
-    <text>吼吼吼</text>
+  <view class='tab-content' style="{{display:activeTab===1?'block':'none'}}">
+     <scroll-view style="height: 100vh;" scroll-y onScrollToLower="onScrollToLower">
+            <list>
+              <block a:for="{{items}}">
+                <list-item>
+                  {{item.title}}
+                  <view slot="extra">
+                    {{item.extra}}
+                  </view>
+              </list-item>
+              </block>
+            </list>
+    </scroll-view>
+    </view>
+    <view class='tab-content' style="{{display:activeTab===2?'block':'none'}}">
+     <scroll-view style="height: 100vh;" scroll-y onScrollToLower="onScrollToLower">
+            <list>
+              <block a:for="{{items1}}">
+                <list-item>
+                  {{item.title}}
+                  <view slot="extra">
+                    {{item.extra}}
+                  </view>
+              </list-item>
+              </block>
+            </list>
+    </scroll-view>
+    </view>
+     <view class='tab-content' style="{{display:activeTab===3?'block':'none'}}">
+     <scroll-view style="height: 100vh;" scroll-y onScrollToLower="onScrollToLower">
+            <list>
+              <block a:for="{{items2}}">
+                <list-item>
+                  {{item.title}}
+                  <view slot="extra">
+                    {{item.extra}}
+                  </view>
+              </list-item>
+              </block>
+            </list>
+    </scroll-view>
     </view>
