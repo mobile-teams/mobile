@@ -110,10 +110,9 @@ Page({
         appid: "20170517000101",
         citybm:"C23020KF",
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-        // xingming:"乔铁军",
-       	// zjhm:"230202196701261830"
-            xingming:"贺波",
-         zjhm:"230230196701060022"
+     //   多笔贷款： 贺波 230230196701060022
+         xingming:"尹起才",
+         zjhm:"23020419700919021X"
       },
       dataType: 'json',
       contentType : 'application/json;charset=UTF-8', //contentType很重要    
@@ -153,8 +152,8 @@ Page({
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         // xingming:"乔铁军",
        	// zjhm:"230202196701261830"
-           xingming:"贺波",
-         zjhm:"230230196701060022"
+           xingming:"尹起才",
+         zjhm:"23020419700919021X"
       },
       dataType: 'json',
       contentType : 'application/json;charset=UTF-8', //contentType很重要    
