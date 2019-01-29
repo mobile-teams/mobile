@@ -1,6 +1,6 @@
-<view>
-  <view class="page-section" style="margin-top: 10px; border-top: 1px solid;border-top-color: #f3e9e9;">
-    <view class="form-row">
+<view style = "background-color: white;">
+  <view class="page-section" style="margin-top: 0px; border-top: 1px solid;border-top-color: #ffffff; background-color: white;">
+    <view class="form-row" style = "background-color: 4f2b99;">
       <view class="form-row-label">个人账号</view>
       <view class="form-row-content">
         <input class="input"  placeholder="" value="{{grzh}}" disabled="disabled"/>

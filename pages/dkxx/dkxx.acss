@@ -35,3 +35,31 @@
     font-size: 0.34rem;
     text-align: right;
 }
+
+
+
+.form-row-label001 {
+    /* width: 1.4rem; */
+    font-size: 0.20rem;
+    margin-right: 0.1rem;
+    text-align: right;
+    /* color: rgb(0,0,0); */
+    color: rgba(0,0,0,.5) !important;
+}
+
+.form-row-content001 {
+    /* -webkit-box-flex: 1; */
+    flex: 1 1 0%;
+    font-size: 0.20rem;
+    text-align: right;
+    color: rgba(0,0,0,.5) !important;
+}
+
+
+.hide{
+ display: none;
+}
+.show{ 
+ display: block;
+}
+
