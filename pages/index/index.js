@@ -73,6 +73,7 @@ Page({
     grzh:'',
     grzhzt:'',
     flag:true,
+    flag1:false,
     basicComponentList,
      array:{
        grzhye:[],
@@ -129,6 +130,11 @@ Page({
           jkhtbh[i]=res.data.data[0].dkxx[i].jkhtbh
         }
        console.log(res.data.data[0].gjjxx.length);
+       if(res.data.data[0].gjjxx.length>1){
+          this.setData({
+            flag1:true
+          })
+       }
         for(var i=0;i<res.data.data[0].gjjxx.length;i++){
           this.$spliceData({"array.grzh": [0, 0,res.data.data[0].gjjxx[i].grzh]});
           this.$spliceData({"array.grzhzt": [0, 0,res.data.data[0].gjjxx[i].grzhzt]});
@@ -172,18 +178,25 @@ Page({
       this.load(this);
       my.stopPullDownRefresh();
     },
-  bindPickerChange(e){
-    console.log("选择下标：",e.detail.value);
-    let i =e.detail.value;
-    console.log("array中数据",this.data.array);
-    this.setData({
-         // grzhye:app.fmoney(this.data.array.grzhye[i] ),
+   qhzh(){    
+    my.showActionSheet({
+      title: '个人账号',
+      items: this.data.array.grzh,
+      cancelButtonText: '取消',
+      success: (res) => {
+        if(res.index!=-1){
+          let i =res.index;
+          this.setData({
+          flag:true,
+          grzhye:app.fmoney(this.data.array.grzhye[i] ),
           grzh:this.data.array.grzh[i] ,
           grzhzt:this.data.array.grzhzt[i] ,
+          });
+          grzhye1 =app.fmoney(this.data.array.grzhye[i] );
+          app.setGrzh(this.data.array.grzh[i])
+        }
+      },
     });
-     grzhye1 =app.fmoney(this.data.array.grzhye[i] );
-     app.setGrzh(this.data.array.grzh[i])
-     //app.setJkhtbh(res.data.data[0].dkxx[0].jkhtbh)
   },
     
 })
