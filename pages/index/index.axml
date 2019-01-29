@@ -12,13 +12,15 @@
      </view>
   </view>
     <view style = "text-align: center;margin;padding-top: 20rpx;color: #FFF;">
-      <picker onChange="bindPickerChange" value="{{indexgrzh}}" range="{{array.grzh}}">
+      <!--<picker onChange="bindPickerChange" value="{{indexgrzh}}" range="{{array.grzh}}">-->
         <view>
           <text style = "margin-right: 5px;font-size: 12px;">{{grzh}}</text>   
           <text style="margin-left: 5px;background-color: #ff5e00;font-size: 13px;">{{grzhzt}}</text>
-          <image style = "width: 32rpx;height: 32rpx;margin-left: 16rpx;" src="/image/arrowright.png" mode="aspectFill" />        
+          
+            <image  a:if="{{flag1}}" onTap="qhzh" style = "width: 32rpx;height: 32rpx;margin-left: 16rpx;" src="/image/arrowright.png" mode="aspectFill" />        
+          
         </view>
-      </picker>
+     <!-- </picker>-->
     </view>
     <view  style = "text-align: center;padding-top: 40rpx;font-size: 15px;">
       <view class="todo-item" onTap="gjjxxcx" >公积金账户信息</view>

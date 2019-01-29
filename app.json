@@ -5,7 +5,8 @@
     "pages/zhxx/zhxx",
     "pages/dkxx/dkxx",
      "pages/citychose/citychose",
-    "pages/jczqxx/jczqxx"
+    "pages/jczqxx/jczqxx",
+    "pages/tishi/tishi"
     
   ],
   "window": {
@@ -13,5 +14,42 @@
     "pullRefresh": false,
     "backgroundColor": "#ffffff",
     "titleBarColor": "#fff"
+  },
+  "tabBar": {
+    "textColor": "#404040",
+    "selectedColor": "#108ee9",
+    "backgroundColor": "#F5F5F9",
+    "items": [
+      {
+        "pagePath": "pages/tishi/tishi",
+        "icon": "image/ceshi.png",
+        "activeIcon": "image/ceshi.png",
+        "name": "咨询"
+      },
+      {
+        "pagePath": "pages/tishi/tishi",
+        "icon": "image/ceshi.png",
+        "activeIcon": "image/ceshi.png",
+        "name": "服务"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "icon": "image/ceshi.png",
+        "activeIcon": "image/ceshi.png",
+        "name": "公积金"
+      },
+      {
+        "pagePath": "pages/tishi/tishi",
+        "icon": "image/ceshi.png",
+        "activeIcon": "image/ceshi.png",
+        "name": "社区"
+      },
+      {
+        "pagePath": "pages/tishi/tishi",
+        "icon": "image/ceshi.png",
+        "activeIcon": "image/ceshi.png",
+        "name": "我"
+      }
+    ]
   }
 }
