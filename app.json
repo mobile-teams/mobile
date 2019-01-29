@@ -11,7 +11,7 @@
   "window": {
     "defaultTitle": "",
     "pullRefresh": true,
-    "backgroundColor": "#292020",
+    "backgroundColor": "#ffffff",
     "titleBarColor": "#fff"
   }
 }

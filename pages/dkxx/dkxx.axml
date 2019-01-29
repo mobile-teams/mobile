@@ -1,7 +1,9 @@
   <tabs
     tabs="{{tabs}}"
+    showPlus="{{false}}"
     onTabClick="handleTabClick"
     onChange="handleTabChange"
+    onPlusClick="handlePlusClick"
     activeTab="{{activeTab}}"
     swipeable="{{true}}"
   >

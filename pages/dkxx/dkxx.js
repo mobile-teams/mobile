@@ -63,6 +63,7 @@ Page({
       this.setData({
       num:'0',
       activeTab: index,
+      num:'3',
     });
     }else if(index=="1"){
        console.log("还款明细>>>>>>",index);

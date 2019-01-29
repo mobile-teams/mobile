@@ -1,7 +1,9 @@
-<view class="page">
-  <view class="page-section">
-    <view class="page-section-demo">
+
+<view class="body">
+  <view  style = "background-color: #4a229b;">
+    <view  style = "background-color: #4a229b;">
       <button type="primary" style="margin-top: 20px;" onTap="csxz">选择公积金缴存城市</button>
     </view>
   </view>
+</view>
 </view>

@@ -183,10 +183,11 @@ Page({
     let i =e.detail.value;
     console.log("array中数据",this.data.array);
     this.setData({
-          grzhye:app.fmoney(this.data.array.grzhye[i] ),
+         // grzhye:app.fmoney(this.data.array.grzhye[i] ),
           grzh:this.data.array.grzh[i] ,
           grzhzt:this.data.array.grzhzt[i] ,
     });
+     grzhye1 =app.fmoney(this.data.array.grzhye[i] );
      app.setGrzh(this.data.array.grzh[i])
      //app.setJkhtbh(res.data.data[0].dkxx[0].jkhtbh)
   },
