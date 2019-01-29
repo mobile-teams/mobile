@@ -51,11 +51,11 @@ Page({
       delay: '1000',
     });
     my.httpRequest({
-      url: 'http://192.168.54.77:8089/app-web/public/redis/city.service',
+      url: 'https://api.sjgjj.cn/app-web/public/redis/city.service',
       method: 'POST',
       headers: {
             "Content-Type": "application/json",
-            "citycode":"C23020KF"
+            "citycode":"C22040CS"
       },
       data: {
         "appid": "20181127000101",
@@ -96,8 +96,8 @@ Page({
 
 
                 //将姓名和证件号 存入全局变量
-                app.setXingming('贺波');
-                app.setZjhm('230230196701060022');
+                app.setXingming('尹起才');
+                app.setZjhm('23020419700919021X');
                 my.redirectTo({ url:'../index/index'});
               },
             });
@@ -117,11 +117,11 @@ Page({
       delay: '1000',
     });
     my.httpRequest({
-      url: 'http://192.168.54.77:8089/app-web/public/redis/city.service',
+      url: 'https://api.sjgjj.cn/app-web/public/redis/city.service',
       method: 'POST',
       headers: {
             "Content-Type": "application/json",
-            "citycode":"C23020KF"
+            "citycode":"C22040CS"
       },
       data: {
         "appid": "20181127000101",
@@ -161,8 +161,8 @@ Page({
 
 
                 //将姓名和证件号 存入全局变量
-                app.setXingming('贺波');
-                app.setZjhm('230230196701060022');
+                app.setXingming('尹起才');
+                app.setZjhm('23020419700919021X');
                 my.redirectTo({ url:'../index/index'});
               },
             });

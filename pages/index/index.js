@@ -100,20 +100,21 @@ Page({
   },
   onLoad() { 
     my.httpRequest({
-      url: 'http://192.168.54.77:8089/app-web/personal/public/gjjdkjbxxcx.service',
+      url: 'https://api.sjgjj.cn/app-web/personal/public/gjjdkjbxxcx.service',
       method: 'POST',
       headers: {
             "Content-Type": "application/json",
-            "citycode":"C23020KF"
+            "citycode":"C22040"
           },
       data: {
         appid: "20170517000101",
-        citybm:"C23020KF",
+        citybm:"C22040CS",
+        zjbzxbm:"C22040CS",
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-        // xingming:"乔铁军",
-       	// zjhm:"230202196701261830"
-        xingming:app.data.xingming,
-        zjhm:app.data.zjhm
+         xingming:"胡建文",
+       	 zjhm:"220402197604300811"
+       // xingming:app.data.xingming,
+        //zjhm:app.data.zjhm
       },
       dataType: 'json',
       contentType : 'application/json;charset=UTF-8', //contentType很重要    
@@ -141,20 +142,21 @@ Page({
   },
   load: (that)=>{    
     my.httpRequest({
-      url: 'http://192.168.54.77:8089/app-web/personal/public/gjjdkjbxxcx.service',
+      url: 'https://api.sjgjj.cn/app-web/personal/public/gjjdkjbxxcx.service',
       method: 'POST',
       headers: {
             "Content-Type": "application/json",
-            "citycode":"C23020KF"
+            "citycode":"C22040"
           },
       data: {
         appid: "20170517000101",
-        citybm:"C23020KF",
+        citybm:"C22040CS",
+        zjbzxbm:"C22040CS",
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-        // xingming:"乔铁军",
-       	// zjhm:"230202196701261830"
-        xingming:app.data.xingming,
-        zjhm:app.data.zjhm
+         xingming:"胡建文",
+       	 zjhm:"220402197604300811"
+        //xingming:app.data.xingming,
+        //zjhm:app.data.zjhm
       },
       dataType: 'json',
       contentType : 'application/json;charset=UTF-8', //contentType很重要    

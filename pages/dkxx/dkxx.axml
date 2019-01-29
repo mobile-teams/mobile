@@ -1,16 +1,13 @@
   <tabs
     tabs="{{tabs}}"
-    showPlus="{{false}}"
     onTabClick="handleTabClick"
     onChange="handleTabChange"
-    onPlusClick="handlePlusClick"
     activeTab="{{activeTab}}"
     swipeable="{{true}}"
   >
    <block a:for="{{tabs}}">
       <tab-content key="{{index}}">
-        <!-- <view class="tab-content">content of {{item.title}}</view> -->
-         <view class="{{(num=='0')?'show':'hide'}}" >
+         <view style={{display:activeTab===0?"block":"none"}}>
            <view  class='tab-content;'  >
            <view class="page-section" style="margin-top: 10px; border-top: 1px solid;border-top-color: #f3e9e9;">
             <view class="form-row">
@@ -142,7 +139,8 @@
           </view>
          </view>
        </view>
-       <view class="{{(num=='1')?'show':'hide'}} " >
+       
+       <view style={{display:activeTab===1?"block":"none"}}>
             <view class="page-section">
             <view class="form-row">
               <view class="form-row-label">开始日期</view>
@@ -168,7 +166,7 @@
                       <view slot="extra">{{item.extra}} </view>
                     </list-item>
 
-                    <view class="{{(hkjhxq==item.inum)?'show':'hide'}} "  >
+                    <view style={{display:hkjhxq===item.inum?"block":"none"}}>
                       <scroll-view style="height: 51vh; " scroll-y="false" scroll-x="false"  >
                          <view class="form-row">
                           <view class="form-row-label001">业务摘要</view>
@@ -205,15 +203,13 @@
                   </list>
                 </scroll-view>
               </view>
-            <!-- </tab-content> -->
-          <!-- </block> -->
        </view>
-       <view class="{{(num=='2')?'show':'hide'}}" >
+       <view style={{display:activeTab===2?"block":"none"}}>
              <view class="page-section">
             <view class="form-row">
               <view class="form-row-label">开始日期</view>
               <view class="form-row-content">
-                <input class="input"  placeholder=""  value="{{ksrq}}"  onFocus ="ksdatePicker" />
+                <input class="input"  placeholder=""  value="{{ksrq1}}"  onFocus ="ksdatePicker1" />
               </view>
             </view>
           </view>
@@ -221,7 +217,7 @@
             <view class="form-row">
               <view class="form-row-label">结束日期</view>
               <view class="form-row-content">
-                <input class="input"  placeholder=""  value="{{jsrq}}" onFocus ="jsdatePicker" />
+                <input class="input"  placeholder=""  value="{{jsrq1}}" onFocus ="jsdatePicker1" />
               </view>
             </view>
           </view>
@@ -234,7 +230,7 @@
                       <view slot="extra">{{item.extra}} </view>
                     </list-item>
 
-                    <view class="{{(hkjhxq==item.inum)?'show':'hide'}} "  >
+                    <view style={{display:hkjhxq===item.inum?"block":"none"}}>
                       <scroll-view style="height: 28vh; " scroll-y="false" scroll-x="false"  >
                          <view class="form-row">
                           <view class="form-row-label001">应还日期</view>
@@ -261,34 +257,46 @@
               </view>
 
        </view>
-       <view class="{{(num=='3')?'show':'hide'}}" >
+       <view style={{display:activeTab===3?"block":"none"}}>
       <view>
             <scroll-view style="height: 100vh;" scroll-y onScrollToLower="onScrollToLower">
                   <list>
-                    <block a:for="{{items1}}">
-                      <list-item index="{{index}}" onClick="onItemClick1">
+                    <block a:for="{{items2}}">
+                      <list-item index="{{index}}" onClick="onItemClick2">
                       {{item.title}}
                       <view slot="extra">{{item.extra}} </view>
                     </list-item>
 
-                    <view class="{{(hkjhxq==item.inum)?'show':'hide'}} "  >
-                      <scroll-view style="height: 28vh; " scroll-y="false" scroll-x="false"  >
+                    <view style={{display:hkjhxq===item.inum?"block":"none"}}>
+                      <scroll-view style="height: 51vh; " scroll-y="false" scroll-x="false"  >
                          <view class="form-row">
                           <view class="form-row-label001">应还日期</view>
                           <view class="form-row-content001" slot="extra">{{yhrq}} </view>
                           </view>
                           <view class="form-row">
-                          <view class="form-row-label001">应还本金</view>
-                          <view class="form-row-content001" slot="extra">{{yhbj}} </view>
+                          <view class="form-row-label001">应还期数</view>
+                          <view class="form-row-content001" slot="extra">{{yhqs}} </view>
                           </view>
                           <view class="form-row">
-                          <view class="form-row-label001">应还利息</view>
-                          <view class="form-row-content001" slot="extra">{{yhlx}} </view>
+                          <view class="form-row-label001">逾期本金合计</view>
+                          <view class="form-row-content001" slot="extra">{{yqbjhj}} </view>
                           </view>
                           <view class="form-row">
-                          <view class="form-row-label001">应还本息</view>
-                          <view class="form-row-content001" slot="extra">{{yhbx}} </view>
-                          </view>                   
+                          <view class="form-row-label001">逾期罚息</view>
+                          <view class="form-row-content001" slot="extra">{{yqfx}} </view>
+                          </view>  
+                          <view class="form-row">
+                          <view class="form-row-label001">逾期罚息合计</view>
+                          <view class="form-row-content001" slot="extra">{{yqfxhj}} </view>
+                          </view>
+                          <view class="form-row">
+                          <view class="form-row-label001">逾期利息</view>
+                          <view class="form-row-content001" slot="extra">{{yqlx}} </view>
+                          </view>
+                          <view class="form-row">
+                          <view class="form-row-label001">逾期利息合计</view>
+                          <view class="form-row-content001" slot="extra">{{yqlxhj}} </view>
+                          </view>                       
                       </scroll-view>
                     </view>
                     

@@ -2,20 +2,11 @@ const app = getApp();
 Page({
   data: {
      tabs: [
-      {
-        title: '贷款信息',
-       // badgeType: 'text',
-       // badgeText: '6',
-      },
-      {
-        title: '还款明细',
-        //badgeType: 'dot',
-        tabBarBackgroundColor:'#0000ff',
-      },
+      {title: '贷款信息'},
+      {title: '还款明细'},
       { title: '还款计划' },
       { title: '逾期明细' },
     ],
-    jkthbh:'',
     jkrgjjzh:'',
     jkrdwmc:'',
     jkrxm:'',
@@ -31,22 +22,18 @@ Page({
     sfdc:'',
     dkll:'',
     yjqrq:'',
+
     num:'0',// 隐藏view
     ksrq:'2000-10-11',
     jsrq:'',
     ksrq1:'2019-01-01',
     jsrq1:'2030-01-01',
     activeTab: 0,
-    items: [
-      
-    ],
-    items1: [
-      
-    ],
-    items2: [
-      
-    ],
+    items: [],
+    items1: [],
+    items2: [],
     hkjhxq:'-2',
+
     ywzy:'',
     hkrq:'',
     bjye:'',
@@ -59,6 +46,13 @@ Page({
     yhbj:'',
     yhlx:'',
     yhbx:'',
+
+    yhqs:'',
+    yqbjhj:'',
+    yqfx:'',
+    yqfxhj:'',
+    yqlx:'',
+    yqlxhj:'',
   },
 
   handleTabClick({ index }) {
@@ -85,6 +79,8 @@ Page({
        num:'2',
     });
     }else{
+      console.log("逾期还款>>>>>>",index);
+      this.Serchyqhk(this);
       this.setData({
       activeTab: index,
       num:'3',
@@ -148,15 +144,15 @@ Page({
     console.log(">>>>>formatDate>>>>>",formatDate);
     console.log(">>>>>ksmatDate>>>>>",ksmatDate);
     my.httpRequest({
-      url: 'http://192.168.54.77:8089/app-web/personal/public/dkzhxxcx.service',
+      url: 'https://api.sjgjj.cn/app-web/personal/public/dkzhxxcx.service',
       method: 'POST',
       headers: {
             "Content-Type": "application/json",
-            "citycode":"C23020KF"
+            "citycode":"C22040"
       },
       data: {
         appid: "20170517000101",
-        zjbzxbm:"C23020KF",
+        zjbzxbm:"C22040CS",
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         jkhtbh:app.data.jkhtbh
       },
@@ -199,40 +195,20 @@ Page({
       },
     });
   },
-  "tabBar": {
-    "textColor": "#dddddd",
-    "selectedColor": "#49a9ee",
-    "backgroundColor": "#ffffff",
-    "items": [
-      {
-        "pagePath": "pages/index/index",
-        "name": "首页"
-      },
-      {
-        "pagePath": "pages/logs/logs",
-        "name": "日志"
-      }
-    ]
-  },
 
   Serchhkjh:(that)=>{
-    //  my.showLoading({
-    //    content: '加载中...',
-    //    delay: '1000',
-    //  });
-    //  console.log("ksrq>>>>>>>>>",this.ksrq);
-      console.log("还款计划ksrq>>>>>>>>>",that.data.ksrq1);
+     console.log("还款计划ksrq>>>>>>>>>",that.data.ksrq1);
      console.log("还款计划jsrq>>>>>>>>>",that.data.jsrq1);
      my.httpRequest({
-      url: 'http://192.168.54.77:8089/app-web/personal/public/dkhkjhcx.service',
+      url: 'https://api.sjgjj.cn/app-web/personal/public/dkhkjhcx.service',
       method: 'POST',
       headers: {
             "Content-Type": "application/json",
-            "citycode":"C23020KF"
+            "citycode":"C22040"
       },
       data: {
         appid: "20170517000101",
-        zjbzxbm:"C23020KF",
+        zjbzxbm:"C22040CS",
         ksrq:that.data.ksrq1,
         jsrq:that.data.jsrq1,
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
@@ -278,7 +254,7 @@ Page({
         return ((new Date(endTime.replace(/-/g, "/"))) > (new Date(
                 startTime.replace(/-/g, "/"))));
     },
-
+//查询还款明细数据
 Serchhkmx:(that)=>{
     //  my.showLoading({
     //    content: '加载中...',
@@ -299,15 +275,15 @@ Serchhkmx:(that)=>{
           return;
     }
      my.httpRequest({
-      url: 'http://192.168.54.77:8089/app-web/personal/public/dkhkmxcx.service',
+      url: 'https://api.sjgjj.cn/app-web/personal/public/dkhkmxcx.service',
       method: 'POST',
       headers: {
             "Content-Type": "application/json",
-            "citycode":"C23020KF"
+            "citycode":"C22040"
       },
       data: {
         appid: "20170517000101",
-        zjbzxbm:"C23020KF",
+        zjbzxbm:"C22040CS",
         ksrq:that.data.ksrq,
         jsrq:that.data.jsrq,
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
@@ -327,8 +303,7 @@ Serchhkmx:(that)=>{
             if(dkhkmc1[i].hkny.length>0){
               console.log("dkxx.length<<<<<<<<",dkhkmc1.length);
               dkhkmc1[i].title = dkhkmc1[i].hkny + '期';
-              dkhkmc1[i].brief = dkhkmc1[i].yhbjhj;
-              dkhkmc1[i].extra = dkhkmc1[i].yhbjhj;
+              dkhkmc1[i].extra = "￥"+(dkhkmc1[i].chbj*100+dkhkmc1[i].chfx*100+dkhkmc1[i].chlx*100)/100;
               dkhkmc1[i].inum=i;
               dkhkmc.push(dkhkmc1[i]);
             }
@@ -353,17 +328,18 @@ Serchhkmx:(that)=>{
       },
     });
   },
+  //查询逾期明细数据
 Serchyqhk:(that)=>{  
      my.httpRequest({
-      url: 'http://192.168.54.77:8089/app-web/personal/public/yqwhkmxcx.service',
+      url: 'https://api.sjgjj.cn/app-web/personal/public/yqwhkmxcx.service',
       method: 'POST',
       headers: {
             "Content-Type": "application/json",
-            "citycode":"C23020KF"
+            "citycode":"C22040"
       },
       data: {
         appid: "20170517000101",
-        zjbzxbm:"C23020KF",
+        zjbzxbm:"C22040CS",
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         jkhtbh:app.data.jkhtbh
       },
@@ -378,14 +354,11 @@ Serchyqhk:(that)=>{
           yqhkmc1 = res.data.data;
          console.log("dkxxmc",);
           for(var i=0; i<yqhkmc1.length; i++){
-            if(yqhkmc1[i].hkny.length>0){
-              console.log("dkxx.length<<<<<<<<",yqhkmc1.length);
-              yqhkmc1[i].title = yqhkmc1[i].hkny + '期';
-              yqhkmc1[i].brief = yqhkmc1[i].yhbjhj;
-              yqhkmc1[i].extra = yqhkmc1[i].yhbjhj;
+              yqhkmc1[i].title = yqhkmc1[i].yhny + '期';
+              yqhkmc1[i].extra = yqhkmc1[i].yhrq;
               yqhkmc1[i].inum=i;
               yqhkmc.push(yqhkmc1[i]);
-            }
+          
           }
           that.setData({
             items2:yqhkmc
@@ -447,7 +420,52 @@ onItemClick1(ev){
   });
   console.log(this.data.hkjhxq);
 },
-  jsdatePicker() {
+onItemClick2(ev){
+   console.log("ev>>>>>",ev)
+   console.log(">>>>>>>>",this.data.items2,this.data.items2[ev.index]);
+   if(ev.index===this.data.hkjhxq){
+     this.setData({
+       hkjhxq:-1
+     });
+     return;
+   }
+   this.setData({
+      hkjhxq:ev.index,
+      yhrq: this.data.items2[ev.index].yhrq,
+      yhqs:this.data.items2[ev.index].yhqs,
+      yqbjhj:this.data.items2[ev.index].yqbjhj,
+       yqfx:this.data.items2[ev.index].yqfxhj,
+       yqfxhj:this.data.items2[ev.index].yqfxhj,
+       yqlx:this.data.items2[ev.index].yqlx,
+       yqlxhj:this.data.items2[ev.index].yqlxhj,
+  });
+  console.log(this.data.hkjhxq);
+},
+  jsdatePicker1() {
+    let now = new Date(); 
+    let year = now.getFullYear(); 
+    let month = now.getMonth() + 1; 
+    let day = now.getDate(); 
+    if (month < 10) { 
+    month = '0' + month; 
+    }; 
+    if (day < 10) { 
+    day = '0' + day; 
+    };
+    let formatDate = year + '-' + month + '-' + day;
+    console.log(">>>>>formatDate>>>>>",formatDate);
+    my.datePicker({
+      currentDate: '',
+      success: (res) => {
+        console.log(">>>>>JSON.stringify(res)>>>>>",res.date);
+        this.setData({
+          jsrq1:res.date,
+        });
+        this.Serchhkjh(this);
+      },
+    });
+  },
+   ksdatePicker1() {
     let now = new Date(); 
     let year = now.getFullYear(); 
     let month = now.getMonth() + 1; 
@@ -458,20 +476,32 @@ onItemClick1(ev){
     if (day < 10) { 
     day = '0' + day; 
     }; 
-    // 如果需要时分秒 
-    // var h = now.getHours(); 
-    // var m = now.getMinutes(); 
-    // var s = now.getSeconds(); 
+    my.datePicker({
+      currentDate: '',
+      success: (res) => {
+        this.setData({
+          ksrq1:res.date,
+        });
+        this.Serchhkjh(this);
+      },
+    });
+  },
+  jsdatePicker() {
+    let now = new Date(); 
+    let year = now.getFullYear(); 
+    let month = now.getMonth() + 1; 
+    let day = now.getDate(); 
+    if (month < 10) { 
+    month = '0' + month; 
+    }; 
+    if (day < 10) { 
+    day = '0' + day; 
+    };
     let formatDate = year + '-' + month + '-' + day;
     console.log(">>>>>formatDate>>>>>",formatDate);
     my.datePicker({
       currentDate: '',
-     // startDate: '2016-10-9',
-     // endDate: formatDate,
       success: (res) => {
-        // my.alert({
-        //   title: 'datePicker response: ' + JSON.stringify(res)
-        // });
         console.log(">>>>>JSON.stringify(res)>>>>>",res.date);
         this.setData({
           jsrq:res.date,

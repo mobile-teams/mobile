@@ -22,15 +22,16 @@ Page({
       delay: '1000',
     });
     my.httpRequest({
-      url: 'http://192.168.54.77:8089/app-web/personal/public/gjjzhxxcx.service',
+      url: 'https://api.sjgjj.cn/app-web/personal/public/gjjzhxxcx.service',
       method: 'POST',
       headers: {
             "Content-Type": "application/json",
-            "citycode":"C23020KF"
+            "citycode":"C22040"
       },
       data: {
         appid: "20170517000101",
-        citybm:"C23020KF",
+        citybm:"C22040CS",
+        zjbzxbm:"C22040CS",
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         grzh:app.data.grzh
       },
