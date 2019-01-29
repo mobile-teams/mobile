@@ -51,11 +51,11 @@ Page({
       delay: '1000',
     });
     my.httpRequest({
-      url: 'https://api.sjgjj.cn/app-web/public/redis/city.service',
+      url: app.data.url+'/app-web/public/redis/city.service',
       method: 'POST',
       headers: {
             "Content-Type": "application/json",
-            "citycode":"C22040CS"
+            "citycode":app.data.zjbzxbm.substr(0,6)
       },
       data: {
         "appid": "20181127000101",

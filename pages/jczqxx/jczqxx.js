@@ -49,16 +49,15 @@ Page({
       delay: '1000',
     });
     my.httpRequest({
-      url: 'https://api.sjgjj.cn/app-web/personal/public/gjjywmxcx.service',
+      url: app.data.url+'/app-web/personal/public/gjjywmxcx.service',
       method: 'POST',
       headers: {
             "Content-Type": "application/json",
-            "citycode":"C22040",
+            "citycode":app.data.zjbzxbm.substr(0,6),
       },
       data: {
         appid: "20170517000101",
-        citybm:"C22040CS",
-        zjbzxbm:"C22040CS",
+        zjbzxbm:app.data.zjbzxbm,
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         grzh:app.data.grzh,
         ksrq:app.getTwoYearAgoFormatDate(),

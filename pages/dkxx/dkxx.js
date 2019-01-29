@@ -27,7 +27,7 @@ Page({
     ksrq:'2000-10-11',
     jsrq:'',
     ksrq1:'2019-01-01',
-    jsrq1:'2030-01-01',
+    jsrq1:'2022-01-01',
     activeTab: 0,
     items: [],
     items1: [],
@@ -145,15 +145,15 @@ Page({
     console.log(">>>>>formatDate>>>>>",formatDate);
     console.log(">>>>>ksmatDate>>>>>",ksmatDate);
     my.httpRequest({
-      url: 'https://api.sjgjj.cn/app-web/personal/public/dkzhxxcx.service',
+      url:  app.data.url+'/app-web/personal/public/dkzhxxcx.service',
       method: 'POST',
       headers: {
             "Content-Type": "application/json",
-            "citycode":"C22040"
+            "citycode":app.data.zjbzxbm.substr(0,6)
       },
       data: {
         appid: "20170517000101",
-        zjbzxbm:"C22040CS",
+        zjbzxbm:app.data.zjbzxbm,
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         jkhtbh:app.data.jkhtbh
       },
@@ -201,15 +201,15 @@ Page({
      console.log("还款计划ksrq>>>>>>>>>",that.data.ksrq1);
      console.log("还款计划jsrq>>>>>>>>>",that.data.jsrq1);
      my.httpRequest({
-      url: 'https://api.sjgjj.cn/app-web/personal/public/dkhkjhcx.service',
+      url: app.data.url+'/app-web/personal/public/dkhkjhcx.service',
       method: 'POST',
       headers: {
             "Content-Type": "application/json",
-            "citycode":"C22040"
+            "citycode":app.data.zjbzxbm.substr(0,6)
       },
       data: {
         appid: "20170517000101",
-        zjbzxbm:"C22040CS",
+        zjbzxbm:app.data.zjbzxbm,
         ksrq:that.data.ksrq1,
         jsrq:that.data.jsrq1,
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
@@ -276,15 +276,15 @@ Serchhkmx:(that)=>{
           return;
     }
      my.httpRequest({
-      url: 'https://api.sjgjj.cn/app-web/personal/public/dkhkmxcx.service',
+      url: app.data.url+'/app-web/personal/public/dkhkmxcx.service',
       method: 'POST',
       headers: {
             "Content-Type": "application/json",
-            "citycode":"C22040"
+            "citycode":app.data.zjbzxbm.substr(0,6)
       },
       data: {
         appid: "20170517000101",
-        zjbzxbm:"C22040CS",
+        zjbzxbm:app.data.zjbzxbm,
         ksrq:that.data.ksrq,
         jsrq:that.data.jsrq,
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",

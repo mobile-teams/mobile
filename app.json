@@ -10,7 +10,7 @@
   ],
   "window": {
     "defaultTitle": "",
-    "pullRefresh": true,
+    "pullRefresh": false,
     "backgroundColor": "#ffffff",
     "titleBarColor": "#fff"
   }
