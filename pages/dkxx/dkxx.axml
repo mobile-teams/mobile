@@ -1,13 +1,16 @@
   <tabs
     tabs="{{tabs}}"
     onTabClick="handleTabClick"
-    onChange="handleTabChange"
     activeTab="{{activeTab}}"
-    swipeable="{{false}}"
   >
    <block a:for="{{tabs}}">
       <tab-content key="{{index}}">
-         <view style={{display:activeTab===0?"block":"none"}}>
+        
+      </tab-content>
+    </block>
+  </tabs>
+
+   <view style={{display:activeTab===0?"block":"none"}}>
            <view  class='tab-content;'  >
            <view class="page-section" style="margin-top: 10px; border-top: 1px solid;border-top-color: #f3e9e9;">
             <view class="form-row">
@@ -205,14 +208,6 @@
               </view>
        </view>
        <view style={{display:activeTab===2?"block":"none"}}>
-             <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">开始日期</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder=""  value="{{ksrq1}}"  onFocus ="ksdatePicker1" />
-              </view>
-            </view>
-          </view>
           <view class="page-section">
             <view class="form-row">
               <view class="form-row-label">结束日期</view>
@@ -307,6 +302,3 @@
 
           
        </view>
-      </tab-content>
-    </block>
-  </tabs>

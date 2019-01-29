@@ -33,16 +33,6 @@ Page({
       activeTab: index,
     });
   },
-  handleTabChange({ index }) {
-    this.setData({
-      activeTab: index,
-    });
-  },
-  onItemClick(ev) {
-    my.alert({
-      content: `点击了第${ev.index}行`,
-    });
-  },
   onLoad() {
     my.showLoading({
       content: '加载中...',
@@ -72,17 +62,22 @@ Page({
          let zqxx = [];
          let qtxx = [];
          let a=0; let b=0;let c=0;
+          let s;
          for(let i=0; i<jczqxx.length; i++){
+           s = {};
+           s.ywfsrq = jczqxx[i].ywfsrq;
+           s.ywzy = jczqxx[i].ywzy;
+           s.yue = jczqxx[i].yue;
             if(jczqxx[i].ywlx=="缴存"){
-              jcxx[a] = jczqxx[i];
+              jcxx[a] = s;
               a++;
               continue;
             }else if(jczqxx[i].ywlx=="提取"){
-              zqxx[b] = jczqxx[i];
+              zqxx[b] = s;
               b++;
               continue;
             }else{
-              qtxx[c] = jczqxx[i];
+              qtxx[c] = s;
               c++;
               continue;
             }

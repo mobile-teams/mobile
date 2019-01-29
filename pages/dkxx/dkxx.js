@@ -1,4 +1,7 @@
 const app = getApp();
+const exceptions = () => {
+  my.showToast({ type: 'exception', content: '网络异常',duration: 3000});
+}
 Page({
   data: {
      tabs: [
@@ -7,6 +10,8 @@ Page({
       { title: '还款计划' },
       { title: '逾期明细' },
     ],
+    activeTab: 0,
+
     jkrgjjzh:'',
     jkrdwmc:'',
     jkrxm:'',
@@ -23,12 +28,9 @@ Page({
     dkll:'',
     yjqrq:'',
 
-    num:'0',// 隐藏view
-    ksrq:'2000-10-11',
-    jsrq:'',
-    ksrq1:'2019-01-01',
-    jsrq1:'2022-01-01',
-    activeTab: 0,
+    ksrq:'2017-01-01',
+    jsrq:'2019-01-01',
+    jsrq1:'2022-02-02',
     items: [],
     items1: [],
     items2: [],
@@ -56,76 +58,32 @@ Page({
   },
 
   handleTabClick({ index }) {
-    console.log("index01>>>>>>",index);
-     console.log(">>>>>>>>.",this.data.showView);
     if(index=="0"){
-      console.log("贷款信息>>>>>>",index);
       this.setData({
-      num:'0',
-      activeTab: index,
-      num:'3',
-    });
-    }else if(index=="1"){
-       console.log("还款明细>>>>>>",index);
-       this.Serchhkmx(this);
-       this.setData({
-       activeTab: index,
-       num:'1',
-    });
-    }else if(index=="2"){
-       console.log("还款计划>>>>>>",index);
-       this.Serchhkjh(this);
-       this.setData({
-       activeTab: index,
-       num:'2',
-    });
-    }else{
-      console.log("逾期还款>>>>>>",index);
-      this.Serchyqhk(this);
-      this.setData({
-      activeTab: index,
-      num:'3',
-    });
-    }
-  },
-  handleTabChange({ index }) {
-     if(index=="0"){
-      console.log("贷款信息>>>>>>",index);
-      this.setData({
-      num:'0',
       activeTab: index,
     });
     }else if(index=="1"){
-       console.log("还款明细>>>>>>",index);
        this.Serchhkmx(this);
-
        this.setData({
        activeTab: index,
-       num:'1',
     });
     }else if(index=="2"){
-       console.log("还款计划>>>>>>",index);
        this.Serchhkjh(this);
        this.setData({
        activeTab: index,
-       num:'2',
     });
     }else{
-      console.log("逾期还款>>>>>>",index);
       this.Serchyqhk(this);
       this.setData({
       activeTab: index,
-      num:'3',
     });
     }
   },
- 
   onLoad() {
     //  my.showLoading({
     //    content: '加载中...',
     //    delay: '1000',
     //  });
-
     let now = new Date(); 
     let year = now.getFullYear(); 
     let month = now.getMonth() + 1; 
@@ -136,10 +94,6 @@ Page({
     if (day < 10) { 
     day = '0' + day; 
     }; 
-    // 如果需要时分秒 
-    // var h = now.getHours(); 
-    // var m = now.getMinutes(); 
-    // var s = now.getSeconds(); 
     let formatDate = year + '-' + month + '-' + day;
     let ksmatDate= (year-1) + '-' + month + '-' + day;
     console.log(">>>>>formatDate>>>>>",formatDate);
@@ -185,10 +139,7 @@ Page({
                ksrq:ksmatDate,
           });
         }else{
-          my.alert({
-            title: '提示' ,
-            content:res.data.msg
-          });
+         my.showToast({type: 'fail',content: '操作失败',duration: 3000});
         }
       },
       fail:(res) => {
@@ -226,7 +177,7 @@ Page({
          console.log("dkxxmc",hkjhmx1.length);
           for(var i=0; i<hkjhmx1.length; i++){
               hkjhmx1[i].title = hkjhmx1[i].yhrq + '期';
-              hkjhmx1[i].extra = hkjhmx1[i].yhbj;
+              hkjhmx1[i].extra = '￥'+hkjhmx1[i].yhbx;
               hkjhmx1[i].inum=i;
               hkjhmx.push(hkjhmx1[i]);
             
@@ -236,17 +187,11 @@ Page({
           });
       
         }else{
-          that.setData({
-            items:hkjhmx
-          });
-          my.alert({
-            title: '提示' ,
-            content:res.data.msg
-          });
+         my.showToast({type: 'none',content: '查无数据',duration: 3000});
         }
       },
       fail:(res) => {
-        my.alert({content:"网络错误"});
+       exceptions();
       },
     });
   },
@@ -257,10 +202,7 @@ Page({
     },
 //查询还款明细数据
 Serchhkmx:(that)=>{
-    //  my.showLoading({
-    //    content: '加载中...',
-    //    delay: '1000',
-    //  });
+
     let currentData=(that.data.jsrq).replace('-','');//=(that.data.jsrq).substring(0,(that.data.jsrq).replace('-','').length-3);
 
     let currentData02=(that.data.jsrq).substring(0,(that.data.jsrq).replace('-','').length-3);
@@ -284,16 +226,15 @@ Serchhkmx:(that)=>{
       },
       data: {
         appid: "20170517000101",
+        sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         zjbzxbm:app.data.zjbzxbm,
         ksrq:that.data.ksrq,
         jsrq:that.data.jsrq,
-        sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         jkhtbh:app.data.jkhtbh
       },
       dataType: 'json',
       contentType : 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
-    
          let dkhkmc = [];
          let dkhkmc1 = [];
          my.hideLoading();
@@ -314,18 +255,11 @@ Serchhkmx:(that)=>{
           });
       
         }else{
-          that.setData({
-            items:dkhkmc
-          });
-          my.alert({
-            title: '提示' ,
-            content:res.data.msg
-          });
+          my.showToast({type: 'none',content: '查无数据',duration: 3000});
         }
       },
       fail:(res) => {
-        console.log('dkresxx');
-        my.alert({content:"网络错误"});
+        exceptions();
       },
     });
   },
@@ -356,7 +290,7 @@ Serchyqhk:(that)=>{
          console.log("dkxxmc",);
           for(var i=0; i<yqhkmc1.length; i++){
               yqhkmc1[i].title = yqhkmc1[i].yhny + '期';
-              yqhkmc1[i].extra = yqhkmc1[i].yhrq;
+              yqhkmc1[i].extra =  "￥"+(yqhkmc1[i].yqbj*100+yqhkmc1[i].yqfx*100+yqhkmc1[i].yqlx*100)/100;
               yqhkmc1[i].inum=i;
               yqhkmc.push(yqhkmc1[i]);
           
@@ -366,18 +300,11 @@ Serchyqhk:(that)=>{
           });
       
         }else{
-          that.setData({
-            items2:yqhkmc
-          });
-          my.alert({
-            title: '提示' ,
-            content:res.data.msg
-          });
+          my.showToast({type: 'none',content: '查无数据',duration: 3000});
         }
       },
       fail:(res) => {
-        console.log('dkresxx');
-        my.alert({content:"网络错误"});
+        exceptions();
       },
     });
   },
@@ -461,27 +388,6 @@ onItemClick2(ev){
         console.log(">>>>>JSON.stringify(res)>>>>>",res.date);
         this.setData({
           jsrq1:res.date,
-        });
-        this.Serchhkjh(this);
-      },
-    });
-  },
-   ksdatePicker1() {
-    let now = new Date(); 
-    let year = now.getFullYear(); 
-    let month = now.getMonth() + 1; 
-    let day = now.getDate(); 
-    if (month < 10) { 
-    month = '0' + month; 
-    }; 
-    if (day < 10) { 
-    day = '0' + day; 
-    }; 
-    my.datePicker({
-      currentDate: '',
-      success: (res) => {
-        this.setData({
-          ksrq1:res.date,
         });
         this.Serchhkjh(this);
       },
