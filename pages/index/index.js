@@ -112,8 +112,8 @@ Page({
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         // xingming:"乔铁军",
        	// zjhm:"230202196701261830"
-            xingming:"贺波",
-         zjhm:"230230196701060022"
+        xingming:app.data.xingming,
+        zjhm:app.data.zjhm
       },
       dataType: 'json',
       contentType : 'application/json;charset=UTF-8', //contentType很重要    
@@ -153,8 +153,8 @@ Page({
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         // xingming:"乔铁军",
        	// zjhm:"230202196701261830"
-           xingming:"贺波",
-         zjhm:"230230196701060022"
+        xingming:app.data.xingming,
+        zjhm:app.data.zjhm
       },
       dataType: 'json',
       contentType : 'application/json;charset=UTF-8', //contentType很重要    
