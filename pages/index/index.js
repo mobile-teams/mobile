@@ -5,6 +5,7 @@ const preventTurn = () => {
 }
 const preventTurn1 = (path) => {
 if(path =='../dkxx/dkxx'){
+  console.log(jkhtbh.length);
   if(jkhtbh.length>1){
     my.showActionSheet({
       title: '借款合同编号',
@@ -17,6 +18,10 @@ if(path =='../dkxx/dkxx'){
         }
       },
     });
+   }else if(jkhtbh.length==0){
+      my.alert({
+        title: '此职工无贷款！' 
+      });
    }else{my.navigateTo({ url: path })} 
  }else{my.navigateTo({ url: path })}
 }
@@ -125,9 +130,11 @@ Page({
           grzhzt:res.data.data[0].gjjxx[0].grzhzt
         }) ;
         app.setGrzh(res.data.data[0].gjjxx[0].grzh);
+        if(res.data.data[0].dkxx.length>0){
         app.setJkhtbh(res.data.data[0].dkxx[0].jkhtbh);
         for(var i=0;i<res.data.data[0].dkxx.length;i++){
           jkhtbh[i]=res.data.data[0].dkxx[i].jkhtbh
+        }
         }
        console.log(res.data.data[0].gjjxx.length);
        if(res.data.data[0].gjjxx.length>1){

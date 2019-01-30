@@ -22,32 +22,32 @@
     "items": [
       {
         "pagePath": "pages/tishi/tishi",
-        "icon": "image/ceshi.png",
-        "activeIcon": "image/ceshi.png",
-        "name": "咨询"
+        "icon": "image/fuwu1.png",
+        "activeIcon": "image/fuwu.png",
+        "name": "咨讯"
       },
       {
         "pagePath": "pages/tishi/tishi",
-        "icon": "image/ceshi.png",
-        "activeIcon": "image/ceshi.png",
+        "icon": "image/zixun1.png",
+        "activeIcon": "image/zixun.png",
         "name": "服务"
       },
       {
         "pagePath": "pages/index/index",
-        "icon": "image/ceshi.png",
-        "activeIcon": "image/ceshi.png",
+        "icon": "image/gongjijin1.png",
+        "activeIcon": "image/gongjijin.png",
         "name": "公积金"
       },
       {
         "pagePath": "pages/tishi/tishi",
-        "icon": "image/ceshi.png",
-        "activeIcon": "image/ceshi.png",
+        "icon": "image/shequ1.png",
+        "activeIcon": "image/shequ.png",
         "name": "社区"
       },
       {
         "pagePath": "pages/tishi/tishi",
-        "icon": "image/ceshi.png",
-        "activeIcon": "image/ceshi.png",
+        "icon": "image/wode1.png",
+        "activeIcon": "image/wode.png",
         "name": "我"
       }
     ]
