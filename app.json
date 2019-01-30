@@ -1,13 +1,15 @@
 {
   "pages": [
-   "pages/citychose/citychose",
+    "pages/citychose/citychose",
     "pages/index/index",
     "pages/zhxx/zhxx",
     "pages/dkxx/dkxx",
-     
+    "pages/citychose/citychose",
     "pages/jczqxx/jczqxx",
-    "pages/tishi/tishi"
-    
+    "pages/tishi/tishi",
+    "pages/user/user",
+    "pages/ywbl/fuwu/fuwu"
+
   ],
   "window": {
     "defaultTitle": "",
@@ -24,28 +26,22 @@
         "pagePath": "pages/tishi/tishi",
         "icon": "image/fuwu1.png",
         "activeIcon": "image/fuwu.png",
-        "name": "咨讯"
-      },
-      {
-        "pagePath": "pages/tishi/tishi",
-        "icon": "image/zixun1.png",
-        "activeIcon": "image/zixun.png",
-        "name": "服务"
+        "name": "新闻动态"
       },
       {
         "pagePath": "pages/index/index",
         "icon": "image/gongjijin1.png",
         "activeIcon": "image/gongjijin.png",
-        "name": "公积金"
+        "name": "账户查询"
       },
       {
-        "pagePath": "pages/tishi/tishi",
-        "icon": "image/shequ1.png",
-        "activeIcon": "image/shequ.png",
-        "name": "社区"
+        "pagePath": "pages/ywbl/fuwu/fuwu",
+        "icon": "image/zixun1.png",
+        "activeIcon": "image/zixun.png",
+        "name": "业务办理"
       },
       {
-        "pagePath": "pages/tishi/tishi",
+        "pagePath": "pages/user/user",
         "icon": "image/wode1.png",
         "activeIcon": "image/wode.png",
         "name": "我"

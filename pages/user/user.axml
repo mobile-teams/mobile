@@ -1,0 +1,96 @@
+
+<view>
+  <card  
+    title="{{xingming}}"
+    subTitle="{{dwmc}}"
+    onClick="onCardClick"
+    info=""
+  />
+<view style="margin-top: 30px;" />
+  <scroll-view style="height:100%;" >
+    <list>
+      <block a:for="{{itemsPhone}}">
+        <list-item
+          thumb="{{item.thumb}}"
+          arrow="{{item.arrow}}"
+          onClick="onItemClick"
+          index="itemsPhone-{{index}}"
+          last="{{index === (itemsPhone.length - 1)}}"
+          key="itemsPhone-{{index}}"
+        >
+          {{item.title}}
+          <view class="am-list-brief">{{item.brief}}</view>
+          <view a:if="{{item.extra}}" slot="extra">
+            {{item.extra}}
+          </view>
+        </list-item>
+      </block>
+    </list>
+	</scroll-view>
+</view>
+<view style="margin-top: 30px;" />
+  <scroll-view style="height: 100%;" >
+    <list>
+      <block a:for="{{itemsYssm}}">
+        <list-item
+          thumb="{{item.thumb}}"
+          arrow="{{item.arrow}}"
+          onClick="onItemClick"
+          index="itemsYssm-{{index}}"
+          last="{{index === (itemsYssm.length - 1)}}"
+          key="itemsYssm-{{index}}"
+        >
+          {{item.title}}
+          <view class="am-list-brief">{{item.brief}}</view>
+          <view a:if="{{item.extra}}" slot="extra">
+            {{item.extra}}
+          </view>
+        </list-item>
+      </block>
+    </list>
+	</scroll-view>
+</view>
+<view style="margin-top: 0px;" />
+  <scroll-view style="height: 100%;" >
+    <list>
+      <block a:for="{{itemsXgmm}}">
+        <list-item
+          thumb="{{item.thumb}}"
+          arrow="{{item.arrow}}"
+          onClick="onItemClick"
+          index="itemsXgmm-{{index}}"
+          last="{{index === (itemsXgmm.length - 1)}}"
+          key="itemsXgmm-{{index}}"
+        >
+          {{item.title}}
+          <view class="am-list-brief">{{item.brief}}</view>
+          <view a:if="{{item.extra}}" slot="extra">
+            {{item.extra}}
+          </view>
+        </list-item>
+      </block>
+    </list>
+	</scroll-view>
+</view>
+<view style="margin-top: 0px;" />
+  <scroll-view style="height: 100%;" >
+    <list>
+      <block a:for="{{itemsClearcache}}">
+        <list-item
+          thumb="{{item.thumb}}"
+          arrow="{{item.arrow}}"
+          onClick="onItemClick1"
+          index="itemsClearcache-{{index}}"
+          last="{{index === (itemsClearcache.length - 1)}}"
+          key="itemsClearcache-{{index}}"
+        >
+          {{item.title}}
+          <view class="am-list-brief">{{item.brief}}</view>
+          <view a:if="{{item.extra}}" slot="extra">
+            {{item.extra}}
+          </view>
+        </list-item>
+      </block>
+    </list>
+	</scroll-view>
+</view>

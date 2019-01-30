@@ -241,6 +241,7 @@ Serchhkmx:(that)=>{
       success: (res) => {
          let dkhkmc = [];
          let dkhkmc1 = [];
+         let inum=0;
          my.hideLoading();
          if(res.data.ret == "0"){
           dkhkmc1 = res.data.data;
@@ -250,7 +251,7 @@ Serchhkmx:(that)=>{
               console.log("dkxx.length<<<<<<<<",dkhkmc1.length);
               dkhkmc1[i].title = dkhkmc1[i].hkny + '期';
               dkhkmc1[i].extra = "￥"+(dkhkmc1[i].chbj*100+dkhkmc1[i].chfx*100+dkhkmc1[i].chlx*100)/100;
-              dkhkmc1[i].inum=i;
+              dkhkmc1[i].inum=inum++;
               dkhkmc.push(dkhkmc1[i]);
             }
           }

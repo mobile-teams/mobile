@@ -227,7 +227,18 @@ Page({
           //获取真实用户名和密码;
           app.setXingming('许福才');
           app.setZjhm('220403196208210517');
-          my.redirectTo({ url: '../index/index' });
+          //my.navigateTo({ url: '../index/index' });
+          my.switchTab({
+            url: '../index/index',
+            success: () => {
+              my.showToast({
+                content: '成功',
+                type: 'success',
+                duration: 4000
+              });
+            }
+          }
+          );
         },
       });
     }
@@ -241,25 +252,25 @@ Page({
   // },
 
   //------------------此处报错，待研究-----------------
-        // my.getPhoneNumber({
-        //   success: (res) => {
-        //     let encryptedData = res.response
-        //     console.log(encryptedData)
-        // my.httpRequest({
-        //     url: '你的后端服务端',
-        //     data: encryptedData
-        // });
-        //   },
-        //   fail: (res) => {
-        //     console.log(res)
-        //     console.log('getPhoneNumber_fail')
-        //   },
-        // });
-        //只能获取用户支付宝头像和昵称
-        // my.getAuthUserInfo({
-        //   success: () => {
-        //     console.log(`userInfo:`, userInfo); 
-        //   }
-        // });
+  // my.getPhoneNumber({
+  //   success: (res) => {
+  //     let encryptedData = res.response
+  //     console.log(encryptedData)
+  // my.httpRequest({
+  //     url: '你的后端服务端',
+  //     data: encryptedData
+  // });
+  //   },
+  //   fail: (res) => {
+  //     console.log(res)
+  //     console.log('getPhoneNumber_fail')
+  //   },
+  // });
+  //只能获取用户支付宝头像和昵称
+  // my.getAuthUserInfo({
+  //   success: () => {
+  //     console.log(`userInfo:`, userInfo); 
+  //   }
+  // });
 
 });
