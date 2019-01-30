@@ -17,9 +17,12 @@
             <list>
               <block a:for="{{items}}">
                 <list-item >
-                  {{item.ywfsrq}}
-                  <view class="am-list-brief">{{item.ywzy}}</view>
+                  {{item.ywzy}}
+                  <view class="am-list-brief">{{item.ywfsrq}}</view>
                   <view slot="extra">
+                    {{item.fse}}
+                  </view>
+                  <view slot="extra" class="am-list-brief">
                     {{item.yue}}
                   </view>
               </list-item>
@@ -33,9 +36,12 @@
             <list>
               <block a:for="{{jcxxItems}}">
                 <list-item >
-                  {{item.ywfsrq}}
-                  <view class="am-list-brief">{{item.ywzy}}</view>
+                  {{item.ywzy}}
+                  <view class="am-list-brief">{{item.ywfsrq}}</view>
                   <view slot="extra">
+                    {{item.fse}}
+                  </view>
+                  <view slot="extra" class="am-list-brief">
                     {{item.yue}}
                   </view>
               </list-item>
@@ -49,9 +55,12 @@
             <list>
               <block a:for="{{zqxxItems}}">
                 <list-item >
-                  {{item.ywfsrq}}
-                  <view class="am-list-brief">{{item.ywzy}}</view>
+                  {{item.ywzy}}
+                  <view class="am-list-brief">{{item.ywfsrq}}</view>
                   <view slot="extra">
+                    {{item.fse}}
+                  </view>
+                  <view slot="extra" class="am-list-brief">
                     {{item.yue}}
                   </view>
               </list-item>
@@ -65,9 +74,12 @@
             <list>
               <block a:for="{{qtxxItems}}">
                 <list-item >
-                  {{item.ywfsrq}}
-                  <view class="am-list-brief">{{item.ywzy}}</view>
+                  {{item.ywzy}}
+                  <view class="am-list-brief">{{item.ywfsrq}}</view>
                   <view slot="extra">
+                    {{item.fse}}
+                  </view>
+                  <view slot="extra" class="am-list-brief">
                     {{item.yue}}
                   </view>
               </list-item>

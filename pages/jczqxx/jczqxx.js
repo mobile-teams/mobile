@@ -56,8 +56,8 @@ Page({
       dataType: 'json',
       contentType : 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
-         
          let jczqxx = res.data.data;
+         let alljczqxx = [];
          let jcxx = [];
          let zqxx = [];
          let qtxx = [];
@@ -67,7 +67,9 @@ Page({
            s = {};
            s.ywfsrq = jczqxx[i].ywfsrq;
            s.ywzy = jczqxx[i].ywzy;
-           s.yue = jczqxx[i].yue;
+           s.yue = app.fmoney(jczqxx[i].yue);
+           s.fse = app.fmoney(jczqxx[i].fse);
+           alljczqxx[i] = s;
             if(jczqxx[i].ywlx=="缴存"){
               jcxx[a] = s;
               a++;
@@ -76,7 +78,7 @@ Page({
               zqxx[b] = s;
               b++;
               continue;
-            }else{
+            }else if(jczqxx[i].ywlx=="其他"){
               qtxx[c] = s;
               c++;
               continue;
@@ -86,7 +88,7 @@ Page({
         b=0;
         c=0;
         this.setData({
-          items:jczqxx,
+          items:alljczqxx,
           jcxxItems:jcxx,
           zqxxItems:zqxx,
           qtxxItems:qtxx
