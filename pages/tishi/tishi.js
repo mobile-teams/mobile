@@ -1,7 +1,7 @@
 Page({
   data: {},
   onShow() {
-    console.log("dakai");
+    console.log("dakai");    
     my.alert({
     title: '服务暂未开通' ,
     success:() =>{

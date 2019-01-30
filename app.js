@@ -2,6 +2,7 @@ App({
    data:{
    grzh:0,
    jkhtbh:0,
+    dwmc:" ",
   //  xingming:"胡建文",
   //  zjhm:"220402197604300811",
   // xingming:"金凯",
@@ -39,6 +40,9 @@ App({
   },
   setZjhm: function (event) {
     this.data.zjhm = event;
+  },
+   setDwmc: function (event) {
+    this.data.dwmc = event;
   },
   fmoney(s=0, n=2) {
   const dot = str => `.${(+('0.'+(str || 0))).toFixed(n).split('.')[1]}`

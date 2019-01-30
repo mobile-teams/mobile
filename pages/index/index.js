@@ -83,7 +83,8 @@ Page({
      array:{
        grzhye:[],
        grzhzt:[],
-       grzh:[]
+       grzh:[],
+       dwmc:[]
      },
      indexgrzh : 0
   },
@@ -127,11 +128,13 @@ Page({
         this.setData({ 
           grzhye: app.fmoney(grzhye1),
           grzh:res.data.data[0].gjjxx[0].grzh,
-          grzhzt:res.data.data[0].gjjxx[0].grzhzt
+          grzhzt:res.data.data[0].gjjxx[0].grzhzt,
         }) ;
+        app.setDwmc(res.data.data[0].gjjxx[0].dwmc);
         app.setGrzh(res.data.data[0].gjjxx[0].grzh);
         if(res.data.data[0].dkxx.length>0){
         app.setJkhtbh(res.data.data[0].dkxx[0].jkhtbh);
+        
         for(var i=0;i<res.data.data[0].dkxx.length;i++){
           jkhtbh[i]=res.data.data[0].dkxx[i].jkhtbh
         }
@@ -146,7 +149,9 @@ Page({
           this.$spliceData({"array.grzh": [0, 0,res.data.data[0].gjjxx[i].grzh]});
           this.$spliceData({"array.grzhzt": [0, 0,res.data.data[0].gjjxx[i].grzhzt]});
           this.$spliceData({"array.grzhye": [0, 0,res.data.data[0].gjjxx[i].grzhye]});
+          this.$spliceData({"array.dwmc": [0, 0,res.data.data[0].gjjxx[i].dwmc]});
         }
+        console.log("-----",this.data.array.grzhye);
       }
     });
   },
@@ -176,7 +181,7 @@ Page({
           grzhzt:res.data.data[0].gjjxx[0].grzhzt
         });  
         app.setGrzh(res.data.data[0].gjjxx[0].grzh)
-        app.setJkhtbh(res.data.data[0].dkxx[0].jkhtbh)
+        //app.setJkhtbh(res.data.data[0].dkxx[0].jkhtbh)
       }
     });
   },
@@ -199,8 +204,9 @@ Page({
           grzh:this.data.array.grzh[i] ,
           grzhzt:this.data.array.grzhzt[i] ,
           });
-          grzhye1 =app.fmoney(this.data.array.grzhye[i] );
+          grzhye1 =this.data.array.grzhye[i];
           app.setGrzh(this.data.array.grzh[i])
+          app.setDwmc(this.data.array.dwmc[i]);
         }
       },
     });
