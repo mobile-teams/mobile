@@ -35,7 +35,8 @@ Page({
     items1: [],
     items2: [],
     hkjhxq:'-2',
-
+    hkjhxq1:'-2',
+    hkjhxq2:'-2',
     ywzy:'',
     hkrq:'',
     bjye:'',
@@ -187,6 +188,9 @@ Page({
           });
       
         }else{
+          that.setData({
+            items1:hkjhmx
+           });
          my.showToast({type: 'none',content: '查无数据',duration: 3000});
         }
       },
@@ -255,6 +259,9 @@ Serchhkmx:(that)=>{
           });
       
         }else{
+           that.setData({
+            items:dkhkmc
+           });
           my.showToast({type: 'none',content: '查无数据',duration: 3000});
         }
       },
@@ -300,6 +307,9 @@ Serchyqhk:(that)=>{
           });
       
         }else{
+          that.setData({
+            items2:yqhkmc
+           });
           my.showToast({type: 'none',content: '查无数据',duration: 3000});
         }
       },
@@ -333,27 +343,27 @@ onItemClick(ev){
 onItemClick1(ev){
    console.log("ev>>>>>",ev)
    console.log(">>>>>>>>",this.data.items1,this.data.items1[ev.index]);
-   if(ev.index===this.data.hkjhxq){
+   if(ev.index===this.data.hkjhxq1){
      this.setData({
-       hkjhxq:-1
+       hkjhxq1:-1
      });
      return;
    }
    this.setData({
-      hkjhxq:ev.index,
+      hkjhxq1:ev.index,
       yhrq: this.data.items1[ev.index].yhrq,
       yhbj:this.data.items1[ev.index].yhbj,
       yhlx:this.data.items1[ev.index].yhlx,
       yhbx:this.data.items1[ev.index].yhbx,
   });
-  console.log(this.data.hkjhxq);
+  console.log(this.data.hkjhxq1);
 },
 onItemClick2(ev){
    console.log("ev>>>>>",ev)
    console.log(">>>>>>>>",this.data.items2,this.data.items2[ev.index]);
-   if(ev.index===this.data.hkjhxq){
+   if(ev.index===this.data.hkjhxq2){
      this.setData({
-       hkjhxq:-1
+       hkjhxq2:-1
      });
      return;
    }
@@ -367,7 +377,7 @@ onItemClick2(ev){
        yqlx:this.data.items2[ev.index].yqlx,
        yqlxhj:this.data.items2[ev.index].yqlxhj,
   });
-  console.log(this.data.hkjhxq);
+  console.log(this.data.hkjhxq2);
 },
   jsdatePicker1() {
     let now = new Date(); 

@@ -112,12 +112,41 @@ Page({
   },
 
   csxz(){
+      //获取授权码
+//       my.getAuthCode({
+//       scopes: 'auth_user',
+//       fail: (error) => {
+//         console.error('getAuthCode', error);
+//       },
+//       success: () => {
+//         my.getPhoneNumber({
+//         success: (res) => {
+//         let encryptedData = res.response
+//         console.log(encryptedData)
+//         // my.httpRequest({
+//         //     url: '你的后端服务端',
+//         //     data: encryptedData
+//         // });
+//     },
+//     fail: (res) => {
+//         console.log(res)
+//         console.log('getPhoneNumber_fail')
+//     },
+// });
+//         //只能获取用户支付宝头像和昵称
+//         // my.getAuthUserInfo({
+//         //   success: () => {
+//         //     console.log(`userInfo:`, userInfo); 
+//         //   }
+//         // });
+//       }
+//     });
     my.showLoading({
       content: '加载中...',
       delay: '1000',
     });
     my.httpRequest({
-      url: 'https://api.sjgjj.cn/app-web/public/redis/city.service',
+      url: 'http://192.168.54.77:8089/app-web/public/redis/city.service',
       method: 'POST',
       headers: {
             "Content-Type": "application/json",
@@ -152,20 +181,40 @@ Page({
           success: (res) => {
             //获取城市编码
             console.log(res);
-            //获取授权码
-            my.getAuthCode({
-              scopes: 'auth_user',
-              success: ({ authCode }) => {
-                console.log("authCode="+authCode);
-                //查询真实个人信息
-
+      //获取授权码
+      my.getAuthCode({
+      scopes: 'auth_user',
+      fail: (error) => {
+        console.error('getAuthCode', error);
+      },
+      success: () => {
+        my.getPhoneNumber({
+        success: (res) => {
+        let encryptedData = res.response
+        console.log(encryptedData)
+        // my.httpRequest({
+        //     url: '你的后端服务端',
+        //     data: encryptedData
+        // });
+    },
+    fail: (res) => {
+        console.log(res)
+        console.log('getPhoneNumber_fail')
+    },
+});
+        //只能获取用户支付宝头像和昵称
+        // my.getAuthUserInfo({
+        //   success: () => {
+        //     console.log(`userInfo:`, userInfo); 
+        //   }
+        // });
+      }
+    });
 
                 //将姓名和证件号 存入全局变量
-                app.setXingming('尹起才');
-                app.setZjhm('23020419700919021X');
-                my.redirectTo({ url:'../index/index'});
-              },
-            });
+              //  app.setXingming('尹起才');
+              //  app.setZjhm('23020419700919021X');
+              //  my.redirectTo({ url:'../index/index'});
           },
         });
       },

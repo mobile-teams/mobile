@@ -225,7 +225,7 @@
                       <view slot="extra">{{item.extra}} </view>
                     </list-item>
 
-                    <view style={{display:hkjhxq===item.inum?"block":"none"}}>
+                    <view style={{display:hkjhxq1===item.inum?"block":"none"}}>
                       <scroll-view style="height: 28vh; " scroll-y="false" scroll-x="false"  >
                          <view class="form-row">
                           <view class="form-row-label001">应还日期</view>
@@ -262,7 +262,7 @@
                       <view slot="extra">{{item.extra}} </view>
                     </list-item>
 
-                    <view style={{display:hkjhxq===item.inum?"block":"none"}}>
+                    <view style={{display:hkjhxq2===item.inum?"block":"none"}}>
                       <scroll-view style="height: 51vh; " scroll-y="false" scroll-x="false"  >
                          <view class="form-row">
                           <view class="form-row-label001">应还日期</view>
