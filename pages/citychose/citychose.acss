@@ -1,0 +1,17 @@
+page {
+  background-color: #F7F7F7;
+  box-sizing: border-box;
+}
+
+.page-description {
+  margin-bottom: 32rpx;
+}
+
+.page-section {
+  background: #fff;
+  margin-bottom: 32rpx;
+}
+
+.page-section-demo {
+  padding: 32rpx;
+}

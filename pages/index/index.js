@@ -64,10 +64,10 @@ let basicComponentList = [
     type: '信息查询',
     list: basicContainers1,
   },
-  {
-    type: '业务办理',
-    list: basicContainers,
-  },
+  // {
+  //   type: '业务办理',
+  //   list: basicContainers,
+  // },
  
 ];
 

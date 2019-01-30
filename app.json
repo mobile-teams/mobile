@@ -1,6 +1,6 @@
 {
   "pages": [
-    
+    "pages/citychose/citychose",
     "pages/index/index",
     "pages/zhxx/zhxx",
     "pages/dkxx/dkxx",
