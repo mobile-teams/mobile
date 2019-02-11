@@ -20,5 +20,18 @@
   width: 60rpx;
   margin-right: 30rpx;
 }
+.home_grids {
+　
+  overflow: hidden;
+　margin-top: 10px
+}
+
+.home_grid{
+ position: relative;
+ float: left;
+ padding: 20px 10px;
+ width: 33.33333333%;
+ box-sizing: border-box;
+}
 
 @import "/template/template.acss";

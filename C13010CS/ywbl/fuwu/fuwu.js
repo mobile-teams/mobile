@@ -19,7 +19,8 @@ const  gjywlist= [
         icon: '/image/icon/gjjtq.png',
         text: '我要提取',
         //desc: '描述信息',
-        path: '/pages/ywbl/gjjtq/gjjtq',
+       // path: '../../ywbl/gjjtq/gjjtq',
+       path :'/C13010CS/ywbl/gjjtq/gjjtq',
       }
     ];
 const  dkywlist= [

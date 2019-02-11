@@ -159,7 +159,7 @@ App({
       {
        // "pagePath": "/"+this.data.citybm+"/index/index",
       //  "pagePath": "/index/index",
-       "pagePath": "/C13010/index/index",
+       "pagePath": "/index/index",
         "icon": "/image/gongjijin1.png",
         "activeIcon": "/image/gongjijin.png",
         "name": "账户查询"

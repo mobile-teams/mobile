@@ -170,7 +170,7 @@ Page({
       cities: [
         {
           city: '石家庄市',
-          adCode: 'C13010',
+          adCode: 'C13010CS',
           spell: 'shijiazhuangshi'
         },
         {

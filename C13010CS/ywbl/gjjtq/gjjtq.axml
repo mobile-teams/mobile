@@ -1,0 +1,10 @@
+
+<view class="msg">
+  <view>
+    <image src="{{'../../../image/about.png'}}" class="logo" />
+  </view>
+</view>
+<!-- <view style="margin-top: 10px;" /> -->
+<grid onGridItemClick="onItemClick" columnNum="{{3}}" list="{{tqlxArray}}" />
+
+<view class="ts"><text class="fs">提示:如业务不能正常办理请拨打12329咨询</text></view>
