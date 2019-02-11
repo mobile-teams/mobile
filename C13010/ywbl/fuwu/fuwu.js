@@ -5,10 +5,12 @@ const  bmgjlist= [
         icon: '/image/icon/ffwdcx.png',
         text: '服务网点查询',
         //desc: '描述信息',
+        path: '/pages/component/webview/webview',
       },
       {
         icon: '/image/icon/fdjsq.png',
         text: '房贷试算器',
+        path: '/pages/component/webview/webview',
       },
     ];
 
@@ -17,6 +19,7 @@ const  gjywlist= [
         icon: '/image/icon/gjjtq.png',
         text: '我要提取',
         //desc: '描述信息',
+        path: '/pages/ywbl/gjjtq/gjjtq',
       }
     ];
 const  dkywlist= [
@@ -28,10 +31,12 @@ const  dkywlist= [
       {
         icon: '/image/icon/tqhb.png',
         text: '我要还款',
+        path: '/pages/component/webview/webview',
       },
       {
         icon: '/image/icon/qxydcsq.png',
         text: '冲还贷签约',
+        path: '/pages/component/webview/webview',
       },
     ];
 const  wdywlist= [
@@ -39,8 +44,10 @@ const  wdywlist= [
     icon: '/image/icon/wdyw.png',
     text: '我的业务',
     //desc: '描述信息',
+     path: '/pages/component/webview/webview',
   }
 ];
+
 
 let basicComponentList = [
   
@@ -71,10 +78,5 @@ Page({
   onLoad() {
     app.editTabBar(); //放在onLoad中
   },
-  
-  onItemClick(ev) {
-    my.alert({
-      content: '此功能正在开发中.....'
-    });
-  },
+
 });
