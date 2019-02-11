@@ -20,3 +20,5 @@
   width: 60rpx;
   margin-right: 30rpx;
 }
+
+@import "/template/template.acss";

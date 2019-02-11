@@ -1,5 +1,12 @@
+
+const app = getApp();
 Page({
-  data: {},
+  data: {
+    tabbar:{},     //放在data中
+  },
+  onLoad() {
+    app.editTabBar(); //放在onLoad中
+  },
   onShow() {
     // console.log("dakai");    
     // my.alert({

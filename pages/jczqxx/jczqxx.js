@@ -38,6 +38,24 @@ Page({
       content: '加载中...',
       delay: '1000',
     });
+    my.getStorage({
+      key:"djxx",
+      success:(res)=>{
+        if(res.data=="zjtqcx"){
+          this.setData({
+            activeTab:2,
+          });
+        }else if(res.data=="zjjccx"){
+          this.setData({
+            activeTab:1,
+          });
+        }else{
+          this.setData({
+            activeTab:0,
+          });
+        }
+      },
+    });
     my.httpRequest({
       url: app.data.url+'/app-web/personal/public/gjjywmxcx.service',
       method: 'POST',

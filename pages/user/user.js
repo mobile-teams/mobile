@@ -1,9 +1,18 @@
 const app = getApp();
 Page({
   data: {
+    tabbar:{},     //放在data中
     thumb: 'https://gw.alipayobjects.com/zos/rmsportal/VBqNBOiGYkCjqocXjdUj.png',
     footerImg: 'https://gw.alipayobjects.com/zos/rmsportal/VBqNBOiGYkCjqocXjdUj.png',
     xingming:"",
+
+     itemsGywm: [
+      {
+        thumb: '/image/lxwm2.png',
+        title: '关于我们',
+        arrow: true,
+      },
+    ],
 
     itemsPhone: [
       {
@@ -13,29 +22,16 @@ Page({
         arrow: true,
       },
     ],
-    itemsYssm: [
-      {
-        thumb: '/image/yssm.png',
-        title: '隐私声明',
-        arrow: true,
-      },
-    ],
-    itemsXgmm: [
-      {
-        thumb: '/image/xgmm.png',
-        title: '密码修改',
-        arrow: true,
-      },
-    ],
-    itemsClearcache: [
-      {
-      thumb: '/image/clearcache.png',
-      title: '清除缓存',
-      arrow: true,
-    },
-  ],
+    // itemsYssm: [
+    //   {
+    //     thumb: '/image/yssm.png',
+    //     title: '隐私声明',
+    //     arrow: true,
+    //   },
+    // ],
   },
   onLoad() {
+    app.editTabBar(); //放在onLoad中
     console.log(app.data.xingming,app.data.dwmc);
 
     this.setData({
@@ -43,26 +39,22 @@ Page({
       dwmc:app.data.dwmc
     })
   },
-   onCardClick: function(ev) {
-    my.showToast({
-      type: 'exception',
-      content: '功能暂未开通',
-       duration: 3000
-    });
+  onCardClick: function(ev) {
+    my.navigateTo({ url: '../grzx/grzx' })
   },
    onItemClick(ev) {
-    my.showToast({
-      type: 'exception',
-      content: `功能暂未开通`,
-       duration: 3000
+    my.confirm({
+      title: '提示',
+      content: '呼叫服务热线公积金12329?',
+      success: (result) => {
+        if(result.confirm){
+          my.makePhoneCall({ number: '12329' });
+        }
+      },
     });
   },
   onItemClick1(ev) {
-    my.showToast({
-      type: 'success',
-      content: '清除暂存成功',
-      duration: 3000
-    });
+   my.navigateTo({ url: '../about/about' })
   },
 });
 

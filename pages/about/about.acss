@@ -1,0 +1,18 @@
+.msg{
+  padding-top:36px;
+  text-align:center;
+  margin-bottom:30px
+}
+
+.logo {
+  width: 150rpx;
+  height: 165rpx;
+}
+
+.fs{
+  padding:0 .34em;
+  font-size:12px;
+  color: #999999;
+  font-size: 15px;
+  font-weight: bold;
+}

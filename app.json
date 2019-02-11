@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/citychose/citychose",
     "pages/index/index",
     "pages/zhxx/zhxx",
     "pages/dkxx/dkxx",
@@ -8,44 +7,17 @@
     "pages/jczqxx/jczqxx",
     "pages/tishi/tishi",
     "pages/user/user",
-    "pages/ywbl/fuwu/fuwu"
-
+    "pages/ywbl/fuwu/fuwu",
+    "pages/guanggao/guanggao",
+    "pages/about/about",
+    "pages/yssm/yssm",
+    "pages/grzx/grzx",
+    "template/template"
   ],
   "window": {
     "defaultTitle": "",
     "pullRefresh": false,
     "backgroundColor": "#ffffff",
     "titleBarColor": "#fff"
-  },
-  "tabBar": {
-    "textColor": "#404040",
-    "selectedColor": "#108ee9",
-    "backgroundColor": "#F5F5F9",
-    "items": [
-      {
-        "pagePath": "pages/tishi/tishi",
-        "icon": "image/fuwu1.png",
-        "activeIcon": "image/fuwu.png",
-        "name": "新闻动态"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "icon": "image/gongjijin1.png",
-        "activeIcon": "image/gongjijin.png",
-        "name": "账户查询"
-      },
-      {
-        "pagePath": "pages/ywbl/fuwu/fuwu",
-        "icon": "image/zixun1.png",
-        "activeIcon": "image/zixun.png",
-        "name": "业务办理"
-      },
-      {
-        "pagePath": "pages/user/user",
-        "icon": "image/wode1.png",
-        "activeIcon": "image/wode.png",
-        "name": "我"
-      }
-    ]
   }
 }

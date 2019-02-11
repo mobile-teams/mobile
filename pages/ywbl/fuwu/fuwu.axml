@@ -11,3 +11,5 @@
               <grid onGridItemClick="onItemClick" columnNum="{{3}}" list="{{list.list}}" hasLine="{{false}}" />
           </list>
 </block>
+ <import src="/template/template.axml"></import>
+<template is="tabbar" data="{{tabbar:tabbar}}"></template>

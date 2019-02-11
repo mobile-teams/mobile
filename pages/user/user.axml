@@ -6,6 +6,29 @@
     onClick="onCardClick"
     info=""
   />
+
+<view style="margin-top: 30px;" />
+  <scroll-view style="height: 100%;" >
+    <list>
+      <block a:for="{{itemsGywm}}">
+        <list-item
+          thumb="{{item.thumb}}"
+          arrow="{{item.arrow}}"
+          onClick="onItemClick1"
+          index="itemsGywm-{{index}}"
+          last="{{index === (itemsGywm.length - 1)}}"
+          key="itemsGywm-{{index}}"
+        >
+          {{item.title}}
+          <view class="am-list-brief">{{item.brief}}</view>
+          <view a:if="{{item.extra}}" slot="extra">
+            {{item.extra}}
+          </view>
+        </list-item>
+      </block>
+    </list>
+	</scroll-view>
+</view>
 <view style="margin-top: 30px;" />
   <scroll-view style="height:100%;" >
     <list>
@@ -28,7 +51,7 @@
     </list>
 	</scroll-view>
 </view>
-<view style="margin-top: 30px;" />
+<!-- <view style="margin-top: 30px;" />
   <scroll-view style="height: 100%;" >
     <list>
       <block a:for="{{itemsYssm}}">
@@ -49,48 +72,7 @@
       </block>
     </list>
 	</scroll-view>
-</view>
-<view style="margin-top: 0px;" />
-  <scroll-view style="height: 100%;" >
-    <list>
-      <block a:for="{{itemsXgmm}}">
-        <list-item
-          thumb="{{item.thumb}}"
-          arrow="{{item.arrow}}"
-          onClick="onItemClick"
-          index="itemsXgmm-{{index}}"
-          last="{{index === (itemsXgmm.length - 1)}}"
-          key="itemsXgmm-{{index}}"
-        >
-          {{item.title}}
-          <view class="am-list-brief">{{item.brief}}</view>
-          <view a:if="{{item.extra}}" slot="extra">
-            {{item.extra}}
-          </view>
-        </list-item>
-      </block>
-    </list>
-	</scroll-view>
-</view>
-<view style="margin-top: 0px;" />
-  <scroll-view style="height: 100%;" >
-    <list>
-      <block a:for="{{itemsClearcache}}">
-        <list-item
-          thumb="{{item.thumb}}"
-          arrow="{{item.arrow}}"
-          onClick="onItemClick1"
-          index="itemsClearcache-{{index}}"
-          last="{{index === (itemsClearcache.length - 1)}}"
-          key="itemsClearcache-{{index}}"
-        >
-          {{item.title}}
-          <view class="am-list-brief">{{item.brief}}</view>
-          <view a:if="{{item.extra}}" slot="extra">
-            {{item.extra}}
-          </view>
-        </list-item>
-      </block>
-    </list>
-	</scroll-view>
-</view>
+</view> -->
+
+  <import src="/template/template.axml"></import>
+<template is="tabbar" data="{{tabbar:tabbar}}"></template>

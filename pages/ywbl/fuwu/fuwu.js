@@ -66,8 +66,12 @@ let basicComponentList = [
 Page({
   data: {
     basicComponentList,
+    tabbar:{},     //放在data中
   },
-
+  onLoad() {
+    app.editTabBar(); //放在onLoad中
+  },
+  
   onItemClick(ev) {
     my.alert({
       content: '此功能正在开发中.....'

@@ -1,5 +1,4 @@
 .banner {
-
   width: 100%;
   background-image: url('../../image/icon/back.png');
   background-size: 100%;
@@ -119,7 +118,7 @@
 }
 
 .list {
-   /* padding: 32rpx;  */
+  /* padding: 32rpx;  */
   flex-shrink: 0;
   box-sizing: border-box;
   width: 100%;
@@ -165,11 +164,12 @@
   width: 100%;
   transition-duration: 500ms;
 }
+
 .todo-item {
   position: relative;
   margin-bottom: 50rpx;
-  padding-left:50rpx;
-  padding-right:50rpx;
+  padding-left: 50rpx;
+  padding-right: 50rpx;
   line-height: 70rpx;
   height: 80rpx;
   box-sizing: border-box;
@@ -180,3 +180,210 @@
   transition: border 0.2s;
   color: #0EFFD6;
 }
+
+.text-demo-title {
+  margin-left: 2%;
+  margin-top: 0%;
+  display: flex;
+}
+
+.text-demo-text {
+  margin-left: 20%;
+   margin-top: 3rpx; 
+  /* font-size: 36rpx;
+   */
+
+  bottom: 0;
+  flex: 1;
+  display: flex;
+  /* justify-content: center; */
+}
+
+.testt {
+  font-weight: bold;
+  font-size: 30rpx;
+}
+
+.testttt {  
+  font-size: 20rpx;
+  color: rgba(0, 0, 0, .5) !important;
+}
+
+.testtt {
+  font-weight: bold;
+  font-size: 25rpx;
+  color: rgba(0, 0, 0, .5) !important;
+}
+
+.zj {
+  border-left: 1px solid rgba(0, 0, 0, .5);
+  width: 1rpx;
+  float: left;
+  height: 90rpx;
+  text-align: center;
+  margin-right: 40rpx;
+}
+
+.da {
+  width: 100%;
+  /* background-color: #fff; */
+  /* height:50px; */
+}
+
+.zuob {
+  /* margin-top: 5%; */
+  
+  width: 49%;
+  float: left;
+}
+
+.yuob {
+  margin-top: 5%;
+}
+
+/* 轮播图 */
+
+.swiper{
+    height: 200rpx!important;
+}
+
+.a-swiper-item{
+    width: 100%;
+    height: 200rpx;
+}
+
+.actives{
+    width: 100%!important;
+    height: 200rpx;
+    transition: 0.5s all linear;
+    background-size: 100% 100%!important ;
+    /* margin-left: 56rpx; */
+}
+
+.before{
+    width: 540rpx!important;
+    transition: 0.5s all linear;
+    margin-left: 230rpx;
+    margin-right: -24rpx;
+}
+
+.after{
+    width: 540rpx!important;
+    transition: 0.5s all linear;
+    margin-left: -24rpx;
+}
+
+
+.page_top{
+    height: 200rpx;
+}
+
+.card_box{
+    padding-top:24rpx;
+    height: 200rpx;
+}
+/* .card_box .a-image{
+    width: 640rpx;
+    height: 340rpx;
+} */
+/* 贷款信息：：：： */
+.wddk {
+  margin-top: 5%;
+  font-weight: bold;
+  margin-left: 10%;
+   /* float: left;  */
+  text-align: left;
+}
+
+.jd {
+  width: 35%;
+  float: left;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2%;
+}
+
+.fg {
+  border-left: 1rpx ;
+  width: 1rpx;
+  float: left;
+  height: 100%;
+  text-align: center;
+  margin-right: 40rpx;
+}
+
+.dk {
+  margin-top: 5%;
+  /* width: 60%; */
+  text-align: center;
+  margin-left: 35%;
+}
+
+.dkzt {
+  font-weight: bold;
+  font-size: 30rpx;
+  color: rgba(93,175,114,255) ;
+}
+
+.dkztwff {
+  font-weight: bold;
+  font-size: 30rpx;
+  color: rgba(209,209,209,255) ;
+}
+
+.dkztjq {
+  font-weight: bold;
+  font-size: 30rpx;
+  color: rgba(35,170,233,255) ;
+}
+
+.dkztyq {
+  font-weight: bold;
+  font-size: 30rpx;
+  color: rgba(228,79,96,255);
+}
+
+
+.bqyhrq {  
+  margin-top: 15rpx;
+  font-size: 25rpx;
+  color: rgba(0, 0, 0, .5) ;
+}
+
+.bqyhje {
+  margin-bottom: 0%;
+  font-size: 25rpx;
+  color: rgba(0, 0, 0, .5) !important;
+}
+
+.yhje{
+  margin-top: 4rpx;
+  font-size: 35rpx;
+  color: rgba(93,175,114,255) !important;
+}
+
+.yhjeyq{
+  margin-top: 4rpx;
+  font-size: 35rpx;
+  color:  rgba(228,79,96,255) !important;
+}
+
+.bqyh{
+  margin-top: 10rpx;
+}
+
+
+.canvas-view {
+  display: flex;
+  justify-content: center;
+}
+
+.canvas {
+  width: 150rpx;
+  height: 150rpx;
+  /* background-color: #fff; */
+  justify-content: center;
+  text-align: center;
+   /* margin-top: -1% !important;  */
+}
+@import "/template/template.acss";
