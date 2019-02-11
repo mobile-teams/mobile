@@ -1,17 +1,33 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/zhxx/zhxx",
-    "pages/dkxx/dkxx",
-    "pages/citychose/citychose",
-    "pages/jczqxx/jczqxx",
-    "pages/tishi/tishi",
-    "pages/user/user",
-    "pages/ywbl/fuwu/fuwu",
-    "pages/guanggao/guanggao",
-    "pages/about/about",
-    "pages/yssm/yssm",
-    "pages/grzx/grzx",
+    "citychose/citychose",
+    "C13010/index/index",
+    "C13010/zhxx/zhxx",
+    "C13010/dkxx/dkxx", 
+    "C13010/jczqxx/jczqxx",
+    "C13010/tishi/tishi",
+    "C13010/user/user",
+    "C13010/ywbl/fuwu/fuwu",
+    "C13010/guanggao/guanggao",
+    "C13010/about/about",
+    "C13010/yssm/yssm",
+    "C13010/grzx/grzx",
+
+   
+    "C13010CS/index/index",
+    "C13010CS/zhxx/zhxx",
+    "C13010CS/dkxx/dkxx",
+    "C13010CS/jczqxx/jczqxx",
+    "C13010CS/tishi/tishi",
+    "C13010CS/user/user",
+    "C13010CS/ywbl/fuwu/fuwu",
+    "C13010CS/guanggao/guanggao",
+    "C13010CS/about/about",
+    "C13010CS/yssm/yssm",
+    "C13010CS/grzx/grzx",
+
+
+
     "template/template"
   ],
   "window": {

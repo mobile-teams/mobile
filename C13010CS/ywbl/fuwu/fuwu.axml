@@ -1,0 +1,15 @@
+<!-- <view style="margin-top: 10px;" />
+<grid onGridItemClick="onItemClick" columnNum="{{3}}" list="{{list3}}" />
+<view style="margin-top: 10px;" />
+<grid onGridItemClick="onItemClick" columnNum="{{3}}" list="{{list1}}" /> -->
+<!-- <view style="margin-top: 10px;" />
+<grid onGridItemClick="onItemClick" columnNum="{{3}}" list="{{list3}}" hasLine="{{false}}" /> -->
+
+<block a:for="{{basicComponentList}}" a:for-item="list">
+          <list className="list-item">
+            <view slot="header" class="list-header">{{list.type}}</view>
+              <grid onGridItemClick="onItemClick" columnNum="{{3}}" list="{{list.list}}" hasLine="{{false}}" />
+          </list>
+</block>
+ <import src="/template/template.axml"></import>
+<template is="tabbar" data="{{tabbar:tabbar}}"></template>

@@ -1,0 +1,89 @@
+<view>
+  <tabs
+    tabs="{{tabs}}"
+    onTabClick="handleTabClick"
+    activeTab="{{activeTab}}"
+  >
+    <block a:for="{{tabs}}">
+      <tab-content key="{{index}}">
+  
+      </tab-content>
+    </block>
+  </tabs>
+</view>
+
+<view style={{display:activeTab===0?"block":"none"}}>
+          <scroll-view style="height: 100vh;" scroll-y>
+            <list>
+              <block a:for="{{items}}">
+                <list-item >
+                  {{item.ywzy}}
+                  <view class="am-list-brief">{{item.ywfsrq}}</view>
+                  <view slot="extra">
+                    {{item.fse}}
+                  </view>
+                  <view slot="extra" class="am-list-brief">
+                    {{item.yue}}
+                  </view>
+              </list-item>
+              </block>
+            </list>
+          </scroll-view>
+        </view>
+
+        <view style={{display:activeTab===1?"block":"none"}}>
+          <scroll-view style="height: 100vh;" scroll-y>
+            <list>
+              <block a:for="{{jcxxItems}}">
+                <list-item >
+                  {{item.ywzy}}
+                  <view class="am-list-brief">{{item.ywfsrq}}</view>
+                  <view slot="extra">
+                    {{item.fse}}
+                  </view>
+                  <view slot="extra" class="am-list-brief">
+                    {{item.yue}}
+                  </view>
+              </list-item>
+              </block>
+            </list>
+          </scroll-view>
+        </view>
+
+        <view style={{display:activeTab===2?"block":"none"}}>
+          <scroll-view style="height: 100vh;" scroll-y >
+            <list>
+              <block a:for="{{zqxxItems}}">
+                <list-item >
+                  {{item.ywzy}}
+                  <view class="am-list-brief">{{item.ywfsrq}}</view>
+                  <view slot="extra">
+                    {{item.fse}}
+                  </view>
+                  <view slot="extra" class="am-list-brief">
+                    {{item.yue}}
+                  </view>
+              </list-item>
+              </block>
+            </list>
+          </scroll-view>
+        </view>
+
+        <view style={{display:activeTab===3?"block":"none"}}>
+          <scroll-view style="height: 100vh;" scroll-y >
+            <list>
+              <block a:for="{{qtxxItems}}">
+                <list-item >
+                  {{item.ywzy}}
+                  <view class="am-list-brief">{{item.ywfsrq}}</view>
+                  <view slot="extra">
+                    {{item.fse}}
+                  </view>
+                  <view slot="extra" class="am-list-brief">
+                    {{item.yue}}
+                  </view>
+              </list-item>
+              </block>
+            </list>
+          </scroll-view>
+        </view>

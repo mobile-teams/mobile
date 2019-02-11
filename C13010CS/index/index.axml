@@ -1,0 +1,130 @@
+<view class="banner">
+<view class="flex col ac" style="{{padding: '20px 0'}}">
+    <view class="text-white text-14" style="{{margin: '12px 0'}}">账户余额(元)</view>
+  <view class="flex ac text-white" style="{{fontSize: 30}}">
+  <view>{{grzhye}}</view>
+  <view a:if="{{flag}}">  
+        <image  onTap="tapName" style="{{width: '25px', height:'25px'}}" src="{{'../../image/icon/1.png'}}" ></image>
+  </view>  
+  <view a:else> 
+        <image  onTap="tapName" style="{{width: '25px', height:'25px'}}" src="{{'../../image/icon/2.png'}}" ></image>
+     </view>
+  </view>
+    <view style = "text-align: center;margin;padding-top: 20rpx;color: #FFF;">
+      <!--<picker onChange="bindPickerChange" value="{{indexgrzh}}" range="{{array.grzh}}">-->
+        <view>
+          <text style = "margin-right: 5px;font-size: 12px;">{{grzh}}</text>   
+          <text style="margin-left: 5px;background-color: #ff5e00;font-size: 13px;">{{grzhzt}}</text>
+          
+            <image  a:if="{{flag1}}" onTap="qhzh" style = "width: 32rpx;height: 32rpx;margin-left: 16rpx;" src="/image/arrowright.png" mode="aspectFill" />        
+          
+        </view>
+     <!-- </picker>-->
+    </view>
+    <view  style = "text-align: center;padding-top: 40rpx;font-size: 15px;">
+      <view class="todo-item" onTap="gjjxxcx" >公积金账户信息</view>
+    </view> 
+</view>
+</view>
+  <view class="da">
+    <view class="zuob" onTap="zjjccx">
+      <text class="text-demo-text testt">最近缴存</text>
+      <text class="text-demo-text testtt">{{zjjcje}}</text>
+      <text class="text-demo-text testttt">最近缴存 {{zjjcsj}}</text>
+    </view>
+    <view class="zj">    
+    </view>
+    <view class="yuob" onTap="zjtqcx">
+      <text class="text-demo-text testt" >最近提取</text>
+      <text class="text-demo-text testtt">{{zjtqje}}</text>
+      <text class="text-demo-text testttt">最近提取 {{zjtqsj}}</text>
+    </view>
+  </view>
+
+
+
+
+    <!-- <view class="list-wrap" style ="background-color: white">
+    <view class="list-container" style="{{ transform: 'translate3d(' +(-activeTab * 100) + 'vw, 0, 0)' }}">
+      <view class="list" style="{{ height: 'auto' }}">
+        <block a:for="{{basicComponentList}}" a:for-item="list">
+          <list className="list-item">
+            <view slot="header" class="list-header">{{list.type}}</view>
+            <block a:for="{{list.list}}">
+              <list-item arrow="{{true}}" multipleLine="{{false}}" key="items-{{item.name}}" last="{{true}">
+                <view  data-index={{item.path}} onTap="preventTurn"  style="display: flex; align-items: center">
+                  <image  src="{{item.thumb}}" class="thumb"  mode="aspectFit" />
+                  <text class="component-name">{{item.name}}</text>
+                </view>
+              </list-item>
+            </block>
+          </list>
+        </block>
+      </view>
+    </view>
+  </view> -->
+<view class="da" a:if="{{flag2}}">
+  <view class="wddk">
+    我的贷款
+    <image  a:if="{{flag3}}" 
+      onTap="xzdk" 
+      style = "width: 32rpx;height: 32rpx;margin-left: 480rpx;" 
+      src="/image/arrowdown.png" 
+      mode="aspectFill" 
+    />
+  </view>
+  <view class="jd" onTap="redirectTo">
+    <canvas 
+          id="canvas"
+          width="100"
+          height="100"
+          class="canvas"
+          onTouchStart="log"
+          onTouchMove="log"
+          onTouchEnd="log"
+          >
+        />
+  </view>
+ <view class="fg"></view>
+
+  <view class="dk" onTap="redirectTo"  style={{display:flagdkzt1===1?"block":"none"}}>
+      <text class= " text-demo-text {{flagdkzt == '正常还款' ? 'dkzt' : 'dkztyq'}} " >贷款状态:{{dkzt}}</text>
+      <text class="text-demo-text bqyhrq" >本期应还日期:{{yhrq}}</text>
+      <text class="text-demo-text bqyhje">
+        <text class="bqyh" >本期应还金额:</text>
+        <text class=" {{flagdkzt == '正常还款' ? 'yhje' : 'yhjeyq'}}">{{yhbxhj}}</text>
+        <text class="bqyh">元</text>
+      </text>
+  </view>
+  <view class="dk" onTap="redirectTo"  style={{display:flagdkzt1===0?"block":"none"}}>
+      <text class= " text-demo-text {{flagdkzt == '未发放' ? 'dkztwff' : 'dkztjq'}} " >贷款状态:{{dkzt}}</text>
+  </view>
+</view>
+ 
+</view>
+   <view class="card_box">
+    <swiper
+            indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}"
+            interval="{{interval}}"
+            class="swiper"
+            onChange = "changeimage"
+            circular={{circular}}
+            current = {{current}}
+          >
+      <block a:for="{{images}}" a:for-index="index">
+        <swiper-item >
+            <!-- 通过for循环和判断来控制展示的三张照片 -->
+            <!-- <image src="{{item.imgUrl}}" mode="aspectFit" class="active" a:if="{{index == current}}"/>
+            <image src="{{item.imgUrl}}" mode="aspectFit" class="after" a:elif="{{index > current}}"/>
+            <image src="{{item.imgUrl}}" mode="aspectFit" class="before" a:else="{{index < current}}"/> -->
+          
+            <image onTap="lunbotu"  data-value={{item.url}}  src="{{item.imgUrl}}" mode="aspectFit" class="actives"/>
+        </swiper-item>
+      </block>
+    </swiper>    
+  </view>
+
+<import src="/template/template.axml"></import>
+<template is="tabbar" data="{{tabbar:tabbar}}"></template>
+  

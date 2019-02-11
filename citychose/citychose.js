@@ -2,6 +2,7 @@ const app = getApp();
 Page({
   data: {
     xzcs: '请选择公积金缴存城市',
+    citybm: '',
   },
   // 在对象中搜索
   arraySearch(l1, l2) {
@@ -152,12 +153,12 @@ Page({
     //     }
     my.chooseCity({
       // cities:mycity,
-      showLocatedCity:true,
+     // showLocatedCity:true,
       showHotCities:true,
       hotCities: [
         {
           city: '石家庄市',
-          adCode: '110105',
+          adCode: 'C13010CS',
           spell: 'shijiazhuangshi'
         },
         {
@@ -169,7 +170,7 @@ Page({
       cities: [
         {
           city: '石家庄市',
-          adCode: '110105',
+          adCode: 'C13010',
           spell: 'shijiazhuangshi'
         },
         {
@@ -203,6 +204,7 @@ Page({
         console.log(res);
         this.setData({
           xzcs: res.city,
+          citybm:res.adCode,
         });
       },
     });
@@ -229,18 +231,23 @@ Page({
           //获取真实用户名和密码;
           app.setXingming('许福才');
           app.setZjhm('220403196208210517');
-          //my.navigateTo({ url: '../index/index' });
-          my.switchTab({
-            url: '../index/index',
-            success: () => {
-              my.showToast({
-                content: '成功',
-                type: 'success',
-                duration: 4000
-              });
-            }
-          }
-          );
+          app.setZjbzxbm(this.data.citybm);
+        //  my.navigateTo({ url: '../index/index' });
+        
+      //  my.navigateTo({ url: '../'+this.data.citybm+'/index/index' });
+my.navigateTo({ url: '../C13010/index/index' });
+
+          // my.switchTab({
+          //   url: '../index/index',
+          //   success: () => {
+          //     my.showToast({
+          //       content: '成功',
+          //       type: 'success',
+          //       duration: 4000
+          //     });
+          //   }
+          // }
+          // );
         },
       });
     }
