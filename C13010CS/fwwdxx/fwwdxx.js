@@ -4,15 +4,15 @@ const extContainers = [
         thumb: '/image/dh.png',
         text: '导航',
       },
-       {
-        thumb: '/image/phone.png',
-        text: '联系电话',
-      },
-      {
-        thumb: '/image/dtxq.png',
-        text: '详情',
-       // path:'../fuwu/fuwu',
-      },
+      //  {
+      //   thumb: '/image/phone.png',
+      //   text: '联系电话',
+      // },
+      // {
+      //   thumb: '/image/dtxq.png',
+      //   text: '详情',
+      //  // path:'../fuwu/fuwu',
+      // },
 
 ];
  const itemsGlb= [
