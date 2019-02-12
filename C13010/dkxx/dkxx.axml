@@ -3,6 +3,7 @@
     onTabClick="handleTabClick"
     activeTab="{{activeTab}}"
   >
+  
    <block a:for="{{tabs}}">
       <tab-content key="{{index}}">
         
