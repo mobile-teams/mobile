@@ -7,6 +7,7 @@
 <view style="margin-top: 30px;" />
 <scroll-view style="height: 100%;" >
   <list>
+    
       <block a:for="{{items}}">
       <list-item
         thumb="{{item.thumb}}"
