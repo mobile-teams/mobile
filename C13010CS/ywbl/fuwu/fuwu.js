@@ -31,12 +31,17 @@ const  dkywlist= [
       // },
       {
         icon: '/image/icon/tqhb.png',
-        text: '我要还款',
+        text: '提前还本',
         path: '/pages/component/webview/webview',
       },
       {
-        icon: '/image/icon/qxydcsq.png',
-        text: '冲还贷签约',
+        icon: '/image/icon/tqjq.png',
+        text: '提前结清',
+        path: '/pages/component/webview/webview',
+      },
+      {
+        icon: '/image/icon/ydcsq.png',
+        text: '月对冲签约',
         path: '/pages/component/webview/webview',
       },
     ];

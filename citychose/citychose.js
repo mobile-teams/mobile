@@ -229,8 +229,8 @@ Page({
         scopes: 'auth_user',
         success: ({ authCode }) => {
           //获取真实用户名和密码;
-          app.setXingming('许福才');
-          app.setZjhm('220403196208210517');
+          app.setXingming('徐建伟');
+          app.setZjhm('130181198610057370');
           app.setZjbzxbm(this.data.citybm);
         //  my.navigateTo({ url: '../index/index' });
         
