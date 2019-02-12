@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
   data: {
     tqlxArray: [
@@ -51,42 +52,134 @@ Page({
     
   },
 
-   ZhfwglClick:(tqArrybm,zhfwpath,that)=> {
-     console.log("zhfwpath<<<<<<<<<<",zhfwpath);
-     console.log("tqArrybm<<<<<<<<<<",tqArrybm);
+  ZhfwglClick:(tqArrybm,zhfwpath,that) => {
+    //正在校验
+    let bm = app.data.zjbzxbm.substr(0, 6);
+    let url001 = "/" + bm + "/app_12329/" + zhfwpath + ".businesscheck";
+    my.httpRequest({
+      url: app.data.url + '/app-web/public/skip/second.service',
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "citycode": app.data.zjbzxbm.substr(0, 6)
+      },
+      data: {
+        appid: "20170517000101",
+        sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
+        path:url001
+      },
+      dataType: 'json',
+      contentType: 'application/json;charset=UTF-8', //contentType很重要    
+      success: (res) => {
+        console.log("&&&");
+        console.log(res);
+        if (res.status == "200") {
+            console.log("nmasinnnnnnn<<<<",that.__proto__.data);
+            let resultjson=that.__proto__.data;
+            that.jcrywblyzClick(resultjson.tqlxArray[tqArrybm].bm,resultjson.tqlxArray[tqArrybm].gjhtqywlx, resultjson.tqlxArray[tqArrybm].tqyy,that);
+        } else {
+            my.hideLoading();
+            my.alert({ content: res.msg});
+        }
+        // my.hideLoading();
+      },
+      fail: (res) => {
+        my.hideLoading();
+        my.alert({ content: "网络错误" });
+      },
+    });
+  },
 
-      // let bm = "C13010";
-      // let url = "/" + bm + "/app_12329/" + zhfwpath + ".businesscheck";
-      // let obj = new Object();
-      // obj.path = url;
-      // obj.appid = localStorage.appid;
-      // obj.citybm = localStorage.citybm;
-      // obj.sign = shineyue.getSign(obj);//加密;
-      // console.log("url = ", url);
-      // let param = {
-      //     url: "/app-web/public/skip/second.service",
-      //     data: JSON.stringify(obj),
-      //     headers: {citycode: obj.citybm}
-      // };
-      // Shine.post(param, function (result, err) {
-      //     if (err) {
-      //         shineyue.showError("网络错误");
-      //         return;
-      //     }
-      //     let resultjson = JSON.parse(result);
-      //     console.log("businesscheck==", resultjson);
-      //     if (resultjson.status == "200") {
-      //         that.isrealnameClick(tqArrybm);
-      //         // jcrywblyzClick(tqlxArray[index].bm, tqlxArray[index].gjhtqywlx, tqlxArray[index].tqyy);//TODO 测试去掉支付宝登录
-      //     } else {
-      //         shineyue.showDismiss();
-      //         shineyue.showAlertPopRoot("提示", resultjson.msg, "确定");
-      //     }
-      //   });
-   },
-
+jcrywblyzClick:(tiqupath,gjhtqywlx,tqyy,that) => {
+    my.httpRequest({
+      url: app.data.url + '/app-web/public/skip/second.service',
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "citycode": app.data.zjbzxbm.substr(0, 6)
+      },
+      data: {
+        appid: "20170517000101",
+        sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
+        path:"/HFSC/common/jcrywblyz.service",
+        ffbm:"01",
+        gjhtqywlx:gjhtqywlx,
+        dwzh:"2016003028",
+        grzh: app.data.grzh,
+        khbh:"",
+        userid:parseFloat(0),
+        zhbh:"",
+        zjbzxbm:app.data.zjbzxbm.substr(0, 6),
+        blqd:"app_12329"
+      },
+      dataType: 'json',
+      contentType: 'application/json;charset=UTF-8', //contentType很重要    
+      success: (res) => {
+        console.log("&&&>>>>>>>>>>>>>");
+        console.log(res);
+        my.hideLoading();
+      },
+      fail: (res) => {
+        my.hideLoading();
+        my.alert({ content: "网络错误" });
+      },
+    });
+  },
   
 
-
+//  isrealnameClick:(tqArrybm,that) => {
+//     //正在校验
+//     console.log('isrealnameClick>>>', app.data.grzh);
+//     my.httpRequest({
+//       url: app.data.url + '/app-web/public/skip/first.service',
+//       method: 'POST',
+//       headers: {
+//         "Content-Type": "application/json",
+//         "citycode": app.data.zjbzxbm.substr(0, 6)
+//       },
+//       data: {
+//         appid: "20170517000101",
+//         sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
+//         path:"/app_12329/public/auth/isrealname.service",
+//         blqd:"app_12329",
+//         citybm:app.data.zjbzxbm.substr(0, 6),
+//         xingming: app.data.xingming,
+//         zjhm: app.data.zjhm
+//       },
+//       dataType: 'json',
+//       contentType: 'application/json;charset=UTF-8', //contentType很重要    
+//       success: (res) => {
+//         console.log("&&&",JSON.parse(res.data));
+//         console.log(res.data.ret);
+//         let resultjson=JSON.parse(res.data);
+//         console.log("&&&",resultjson.ret);
+//         if (resultjson.ret == "0") {
+//             //isrealnameClick(index);
+//             // jcrywblyzClick(tqlxArray[index].bm, tqlxArray[index].gjhtqywlx, tqlxArray[index].tqyy);//TODO 测试去掉支付宝登录
+//         } else {
+            
+//             //   my.hideLoading();
+//             //   my.confirm({
+//             //   title: '提示',
+//             //   content: '完善信息后办理提取业务',
+//             //   confirmButtonText: '确定',
+//             //   cancelButtonText: '取消',
+//             //   success: (result) => {
+//             //     console.log("<<<<<<<",result.confirm);
+//             //     if(result.confirm){
+//             //       my.navigateTo({ url: '../../mine/grzx/grzx' })
+//             //     }
+//             //    },
+//             //  });
+//         }
+//         // my.hideLoading();
+//       },
+//       fail: (res) => {
+//         my.hideLoading();
+//         my.alert({ content: "系统维护中..." });
+//       },
+//     });
+//   },
+  
 
 });

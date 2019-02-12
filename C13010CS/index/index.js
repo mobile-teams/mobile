@@ -158,6 +158,7 @@ Page({
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
         console.log(res);
+        console.log(">>>>>>",res.data);
         grzhye1 = res.data.data[0].gjjxx[0].grzhye
         this.setData({
           grzhye: app.fmoney(grzhye1),
