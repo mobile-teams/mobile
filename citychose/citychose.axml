@@ -3,7 +3,6 @@
   <view  class = "page-description">
     <view  class="page-section">
       <view class="page-section-demo">
-        
         <button type="primary" style="margin-top: 20px;border-radius: 5px;" onTap="csxz">{{xzcs}}</button>
         <button type="primary" style="margin-top: 20px;border-radius: 5px;" onTap="sqdl">授权登陆</button>
       </view>
