@@ -23,7 +23,7 @@
 .home_grids {
 　
   overflow: hidden;
-　margin-top: 10px
+　margin-top: 1px;
 }
 
 .home_grid{
