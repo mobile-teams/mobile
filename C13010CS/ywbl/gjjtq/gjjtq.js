@@ -90,96 +90,39 @@ Page({
     });
   },
 
-jcrywblyzClick:(tiqupath,gjhtqywlx,tqyy,that) => {
+jcrywblyzClick:(tiqupath,gjhtqywlx,tqyybm,that) => {
     my.httpRequest({
-      url: app.data.url + '/app-web/public/skip/second.service',
+      url: app.data.url + '/app-web/public/gjjtq/chk.service',
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm.substr(0, 6)
+        "citycode":app.data.zjbzxbm.substr(0, 6)
       },
       data: {
         appid: "20170517000101",
         sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-        path:"/HFSC/common/jcrywblyz.service",
-        ffbm:"01",
-        gjhtqywlx:gjhtqywlx,
-        dwzh:"2016003028",
+        tqyy:tqyybm,
         grzh: app.data.grzh,
-        khbh:"",
-        userid:parseFloat(0),
-        zhbh:"",
-        zjbzxbm:app.data.zjbzxbm.substr(0, 6),
-        blqd:"app_12329"
+        citybm: "C13010KF",
       },
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
-      success: (res) => {
-        console.log("&&&>>>>>>>>>>>>>");
-        console.log(res);
-        my.hideLoading();
+      success: (ret) => {
+        console.log(ret);
+        if (ret.data.ret == "0") {
+          my.hideLoading();
+          my.navigateTo({ url: '../../ywbl/gjjtq/ltxhtq/ltxhtq' });
+        } else {
+          my.hideLoading();
+         // my.alert({ content: ret.data.msg });
+          my.navigateTo({ url: '../../ywbl/gjjtq/ltxhtq/ltxhtq' });
+        }
       },
-      fail: (res) => {
+      fail: (ret) => {
         my.hideLoading();
-        my.alert({ content: "网络错误" });
+        //my.alert({ content: "网络错误" });
+        my.navigateTo({ url: '../../ywbl/gjjtq/ltxhtq/ltxhtq' });
       },
     });
   },
-  
-
-//  isrealnameClick:(tqArrybm,that) => {
-//     //正在校验
-//     console.log('isrealnameClick>>>', app.data.grzh);
-//     my.httpRequest({
-//       url: app.data.url + '/app-web/public/skip/first.service',
-//       method: 'POST',
-//       headers: {
-//         "Content-Type": "application/json",
-//         "citycode": app.data.zjbzxbm.substr(0, 6)
-//       },
-//       data: {
-//         appid: "20170517000101",
-//         sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-//         path:"/app_12329/public/auth/isrealname.service",
-//         blqd:"app_12329",
-//         citybm:app.data.zjbzxbm.substr(0, 6),
-//         xingming: app.data.xingming,
-//         zjhm: app.data.zjhm
-//       },
-//       dataType: 'json',
-//       contentType: 'application/json;charset=UTF-8', //contentType很重要    
-//       success: (res) => {
-//         console.log("&&&",JSON.parse(res.data));
-//         console.log(res.data.ret);
-//         let resultjson=JSON.parse(res.data);
-//         console.log("&&&",resultjson.ret);
-//         if (resultjson.ret == "0") {
-//             //isrealnameClick(index);
-//             // jcrywblyzClick(tqlxArray[index].bm, tqlxArray[index].gjhtqywlx, tqlxArray[index].tqyy);//TODO 测试去掉支付宝登录
-//         } else {
-            
-//             //   my.hideLoading();
-//             //   my.confirm({
-//             //   title: '提示',
-//             //   content: '完善信息后办理提取业务',
-//             //   confirmButtonText: '确定',
-//             //   cancelButtonText: '取消',
-//             //   success: (result) => {
-//             //     console.log("<<<<<<<",result.confirm);
-//             //     if(result.confirm){
-//             //       my.navigateTo({ url: '../../mine/grzx/grzx' })
-//             //     }
-//             //    },
-//             //  });
-//         }
-//         // my.hideLoading();
-//       },
-//       fail: (res) => {
-//         my.hideLoading();
-//         my.alert({ content: "系统维护中..." });
-//       },
-//     });
-//   },
-  
-
 });
