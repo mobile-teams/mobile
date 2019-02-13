@@ -1,0 +1,19 @@
+
+    <block a:for="{{itemsGlb}}" a:for-item="list">
+        <view  style="width:100%;background-color: white; ">
+          <view class="list-title">{{list.title}}</view>
+          <view class="list-brief">{{list.brief}}</view>
+          <block a:for="{{list.list}}">
+            <view  style="width:99.3%;float:left;" >
+              <list-item arrow="{{false}}" index=" {{list.index}}-{{index}}"  onClick="onItemClick" multipleLine="{{false}}" key="items-{{item.name}}" last="{{true}">
+                  <view  style="height:40px;display: flex; align-items: center" >
+                    <image src="{{item.thumb}}" class="thumb" mode="aspectFit" />
+                    <text class="component-name">{{item.text}}</text>
+                  </view>
+              </list-item>
+              <view  class="border-line">
+              </view>
+            </view>
+          </block>
+        </view>
+    </block>

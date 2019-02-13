@@ -5,7 +5,7 @@ const  bmgjlist= [
         icon: '/image/icon/ffwdcx.png',
         text: '服务网点查询',
         //desc: '描述信息',
-        path: '/pages/component/webview/webview',
+         path: '/C13010CS/fwwdxx/fwwdxx',
       },
       {
         icon: '/image/icon/fdjsq.png',
