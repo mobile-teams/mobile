@@ -23,8 +23,8 @@ App({
     xingming: "徐建伟",
     zjhm: "130181198610057370",
     
-    url: "https://api.sjgjj.cn",
-    // url:"http://192.168.54.77:8089",
+    //url: "https://api.sjgjj.cn",
+     url:"http://192.168.54.77:8089",
     //zjbzxbm:"C23020KF",
      zjbzxbm: "C13010CS",
     //zjbzxbm: "C22040CS",
