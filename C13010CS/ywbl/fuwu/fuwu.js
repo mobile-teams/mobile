@@ -42,7 +42,7 @@ const  dkywlist= [
       {
         icon: '/image/icon/ydcsq.png',
         text: '月对冲签约',
-        path: '/pages/component/webview/webview',
+        path: '/C13010CS/ywbl/ydcqy/xuzhi/xuzhi',
       },
     ];
 const  wdywlist= [

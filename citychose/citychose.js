@@ -229,25 +229,13 @@ Page({
         scopes: 'auth_user',
         success: ({ authCode }) => {
           //获取真实用户名和密码;
-          app.setXingming('徐建伟');
-          app.setZjhm('130181198610057370');
+          app.setXingming('冯如车');
+          app.setZjhm('130105197412111224');
           app.setZjbzxbm(this.data.citybm);
         //  my.navigateTo({ url: '../index/index' });
         
           my.navigateTo({ url: '../'+this.data.citybm+'/index/index' });
           //my.navigateTo({ url: '../C13010/index/index' });
-
-          // my.switchTab({
-          //   url: '../index/index',
-          //   success: () => {
-          //     my.showToast({
-          //       content: '成功',
-          //       type: 'success',
-          //       duration: 4000
-          //     });
-          //   }
-          // }
-          // );
         },
       });
     }
