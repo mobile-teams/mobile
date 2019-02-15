@@ -114,14 +114,14 @@ jcrywblyzClick:(tiqupath,gjhtqywlx,tqyybm,that) => {
           my.navigateTo({ url: '../../ywbl/gjjtq/ltxhtq/ltxhtq' });
         } else {
           my.hideLoading();
-         // my.alert({ content: ret.data.msg });
-          my.navigateTo({ url: '../../ywbl/gjjtq/ltxhtq/ltxhtq' });
+          my.alert({ content: ret.data.msg });
+          //my.navigateTo({ url: '../../ywbl/gjjtq/ltxhtq/ltxhtq' });
         }
       },
       fail: (ret) => {
         my.hideLoading();
-        //my.alert({ content: "网络错误" });
-        my.navigateTo({ url: '../../ywbl/gjjtq/ltxhtq/ltxhtq' });
+        my.alert({ content: "网络错误" });
+        //my.navigateTo({ url: '../../ywbl/gjjtq/ltxhtq/ltxhtq' });
       },
     });
   },
