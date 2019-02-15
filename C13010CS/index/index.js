@@ -98,8 +98,8 @@ Page({
 
     // 轮播图变量
     images: [
-      { imgUrl: '../../image/1.jpg', url: 'https://www.shineyue.com/' },
-      { imgUrl: '../../image/2.jpg', url: 'https://www.baidu.com/' },
+      { imgUrl: '../../image/1.jpg', url: 'http://192.168.54.100:8088/app_12329/index.html' },
+      { imgUrl: '../../image/2.jpg', url: 'http://192.168.54.77:8083/wt-web-gr/grlogin' },
       // { imgUrl: '../../image/3.jpg' },
       // { imgUrl: '../../image/4.jpg' },
     ],
@@ -536,11 +536,11 @@ Page({
       pros:this.data.pros+1
     });
     let pros001=this.data.pros;
-    ctx.clearRect(0, 0, width, width);
-    ctx.beginPath();
-    ctx.moveTo(width/2, width/2);
-    ctx.arc(width/2, width/2, width/2, 0, Math.PI * 2, false);
-    ctx.closePath();
+      ctx.clearRect(0, 0, width, width);
+      ctx.beginPath();
+      ctx.moveTo(width/2, width/2);
+      ctx.arc(width/2, width/2, width/2, 0, Math.PI * 2, false);
+      ctx.closePath();
     if(this.data.dkzt == '结清状态'){
       ctx.fillStyle = 'rgba(35,170,233,255)';
     }else{
