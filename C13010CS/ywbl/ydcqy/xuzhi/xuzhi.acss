@@ -1,0 +1,13 @@
+.xuzhi-article{
+  padding:20px 15px;
+  font-size:15px;
+}
+.page__bd{
+  padding:10px;
+  text-align:left
+}
+.ant{
+  text-align: center; 
+  margin-top: 10px;
+  font-size: 14px;
+}
