@@ -1,7 +1,7 @@
 
 <view class="msg">
   <view>
-    <image src="{{'../../../image/about.png'}}" class="logo" />
+    <image src="{{gjjzxlogo}}" style="background-size: 100%;width: 50%;height: 2rem;"  />
   </view>
 </view>
 <!-- <view style="margin-top: 10px;" /> -->

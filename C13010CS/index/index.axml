@@ -1,6 +1,6 @@
 <view class="banner">
-<view class="flex col ac" style="{{padding: '20px 0'}}">
-    <view class="text-white text-14" style="{{margin: '12px 0'}}">账户余额(元)</view>
+<view class="flex col ac" style="{{padding: '10px 0'}}">
+  <view class="text-white text-14" style="{{margin: '10px 0'}}">账户余额(元)</view>
   <view class="flex ac text-white" style="{{fontSize: 30}}">
   <view>{{grzhye}}</view>
   <view a:if="{{flag}}">  

@@ -39,6 +39,13 @@ Page({
         path:'fctwoyears'
       },
     ],
+    gjjzxlogo:""
+  },
+  onLoad() {
+    this.setData({
+      gjjzxlogo: "../../../image/cityImg/"+app.data.zjbzxbm+".png"
+    })
+    console.log("gjjzxlogo",this.data.gjjzxlogo);
   },
   onItemClick(ev) {
     console.log("<<<<<<",this.data.tqlxArray[ev.detail.index]);

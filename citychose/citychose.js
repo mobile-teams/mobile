@@ -242,7 +242,7 @@ Page({
           app.setZjbzxbm(this.data.citybm);
         //  my.navigateTo({ url: '../index/index' });
         
-          my.navigateTo({ url: '../'+this.data.citybm+'/index/index' });
+          my.redirectTo({ url: '../'+this.data.citybm+'/index/index' });
           //my.navigateTo({ url: '../C13010/index/index' });
 
         },

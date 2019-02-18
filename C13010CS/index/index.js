@@ -99,7 +99,7 @@ Page({
     // 轮播图变量
     images: [
       { imgUrl: '../../image/1.jpg', url: 'http://192.168.54.100:8088/app_12329/index.html' },
-      { imgUrl: '../../image/2.jpg', url: 'http://192.168.54.77:8083/wt-web-gr/grlogin' },
+      { imgUrl: '../../image/2.jpg', url: 'http://192.168.54.100:8088/app_12329/index.html' },
       // { imgUrl: '../../image/3.jpg' },
       // { imgUrl: '../../image/4.jpg' },
     ],
@@ -291,8 +291,8 @@ Page({
               });
             } else {
               this.setData({
-                zjtqje: jcxx[jcxx.length - 1].fse,
-                zjtqsj: jcxx[jcxx.length - 1].ywfsrq
+                zjtqje: zqxx[zqxx.length - 1].fse,
+                zjtqsj: zqxx[zqxx.length - 1].ywfsrq
               });
             }
             my.hideLoading();
