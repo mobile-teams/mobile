@@ -157,8 +157,20 @@ Page({
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
+      
         console.log(res);
         console.log(">>>>>>",res.data);
+        console.log("=====",res.data.data)
+        if (res.data.data == null) {
+        my.alert({
+              title:"提示",
+              content: '未查询到您的公积金信息!!',
+              success: () => {
+                //my.navigateBack();
+                my.redirectTo({ url: '../../citychose/citychose' });
+              }
+            });
+         }else{
         grzhye1 = res.data.data[0].gjjxx[0].grzhye
         this.setData({
           grzhye: app.fmoney(grzhye1),
@@ -307,6 +319,17 @@ Page({
           },
         });
       }
+      },
+      fail: function(res) {
+             my.alert({
+              title:"提示",
+              content: '网络错误!!',
+              success: () => {
+                //my.navigateBack();
+                my.redirectTo({ url: '../../citychose/citychose' });
+              }
+            });       
+      },
     });
     my.httpRequest({
       url: app.data.url + '/app-web/public/zhcx/info.service',
@@ -449,8 +472,8 @@ Page({
           });
         } else {
           that.setData({
-            zjtqje: jcxx[jcxx.length - 1].fse,
-            zjtqsj: jcxx[jcxx.length - 1].ywfsrq
+            zjtqje: jcxx[zqxx.length - 1].fse,
+            zjtqsj: jcxx[zqxx.length - 1].ywfsrq
           });
         }
         my.hideLoading();

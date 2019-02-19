@@ -102,8 +102,8 @@
 </view>
  
 </view>
-   <view class="card_box">
-    <swiper
+   <!-- <view class="card_box">
+    <swiper 
             indicator-dots="{{indicatorDots}}"
             autoplay="{{autoplay}}"
             interval="{{interval}}"
@@ -113,17 +113,12 @@
             current = {{current}}
           >
       <block a:for="{{images}}" a:for-index="index">
-        <swiper-item >
-            <!-- 通过for循环和判断来控制展示的三张照片 -->
-            <!-- <image src="{{item.imgUrl}}" mode="aspectFit" class="active" a:if="{{index == current}}"/>
-            <image src="{{item.imgUrl}}" mode="aspectFit" class="after" a:elif="{{index > current}}"/>
-            <image src="{{item.imgUrl}}" mode="aspectFit" class="before" a:else="{{index < current}}"/> -->
-          
-            <image onTap="lunbotu"  data-value={{item.url}}  src="{{item.imgUrl}}" mode="aspectFit" class="actives"/>
+        <swiper-item >          
+            <image onTap="lunbotu"   data-value={{item.url}}  src="{{item.imgUrl}}" mode="aspectFit" class="actives"/>
         </swiper-item>
       </block>
     </swiper>    
-  </view>
+  </view> -->
 
 <import src="/template/template.axml"></import>
 <template is="tabbar" data="{{tabbar:tabbar}}"></template>
