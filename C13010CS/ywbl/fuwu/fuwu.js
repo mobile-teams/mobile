@@ -10,7 +10,7 @@ const  bmgjlist= [
       {
         icon: '/image/icon/fdjsq.png',
         text: '房贷试算器',
-        path: '/pages/component/webview/webview',
+        path: '/C13010CS/tishi/tishi',
       },
     ];
 
@@ -20,7 +20,7 @@ const  gjywlist= [
         text: '我要提取',
         //desc: '描述信息',
        // path: '../../ywbl/gjjtq/gjjtq',
-       path :'/C13010CS/ywbl/gjjtq/gjjtq',
+       path :'/C13010CS/tishi/tishi',
       }
     ];
 const  dkywlist= [
@@ -32,17 +32,17 @@ const  dkywlist= [
       {
         icon: '/image/icon/tqhb.png',
         text: '提前还本',
-        path: '/pages/component/webview/webview',
+        path: '/C13010CS/tishi/tishi',
       },
       {
         icon: '/image/icon/tqjq.png',
         text: '提前结清',
-        path: '/pages/component/webview/webview',
+        path: '/C13010CS/tishi/tishi',
       },
       {
         icon: '/image/icon/ydcsq.png',
         text: '月对冲签约',
-        path: '/C13010CS/ywbl/ydcqy/xuzhi/xuzhi',
+        path: '/C13010CS/tishi/tishi',
       },
     ];
 const  wdywlist= [

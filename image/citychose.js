@@ -2,7 +2,6 @@ const app = getApp();
 Page({
   data: {
     xzcs: '../image/cityImg/C13990.png',
-    citybm: '',
     xzcsflag:'0',
     list3: [
       {
@@ -185,14 +184,14 @@ Page({
       hotCities: [
         {
           city: '石家庄',
-          adCode: 'C13010CS',
+          adCode: 'C13010',
           spell: 'shijiazhuang'
         }
       ],
       cities: [
         {
           city: '石家庄',
-          adCode: 'C13010CS',
+          adCode: 'C13010',
           spell: 'shijiazhuang'
         },
         {
@@ -209,8 +208,7 @@ Page({
         }
         this.setData({
           xzcs: "../image/cityImg/"+res.adCode+".png",
-          xzcsflag:"1",
-          citybm:res.adCode,
+          xzcsflag:"1"
         });
       },
     });
@@ -235,15 +233,25 @@ Page({
         scopes: 'auth_user',
         success: ({ authCode }) => {
           //获取真实用户名和密码;
-          // app.setXingming('冯如车');
-          // app.setZjhm('130105197412111224');
-             app.data.xingming= "徐建伟",
-             app.data.zjhm = "130181198610057370",
-          app.setZjbzxbm(this.data.citybm);
-        //  my.navigateTo({ url: '../index/index' });
-        
-          my.redirectTo({ url: '../'+this.data.citybm+'/index/index' });
-          //my.navigateTo({ url: '../C13010/index/index' });
+          app.setXingming('徐建伟');
+          app.setZjhm('130181198610057370');
+          
+          console.log("***"+authCode);
+          // my.navigateTo({ url: '../index/index' });
+          my.redirectTo({ url: '../C13010CS/index/index' });
+          
+          // my.reLaunch({url:'../index/index'});
+          // my.switchTab({
+          //   url: '../index/index',
+          //   success: () => {
+          //     my.showToast({
+          //       content: '成功',
+          //       type: 'success',
+          //       duration: 4000
+          //     });
+          //   }
+          // }
+          // );
 
         },
       });
