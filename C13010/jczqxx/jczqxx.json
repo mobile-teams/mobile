@@ -1,9 +1,0 @@
-{
-  "defaultTitle": "缴存支取明细",
-  "usingComponents":{
-    "list": "mini-antui/es/list/index",
-    "list-item": "mini-antui/es/list/list-item/index",
-     "tabs": "mini-antui/es/tabs/index",
-    "tab-content": "mini-antui/es/tabs/tab-content/index"
-  }
-}
