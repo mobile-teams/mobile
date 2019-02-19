@@ -22,7 +22,10 @@ Page({
   },
    //返回
   fanhuiClick() {
-    my.navigateTo({ url: '../../gjjtq/'+this.data.fhjmmc+'/'+this.data.fhjmmc});
+    //my.navigateTo({ url: '../../gjjtq/'+this.data.fhjmmc+'/'+this.data.fhjmmc});
+    my.navigateBack({
+       delta: 1
+    });
   },
   //添加银行信息
   addyhzhInput(e) {
@@ -33,6 +36,10 @@ Page({
   },
 
   addyhzhClick(){
+     my.showLoading({
+      content:'添加中...',
+      success: (res) => {},
+    });
      my.httpRequest({
       url: app.data.url + '/app-web/public/gjjtq/yhktj.service',
       method: 'POST',
@@ -56,12 +63,28 @@ Page({
         if(result != null && result.data != null){
             if(result.data.ret == 0){
               // my.alert({ content:  result.data.msg });  //如何显示一段时间在跳转？
-               my.navigateTo({ url: '../../gjjtq/'+this.data.fhjmmc+'/'+this.data.fhjmmc});
+              my.showToast({
+               content: '添加成功',
+               success: (res) => {
+                 //my.hideLoading();
+                 my.navigateBack({
+                 delta: 1
+                 });
+                 //my.navigateTo({ url: '../../gjjtq/'+this.data.fhjmmc+'/'+this.data.fhjmmc});
+               },
+             });
+               //my.navigateTo({ url: '../../gjjtq/'+this.data.fhjmmc+'/'+this.data.fhjmmc});
             } else {
-               my.alert({ content: result.data.msg });
+              my.hideLoading();
+              my.showToast({
+               content: result.data.msg ,
+               success: (res) => {},
+              });
+            // my.alert({ content: result.data.msg });
             }
         }else{
-            shineyue.showError("添加失败");
+          my.hideLoading();
+          shineyue.showError("添加失败");
         }
       },
       fail: (result) => {

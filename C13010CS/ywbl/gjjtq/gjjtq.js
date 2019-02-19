@@ -41,6 +41,10 @@ Page({
     ],
   },
   onItemClick(ev) {
+    my.showLoading({
+      content:'加载中...',
+      success: (res) => {},
+    });
     console.log("<<<<<<",this.data.tqlxArray[ev.detail.index]);
     if(ev.detail.index=='2'){
       this.ZhfwglClick(ev.detail.index,this.data.tqlxArray[ev.detail.index].zhfwpath,this);

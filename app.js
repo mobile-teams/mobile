@@ -151,7 +151,7 @@ App({
       items:[
       {
        // "pagePath": "/"+this.data.citybm+"/tishi/tishi",
-       "pagePath": "/tishi/tishi",
+       "pagePath": "/ywbl/daiban/daiban",
         "icon": "/image/fuwu1.png",
         "activeIcon": "/image/fuwu.png",
         "name": "新闻动态"
