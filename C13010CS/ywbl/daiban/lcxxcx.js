@@ -23,7 +23,8 @@ Page({
       },
       data: {
         appid: "20170517000101",
-        citybm:"C13010KF",
+        //citybm:"C13010KF",
+        citybm: app.data.zjbzxbm,
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         processInstanceId:this.data.processInstanceId
       },
