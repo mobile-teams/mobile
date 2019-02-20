@@ -390,7 +390,8 @@ Page({
         that.setData({
           grzhye: app.fmoney(grzhye1),
           grzh: res.data.data[0].gjjxx[0].grzh,
-          grzhzt: res.data.data[0].gjjxx[0].grzhzt
+          grzhzt: res.data.data[0].gjjxx[0].grzhzt,
+          flag: true,
         });
         app.setGrzh(res.data.data[0].gjjxx[0].grzh)
         that.zjjctqxx(that);

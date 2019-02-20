@@ -237,8 +237,10 @@ Page({
           //获取真实用户名和密码;
           // app.setXingming('冯如车');
           // app.setZjhm('130105197412111224');
-             app.data.xingming= "徐建伟",
-             app.data.zjhm = "130181198610057370",
+            //  app.data.xingming= "徐建伟",
+            //  app.data.zjhm = "130181198610057370",
+            app.data.xingming= "任彦军",
+             app.data.zjhm = "130131198905065112",
           app.setZjbzxbm(this.data.citybm);
         //  my.navigateTo({ url: '../index/index' });
         

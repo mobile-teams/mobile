@@ -278,11 +278,11 @@ Serchyqhk:(that)=>{
       method: 'POST',
       headers: {
             "Content-Type": "application/json",
-            "citycode":"C22040"
+            "citycode":app.data.zjbzxbm.substr(0,6)
       },
       data: {
         appid: "20170517000101",
-        zjbzxbm:"C22040CS",
+        zjbzxbm:app.data.zjbzxbm,
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         jkhtbh:app.data.jkhtbh
       },
@@ -369,7 +369,7 @@ onItemClick2(ev){
      return;
    }
    this.setData({
-      hkjhxq:ev.index,
+      hkjhxq2:ev.index,
       yhrq: this.data.items2[ev.index].yhrq,
       yhqs:this.data.items2[ev.index].yhqs,
       yqbjhj:this.data.items2[ev.index].yqbjhj,

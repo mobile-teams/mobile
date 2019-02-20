@@ -50,7 +50,7 @@ const  wdywlist= [
     icon: '/image/icon/wdyw.png',
     text: '我的业务',
     //desc: '描述信息',
-     path: '/pages/component/webview/webview',
+     path: '/C13010CS/tishi/tishi',
   }
 ];
 
