@@ -26,11 +26,13 @@ Page({
   },
 
   onLoad() {
-    this.Serchyhxx(this);
+    //this.Serchyhxx(this);
     this.getGjjzhxxcx(this);
     this.ywlshcx(this);
   },
-
+ onShow() {
+   this.Serchyhxx(this);
+ },
  
   Serchyhxx:(that)=>{
      my.httpRequest({

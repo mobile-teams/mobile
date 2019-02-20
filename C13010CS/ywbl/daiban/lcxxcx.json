@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "流程信息查询",
+  
+  "usingComponents":{
+    "list": "mini-antui/es/list/index"
+  }
+}

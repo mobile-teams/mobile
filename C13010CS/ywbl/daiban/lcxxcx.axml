@@ -1,0 +1,18 @@
+ <list>
+  <block a:for="{{items}}">   
+    <scroll-view style="border-bottom:1px solid rgba(0,0,0,.5); height: auto;" scroll-y="false" scroll-x="false"  >
+      <view class="form-row">
+      <view class="form-row-label001">节点名称</view>
+      <view class="form-row-content001" slot="extra">{{item.taskName}} </view>
+      </view>
+      <view class="form-row">
+      <view class="form-row-label001">审批意见</view>
+      <view class="form-row-content001" slot="extra">{{item.comment}} </view>
+      </view>
+      <view class="form-row">
+      <view class="form-row-label001">办理时间</view>
+      <view class="form-row-content001" slot="extra">{{item.time}} </view>
+      </view>
+    </scroll-view>
+  </block>
+</list>

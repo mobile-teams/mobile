@@ -46,14 +46,14 @@ Page({
       },
       data: {
         appid: "20170517000101",
-        zjbzxbm:app.data.zjbzxbm,
+        zjbzxbm:"C13010KF",
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         grzh:app.data.grzh
       },
       dataType: 'json',
       contentType : 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
-        console.log("res>>>>>>",res);res.data.data[0].grbh
+        console.log("res>>>>>>",res);res.data.data[0].grbhgrbh
         console.log("res.data.data[0].grbh>>>>>>",res.data.data[0].grbh);
         this.setData({
           grbh: res.data.data[0].grbh
@@ -103,6 +103,10 @@ Page({
 
   submitClick:(that)=>{
      console.log("提交审批....");
+      my.showLoading({
+      content:'提交审批...',
+      //success: (res) => {},
+    });
       my.httpRequest({
       url: app.data.url + '/app-web/public/gjjtq/ltxtq_process_start.service',
       method: 'POST',
@@ -114,8 +118,8 @@ Page({
         appid: "20170517000101",
         sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         tqyy:that.data.tqyybm,
-        tqlx:that.data.tqlx,
-        tqjehj:that.data.tqjehj,
+        tqlx:that.data.xhlx,
+        tqjehj: parseFloat(330000),
         grzh: app.data.grzh,
         tqyhzh:that.data.skyhzh,
         skyh:that.data.skyh,
@@ -128,10 +132,28 @@ Page({
       success: (ret) => {
         console.log(ret);
        if (ret.data.ret == "0") {
-          my.alert({ content: "提交成功" });
+          my.showToast({
+               content: '提交成功',
+               success: (res) => {
+                 //my.hideLoading();
+                 my.navigateBack({
+                 delta: 2
+                 });
+                 //my.navigateTo({ url: '../../gjjtq/'+this.data.fhjmmc+'/'+this.data.fhjmmc});
+               },
+          });
+          //my.alert({ content: "提交成功" });
         } else {
           my.hideLoading();
-          my.alert({ content: ret.data.msg });
+          my.showToast({
+             content: ret.data.msg,
+             success: (res) => {
+              my.navigateBack({
+              delta: 2
+              });
+            },
+          });
+          //my.alert({ content: ret.data.msg });
         }
       },
       fail: (ret) => {
