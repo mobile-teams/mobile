@@ -54,7 +54,8 @@ Page({
         yhzh: this.data.addyhzh,
         skyhmc:this.data.addskyh,
         lhh :jcrkhdj11DicGlobal.grckzhkhyhdm.substr(0,3),
-        citybm:"C13010KF",
+        //citybm:"C13010KF",
+        citybm: app.data.zjbzxbm,
       },
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
@@ -108,7 +109,8 @@ Page({
         appid: "20170517000101",
         sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         grckzhkhyhmc: ' ',
-        citybm:"C13010KF",
+        //citybm:"C13010KF",
+        citybm: app.data.zjbzxbm,
       },
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    

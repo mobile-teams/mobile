@@ -19,8 +19,8 @@ const  gjywlist= [
         icon: '/image/icon/gjjtq.png',
         text: '我要提取',
         //desc: '描述信息',
-       // path: '../../ywbl/gjjtq/gjjtq',
-       path :'/C13010CS/tishi/tishi',
+       path: '../../ywbl/gjjtq/gjjtq',
+      // path :'/C13010CS/tishi/tishi',
       }
     ];
 const  dkywlist= [
@@ -50,7 +50,7 @@ const  wdywlist= [
     icon: '/image/icon/wdyw.png',
     text: '我的业务',
     //desc: '描述信息',
-     path: '/pages/component/webview/webview',
+     path: '../../ywbl/daiban/daiban',
   }
 ];
 

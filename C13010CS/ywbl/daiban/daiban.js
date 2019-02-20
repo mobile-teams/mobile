@@ -47,7 +47,8 @@ Page({
       },
       data: {
         appid: "20170517000101",
-        zjbzxbm:"C13010KF",
+        //zjbzxbm:"C13010KF",
+        zjbzxbm: app.data.zjbzxbm,
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         grzh:app.data.grzh
       },
@@ -83,7 +84,8 @@ Page({
         appid: "20170517000101",
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         grbh:that.data.grbh,
-        citybm: "C13010KF",
+        //citybm: "C13010KF",
+        citybm: app.data.zjbzxbm,
       },
       dataType: 'json',
       contentType : 'application/json;charset=UTF-8', //contentType很重要    
@@ -98,6 +100,10 @@ Page({
           if(lcjdmx1.length>0){
             that.setData({
               flagfq:1,
+            });
+          }else{
+            that.setData({
+              flagfq:0,
             });
           }
           console.log("lcjdmx1流程节点查询返回mc",lcjdmx1);
@@ -117,9 +123,10 @@ Page({
       
          }else{
           that.setData({
-            fqitems:lcjdmx
+            fqitems:lcjdmx,
+            flagfq:0,
            });
-           
+        
           my.showToast({type: 'none',content: '查无数据',duration: 3000});
         }
         console.log(">>>>",that.data.fqitems);
@@ -142,7 +149,8 @@ lcwddbxxcx:(that)=>{
         appid: "20170517000101",
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         grbh:that.data.grbh,
-        citybm: "C13010KF",
+        //citybm: "C13010KF",
+        citybm: app.data.zjbzxbm,
       },
       dataType: 'json',
       contentType : 'application/json;charset=UTF-8', //contentType很重要    
@@ -156,6 +164,10 @@ lcwddbxxcx:(that)=>{
           if(lcdbmx1.length>0){
             that.setData({
               flagdb:1,
+            });
+          }else{
+            that.setData({
+              flagdb:0,
             });
           }
           console.log("lcdbmx1流程待办查询返回mc",lcdbmx1);
@@ -174,7 +186,8 @@ lcwddbxxcx:(that)=>{
           });
          }else{
           that.setData({
-            dbitems:lcdbmx
+            dbitems:lcdbmx,
+            flagdb:0
            });
           my.showToast({type: 'none',content: '查无数据',duration: 3000});
         }
@@ -190,8 +203,7 @@ lcwddbxxcx:(that)=>{
    console.log("查看退回原因<<<<<<<<<<",e.currentTarget.dataset.value);
    let dic =this.data.dbitems[e.currentTarget.dataset.value];
    let map =dic.processInstanceId;
-   //my.navigateTo({ url: '../../daiban/lcxxcx?map='+map });
-    my.navigateTo({ url: '../daiban/lcxxcx?map='+map }); 
+   my.navigateTo({ url: '../daiban/lcxxcx?map='+map }); 
   },
   //修改重新上传 
   tiaozhengClick(e){
@@ -207,9 +219,9 @@ lcwddbxxcx:(that)=>{
   //查看 
   wfqdlcxxcxClick(e){
    console.log("查看<<<<<<<<<<",e.currentTarget.dataset.value);
-   let dic =this.data.dbitems[e.currentTarget.dataset.value];
+   let dic =this.data.fqitems[e.currentTarget.dataset.value];
+   console.log("查看<<<<<<<<<<dic:",dic);
    let map =dic.processInstanceId;
-   //my.navigateTo({ url: '../../daiban/lcxxcx?map='+map });
    my.navigateTo({ url: '../daiban/lcxxcx?map='+map });
   }
 });

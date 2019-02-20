@@ -8,7 +8,7 @@
     <view  style={{display:flagdb===1?"block":"none"}}>         
         <list>
           <block a:for="{{dbitems}}">   
-            <scroll-view style="border-bottom:1px solid rgba(0,0,0,.5); height: auto;" scroll-y="false" scroll-x="false"  >
+            <scroll-view style="border-bottom:1px solid #EEE0E5; height: auto;" scroll-y="false" scroll-x="false"  >
                 <view class="form-row">
                 <view class="form-row-label001">服务渠道</view>
                 <view class="form-row-content001" slot="extra">{{item.channgel}} </view>
@@ -34,7 +34,7 @@
                 <view  class="form-row-content001" slot="extra">{{item.description}} </view>
                 </view>
             </scroll-view>
-            <scroll-view style="border-bottom:1px solid "  scroll-y="false" scroll-x="false"  >
+            <scroll-view style="border-bottom:1px solid  #EEE0E5; height: 25px;"  scroll-y="false" scroll-x="false"  >
               <view class="da">
               <view class="zuob" onTap="lcxxcxClick"  data-value={{item.num}} >
                 <text class="text-demo-text testt">查看退回原因</text>
@@ -55,7 +55,7 @@
     <view  style={{display:flagfq===1?"block":"none"}}>
       <list>
        <block a:for="{{fqitems}}">   
-        <scroll-view  style="border-bottom:1px solid rgba(0,0,0,.5); height: auto;" scroll-y="false" scroll-x="false"  >
+        <scroll-view  style="border-bottom:1px solid #EEE0E5; height: auto;" scroll-y="false" scroll-x="false"  >
             <view class="form-row">
             <view class="form-row-label001">服务渠道</view>
             <view class="form-row-content001" slot="extra">{{item.channgel}} </view>
@@ -81,7 +81,7 @@
             <view  class="form-row-content001" slot="extra">{{item.description}} </view>
             </view>
         </scroll-view>
-        <scroll-view style="border-bottom:1px solid "  scroll-y="false" scroll-x="false"  >
+        <scroll-view style="border-bottom:1px solid #EEE0E5; height: 25px;"  scroll-y="false" scroll-x="false"  >
           <view  onTap="wfqdlcxxcxClick"  data-value={{item.num}} >
             <text class="text-demo-text001 testt">查看</text>
           </view>

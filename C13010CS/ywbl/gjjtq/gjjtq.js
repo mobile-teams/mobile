@@ -114,7 +114,8 @@ jcrywblyzClick:(tiqupath,gjhtqywlx,tqyybm,that) => {
         sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         tqyy:tqyybm,
         grzh: app.data.grzh,
-        citybm: "C13010KF",
+        //citybm: "C13010KF",
+        citybm: app.data.zjbzxbm,
       },
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    

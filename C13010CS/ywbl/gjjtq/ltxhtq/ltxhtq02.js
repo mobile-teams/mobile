@@ -46,7 +46,8 @@ Page({
       },
       data: {
         appid: "20170517000101",
-        zjbzxbm:"C13010KF",
+        //zjbzxbm:"C13010KF",
+        zjbzxbm: app.data.zjbzxbm,
         sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         grzh:app.data.grzh
       },
@@ -68,6 +69,10 @@ Page({
   },
  
   jcrywblyzClick(){
+    if (parseFloat(that.data.tqjehj) > 300000) {
+      my.showToast({type: 'none',content: '提取金额超过30万，请到中心柜台办理业务',duration:3000});
+      return;
+    }
     my.httpRequest({
       url: app.data.url + '/app-web/public/gjjtq/chk.service',
       method: 'POST',
@@ -80,7 +85,8 @@ Page({
         sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         tqyy:this.data.tqyybm,
         grzh: app.data.grzh,
-        citybm: "C13010KF",
+        //citybm: "C13010KF",
+        citybm: app.data.zjbzxbm,
       },
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
@@ -99,14 +105,14 @@ Page({
       },
     });
   },
-
+  
 
   submitClick:(that)=>{
      console.log("提交审批....");
       my.showLoading({
       content:'提交审批...',
       //success: (res) => {},
-    });
+      });
       my.httpRequest({
       url: app.data.url + '/app-web/public/gjjtq/ltxtq_process_start.service',
       method: 'POST',
@@ -119,13 +125,14 @@ Page({
         sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         tqyy:that.data.tqyybm,
         tqlx:that.data.xhlx,
-        tqjehj: parseFloat(330000),
+        tqjehj:that.data.tqjehj,
         grzh: app.data.grzh,
         tqyhzh:that.data.skyhzh,
         skyh:that.data.skyh,
         grbh:that.data.grbh,
         ywlsh:that.data.ywlsh,
-        citybm: "C13010KF",
+        //citybm: "C13010KF",
+        citybm: app.data.zjbzxbm,
       },
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    

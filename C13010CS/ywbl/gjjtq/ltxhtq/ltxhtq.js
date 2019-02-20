@@ -46,7 +46,8 @@ Page({
         appid: "20170517000101",
         sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         grzh: app.data.grzh,
-        citybm: "C13010KF",
+        //citybm: "C13010KF",
+        citybm: app.data.zjbzxbm,
       },
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
@@ -190,7 +191,8 @@ Page({
         sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         grzh: grzh,
         dwzh:dwzh,
-        citybm: "C13010KF",
+        //citybm: "C13010KF",
+        citybm: app.data.zjbzxbm,
       },
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要  
@@ -226,7 +228,8 @@ Page({
       data: {
         appid: "20170517000101",
         sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-        citybm: "C13010KF",
+        //citybm: "C13010KF",
+        citybm: app.data.zjbzxbm,
       },
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要  
