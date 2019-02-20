@@ -150,8 +150,8 @@ App({
       backgroundColor: "#F5F5F9",
       items:[
       {
-       // "pagePath": "/"+this.data.citybm+"/tishi/tishi",
-       "pagePath": "/ywbl/daiban/daiban",
+       "pagePath": "/"+this.data.citybm+"/tishi/tishi",
+       //"pagePath": "/ywbl/daiban/daiban",
         "icon": "/image/fuwu1.png",
         "activeIcon": "/image/fuwu.png",
         "name": "新闻动态"
