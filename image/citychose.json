@@ -1,6 +1,0 @@
-{
-    "defaultTitle": "选择城市",
-    "usingComponents":{
-      "grid": "mini-antui/es/grid/index"
-    }
-}

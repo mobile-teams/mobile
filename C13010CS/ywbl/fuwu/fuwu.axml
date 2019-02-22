@@ -5,10 +5,10 @@
           <block a:for="{{list.list}}"   >
             <view  class="home_grid" style="width:33.3%;float:left">
               <list-item arrow="{{true}}" multipleLine="{{false}}" key="items-{{item.name}}" last="{{true}">
-                <navigator url="{{item.path}}"  style=" display: flex; flex-direction: column;align-items: center">
+                <view data-url="{{item.path}}" onTap ="tiaozhuan"   data-h5url="{{item.url}}" style=" display: flex; flex-direction: column;align-items: center">
                   <image src="{{item.icon}}" class="thumb"  mode="aspectFit" />
                   <text class="component-name" style="color: rgba(0, 0, 0, 0.5)">{{item.text}}</text>
-                </navigator>
+                </view>
               </list-item>
             </view>
           </block>

@@ -2,24 +2,24 @@ const app = getApp();
 Page({
   data: {
     tqlxArray: [
-      {
-        icon: '../../../image/gjjtq/tqyy_chgfdkbxtq.png',
-        text: '偿还住房公积...',
-        bm:'chgfdkbx',
-        tqyy:'0102',
-        gjhtqywlx:'部分提取',
-        zhfwpath:'tq_chgfdkbx',
-        path:'chgfdkbx'
-      },
-      {
-        icon: '../../../image/gjjtq/tqyy_wygl.png',
-        text: '物业管理费提取',
-        bm:'wyglftq',
-        tqyy:'0106',
-        gjhtqywlx:'部分提取',
-        zhfwpath:'tq_wyglf',
-        path:'wyglftq'
-      },
+      // {
+      //   icon: '../../../image/gjjtq/tqyy_chgfdkbxtq.png',
+      //   text: '偿还住房公积...',
+      //   bm:'chgfdkbx',
+      //   tqyy:'0102',
+      //   gjhtqywlx:'部分提取',
+      //   zhfwpath:'tq_chgfdkbx',
+      //   path:'chgfdkbx'
+      // },
+      // {
+      //   icon: '../../../image/gjjtq/tqyy_wygl.png',
+      //   text: '物业管理费提取',
+      //   bm:'wyglftq',
+      //   tqyy:'0106',
+      //   gjhtqywlx:'部分提取',
+      //   zhfwpath:'tq_wyglf',
+      //   path:'wyglftq'
+      // },
       {
         icon: '../../../image/gjjtq/tqyy_lxtx.png',
         text: '退休提取',
@@ -29,21 +29,21 @@ Page({
         zhfwpath:'tq_lxtx',
         path:'ltxhtq'
       },
-      {
-        icon: '../../../image/gjjtq/tqyy_qtxh.png',
-        text: '离职未就业提取',
-        bm:'fctwoyears',
-        tqyy:'0205',
-        gjhtqywlx:'销户提取',
-        zhfwpath:'tq_lzwjy',
-        path:'fctwoyears'
-      },
+      // {
+      //   icon: '../../../image/gjjtq/tqyy_qtxh.png',
+      //   text: '离职未就业提取',
+      //   bm:'fctwoyears',
+      //   tqyy:'0205',
+      //   gjhtqywlx:'销户提取',
+      //   zhfwpath:'tq_lzwjy',
+      //   path:'fctwoyears'
+      // },
     ],
     gjjzxlogo:""
   },
   onLoad() {
     this.setData({
-      gjjzxlogo: "../../../image/cityImg/"+app.data.zjbzxbm+".png"
+      gjjzxlogo: "../../../image/cityImg/"+app.data.zjbzxbm.substr(0,6)+".png"
     })
     console.log("gjjzxlogo",this.data.gjjzxlogo);
   },
@@ -53,7 +53,7 @@ Page({
       success: (res) => {},
     });
     console.log("<<<<<<",this.data.tqlxArray[ev.detail.index]);
-    if(ev.detail.index=='2'){
+    if(ev.detail.index=='0'){
       this.ZhfwglClick(ev.detail.index,this.data.tqlxArray[ev.detail.index].zhfwpath,this);
     }else{
      my.alert({
