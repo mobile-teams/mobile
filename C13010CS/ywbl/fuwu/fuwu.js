@@ -5,12 +5,15 @@ const  bmgjlist= [
         icon: '/image/icon/ffwdcx.png',
         text: '服务网点查询',
         //desc: '描述信息',
+        // path: '/C13010CS/fwwdxx/fwwdxx',
          path: '/C13010CS/fwwdxx/fwwdxx',
+         url:"http://192.168.5.164:6008/html/common/fwwdcx/main.html?citycode=C13010"
       },
       {
         icon: '/image/icon/fdjsq.png',
-        text: '房贷试算器',
+        text: '房贷计算器',
         path: '/C13010CS/tishi/tishi',
+        url:"http://192.168.5.164:6008/html/fdjsq/ceshi.html"
       },
     ];
 
@@ -84,5 +87,22 @@ Page({
   onLoad() {
     app.editTabBar(); //放在onLoad中
   },
+  tiaozhuan(e){
+    console.log(e);
+    let guanggaourl = e.currentTarget.dataset.h5url
+    let tourl = e.currentTarget.dataset.url
+    if(guanggaourl != null ){
+        console.log(guanggaourl);
+        app.setGuanggaourl(guanggaourl);
+        my.navigateTo({ url: '../../guanggao/guanggao' });
+    }else{
+        my.navigateTo({url:tourl});
+    }
+    // my.alert({
+    //   title: '单击' 
+    // });
+
+
+  }
 
 });
