@@ -1,4 +1,0 @@
-<!-- <web-view src="../../index/index" onMessage="test"></web-view> -->
-
- <import src="/template/template.axml"></import>
-<template is="tabbar" data="{{tabbar:tabbar}}"></template>

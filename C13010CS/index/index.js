@@ -98,8 +98,8 @@ Page({
 
     // 轮播图变量
     images: [
-      { imgUrl: '../../image/1.jpg', url: 'https://www.shineyue.com/' },
-      { imgUrl: '../../image/2.jpg', url: 'https://www.baidu.com/' },
+      { imgUrl: '../../image/1.jpg', url: 'http://192.168.5.164:6008/html/fdjsq/home.html' },
+      { imgUrl: '../../image/2.jpg', url: 'http://192.168.54.100:8088/app_12329/index.html' },
       // { imgUrl: '../../image/3.jpg' },
       // { imgUrl: '../../image/4.jpg' },
     ],
@@ -157,7 +157,20 @@ Page({
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
+      
         console.log(res);
+        console.log(">>>>>>",res.data);
+        console.log("=====",res.data.data)
+        if (res.data.data == null) {
+        my.alert({
+              title:"提示",
+              content: '未查询到您的公积金信息!!',
+              success: () => {
+                //my.navigateBack();
+                my.redirectTo({ url: '../../citychose/citychose' });
+              }
+            });
+         }else{
         grzhye1 = res.data.data[0].gjjxx[0].grzhye
         this.setData({
           grzhye: app.fmoney(grzhye1),
@@ -290,8 +303,8 @@ Page({
               });
             } else {
               this.setData({
-                zjtqje: jcxx[jcxx.length - 1].fse,
-                zjtqsj: jcxx[jcxx.length - 1].ywfsrq
+                zjtqje: zqxx[zqxx.length - 1].fse,
+                zjtqsj: zqxx[zqxx.length - 1].ywfsrq
               });
             }
             my.hideLoading();
@@ -306,6 +319,17 @@ Page({
           },
         });
       }
+      },
+      fail: function(res) {
+             my.alert({
+              title:"提示",
+              content: '网络错误!!',
+              success: () => {
+                //my.navigateBack();
+                my.redirectTo({ url: '../../citychose/citychose' });
+              }
+            });       
+      },
     });
     my.httpRequest({
       url: app.data.url + '/app-web/public/zhcx/info.service',
@@ -366,7 +390,8 @@ Page({
         that.setData({
           grzhye: app.fmoney(grzhye1),
           grzh: res.data.data[0].gjjxx[0].grzh,
-          grzhzt: res.data.data[0].gjjxx[0].grzhzt
+          grzhzt: res.data.data[0].gjjxx[0].grzhzt,
+          flag: true,
         });
         app.setGrzh(res.data.data[0].gjjxx[0].grzh)
         that.zjjctqxx(that);
@@ -448,8 +473,8 @@ Page({
           });
         } else {
           that.setData({
-            zjtqje: jcxx[jcxx.length - 1].fse,
-            zjtqsj: jcxx[jcxx.length - 1].ywfsrq
+            zjtqje: zqxx[zqxx.length - 1].fse,
+            zjtqsj: zqxx[zqxx.length - 1].ywfsrq
           });
         }
         my.hideLoading();
@@ -535,11 +560,11 @@ Page({
       pros:this.data.pros+1
     });
     let pros001=this.data.pros;
-    ctx.clearRect(0, 0, width, width);
-    ctx.beginPath();
-    ctx.moveTo(width/2, width/2);
-    ctx.arc(width/2, width/2, width/2, 0, Math.PI * 2, false);
-    ctx.closePath();
+      ctx.clearRect(0, 0, width, width);
+      ctx.beginPath();
+      ctx.moveTo(width/2, width/2);
+      ctx.arc(width/2, width/2, width/2, 0, Math.PI * 2, false);
+      ctx.closePath();
     if(this.data.dkzt == '结清状态'){
       ctx.fillStyle = 'rgba(35,170,233,255)';
     }else{

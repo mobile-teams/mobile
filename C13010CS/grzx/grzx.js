@@ -30,8 +30,8 @@ Page({
            // app.data.sjhm = res.data.khbh;
             //app.setSjhm(res.data.khbh);
              this.setData({
-              sjhm:res.data.sjhm,
-              zjhm:res.data.zjhm,
+              sjhm:this.plusXing(res.data.sjhm,3,4),
+              zjhm:this.plusXing(res.data.zjhm,11,4),
               xingming:res.data.xingming
             })
             console.log('99999999',this.data.sjhm);
@@ -40,5 +40,13 @@ Page({
       },
     });
   },
-  
+   //脱敏
+  plusXing:(str, frontLen, endLen) => {
+    var len = str.length - frontLen - endLen;
+    var xing = '';
+    for (var i = 0; i < len; i++) {
+      xing += '*';
+    }
+    return str.substring(0, frontLen) + xing + str.substring(str.length - endLen);
+  },
 });

@@ -1,0 +1,37 @@
+<view class="page">
+  <view class="page-section" style="margin-top: 10px; border-top: 1px solid;border-top-color: #f3e9e9;">
+  <view class="form-row">
+    <view class="form-row-label">收款银行账号</view>
+    <view class="form-row-content  input" >
+      <input class="input"  type="number" placeholder="请输入银行账号" onInput="addyhzhInput"  id="addyhzh"  />
+    </view>
+  </view>
+</view>
+<view class="page-section">
+  <!-- <view class="form-row">
+    <view class="form-row-label">收款银行</view>
+    <view class="form-row-content input" onTap="searchskyh">
+      <input class="input"  placeholder="请选择收款银行"  value="{{addskyh}}" id="addskyh" disabled="true" />
+    </view>
+    <view class="arrow"/>
+  </view> -->
+  <picker onChange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="form-row">
+      <view class="form-row-label">收款银行</view>
+      <view class="form-row-content">{{array[index]}}</view>
+      <view class="arrow"/>
+    </view>
+  </picker>
+</view>
+</view>
+<view class="page">
+  <view  class = "page-description">
+    <view  class="page-section">
+      <view class="page-section-demo">
+        <button type="primary" style="margin-top: 20px;border-radius: 5px;" onTap="addyhzhClick">添加</button>
+        <!-- <button type="primary" style="margin-top: 20px;border-radius: 5px;" onTap="fanhuiClick">返回</button> -->
+      </view>
+    </view>
+  </view>
+</view>
+</view>

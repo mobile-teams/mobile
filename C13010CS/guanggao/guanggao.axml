@@ -1,1 +1,1 @@
-<web-view src="{{ggurl}}" onMessage="test"></web-view>
+<web-view id="web-view-1" src="{{ggurl}}" onMessage="onMessage"></web-view>

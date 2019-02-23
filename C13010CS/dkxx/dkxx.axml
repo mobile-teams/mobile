@@ -164,7 +164,7 @@
                 <scroll-view style="height: 100vh;" scroll-y onScrollToLower="onScrollToLower">
                   <list>
                     <block a:for="{{items}}">
-                      <list-item index="{{index}}" onClick="onItemClick">
+                      <list-item index="{{index}}" onClick="onItemClick" arrow="down">
                       {{item.title}}
                       <view slot="extra">{{item.extra}} </view>
                     </list-item>
@@ -220,7 +220,7 @@
             <scroll-view style="height: 100vh;" scroll-y onScrollToLower="onScrollToLower">
                   <list>
                     <block a:for="{{items1}}">
-                      <list-item index="{{index}}" onClick="onItemClick1">
+                      <list-item index="{{index}}" onClick="onItemClick1" arrow="down">
                       {{item.title}}
                       <view slot="extra">{{item.extra}} </view>
                     </list-item>
@@ -257,7 +257,7 @@
             <scroll-view style="height: 100vh;" scroll-y onScrollToLower="onScrollToLower">
                   <list>
                     <block a:for="{{items2}}">
-                      <list-item index="{{index}}" onClick="onItemClick2">
+                      <list-item index="{{index}}" onClick="onItemClick2" arrow="down">
                       {{item.title}}
                       <view slot="extra">{{item.extra}} </view>
                     </list-item>

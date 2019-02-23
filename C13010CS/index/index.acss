@@ -1,3 +1,4 @@
+page{background-color:#FFFFFF;}
 .banner {
   width: 100%;
   background-image: url('../../image/icon/back.png');
@@ -5,6 +6,7 @@
   background-repeat: no-repeat;
   position: relative;
   z-index: 2;
+  height: 4rem;
 }
 
 .logo {
@@ -189,7 +191,7 @@
 
 .text-demo-text {
   margin-left: 20%;
-   margin-top: 3rpx; 
+   padding-top: 8rpx; 
   /* font-size: 36rpx;
    */
 
@@ -205,13 +207,13 @@
 }
 
 .testttt {  
-  font-size: 20rpx;
+  font-size: 25rpx;
   color: rgba(0, 0, 0, .5) !important;
 }
 
 .testtt {
   font-weight: bold;
-  font-size: 25rpx;
+  font-size: 30rpx;
   color: rgba(0, 0, 0, .5) !important;
 }
 
@@ -221,7 +223,9 @@
   float: left;
   height: 90rpx;
   text-align: center;
-  margin-right: 40rpx;
+  margin-top: 10rpx;
+  padding-left: 0.4rem;
+  padding-top: 0.2rem
 }
 
 .da {
@@ -300,7 +304,8 @@
   float: left;
   justify-content: center;
   text-align: center;
-  margin-top: 2%;
+  margin-top: 4%;
+  margin-left: 10%;
 }
 
 .fg {
@@ -313,7 +318,7 @@
 }
 
 .dk {
-  margin-top: 5%;
+  margin-top: 10%;
   /* width: 60%; */
   text-align: center;
   margin-left: 35%;
@@ -379,8 +384,8 @@
 }
 
 .canvas {
-  width: 150rpx;
-  height: 150rpx;
+  width: 200rpx;
+  height: 200rpx;
   /* background-color: #fff; */
   justify-content: center;
   text-align: center;

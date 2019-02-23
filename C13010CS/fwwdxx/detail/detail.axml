@@ -1,0 +1,39 @@
+<view style="margin-top: 10px;" />
+  <view class="msg">
+    <text class="fs">{{zxmc}}</text>
+  </view>
+
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">业务类型</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{ywlx}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">联系电话</view>
+      <view class="form-row-content">
+        <input class="input"  placeholder="" value="{{tel}}" disabled="disabled"/>
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">服务时间</view>
+    </view>
+    <view class="form-row">
+      <view class="form-row-content-left"> {{fwsj}} </view>
+    </view>
+  </view>
+
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">网点地址</view>    
+    </view>
+    <view class="form-row">
+        <view class="form-row-content-left"> {{address}} </view>
+    </view>
+  </view>
+</view>

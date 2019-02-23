@@ -20,13 +20,13 @@ App({
     // zjhm: "220402196508141465",
     // xingming: "王长军",
     // zjhm: "220402197810194415",
-    xingming: "徐建伟",
-    zjhm: "130181198610057370",
+    xingming: "",
+    zjhm: "",
     
     url: "https://api.sjgjj.cn",
     // url:"http://192.168.54.77:8089",
     //zjbzxbm:"C23020KF",
-     zjbzxbm: "C13010CS",
+     zjbzxbm: "",
     //zjbzxbm: "C22040CS",
     gruangaourl: " ",
     //citybm: "110105",
@@ -149,13 +149,13 @@ App({
       selectedColor: "#108ee9",
       backgroundColor: "#F5F5F9",
       items:[
-      {
-       // "pagePath": "/"+this.data.citybm+"/tishi/tishi",
-       "pagePath": "/tishi/tishi",
-        "icon": "/image/fuwu1.png",
-        "activeIcon": "/image/fuwu.png",
-        "name": "新闻动态"
-      },
+      // {
+      //  "pagePath": "/tishi/tishi",
+      //  //"pagePath": "/ywbl/daiban/daiban",
+      //   "icon": "/image/fuwu1.png",
+      //   "activeIcon": "/image/fuwu.png",
+      //   "name": "新闻动态"
+      // },
       {
        // "pagePath": "/"+this.data.citybm+"/index/index",
       //  "pagePath": "/index/index",
