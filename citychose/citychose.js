@@ -352,7 +352,7 @@ Page({
         {
           city: '辽源市',
           adCode: 'C22040CS',
-          spell: 'tl'
+          spell: 'ly'
         },
         {
           city: '白山市',
@@ -402,7 +402,7 @@ Page({
         {
           city: '七台河市',
           adCode: 'C23090CS',
-          spell: 'tqh'
+          spell: 'qth'
         },
         {
           city: '绥化市',
@@ -911,8 +911,10 @@ Page({
           // app.setZjhm('130105197412111224');
             //  app.data.xingming= "徐建伟",
             //  app.data.zjhm = "130181198610057370",
-            app.data.xingming= "任彦军";
-            app.data.zjhm = "130131198905065112";
+             app.data.xingming="许福才",
+             app.data.zjhm = "220403196208210517"
+            // app.data.xingming= "任彦军";
+            // app.data.zjhm = "130131198905065112";
           //   app.data.xingming= "卓长高",
           // app.data.zjhm = "130122196610084628",
             app.setZjbzxbm(this.data.citybm);
