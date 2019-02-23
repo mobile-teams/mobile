@@ -170,17 +170,17 @@ page{background-color:#FFFFFF;}
 .todo-item {
   position: relative;
   margin-bottom: 50rpx;
-  padding-left: 50rpx;
-  padding-right: 50rpx;
+  padding-left: 80rpx;
+  padding-right: 80rpx;
   line-height: 70rpx;
-  height: 80rpx;
+  height: 70rpx;
   box-sizing: border-box;
-  border: 2px solid rgb(14, 255, 214);
+  border: 1px solid rgb(255, 255, 255);
   border-radius: 100rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   transition: border 0.2s;
-  color: #0EFFD6;
+  color: rgb(255, 255, 255);
 }
 
 .text-demo-title {
@@ -203,17 +203,17 @@ page{background-color:#FFFFFF;}
 
 .testt {
   font-weight: bold;
-  font-size: 30rpx;
+  font-size: 34rpx;
 }
 
 .testttt {  
-  font-size: 25rpx;
+  font-size: 27rpx;
   color: rgba(0, 0, 0, .5) !important;
 }
 
 .testtt {
   font-weight: bold;
-  font-size: 30rpx;
+  font-size: 32rpx;
   color: rgba(0, 0, 0, .5) !important;
 }
 
@@ -294,9 +294,10 @@ page{background-color:#FFFFFF;}
 .wddk {
   margin-top: 5%;
   font-weight: bold;
-  margin-left: 10%;
+  margin-left: 34px;
    /* float: left;  */
   text-align: left;
+  font-size: 33rpx;
 }
 
 .jd {

@@ -1,13 +1,17 @@
 
-<view>
-  <card  
-    title="{{xingming}}"
-    subTitle="{{dwmc}}"
-    onClick="onCardClick"
-    info=""
-  />
+<view >
+  <view class="title">
+  </view>
+    <view class="card">
+      <card  
+        title="{{xingming}}"
+        subTitle="{{dwmc}}"
+        onClick="onCardClick"
+        info=""
+      />
+    </view>
 
-<view style="margin-top: 30px;" />
+<view style="margin-top: 30px;" >
   <scroll-view style="height: 100%;" >
     <list>
       <block a:for="{{itemsGywm}}">
@@ -29,7 +33,7 @@
     </list>
 	</scroll-view>
 </view>
-<view style="margin-top: 30px;" />
+<view style="margin-top: 30px;" >
   <scroll-view style="height:100%;" >
     <list>
       <block a:for="{{itemsPhone}}">
