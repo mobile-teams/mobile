@@ -879,7 +879,8 @@ Page({
           return ;
         }
         this.setData({
-          xzcs: "../image/cityImg/"+res.adCode.substr(0, 6)+".png",
+        //  xzcs: "../image/cityImg/"+res.adCode.substr(0, 6)+".png",
+          xzcs: "https://api.sjgjj.cn/img/city/"+res.adCode.substr(0, 6)+".png",
           xzcsflag:"1",
           citybm:res.adCode,
         });

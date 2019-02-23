@@ -56,5 +56,10 @@ Page({
   onItemClick1(ev) {
    my.navigateTo({ url: '../about/about' })
   },
+  onExit(ev) {
+    my.redirectTo({
+      url: '/citychose/citychose',
+    })
+  }
 });
 
