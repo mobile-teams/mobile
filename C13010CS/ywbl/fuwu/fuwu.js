@@ -7,13 +7,13 @@ const  bmgjlist= [
         //desc: '描述信息',
         // path: '/C13010CS/fwwdxx/fwwdxx',
          path: '/C13010CS/fwwdxx/fwwdxx',
-         url:"http://192.168.5.164:6008/html/common/fwwdcx/main.html?citycode=C13010"
+         url:"https://api.sjgjj.cn/html/common/fwwdcx/main.html?citycode=C13010"
       },
       {
         icon: '/image/icon/fdjsq.png',
         text: '房贷计算器',
         path: '/C13010CS/tishi/tishi',
-        url:"http://192.168.5.164:6008/html/fdjsq/ceshi.html"
+        url:"https://api.sjgjj.cn/html/fdjsq/home.html"
       },
     ];
 
@@ -36,6 +36,7 @@ const  dkywlist= [
         icon: '/image/icon/tqhb.png',
         text: '提前还本',
         path: '/C13010CS/tishi/tishi',
+        url:"http://192.168.54.100:8088/app_12329/wyindex.html"
       },
       {
         icon: '/image/icon/tqjq.png',

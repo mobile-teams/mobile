@@ -1,3 +1,4 @@
+page{background-color:#FFFFFF;}
 
 .am-grid-5 .am-grid-text {
   font-size: 12px;
@@ -18,7 +19,7 @@
 .thumb {
   height: 60rpx;
   width: 60rpx;
-  margin-right: 30rpx;
+  margin-right: 1rpx;
 }
 .home_grids {
 　
