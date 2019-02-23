@@ -25,3 +25,4 @@
   background-color: #fff;
   z-index: 2;
 }
+page{background-color:#FFFFFF;}

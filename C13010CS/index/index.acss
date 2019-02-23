@@ -1,3 +1,4 @@
+page{background-color:#FFFFFF;}
 .banner {
   width: 100%;
   background-image: url('../../image/icon/back.png');

@@ -4,6 +4,7 @@
     padding: 0.32rem;
     -webkit-box-flex: 1;
     flex: 1 1 0%;
+    
 }
 .page-section {
     background: rgb(255, 255, 255);
@@ -47,3 +48,4 @@
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
+page{background-color:#FFFFFF;}

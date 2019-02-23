@@ -12,8 +12,8 @@ const  bmgjlist= [
       {
         icon: '/image/icon/fdjsq.png',
         text: '房贷计算器',
-        path: '/C13010CS/tishi/tishi',
-        url:"https://api.sjgjj.cn/html/fdjsq/home.html"
+        path: '/fdjsq/fdjsq',
+       
       },
     ];
 

@@ -4,7 +4,7 @@
     <image src="{{gjjzxlogo}}" style="background-size: 100%;width: 50%;height: 2rem;"  />
   </view>
 </view>
-<!-- <view style="margin-top: 10px;" /> -->
-<grid onGridItemClick="onItemClick" columnNum="{{3}}" list="{{tqlxArray}}" />
+<view style="border-top: 1rpx solid rgb(222, 222, 222)" />
+<grid onGridItemClick="onItemClick" columnNum="{{3}}" list="{{tqlxArray}}" hasLine="{{false}}" />
 
 <view class="ts"><text class="fs">提示:如业务不能正常办理请拨打12329咨询</text></view>
