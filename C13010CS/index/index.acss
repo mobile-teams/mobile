@@ -308,7 +308,7 @@ page{background-color:#FFFFFF;}
   justify-content: center;
   text-align: center;
   margin-top: 4%;
-  margin-left: 10%;
+  margin-left: 6%;
 }
 
 .fg {
