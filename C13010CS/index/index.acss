@@ -181,6 +181,7 @@ page{background-color:#FFFFFF;}
   text-overflow: ellipsis;
   transition: border 0.2s;
   color: #0EFFD6;
+  width: 400rpx;
 }
 
 .text-demo-title {
