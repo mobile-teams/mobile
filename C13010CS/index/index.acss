@@ -181,6 +181,8 @@ page{background-color:#FFFFFF;}
   text-overflow: ellipsis;
   transition: border 0.2s;
   color: rgb(255, 255, 255);
+  /* color: #0EFFD6;
+  //width: 400rpx; */
 }
 
 .text-demo-title {
