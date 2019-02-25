@@ -4,7 +4,11 @@ page{background-color:rgb(245, 245, 245);}
     background-color:rgb(245, 245, 245);
     height: 5px;
 }
-
+.listStyle{
+  margin-top: 30px;
+  margin-left:15px; 
+  margin-right:15px;
+}
 .card{
   background-color:rgb(245, 245, 245);
   margin: 10px;

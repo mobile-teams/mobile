@@ -308,7 +308,7 @@ page{background-color:#FFFFFF;}
   justify-content: center;
   text-align: center;
   margin-top: 4%;
-  margin-left: 10%;
+  margin-left: 6%;
 }
 
 .fg {
@@ -329,7 +329,7 @@ page{background-color:#FFFFFF;}
 
 .dkzt {
   font-weight: bold;
-  font-size: 30rpx;
+  font-size: 32rpx;
   color: rgba(93,175,114,255) ;
 }
 
@@ -354,13 +354,13 @@ page{background-color:#FFFFFF;}
 
 .bqyhrq {  
   margin-top: 15rpx;
-  font-size: 25rpx;
+  font-size: 27rpx;
   color: rgba(0, 0, 0, .5) ;
 }
 
 .bqyhje {
   margin-bottom: 0%;
-  font-size: 25rpx;
+  font-size: 27rpx;
   color: rgba(0, 0, 0, .5) !important;
 }
 

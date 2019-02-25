@@ -11,8 +11,7 @@
       />
     </view>
 
-<view style="margin-top: 30px;" >
-  <scroll-view style="height: 100%;" >
+<view class="listStyle" > 
     <list>
       <block a:for="{{itemsGywm}}">
         <list-item
@@ -31,10 +30,8 @@
         </list-item>
       </block>
     </list>
-	</scroll-view>
 </view>
-<view style="margin-top: 30px;" >
-  <scroll-view style="height:100%;" >
+<view class="listStyle" >
     <list>
       <block a:for="{{itemsPhone}}">
         <list-item
@@ -53,7 +50,6 @@
         </list-item>
       </block>
     </list>
-	</scroll-view>
 </view>
  <button type="primary" style="border-radius: 15px; background-color:rgb(50,171,240); margin:140px 40px 50px 40px" onTap="onExit">退出登录</button>
 <!-- <view style="margin-top: 30px;" />

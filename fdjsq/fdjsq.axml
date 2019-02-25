@@ -91,7 +91,7 @@
         <view class="form-row">
           <view class="form-row-label">贷款金额（万）</view>
           <view class="form-row-content">
-            <input class="input" type="number" style='margin-top: 0.2rem;' onInput="gjjdkjeInput"   maxlength="2"  placeholder="请输入金额"/>
+            <input class="input" type="number" style='height:36px'  onInput="gjjdkjeInput"   maxlength="2"  placeholder="请输入金额"/>
           </view>
         </view>
        </view>
@@ -121,7 +121,7 @@
         <view class="form-row">
           <view class="form-row-label">商贷金额（万）</view>
           <view class="form-row-content">
-            <input class="input" type="number" style='margin-top: 0.2rem;' onInput="zhsydkjeInput"  maxlength="2"  placeholder="请输入金额"/>
+            <input class="input" type="number" style='height:36px' onInput="zhsydkjeInput"  maxlength="2"  placeholder="请输入金额"/>
           </view>
         </view>
        </view>
@@ -129,7 +129,7 @@
         <view class="form-row">
           <view class="form-row-label">公积金贷款金额（万）</view>
           <view class="form-row-content">
-            <input class="input" type="number" style='margin-top: 0.2rem;' onInput="zhgjjdkjeInput"  maxlength="2"  placeholder="请输入金额"/>
+            <input class="input" type="number" style='height:36px'  onInput="zhgjjdkjeInput"  maxlength="2"  placeholder="请输入金额"/>
           </view>
         </view>
       </view>

@@ -13,9 +13,9 @@
     <view style = "text-align: center;margin;padding-top: 20rpx;color: #FFF;">
       <!--<picker onChange="bindPickerChange" value="{{indexgrzh}}" range="{{array.grzh}}">-->
         <view>
-          <text style = "margin-right: 5px;font-size: 12px;">{{grzh}}</text>   
-          <text style="margin-left: 5px;background-color: #ff5e00;font-size: 13px;">{{grzhzt}}</text>
-          
+          <text style = "margin-right: 5px;font-size: 14px;">{{grzh}}</text>   
+          <text a:if="{{grzhzt=='正常'}}" style="margin-left: 5px;background-color: rgba(68,255,24,255);font-size: 13px;">{{grzhzt}}</text>
+<text a:else style="margin-left: 5px;background-color:rgba(228,79,96,255);font-size: 13px;">{{grzhzt}}</text>
             <image  a:if="{{flag1}}" onTap="qhzh" style = "width: 32rpx;height: 32rpx;margin-left: 16rpx;" src="/image/arrowright.png" mode="aspectFill" />        
           
         </view>
