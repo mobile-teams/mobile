@@ -8,9 +8,11 @@
 .dyt-list {
   margin-top: 0;
 }
+
 .dyt-list .am-list-item-thumb {
   border-radius: 5px;
 }
+
 .dyt-list .am-list-brief {
   color: #909090;
 }
@@ -25,4 +27,15 @@
   background-color: #fff;
   z-index: 2;
 }
-page{background-color:#FFFFFF;}
+
+page {
+  background-color: #FFFFFF;
+}
+
+.label {
+  margin-top: 101px;
+  font-size: 0.35rem;
+  margin-right: 0.1rem;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5) !important;
+}

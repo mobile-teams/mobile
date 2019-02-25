@@ -1,304 +1,356 @@
-  <tabs
-    tabs="{{tabs}}"
-    onTabClick="handleTabClick"
-    activeTab="{{activeTab}}"
-  >
-   <block a:for="{{tabs}}">
-      <tab-content key="{{index}}">
-        
-      </tab-content>
-    </block>
-  </tabs>
-
-   <view style={{display:activeTab===0?"block":"none"}}>
-           <view  class='tab-content;'  >
-           <view class="page-section" style="margin-top: 10px; border-top: 1px solid;border-top-color: #f3e9e9;">
-            <view class="form-row">
-              <view class="form-row-label">借款合同编号</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder="" value="{{jkhtbh}}" disabled="disabled"/>
-              </view>
+  
+<tabs tabs="{{tabs}}" onTabClick="handleTabClick" activeTab="{{activeTab}}">
+  <block a:for="{{tabs}}">
+    <tab-content key="{{index}}">
+    </tab-content>
+  </block>
+</tabs>
+<view style={{display:activeTab===0?"block":"none"}}>
+  <view class='tab-content;'  >
+    <view class="page-section" style="margin-top: 10px; border-top: 1px solid;border-top-color: #f3e9e9;">
+      <view class="form-row">
+        <view class="form-row-label">借款合同编号                                        
+        </view>
+        <view class="form-row-content">
+          <input class="input" placeholder="" value="{{jkhtbh}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">借款人公积金账号                                        
+        </view>
+        <view class="form-row-content">
+          <input class="input" placeholder="" value="{{jkrgjjzh}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">借款人单位名称                                        
+        </view>
+        <view class="form-row-content">
+          <input class="input" placeholder="" value="{{jkrdwmc}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">借款人姓名                                        
+        </view>
+        <view class="form-row-content">
+          <input class="input" placeholder="" value="{{jkrxm}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">借款人证件号码                                        
+        </view>
+        <view class="form-row-content">
+          <input class="input" placeholder="" value="{{jkrzjhm}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">贷款发放额                                        
+        </view>
+        <view class="form-row-content">
+          <input class="input" placeholder="" value="{{dkffe}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">贷款发放日期                                        
+        </view>
+        <view class="form-row-content">
+          <input class="input" placeholder="" value="{{dkffrq}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">贷款银行                                        
+        </view>
+        <view class="form-row-content">
+          <input class="input" placeholder="" value="{{dkyh}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">贷款状态                                        
+        </view>
+        <view class="form-row-content">
+          <input class="input" placeholder="" value="{{dkzt}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">贷款余额                                        
+        </view>
+        <view class="form-row-content">
+          <input class="input" placeholder="" value="{{dkye}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">贷款类型                                        
+        </view>
+        <view class="form-row-content">
+          <input class="input" placeholder="" value="{{dklx}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">贷款还款方式                                        
+        </view>
+        <view class="form-row-content">
+          <input class="input" placeholder="" value="{{dkhkfs}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">约定还款日                                        
+        </view>
+        <view class="form-row-content">
+          <input class="input" placeholder="" value="{{ydhkr}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">是否对冲                                        
+        </view>
+        <view class="form-row-content">
+          <input class="input" placeholder="" value="{{sfdc}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">贷款利率                                        
+        </view>
+        <view class="form-row-content">
+          <input class="input" placeholder="" value="{{dkll}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+    <view class="page-section">
+      <view class="form-row">
+        <view class="form-row-label">应结清日期                                        
+        </view>
+        <view class="form-row-content">
+          <input class="input" placeholder="" value="{{yjqrq}}" disabled="disabled"/>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view style={{display:activeTab===1?"block":"none"}}>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">开始日期                              
+      </view>
+      <view class="form-row-content">
+        <input class="input" placeholder="" value="{{ksrq}}"  onFocus ="ksdatePicker" />
+      </view>
+    </view>
+  </view>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">结束日期                              
+      </view>
+      <view class="form-row-content">
+        <input class="input" placeholder="" value="{{jsrq}}" onFocus ="jsdatePicker" />
+      </view>
+    </view>
+  </view>
+  <view style={{display:flaghkmx===1?"block":"none"}}>
+    <scroll-view style="height: 100vh;" scroll-y onScrollToLower="onScrollToLower">
+      <list>
+        <block a:for="{{items}}">
+          <list-item index="{{index}}" onClick="onItemClick" arrow="down">                      {{item.title}}                                                                                  
+            <view slot="extra">{{item.extra}}                                                             
             </view>
-          </view>
-          <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">借款人公积金账号</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder="" value="{{jkrgjjzh}}" disabled="disabled"/>
+          </list-item>
+          <view style={{display:hkjhxq===item.inum?"block":"none"}}>
+            <scroll-view style="height: 51vh; " scroll-y="false" scroll-x="false">
+              <view class="form-row">
+                <view class="form-row-label001">业务摘要                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{ywzy}}                                                                                 
+                </view>
               </view>
+              <view class="form-row">
+                <view class="form-row-label001">还款日期                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{hkrq}}                                                                                 
+                </view>
+              </view>
+              <view class="form-row">
+                <view class="form-row-label001">本金余额                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{bjye}}                                                                                 
+                </view>
+              </view>
+              <view class="form-row">
+                <view class="form-row-label001">偿还本金                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{chbj}}                                                                                 
+                </view>
+              </view>
+              <view class="form-row">
+                <view class="form-row-label001">偿还利息                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{chlx}}                                                                                 
+                </view>
+              </view>
+              <view class="form-row">
+                <view class="form-row-label001">已还本金合计                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{yhbjhj}}                                                                                 
+                </view>
+              </view>
+              <view class="form-row">
+                <view class="form-row-label001">已还利息合计                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{yhlxhj}}                                                                                 
+                </view>
+              </view>
+            </scroll-view>
+          </view>
+        </block>
+      </list>
+    </scroll-view>
+  </view>
+  <view style={{display:flaghkmx===0?"block":"none"}}>
+    <view class="label"> 查询时间内无贷款记录    
+    </view>
+  </view>
+</view>
+<view style={{display:activeTab===2?"block":"none"}}>
+  <view class="page-section">
+    <view class="form-row">
+      <view class="form-row-label">结束日期                              
+      </view>
+      <view class="form-row-content">
+        <input class="input" placeholder="" value="{{jsrq1}}" onFocus ="jsdatePicker1" />
+      </view>
+    </view>
+  </view>
+  <view style={{display:flaghkjh===1?"block":"none"}}>
+    <scroll-view style="height: 100vh;" scroll-y onScrollToLower="onScrollToLower">
+      <list>
+        <block a:for="{{items1}}">
+          <list-item index="{{index}}" onClick="onItemClick1" arrow="down">                      {{item.title}}                                                                                  
+            <view slot="extra">{{item.extra}}                                                             
             </view>
-          </view>
-          <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">借款人单位名称</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder="" value="{{jkrdwmc}}" disabled="disabled"/>
+          </list-item>
+          <view style={{display:hkjhxq1===item.inum?"block":"none"}}>
+            <scroll-view style="height: 28vh; " scroll-y="false" scroll-x="false">
+              <view class="form-row">
+                <view class="form-row-label001">应还日期                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{yhrq}}                                                                                 
+                </view>
               </view>
+              <view class="form-row">
+                <view class="form-row-label001">应还本金                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{yhbj}}                                                                                 
+                </view>
+              </view>
+              <view class="form-row">
+                <view class="form-row-label001">应还利息                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{yhlx}}                                                                                 
+                </view>
+              </view>
+              <view class="form-row">
+                <view class="form-row-label001">应还本息                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{yhbx}}                                                                                 
+                </view>
+              </view>
+            </scroll-view>
+          </view>
+        </block>
+      </list>
+    </scroll-view>
+  </view>
+  <view style={{display:flaghkjh===0?"block":"none"}}>
+    <view class="label"> 查询时间内无贷款记录    
+    </view>
+  </view>
+</view>
+<view style={{display:activeTab===3?"block":"none"}}>
+  <view style={{display:flagyqhk===1?"block":"none"}}>
+    <scroll-view style="height: 100vh;" scroll-y onScrollToLower="onScrollToLower">
+      <list>
+        <block a:for="{{items2}}">
+          <list-item index="{{index}}" onClick="onItemClick2" arrow="down">                      {{item.title}}                                                                                  
+            <view slot="extra">{{item.extra}}                                                             
             </view>
+          </list-item>
+          <view style={{display:hkjhxq2===item.inum?"block":"none"}}>
+            <scroll-view style="height: 51vh; " scroll-y="false" scroll-x="false">
+              <view class="form-row">
+                <view class="form-row-label001">应还日期                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{yhrq}}                                                                                 
+                </view>
+              </view>
+              <view class="form-row">
+                <view class="form-row-label001">应还期数                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{yhqs}}                                                                                 
+                </view>
+              </view>
+              <view class="form-row">
+                <view class="form-row-label001">逾期本金合计                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{yqbjhj}}                                                                                 
+                </view>
+              </view>
+              <view class="form-row">
+                <view class="form-row-label001">逾期罚息                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{yqfx}}                                                                                 
+                </view>
+              </view>
+              <view class="form-row">
+                <view class="form-row-label001">逾期罚息合计                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{yqfxhj}}                                                                                 
+                </view>
+              </view>
+              <view class="form-row">
+                <view class="form-row-label001">逾期利息                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{yqlx}}                                                                                 
+                </view>
+              </view>
+              <view class="form-row">
+                <view class="form-row-label001">逾期利息合计                                                                                
+                </view>
+                <view class="form-row-content001" slot="extra">{{yqlxhj}}                                                                                 
+                </view>
+              </view>
+            </scroll-view>
           </view>
-          <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">借款人姓名</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder="" value="{{jkrxm}}" disabled="disabled"/>
-              </view>
-            </view>
-          </view>
-          <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">借款人证件号码</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder="" value="{{jkrzjhm}}" disabled="disabled"/>
-              </view>
-            </view>
-          </view>
-          <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">贷款发放额</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder="" value="{{dkffe}}" disabled="disabled"/>
-              </view>
-            </view>
-          </view>
-          <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">贷款发放日期</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder="" value="{{dkffrq}}" disabled="disabled"/>
-              </view>
-            </view>
-          </view>
-          <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">贷款银行</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder="" value="{{dkyh}}" disabled="disabled"/>
-              </view>
-            </view>
-          </view>
-          <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">贷款状态</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder="" value="{{dkzt}}" disabled="disabled"/>
-              </view>
-            </view>
-          </view>
-          <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">贷款余额</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder="" value="{{dkye}}" disabled="disabled"/>
-              </view>
-            </view>
-          </view>
-          <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">贷款类型</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder="" value="{{dklx}}" disabled="disabled"/>
-              </view>
-            </view>
-          </view>
-          <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">贷款还款方式</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder="" value="{{dkhkfs}}" disabled="disabled"/>
-              </view>
-            </view>
-          </view>
-          <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">约定还款日</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder="" value="{{ydhkr}}" disabled="disabled"/>
-              </view>
-            </view>
-          </view>
-          <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">是否对冲</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder="" value="{{sfdc}}" disabled="disabled"/>
-              </view>
-            </view>
-          </view>
-          <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">贷款利率</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder="" value="{{dkll}}" disabled="disabled"/>
-              </view>
-            </view>
-          </view>
-          <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">应结清日期</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder="" value="{{yjqrq}}" disabled="disabled"/>
-              </view>
-            </view>
-          </view>
-         </view>
-       </view>
-       
-       <view style={{display:activeTab===1?"block":"none"}}>
-            <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">开始日期</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder=""  value="{{ksrq}}"  onFocus ="ksdatePicker" />
-              </view>
-            </view>
-          </view>
-          <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">结束日期</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder=""  value="{{jsrq}}" onFocus ="jsdatePicker" />
-              </view>
-            </view>
-          </view>
-              <view>
-                <scroll-view style="height: 100vh;" scroll-y onScrollToLower="onScrollToLower">
-                  <list>
-                    <block a:for="{{items}}">
-                      <list-item index="{{index}}" onClick="onItemClick" arrow="down">
-                      {{item.title}}
-                      <view slot="extra">{{item.extra}} </view>
-                    </list-item>
-
-                    <view style={{display:hkjhxq===item.inum?"block":"none"}}>
-                      <scroll-view style="height: 51vh; " scroll-y="false" scroll-x="false"  >
-                         <view class="form-row">
-                          <view class="form-row-label001">业务摘要</view>
-                          <view class="form-row-content001" slot="extra">{{ywzy}} </view>
-                          </view>
-                          <view class="form-row">
-                          <view class="form-row-label001">还款日期</view>
-                          <view class="form-row-content001" slot="extra">{{hkrq}} </view>
-                          </view>
-                          <view class="form-row">
-                          <view class="form-row-label001">本金余额</view>
-                          <view class="form-row-content001" slot="extra">{{bjye}} </view>
-                          </view>
-                          <view class="form-row">
-                          <view class="form-row-label001">偿还本金</view>
-                          <view class="form-row-content001" slot="extra">{{chbj}} </view>
-                          </view>
-                          <view class="form-row">
-                          <view class="form-row-label001">偿还利息</view>
-                          <view  class="form-row-content001" slot="extra">{{chlx}} </view>
-                          </view>
-                           <view class="form-row">
-                          <view class="form-row-label001">已还本金合计</view>
-                          <view  class="form-row-content001" slot="extra">{{yhbjhj}} </view>
-                          </view>
-                          <view class="form-row">
-                          <view class="form-row-label001">已还利息合计</view>
-                          <view class="form-row-content001" slot="extra">{{yhlxhj}} </view>
-                          </view>
-                      </scroll-view>
-                    </view>
-                    
-                    </block>
-                  </list>
-                </scroll-view>
-              </view>
-       </view>
-       <view style={{display:activeTab===2?"block":"none"}}>
-          <view class="page-section">
-            <view class="form-row">
-              <view class="form-row-label">结束日期</view>
-              <view class="form-row-content">
-                <input class="input"  placeholder=""  value="{{jsrq1}}" onFocus ="jsdatePicker1" />
-              </view>
-            </view>
-          </view>
-      <view>
-            <scroll-view style="height: 100vh;" scroll-y onScrollToLower="onScrollToLower">
-                  <list>
-                    <block a:for="{{items1}}">
-                      <list-item index="{{index}}" onClick="onItemClick1" arrow="down">
-                      {{item.title}}
-                      <view slot="extra">{{item.extra}} </view>
-                    </list-item>
-
-                    <view style={{display:hkjhxq1===item.inum?"block":"none"}}>
-                      <scroll-view style="height: 28vh; " scroll-y="false" scroll-x="false"  >
-                         <view class="form-row">
-                          <view class="form-row-label001">应还日期</view>
-                          <view class="form-row-content001" slot="extra">{{yhrq}} </view>
-                          </view>
-                          <view class="form-row">
-                          <view class="form-row-label001">应还本金</view>
-                          <view class="form-row-content001" slot="extra">{{yhbj}} </view>
-                          </view>
-                          <view class="form-row">
-                          <view class="form-row-label001">应还利息</view>
-                          <view class="form-row-content001" slot="extra">{{yhlx}} </view>
-                          </view>
-                          <view class="form-row">
-                          <view class="form-row-label001">应还本息</view>
-                          <view class="form-row-content001" slot="extra">{{yhbx}} </view>
-                          </view>                   
-                      </scroll-view>
-                    </view>
-                    
-                    </block>
-                  </list>
-                </scroll-view>
-              </view>
-
-       </view>
-       <view style={{display:activeTab===3?"block":"none"}}>
-      <view>
-            <scroll-view style="height: 100vh;" scroll-y onScrollToLower="onScrollToLower">
-                  <list>
-                    <block a:for="{{items2}}">
-                      <list-item index="{{index}}" onClick="onItemClick2" arrow="down">
-                      {{item.title}}
-                      <view slot="extra">{{item.extra}} </view>
-                    </list-item>
-
-                    <view style={{display:hkjhxq2===item.inum?"block":"none"}}>
-                      <scroll-view style="height: 51vh; " scroll-y="false" scroll-x="false"  >
-                         <view class="form-row">
-                          <view class="form-row-label001">应还日期</view>
-                          <view class="form-row-content001" slot="extra">{{yhrq}} </view>
-                          </view>
-                          <view class="form-row">
-                          <view class="form-row-label001">应还期数</view>
-                          <view class="form-row-content001" slot="extra">{{yhqs}} </view>
-                          </view>
-                          <view class="form-row">
-                          <view class="form-row-label001">逾期本金合计</view>
-                          <view class="form-row-content001" slot="extra">{{yqbjhj}} </view>
-                          </view>
-                          <view class="form-row">
-                          <view class="form-row-label001">逾期罚息</view>
-                          <view class="form-row-content001" slot="extra">{{yqfx}} </view>
-                          </view>  
-                          <view class="form-row">
-                          <view class="form-row-label001">逾期罚息合计</view>
-                          <view class="form-row-content001" slot="extra">{{yqfxhj}} </view>
-                          </view>
-                          <view class="form-row">
-                          <view class="form-row-label001">逾期利息</view>
-                          <view class="form-row-content001" slot="extra">{{yqlx}} </view>
-                          </view>
-                          <view class="form-row">
-                          <view class="form-row-label001">逾期利息合计</view>
-                          <view class="form-row-content001" slot="extra">{{yqlxhj}} </view>
-                          </view>                       
-                      </scroll-view>
-                    </view>
-                    
-                    </block>
-                  </list>
-                </scroll-view>
-              </view>
-
-          
-       </view>
+        </block>
+      </list>
+    </scroll-view>
+  </view>
+  <view style={{display:flagyqhk===0?"block":"none"}}>
+    <view class="label"> 您暂无逾期还款记录    
+    </view>
+  </view>
+</view>
