@@ -15,3 +15,26 @@ page {
 .page-section-demo {
   padding: 32rpx;
 }
+.section{
+  border-bottom: solid rgb(19, 18, 18) 1px;
+  background:  #fff;
+  margin: 10rpx 20px 10px 20px;
+  height: 35px;
+  display:flex;
+}
+
+.zj {
+  border-left: 1px solid rgba(0, 0, 0, .5);
+  width: 10px;
+  float: left;
+  height: 26px;
+  text-align: center;
+}
+.inp{
+  float: right;
+  width:100%;
+}
+.img{
+  width: 30px;
+  height: 28px;
+}

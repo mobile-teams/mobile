@@ -31,6 +31,10 @@ Page({
         text: '个人信息',
       },
     ],
+    inputXm:"徐建伟",
+    inputZjhm:"130181198610057370",
+    accouint:"130181198610057370",
+    password:"徐建伟"
   },
   // 在对象中搜索
   arraySearch(l1, l2) {
@@ -73,6 +77,7 @@ Page({
 
   onLoad() {
     console.log("___>"+my.canIUse('hideBackHome'));
+    app.clearTabBar();
     let that = this;
     // my.getStorage({
     //     key:'yhxx',
@@ -260,11 +265,6 @@ Page({
           spell: 'wh'
         },
         {
-          city: '赤峰市',
-          adCode: 'C15040CS',
-          spell: 'cf'
-        },
-        {
           city: '通辽市',
           adCode: 'C15050CS',
           spell: 'tl'
@@ -310,16 +310,6 @@ Page({
           spell: 'as'
         },
          {
-          city: '本钢',
-          adCode: 'C21051CS',
-          spell: 'bg'
-        },
-        {
-          city: '丹东市',
-          adCode: 'C21060CS',
-          spell: 'dd'
-        },
-         {
           city: '辽阳市',
           adCode: 'C21100CS',
           spell: 'ly'
@@ -335,11 +325,6 @@ Page({
           spell: 'cy'
         },
          {
-          city: '葫芦岛',
-          adCode: 'C21140CS',
-          spell: 'hld'
-        },
-         {
           city: '吉林电力',
           adCode: 'C22012CS',
           spell: 'jldl'
@@ -352,7 +337,7 @@ Page({
         {
           city: '辽源市',
           adCode: 'C22040CS',
-          spell: 'tl'
+          spell: 'ly'
         },
         {
           city: '白山市',
@@ -402,17 +387,12 @@ Page({
         {
           city: '七台河市',
           adCode: 'C23090CS',
-          spell: 'tqh'
+          spell: 'qth'
         },
         {
           city: '绥化市',
           adCode: 'C23120CS',
           spell: 'sh'
-        },
-        {
-          city: '江苏省直',
-          adCode: 'C32011CS',
-          spell: 'jssz'
         },
         {
           city: '徐州市',
@@ -432,7 +412,7 @@ Page({
         {
           city: '绍兴市',
           adCode: 'C33060CS',
-          spell: 'cx'
+          spell: 'sx'
         },
          {
           city: '江西省直',
@@ -511,16 +491,6 @@ Page({
           spell: 'hndl'
         },
         {
-         city: '郑州铁路',
-          adCode: 'C41013CS',
-          spell: 'zztl'
-        },
-        {
-         city: '洛阳铁路',
-          adCode: 'C41031CS',
-          spell: 'lytl'
-        },
-        {
          city: '安阳市',
           adCode: 'C41050CS',
           spell: 'ay'
@@ -545,12 +515,7 @@ Page({
           adCode: 'C41170CS',
           spell: 'zmd'
         },
-        {
-         city: '黄石市  ',
-          adCode: 'C42020CS',
-          spell: 'hs'
-        },
-		    {
+		{
          city: '中原油田',
           adCode: 'C41091CS',
           spell: 'zyyt'
@@ -561,24 +526,9 @@ Page({
           spell: 'lh'
         },
         {
-         city: '义煤集团',
-          adCode: 'C41121CS',
-          spell: 'ymjt'
-        },
-		{
-         city: '南阳油田',
-          adCode: 'C41131CS',
-          spell: 'nyyt'
-        },
-        {
          city: '黄石市',
           adCode: 'C42020CS',
           spell: 'hs'
-        },
-        {
-         city: '十堰市东风公司',
-          adCode: 'C42031CS',
-          spell: 'sydfgs'
         },
 		{
          city: '襄阳市',
@@ -616,11 +566,6 @@ Page({
           spell: 'cd'
         },
 		{
-         city: '益阳市',
-          adCode: 'C43090CS',
-          spell: 'ys'
-        },
-		{
          city: '永州市',
           adCode: 'C43110CS',
           spell: 'yz'
@@ -635,11 +580,7 @@ Page({
           adCode: 'C44040CS',
           spell: 'zh'
         },
-		{
-         city: '南宁区直',
-          adCode: 'C45010CS',
-          spell: 'nnqz'
-        },
+
 		{
          city: '广西区直',
           adCode: 'C45010CS',
@@ -714,16 +655,6 @@ Page({
          city: '大理市',
           adCode: 'C53290CS',
           spell: 'dl'
-        },
-		{
-         city: '西安市',
-          adCode: 'C61010CS',
-          spell: 'xa'
-        },
-		{
-         city: '长庆油田',
-          adCode: 'C61013CS',
-          spell: 'cqyt'
         },
 		{
          city: '宝鸡市',
@@ -911,10 +842,14 @@ Page({
           // app.setZjhm('130105197412111224');
             //  app.data.xingming= "徐建伟",
             //  app.data.zjhm = "130181198610057370",
-            app.data.xingming= "任彦军";
-            app.data.zjhm = "130131198905065112";
+            //  app.data.xingming="许福才",
+            //  app.data.zjhm = "220403196208210517"
+            // app.data.xingming= "任彦军";
+            // app.data.zjhm = "130131198905065112";
           //   app.data.xingming= "卓长高",
           // app.data.zjhm = "130122196610084628",
+            app.data.xingming= this.data.password;
+            app.data.zjhm = this.data.accouint;
             app.setZjbzxbm(this.data.citybm);
         //  my.navigateTo({ url: '../index/index' });   
          // my.redirectTo({ url: '../'+this.data.citybm+'/index/index' });
@@ -922,21 +857,28 @@ Page({
           //my.navigateTo({ url: '../C13010/index/index' });
 
           // 将用户信息放入缓存
-          my.setStorage({
-            key: 'yhxx',
-            data: {
-              xingming: '任彦军',
-              zjhm: '130131198905065112',
-              citybm: this.data.citybm,
-            }
-          });
-
+          // my.setStorage({
+          //   key: 'yhxx',
+          //   data: {
+          //     xingming: '任彦军',
+          //     zjhm: '130131198905065112',
+          //     citybm: this.data.citybm,
+          //   }
+          // });
+ 
         },
       });
     }
 
   },
-
+  account: function (e) {
+    this.data.accouint = e.detail.value;
+    console.log(this.data.accouint);
+  },
+  password: function (e) {
+    this.data.password = e.detail.value;
+    console.log(this.data.password);
+  },
   // onPullDownRefresh() {
   //   //刷新
   //   this.load(this);

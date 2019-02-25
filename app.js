@@ -4,22 +4,6 @@ App({
     jkhtbh: 0,
     dwmc: " ",
     dkxx:[],
-    // xingming: "杨云华",
-    // zjhm: "22042219680309007X",
-    //  xingming:"胡建文",
-    //  zjhm:"220402197604300811",
-    // xingming:"金凯",
-    // zjhm:"230203197712081457",
-    //   xingming:"许福才",
-    //  zjhm:"220403196208210517",
-    // xingming: "朱禹霖",
-    // zjhm: "220402198902081439",
-    // xingming: "张辉",
-    // zjhm: "220403197909231518",
-    // xingming: "马俊杰",
-    // zjhm: "220402196508141465",
-    // xingming: "王长军",
-    // zjhm: "220402197810194415",
     xingming: "",
     zjhm: "",
     
@@ -127,8 +111,12 @@ App({
       0 != s.indexOf("/") && (s = "/" + s);
       for( var i in e.items){
         
-        if(e.items[i].pagePath.indexOf(this.data.zjbzxbm) == -1){
-           e.items[i].pagePath = "/"+this.data.zjbzxbm+e.items[i].pagePath
+        //if(e.items[i].pagePath.indexOf(this.data.zjbzxbm) == -1){
+          //拼接城市编码、区分页面
+           //e.items[i].pagePath = "/"+this.data.zjbzxbm+e.items[i].pagePath
+      if(e.items[i].pagePath.indexOf("C13010CS") == -1){
+          //开发使用
+           e.items[i].pagePath = "/C13010CS"+e.items[i].pagePath
         }
        
       }
@@ -136,6 +124,16 @@ App({
       t.setData({
       tabbar: e
       });
+    },
+    //清除 拼接的城市编码，仅重新选择城市时使用
+    clearTabBar(){
+      var e = this.globalData.tabbar;
+      for(var i in e.items){
+          if(e.items[i].pagePath.indexOf(this.data.zjbzxbm) != -1){
+            var a = e.items[i].pagePath.indexOf(this.data.zjbzxbm)+this.data.zjbzxbm.length 
+           e.items[i].pagePath=e.items[i].pagePath.substr(a);
+        }
+      }
     },
     globalData: {
       userInfo: null,
@@ -148,6 +146,7 @@ App({
       textColor: "#404040",
       selectedColor: "#108ee9",
       backgroundColor: "#F5F5F9",
+      statusBarHeight:my.getSystemInfoSync()['statusBarHeight']/4,
       items:[
       // {
       //  "pagePath": "/tishi/tishi",

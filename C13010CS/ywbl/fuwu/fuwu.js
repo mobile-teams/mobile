@@ -7,7 +7,7 @@ const  bmgjlist= [
         //desc: '描述信息',
         // path: '/C13010CS/fwwdxx/fwwdxx',
          path: '/C13010CS/fwwdxx/fwwdxx',
-         url:"https://api.sjgjj.cn/html/common/fwwdcx/main.html?citycode=C13010"
+         url:"https://api.sjgjj.cn/html/common/fwwdcx/main.html"
       },
       {
         icon: '/image/icon/fdjsq.png',
@@ -36,7 +36,7 @@ const  dkywlist= [
         icon: '/image/icon/tqhb.png',
         text: '提前还本',
         path: '/C13010CS/tishi/tishi',
-        url:"http://192.168.54.100:8088/app_12329/wyindex.html"
+        //url:"http://192.168.54.100:8088/app_12329/wyindex.html"
       },
       {
         icon: '/image/icon/tqjq.png',
@@ -90,9 +90,12 @@ Page({
   },
   tiaozhuan(e){
     console.log(e);
-    let guanggaourl = e.currentTarget.dataset.h5url
+    var guanggaourl = e.currentTarget.dataset.h5url
     let tourl = e.currentTarget.dataset.url
     if(guanggaourl != null ){
+        if(e.currentTarget.dataset.ywmc =="服务网点查询"){
+            guanggaourl=guanggaourl+"?citycode="+app.data.zjbzxbm.substr(0,6);
+        }
         console.log(guanggaourl);
         app.setGuanggaourl(guanggaourl);
         my.navigateTo({ url: '../../guanggao/guanggao' });

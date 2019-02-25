@@ -387,8 +387,8 @@ page{background-color:#FFFFFF;}
 }
 
 .canvas {
-  width: 200rpx;
-  height: 200rpx;
+  width: 190rpx;
+  height: 190rpx;
   /* background-color: #fff; */
   justify-content: center;
   text-align: center;
