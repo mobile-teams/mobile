@@ -56,10 +56,11 @@
     </view>
   </view>
   <view class="page-section">
-    <view class="form-row">
+    <view class="form-row-new">
       <view class="form-row-label">单位名称</view>
-      <view class="form-row-content">
-        <input class="input"  placeholder="" value="{{dwmc}}" disabled="disabled"/>
+      <view class="form-row-content  dwmc">
+        {{dwmc}}
+        <!-- <textarea minRows="1" auto-height show-count="{{false}}" class="input"   placeholder="" value="{{dwmc}}" disabled="disabled"/>  -->
       </view>
     </view>
   </view>

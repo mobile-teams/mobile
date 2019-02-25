@@ -31,7 +31,7 @@ Page({
             //app.setSjhm(res.data.khbh);
              this.setData({
               sjhm:this.plusXing(res.data.sjhm,3,4),
-              zjhm:this.plusXing(res.data.zjhm,11,4),
+              zjhm:this.plusXing(res.data.zjhm,10,4),
               xingming:res.data.xingming
             })
             console.log('99999999',this.data.sjhm);

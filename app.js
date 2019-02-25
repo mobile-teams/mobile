@@ -175,7 +175,7 @@ App({
         "pagePath": "/user/user",
         "icon": "/image/wode1.png",
         "activeIcon": "/image/wode.png",
-        "name": "我"
+        "name": "我的"
       }
     ],
       position: "bottom"
