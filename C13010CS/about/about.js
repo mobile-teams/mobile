@@ -1,5 +1,9 @@
 Page({
   data: {
+    // yscm:">",
+    zxkf:"4006993888",
+    dzyx:"sjgjj@atwasoft.net",
+    wxggz:"神玥伟奥互联网",
     items: [
        {
         title: '隐私声明',
@@ -19,11 +23,11 @@ Page({
       },
     ],
   },
-  onItemClick(ev) {
-    if(ev.index === 0){
-      my.navigateTo({ url: '../yssm/yssm' });
-    }else if(ev.index === 1){
-      my.makePhoneCall({ number: '4006993888' });
-    }
+  onClick1(ev) {
+   my.navigateTo({ url: '../yssm/yssm' });
+    
+  },
+    onClick2(ev) {
+    my.makePhoneCall({ number: '4006993888' });
   },
 });

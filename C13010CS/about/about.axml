@@ -2,27 +2,48 @@
   <view>
     <image src="{{'../../image/about.png'}}" class="logo" />
   </view>
-  <text class="fs">手机公积金</text>
+  <text class="fs">手机公积金
+  </text>
 </view>
-<view style="margin-top: 30px;" />
-<scroll-view style="height: 100%;" >
-  <list>
-      <block a:for="{{items}}">
-      <list-item
-        thumb="{{item.thumb}}"
-        arrow="{{item.arrow}}"
-        align="{{item.align}}"
-        onClick="onItemClick"
-        index="{{index}}"
-        key="items-{{index}}"
-        last="{{index === (items.length - 1)}}"
-      >
+<!-- <view style="margin-top: 30px;"><list><block a:for="{{items}}"><list-item thumb="{{item.thumb}}" arrow="{{item.arrow}}" align="{{item.align}}" onClick="onItemClick" index="{{index}}">
         {{item.title}}
-        <view class="am-list-brief" >{{item.brief}}</view>
         <view slot="extra">
           {{item.extra}}
-        </view>
-      </list-item>
-    </block>
-  </list>
-</scroll-view>
+        </view></list-item></block></list></view> -->
+<view class="page-section">
+  <view class="form-row" onTap="onClick1">
+    <view class="form-row-label">隐私声明
+    </view>
+    <view class="form-row-content">
+      <!-- <input value="{{yscm}}" disabled="disabled"/> -->
+      <image class="img" src="/image/right.png" />
+    </view>
+  </view>
+</view>
+<view class="page-section">
+  <view class="form-row" onTap="onClick2">
+    <view class="form-row-label">在线客服
+    </view>
+    <view class="form-row-content">
+      <input value="{{zxkf}}" disabled="disabled"/>
+    </view>
+  </view>
+</view>
+<view class="page-section">
+  <view class="form-row">
+    <view class="form-row-label">电子邮箱
+    </view>
+    <view class="form-row-content">
+      <input value="{{dzyx}}" disabled="disabled"/>
+    </view>
+  </view>
+</view>
+<view class="page-section">
+  <view class="form-row">
+    <view class="form-row-label">微信公众号
+    </view>
+    <view class="form-row-content">
+      <input value="{{wxggz}}" disabled="disabled"/>
+    </view>
+  </view>
+</view>
