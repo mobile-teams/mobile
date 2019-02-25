@@ -4,8 +4,6 @@ const  bmgjlist= [
       {
         icon: '/image/icon/ffwdcx.png',
         text: '服务网点查询',
-        //desc: '描述信息',
-        // path: '/C13010CS/fwwdxx/fwwdxx',
          path: '/C13010CS/fwwdxx/fwwdxx',
          url:"https://api.sjgjj.cn/html/common/fwwdcx/main.html"
       },
@@ -21,9 +19,8 @@ const  gjywlist= [
       {
         icon: '/image/icon/gjjtq.png',
         text: '我要提取',
-        //desc: '描述信息',
-       path: '../../ywbl/gjjtq/gjjtq',
-      // path :'/C13010CS/tishi/tishi',
+      // path: '../../ywbl/gjjtq/gjjtq',
+       path :'/C13010CS/tishi/tishi',
       }
     ];
 const  dkywlist= [
@@ -53,8 +50,8 @@ const  wdywlist= [
   {
     icon: '/image/icon/wdyw.png',
     text: '我的业务',
-    //desc: '描述信息',
-     path: '../../ywbl/daiban/daiban',
+    path: '/C13010CS/tishi/tishi',
+     //path: '../../ywbl/daiban/daiban',
   }
 ];
 

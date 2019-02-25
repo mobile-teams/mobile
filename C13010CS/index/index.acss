@@ -307,8 +307,8 @@ page{background-color:#FFFFFF;}
   float: left;
   justify-content: center;
   text-align: center;
-  margin-top: 4%;
-  margin-left: 6%;
+  margin-top: 5%;
+  margin-left: 5%;
 }
 
 .fg {
@@ -387,8 +387,8 @@ page{background-color:#FFFFFF;}
 }
 
 .canvas {
-  width: 190rpx;
-  height: 190rpx;
+  width: 200rpx;
+  height: 200rpx;
   /* background-color: #fff; */
   justify-content: center;
   text-align: center;
