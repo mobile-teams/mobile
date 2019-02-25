@@ -70,7 +70,7 @@
         </view>
       </view>
     </view>
-    <view class="page-section">
+    <!-- <view class="page-section">
       <view class="form-row">
         <view class="form-row-label">贷款银行                                        
         </view>
@@ -78,7 +78,7 @@
           <input class="input" placeholder="" value="{{dkyh}}" disabled="disabled"/>
         </view>
       </view>
-    </view>
+    </view> -->
     <view class="page-section">
       <view class="form-row">
         <view class="form-row-label">贷款状态                                        
