@@ -594,7 +594,7 @@ Page({
     ctx.fill();
 
     ctx.beginPath();
-    ctx.arc(width/2, width/2, width/2 - 20, 0, Math.PI * 2, true);
+    ctx.arc(width/2, width/2, width/2 - 8, 0, Math.PI * 2, true);
     ctx.closePath();
     ctx.strokeStyle = '#ffffff';
     ctx.stroke();
@@ -603,15 +603,16 @@ Page({
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.moveTo(width/2, width/2);
-    ctx.font="12px Arial";
+    //ctx.font="12px Arial";
+    ctx.font="bold 12pt Arial";
     ctx.fillStyle = '#000';
     if(this.data.dkzt == '未发放'){
       ctx.fillText("贷款发放额",width/2,width/3);
-      ctx.font="15px Arial";
+      ctx.font="bold 12pt Arial";
       ctx.fillText(app.fmoney(0),width/2,width/2);
     }else {
       ctx.fillText("贷款余额",width/2,width/3);
-      ctx.font="15px Arial";
+      ctx.font="bold 12pt Arial";
       ctx.fillText(app.fmoney(this.data.dkye),width/2,width/2);
     }
    

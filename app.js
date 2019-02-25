@@ -111,8 +111,12 @@ App({
       0 != s.indexOf("/") && (s = "/" + s);
       for( var i in e.items){
         
-        if(e.items[i].pagePath.indexOf(this.data.zjbzxbm) == -1){
-           e.items[i].pagePath = "/"+this.data.zjbzxbm+e.items[i].pagePath
+        //if(e.items[i].pagePath.indexOf(this.data.zjbzxbm) == -1){
+          //拼接城市编码、区分页面
+           //e.items[i].pagePath = "/"+this.data.zjbzxbm+e.items[i].pagePath
+      if(e.items[i].pagePath.indexOf("C13010CS") == -1){
+          //开发使用
+           e.items[i].pagePath = "/C13010CS"+e.items[i].pagePath
         }
        
       }
@@ -120,6 +124,16 @@ App({
       t.setData({
       tabbar: e
       });
+    },
+    //清除 拼接的城市编码，仅重新选择城市时使用
+    clearTabBar(){
+      var e = this.globalData.tabbar;
+      for(var i in e.items){
+          if(e.items[i].pagePath.indexOf(this.data.zjbzxbm) != -1){
+            var a = e.items[i].pagePath.indexOf(this.data.zjbzxbm)+this.data.zjbzxbm.length 
+           e.items[i].pagePath=e.items[i].pagePath.substr(a);
+        }
+      }
     },
     globalData: {
       userInfo: null,
@@ -132,6 +146,7 @@ App({
       textColor: "#404040",
       selectedColor: "#108ee9",
       backgroundColor: "#F5F5F9",
+      statusBarHeight:my.getSystemInfoSync()['statusBarHeight']/4,
       items:[
       // {
       //  "pagePath": "/tishi/tishi",
