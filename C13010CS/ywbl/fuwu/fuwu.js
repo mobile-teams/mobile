@@ -6,6 +6,7 @@ const  bmgjlist= [
         text: '服务网点查询',
          path: '/C13010CS/fwwdxx/fwwdxx',
          url:"https://api.sjgjj.cn/html/common/fwwdcx/main.html"
+        //url:"http://192.168.54.100:8088/app_12329/main.html"
       },
       {
         icon: '/image/icon/fdjsq.png',
@@ -51,7 +52,7 @@ const  wdywlist= [
     icon: '/image/icon/wdyw.png',
     text: '我的业务',
     path: '/C13010CS/tishi/tishi',
-     //path: '../../ywbl/daiban/daiban',
+    //path: '../../ywbl/daiban/daiban',
   }
 ];
 

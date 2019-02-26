@@ -55,7 +55,7 @@ Page({
       dataType: 'json',
       contentType : 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
-        console.log("res>>>>>>",res);res.data.data[0].grbhgrbh
+        console.log("res>>>>>>",res);
         console.log("res.data.data[0].grbh>>>>>>",res.data.data[0].grbh);
         this.setData({
           grbh: res.data.data[0].grbh
@@ -132,7 +132,7 @@ Page({
         console.log(">>>>",that.data.fqitems);
       },
       fail:(res) => {
-       exceptions();
+      // exceptions();
       },
     });
   },
@@ -194,7 +194,7 @@ lcwddbxxcx:(that)=>{
         console.log(">>>>",that.data.dbitems);
       },
       fail:(res) => {
-        exceptions();
+        //exceptions();
       },
     });
   },
