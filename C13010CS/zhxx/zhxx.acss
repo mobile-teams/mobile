@@ -40,12 +40,13 @@
     flex: 1 1 0%;
     font-size: 0.34rem;
     text-align: right;
+    color:rgb(150,150,150) ;
 }
 .dwmc{
   width:100%;
-     align-items: center;
+  align-items: center;
   word-wrap: break-word;
   /* color:#999; */
-  color:#70a794;
+  /* color:rgb(150,150,150) ; */
 
 }
