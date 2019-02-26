@@ -5,8 +5,8 @@ const  bmgjlist= [
         icon: '/image/icon/ffwdcx.png',
         text: '服务网点查询',
          path: '/C13010CS/fwwdxx/fwwdxx',
-         url:"https://api.sjgjj.cn/html/common/fwwdcx/main.html"
-        //url:"http://192.168.54.100:8088/app_12329/main.html"
+        url:"https://api.sjgjj.cn/html/common/fwwdcx/main.html"
+       // url:"http://192.168.54.100:8088/app_12329/main.html"
       },
       {
         icon: '/image/icon/fdjsq.png',
@@ -100,9 +100,7 @@ Page({
     }else{
         my.navigateTo({url:tourl});
     }
-    // my.alert({
-    //   title: '单击' 
-    // });
+
 
 
   }

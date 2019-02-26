@@ -34,7 +34,7 @@ page{
 }
 
 .form-row-label {
-    width: 2.4rem;
+    width: 3.0rem;
     font-size: 0.32rem;
     margin-right: 0.1rem;
     text-align: left;
