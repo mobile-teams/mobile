@@ -171,7 +171,7 @@ Page({
       hotCities: [
         {
           city: '石家庄市',
-          adCode: 'C13010CS',
+          adCode: 'C13010',
           spell: 'sjz'
         }
       ],

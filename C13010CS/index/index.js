@@ -77,6 +77,7 @@ let grzhye1;
 Page({
   data: {
     tabbar:{},     //放在data中
+    canUse: my.canIUse('lifestyle'),
     grzhye: 0,
     grzh: '',
     grzhzt: '',
