@@ -101,7 +101,10 @@
   </view>
 </view>
  
-</view>
+ <view  style = "margin-top: 5%;width: 90%;margin-left: 5%;border-top: 1rpx solid rgb(222, 222, 222)">
+ <lifestyle publicId="2016112103042239" />
+ </view>
+
    <!-- <view class="card_box">
     <swiper 
             indicator-dots="{{indicatorDots}}"
