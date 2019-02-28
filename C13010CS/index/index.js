@@ -323,7 +323,7 @@ Page({
       fail: function(res) {
              my.alert({
               title:"提示",
-              content: '网络错误!!',
+              content: '服务正在维护。。。',
               success: () => {
                 //my.navigateBack();
                 my.redirectTo({ url: '../../citychose/citychose' });

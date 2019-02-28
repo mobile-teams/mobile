@@ -31,10 +31,10 @@ Page({
         text: '个人信息',
       },
     ],
-    inputXm:"徐建伟",
-    inputZjhm:"130181198610057370",
-    accouint:"130181198610057370",
-    password:"徐建伟"
+    // inputXm:"徐建伟",
+    // inputZjhm:"130181198610057370",
+    // accouint:"130181198610057370",
+    // password:"徐建伟"
   },
   // 在对象中搜索
   arraySearch(l1, l2) {
@@ -166,42 +166,6 @@ Page({
   },
 
   csxz() {
-    // my.showLoading({
-    //   content: '加载中...',
-    //   delay: '1000',
-    // });
-    //--------------------------调用接口查询城市，暂时没有接口-----------------
-    // my.httpRequest({
-    //   url: 'http://192.168.54.77:8089/app-web/public/redis/city.service',
-    //   method: 'POST',
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     "citycode": "C22040CS"
-    //   },
-    //   data: {
-    //     "appid": "20181127000101",
-    //     "sign": "HLHSASASASASAHSLJLKHLSYM10PX0S73CX741Z7BCAACC1SP000DAAKHSOASAOSHAOSHSYM10PX0S73CX741Z7BCAACC1SP000DAAKHSOASAOSHAOSH",
-    //     "id": "atwa",
-    //     "msg": "atwasoft"
-    //   },
-    //   dataType: 'json',
-    //   contentType: 'application/json;charset=UTF-8', //contentType很重要    
-    //   success: (res) => {
-    //     my.hideLoading();
-    //     let city = res.data.data;
-    //     let mycity = [];
-    //     let m = 0;
-    //     for (let i = 0; i < city.length; i++) {
-    //       let l = {};
-    //       if (city[i].citymc == "" || city[i].citybm == "") {
-    //         continue;
-    //       }
-    //       l.city = city[i].citymc;
-    //       l.adCode = city[i].citybm;
-    //       l.spell = this.ConvertPinyin(city[i].citymc);
-    //       mycity[m] = l;
-    //       m++;
-    //     }
     my.chooseCity({
       // cities:mycity,
       // showLocatedCity:true,
@@ -216,7 +180,7 @@ Page({
       cities: [
         {
           city: '石家庄市',
-          adCode: 'C13010CS',
+          adCode: 'C13010',
           spell: 'sjz'
         },
         {
@@ -226,576 +190,576 @@ Page({
         },
         {
           city: '定州市',
-          adCode: 'C13120CS',
+          adCode: 'C13120',
           spell: 'dz'
         },
         {
           city: '太原市',
-          adCode: 'C14020CS',
+          adCode: 'C14020',
           spell: 'ty'
         },
         {
           city: '长治市',
-          adCode: 'C14040CS',
+          adCode: 'C14040',
           spell: 'cz'
         },
         {
           city: '晋城市',
-          adCode: 'C14050CS',
+          adCode: 'C14050',
           spell: 'jc'
         },
         {
           city: '朔州市',
-          adCode: 'C14060CS',
+          adCode: 'C14060',
           spell: 'sz'
         },
         {
           city: '晋中市',
-          adCode: 'C14070CS',
+          adCode: 'C14070',
           spell: 'jz'
         },
         {
           city: '临汾市',
-          adCode: 'C14100CS',
+          adCode: 'C14100',
           spell: 'lf'
         },
         {
           city: '乌海市',
-          adCode: 'C15030CS',
+          adCode: 'C15030',
           spell: 'wh'
         },
         {
           city: '通辽市',
-          adCode: 'C15050CS',
+          adCode: 'C15050',
           spell: 'tl'
         },
         {
           city: '鄂尔多斯市',
-          adCode: 'C15060CS',
+          adCode: 'C15060',
           spell: 'eeds'
         },
         {
           city: '巴彦淖尔',
-          adCode: 'C15080CS',
+          adCode: 'C15080',
           spell: 'byne'
         },
         {
           city: '乌兰察布',
-          adCode: 'C15090CS',
+          adCode: 'C15090',
           spell: 'wlcb'
         },
          {
           city: '满洲里',
-          adCode: 'C15210CS',
+          adCode: 'C15210',
           spell: 'mzl'
         },
         {
           city: '兴安盟',
-          adCode: 'C15220CS',
+          adCode: 'C15220',
           spell: 'xam'
         },
          {
           city: '锡林郭勒盟',
-          adCode: 'C15250CS',
+          adCode: 'C15250',
           spell: 'xlglm'
         },
         {
           city: '阿拉善盟',
-          adCode: 'C15290CS',
+          adCode: 'C15290',
           spell: 'alsm'
         },
          {
           city: '鞍山市',
-          adCode: 'C21030CS',
+          adCode: 'C21030',
           spell: 'as'
         },
          {
           city: '辽阳市',
-          adCode: 'C21100CS',
+          adCode: 'C21100',
           spell: 'ly'
         },
          {
           city: '辽河油田',
-          adCode: 'C21111CS',
+          adCode: 'C21111',
           spell: 'lhyt'
         },
         {
           city: '朝阳市',
-          adCode: 'C21130CS',
+          adCode: 'C21130',
           spell: 'cy'
         },
          {
           city: '吉林电力',
-          adCode: 'C22012CS',
+          adCode: 'C22012',
           spell: 'jldl'
         },
          {
           city: '四平市',
-          adCode: 'C22030CS',
+          adCode: 'C22030',
           spell: 'sp'
         },
         {
           city: '辽源市',
-          adCode: 'C22040CS',
+          adCode: 'C22040',
           spell: 'ly'
         },
         {
           city: '白山市',
-          adCode: 'C22060CS',
+          adCode: 'C22060',
           spell: 'bs'
         },
         {
           city: '黑龙江省直',
-          adCode: 'C23011CS',
+          adCode: 'C23011',
           spell: 'hljsz'
         },
          {
           city: '齐齐哈尔',
-          adCode: 'C23020CS',
+          adCode: 'C23020',
           spell: 'qqhe'
         },
         {
           city: '鸡西市',
-          adCode: 'C23030CS',
+          adCode: 'C23030',
           spell: 'jx'
         },
         {
           city: '鹤岗市',
-          adCode: 'C23040CS',
+          adCode: 'C23040',
           spell: 'hg'
         },
         {
           city: '双鸭山市',
-          adCode: 'C23050CS',
+          adCode: 'C23050',
           spell: 'sys'
         },
         {
           city: '大庆市',
-          adCode: 'C23060CS',
+          adCode: 'C23060',
           spell: 'dq'
         },
         {
           city: '伊春市',
-          adCode: 'C23070CS',
+          adCode: 'C23070',
           spell: 'yc'
         },
         {
           city: '佳木斯市',
-          adCode: 'C23080CS',
+          adCode: 'C23080',
           spell: 'jms'
         },
         {
           city: '七台河市',
-          adCode: 'C23090CS',
+          adCode: 'C23090',
           spell: 'qth'
         },
         {
           city: '绥化市',
-          adCode: 'C23120CS',
+          adCode: 'C23120',
           spell: 'sh'
         },
         {
           city: '徐州市',
-          adCode: 'C32011CS',
+          adCode: 'C32030',
           spell: 'xz'
         },
         {
           city: '江苏油田',
-          adCode: 'C32102CS',
+          adCode: 'C32102',
           spell: 'jsyt'
         },
         {
           city: '嘉兴市',
-          adCode: 'C33040CS',
+          adCode: 'C33040',
           spell: 'jx'
         },
         {
           city: '绍兴市',
-          adCode: 'C33060CS',
+          adCode: 'C33060',
           spell: 'sx'
         },
          {
           city: '江西省直',
-          adCode: 'C36011CS',
+          adCode: 'C36011',
           spell: 'jxsz'
         },
          {
           city: '南昌铁路',
-          adCode: 'C36012CS',
+          adCode: 'C36012',
           spell: 'nctl'
         },
         {
           city: '景德镇市',
-          adCode: 'C36020CS',
+          adCode: 'C36020',
           spell: 'jdz'
         },
         {
           city: '萍乡市',
-          adCode: 'C36030CS',
+          adCode: 'C36030',
           spell: 'px'
         },
         {
           city: '九江市',
-          adCode: 'C36040CS',
+          adCode: 'C36040',
           spell: 'jj'
         },
 
         {
           city: '鹰潭市',
-          adCode: 'C36060CS',
+          adCode: 'C36060',
           spell: 'yt'
         },
        {
           city: '赣州市',
-          adCode: 'C36070CS',
+          adCode: 'C36070',
           spell: 'gz'
         },
          {
           city: '上饶市',
-          adCode: 'C36110CS',
+          adCode: 'C36110',
           spell: 'sr'
         },
        {
           city: '枣庄市',
-          adCode: 'C37040CS',
+          adCode: 'C37040',
           spell: 'zz'
         },
         {
           city: '东营市',
-          adCode: 'C37050CS',
+          adCode: 'C37050',
           spell: 'dy'
         },
        {
           city: '泰安市',
-          adCode: 'C37090CS',
+          adCode: 'C37090',
           spell: 'ta'
         },
         {
           city: '日照市',
-          adCode: 'C37110CS',
+          adCode: 'C37110',
           spell: 'rz'
         },
         {
           city: '莱芜市',
-          adCode: 'C37120CS',
+          adCode: 'C37120',
           spell: 'lw'
         },
         {
           city: '菏泽市',
-          adCode: 'C37170CS',
+          adCode: 'C37170',
           spell: 'hz'
         },
        {
          city: '河南电力',
-          adCode: 'C41012CS',
+          adCode: 'C41012',
           spell: 'hndl'
         },
         {
          city: '安阳市',
-          adCode: 'C41050CS',
+          adCode: 'C41050',
           spell: 'ay'
         },
         {
          city: '鹤壁市',
-          adCode: 'C41060CS',
+          adCode: 'C41060',
           spell: 'hb'
         },
         {
          city: '焦作市',
-          adCode: 'C41080CS',
+          adCode: 'C41080',
           spell: 'jz'
         },
         {
          city: '濮阳市',
-          adCode: 'C41090CS',
+          adCode: 'C41090',
           spell: 'py'
         },
         {
          city: '驻马店市  ',
-          adCode: 'C41170CS',
+          adCode: 'C41170',
           spell: 'zmd'
         },
 		{
          city: '中原油田',
-          adCode: 'C41091CS',
+          adCode: 'C41091',
           spell: 'zyyt'
         },
         {
          city: '漯河市',
-          adCode: 'C41110CS',
+          adCode: 'C41110',
           spell: 'lh'
         },
         {
          city: '黄石市',
-          adCode: 'C42020CS',
+          adCode: 'C42020',
           spell: 'hs'
         },
 		{
          city: '襄阳市',
-          adCode: 'C42060CS',
+          adCode: 'C42060',
           spell: 'xy'
         },
 		{
          city: '鄂州市',
-          adCode: 'C42070CS',
+          adCode: 'C42070',
           spell: 'ez'
         },
 		{
          city: '荆州市',
-          adCode: 'C42100CS',
+          adCode: 'C42100',
           spell: 'jz'
         },
 		{
          city: '恩施市',
-          adCode: 'C42280CS',
+          adCode: 'C42280',
           spell: 'es'
         },
 		{
          city: '湖南省直',
-          adCode: 'C43011CS',
+          adCode: 'C43011',
           spell: 'hnsz'
         },
 		{
          city: '衡阳市',
-          adCode: 'C43040CS',
+          adCode: 'C43040',
           spell: 'hy'
         },
 		{
          city: '常德市',
-          adCode: 'C43070CS',
+          adCode: 'C43070',
           spell: 'cd'
         },
 		{
          city: '永州市',
-          adCode: 'C43110CS',
+          adCode: 'C43110',
           spell: 'yz'
         },
 		{
          city: '怀化市',
-          adCode: 'C43120CS',
+          adCode: 'C43120',
           spell: 'hh'
         },
 		{
          city: '珠海市',
-          adCode: 'C44040CS',
+          adCode: 'C44040',
           spell: 'zh'
         },
 
 		{
          city: '广西区直',
-          adCode: 'C45010CS',
+          adCode: 'C45010',
           spell: 'gxqz'
         },
 		{
          city: '钦州市',
-          adCode: 'C45070CS',
+          adCode: 'C45070',
           spell: 'qz'
         },
 		{
          city: '贺州市',
-          adCode: 'C45110CS',
+          adCode: 'C45110',
           spell: 'hz'
         },
 		{
          city: '河池市',
-          adCode: 'C45120CS',
+          adCode: 'C45120',
           spell: 'hc'
         },
 		{
          city: '来宾市',
-          adCode: 'C45130CS',
+          adCode: 'C45130',
           spell: 'lb'
         },
 		{
          city: '广元市',
-          adCode: 'C51080CS',
+          adCode: 'C51080',
           spell: 'gy'
         },
 		{
          city: '南充市',
-          adCode: 'C51130CS',
+          adCode: 'C51130',
           spell: 'nc'
         },
 		{
          city: '广安市',
-          adCode: 'C51160CS',
+          adCode: 'C51160',
           spell: 'ga'
         },
 		{
          city: '贵州省直',
-          adCode: 'C52011CS',
+          adCode: 'C52011',
           spell: 'gzsz'
         },
 		{
          city: '贵州铜仁',
-          adCode: 'C52220CS',
+          adCode: 'C52220',
           spell: 'gztr'
         },
 		{
          city: '黔西南州',
-          adCode: 'C52230CS',
+          adCode: 'C52230',
           spell: 'qxnz'
         },
 		{
          city: '黔东南州',
-          adCode: 'C52260CS',
+          adCode: 'C52260',
           spell: 'qdnz'
         },
 		{
          city: '黔南布依族苗族自治州',
-          adCode: 'C52270CS',
+          adCode: 'C52270',
           spell: 'qnz'
         },
 		{
          city: '临沧市',
-          adCode: 'C53090CS',
+          adCode: 'C53090',
           spell: 'lc'
         },
 		{
          city: '大理市',
-          adCode: 'C53290CS',
+          adCode: 'C53290',
           spell: 'dl'
         },
 		{
          city: '宝鸡市',
-          adCode: 'C61030CS',
+          adCode: 'C61030',
           spell: 'bj'
         },
 		{
          city: '咸阳市',
-          adCode: 'C61040CS',
+          adCode: 'C61040',
           spell: 'xy'
         },
 		{
          city: '汉中市',
-          adCode: 'C61070CS',
+          adCode: 'C61070',
           spell: 'hz'
         },
 		{
          city: '杨凌示范区公司',
-          adCode: 'C61120CS',
+          adCode: 'C61120',
           spell: 'ylsfqgs'
         },
 		{
          city: '韩城',
-          adCode: 'C61130CS',
+          adCode: 'C61130',
           spell: 'hc'
         },
 		{
          city: '甘肃电力公司',
-          adCode: 'C62013CS',
+          adCode: 'C62013',
           spell: 'gsdlgs'
         },
 		{
          city: '酒泉市',
-          adCode: 'C62090CS',
+          adCode: 'C62090',
           spell: 'jq'
         },
 		{
          city: '玉门油田',
-          adCode: 'C62091CS',
+          adCode: 'C62091',
           spell: 'ymyt'
         },
 		{
          city: '陇南市',
-          adCode: 'C62120CS',
+          adCode: 'C62120',
           spell: 'ln'
         },
 		{
          city: '甘南市',
-          adCode: 'C62300CS',
+          adCode: 'C62300',
           spell: 'gn'
         },
 		{
          city: '西宁市',
-          adCode: 'C63010CS',
+          adCode: 'C63010',
           spell: 'xn'
         },
 		{
          city: '乌鲁木齐市',
-          adCode: 'C65010CS',
+          adCode: 'C65010',
           spell: 'wlmq'
         },
 		{
          city: '克拉玛依市',
-          adCode: 'C65020CS',
+          adCode: 'C65020',
           spell: 'klmy'
         },
 		
 		{
          city: '吐鲁番市',
-          adCode: 'C65210CS',
+          adCode: 'C65210',
           spell: 'tlf'
         },
 		
 		{
          city: '哈密市',
-          adCode: 'C65220CS',
+          adCode: 'C65220',
           spell: 'hm'
         },
 		{
          city: '吐哈油田',
-          adCode: 'C65221CS',
+          adCode: 'C65221',
           spell: 'thyt'
         },
 		{
          city: '昌吉市',
-          adCode: 'C65230CS',
+          adCode: 'C65230',
           spell: 'cj'
         },
 		{
          city: '博尔塔拉蒙古自治州',
-          adCode: 'C65270CS',
+          adCode: 'C65270',
           spell: 'betlzzz'
         },
 		{
          city: '巴音郭楞',
-          adCode: 'C65280CS',
+          adCode: 'C65280',
           spell: 'bygl'
         },
 		{
          city: '塔里木油田',
-          adCode: 'C65281CS',
+          adCode: 'C65281',
           spell: 'tlmyt'
         },
 		{
          city: '塔西南油田',
-          adCode: 'C65282CS',
+          adCode: 'C65282',
           spell: 'txnyt'
         },
 		{
          city: '阿克苏',
-          adCode: 'C65290CS',
+          adCode: 'C65290',
           spell: 'aks'
         },
 		{
          city: '克孜勒苏柯尔',
-          adCode: 'C65300CS',
+          adCode: 'C65300',
           spell: 'kzlske'
         },
 		{
          city: '喀什',
-          adCode: 'C65310CS',
+          adCode: 'C65310',
           spell: 'ks'
         },
 		{
          city: '和田',
-          adCode: 'C65320CS',
+          adCode: 'C65320',
           spell: 'ht'
         },
 		{
          city: '伊犁',
-          adCode: 'C65400CS',
+          adCode: 'C65400',
           spell: 'yl'
         },
 		{
          city: '塔城',
-          adCode: 'C65420CS',
+          adCode: 'C65420',
           spell: 'tc'
         },
 		{
          city: '阿勒泰',
-          adCode: 'C65430CS',
+          adCode: 'C65430',
           spell: 'alt'
         }
 		
@@ -837,6 +801,38 @@ Page({
       my.getAuthCode({
         scopes: 'auth_user',
         success: ({ authCode }) => {
+          console.log("获取用户授权码：",authCode);
+          //获取用户姓名证件号码
+          my.httpRequest({
+            url: app.data.url + '/app-web/public/common/alitoken.service',
+            //url:'http://192.168.54.77:8089/app-web/public/common/alitoken.service',
+            method: 'POST',
+            headers: {
+              "Content-Type": "application/json",
+              "citycode": "CSY001"
+            },
+            data: {
+              appid: "20170517000101",
+              sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
+              authCode:authCode,
+              citybm:"CSY001"
+            },
+            dataType: 'json',
+            contentType: 'application/json;charset=UTF-8', //contentType很重要    
+            success: (res) => {
+              console.log("获取信息接口返回：",res);
+              console.log("---",res.data.param);
+              app.data.xingming= res.data.param.userName;
+              app.data.zjhm = res.data.param.certNo;          
+              app.setZjbzxbm(this.data.citybm);
+              my.redirectTo({ url: '../C13010CS/index/index' });
+            },
+            fail:()=>{
+                my.alert({
+                  title: '授权失败，请重新授权登录' 
+                });
+            }
+          });
           //获取真实用户名和密码;
           // app.setXingming('冯如车');
           // app.setZjhm('130105197412111224');
@@ -848,14 +844,10 @@ Page({
             // app.data.zjhm = "130131198905065112";
           //   app.data.xingming= "卓长高",
           // app.data.zjhm = "130122196610084628",
-            app.data.xingming= this.data.password;
-            app.data.zjhm = this.data.accouint;
-            app.setZjbzxbm(this.data.citybm);
+            
         //  my.navigateTo({ url: '../index/index' });   
          // my.redirectTo({ url: '../'+this.data.citybm+'/index/index' });
-          my.redirectTo({ url: '../C13010CS/index/index' });
-          //my.navigateTo({ url: '../C13010/index/index' });
-
+          
           // 将用户信息放入缓存
           // my.setStorage({
           //   key: 'yhxx',
@@ -879,32 +871,4 @@ Page({
     this.data.password = e.detail.value;
     console.log(this.data.password);
   },
-  // onPullDownRefresh() {
-  //   //刷新
-  //   this.load(this);
-  //   my.stopPullDownRefresh();
-  // },
-
-  //------------------此处报错，待研究-----------------
-  // my.getPhoneNumber({
-  //   success: (res) => {
-  //     let encryptedData = res.response
-  //     console.log(encryptedData)
-  // my.httpRequest({
-  //     url: '你的后端服务端',
-  //     data: encryptedData
-  // });
-  //   },
-  //   fail: (res) => {
-  //     console.log(res)
-  //     console.log('getPhoneNumber_fail')
-  //   },
-  // });
-  //只能获取用户支付宝头像和昵称
-  // my.getAuthUserInfo({
-  //   success: () => {
-  //     console.log(`userInfo:`, userInfo); 
-  //   }
-  // });
-
 });

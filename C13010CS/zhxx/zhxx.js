@@ -40,8 +40,9 @@ Page({
         let zhxx = res.data.data[0];
          my.hideLoading();
         if(res.data.ret==0){
-          let grjcbl2 = (Number(zhxx.grjcbl) * 100)+'%';
-          let dwjcbl2 = (Number(zhxx.dwjcbl) * 100)+'%';
+          console.log(Number(zhxx.grjcbl)*100);
+          let grjcbl2 = app.fmoney((Number(zhxx.grjcbl) * 100))+'%';
+          let dwjcbl2 = app.fmoney((Number(zhxx.dwjcbl) * 100))+'%';
           this.setData({
             grzh: zhxx.grzh,
             grzhzt:zhxx.grzhzt,

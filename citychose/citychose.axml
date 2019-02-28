@@ -6,20 +6,6 @@
         <image src="{{xzcs}}" mode="" onTap="csxz" style="margin-left: 1.7rem;background-size: 100%;width: 50%;height: 160px;"/>
         <image src="../image/cityImg/dt2.gif" mode="" style="    padding-top: 105px;background-size: 100%;width: 1.7rem;height: 0.9rem;"/>
         </view>
-        <view class="section">
-          <image src='/image/login_pass.png' class='img'></image>
-          <view class='zj'></view>
-          <!-- <input class='inp' type='password' placeholder="请输入密码" onInput="password"/> -->
-            <input class='inp' type='text' value='{{inputXm}}' placeholder="请输入姓名" onInput="password"/>
-        </view>
-        <view class="section">
-          <image src='/image/login_username.png' class='img'></image>
-        <view class='zj'></view>
-          <!-- <input class='inp' type='idcard' placeholder="请输入身份证号或手机号" onInput="account"/> -->
-            <input class='inp'value='{{inputZjhm}}' type='idcard' placeholder="请输入身份证号" onInput="account"/>
-        </view>
-        （录入框仅为方便现阶段体验人员测试使用）
-
         <view class="page-section-demo" >
          <button type="primary" style="border-radius: 15px;" onTap="sqdl">授权登录</button>
       </view>
