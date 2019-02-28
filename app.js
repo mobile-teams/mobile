@@ -19,13 +19,22 @@ App({
  },
 
   onLaunch(options) {
-    // 第一次打开ceshi
-    // options.query == {number:1}
-    console.info('App onLaunch');
+    //获取启动参数 
+    if (options.query) {
+      this.data.zjbzxbm=JSON.stringify(options.query.citybm).replace(/\"/g, "")
+      this.data.xingming=JSON.stringify(options.query.xingming).replace(/\"/g, "")
+      this.data.zjhm=JSON.stringify(options.query.zjhm).replace(/\"/g, "")
+       my.setStorage({
+            key: 'city',
+            data: {
+              citybm: this.data.zjbzxbm
+            }
+          });
+        
+        } 
   },
   onShow(options) {
-    // 从后台被 scheme 重新打开
-    // options.query == {number:1}
+    //热启动
   },
   //存放全局变量
   setGrzh: function (event) {
