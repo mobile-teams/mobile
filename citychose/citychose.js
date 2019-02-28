@@ -79,23 +79,21 @@ Page({
     console.log("___>"+my.canIUse('hideBackHome'));
     app.clearTabBar();
     let that = this;
-    // my.getStorage({
-    //     key:'yhxx',
-    //     success(res) {
-    //         console.log(res);
-    //         app.data.xingming= res.data.xingming;
-
-    //         app.data.zjhm = res.data.zjhm;
-
-    //         app.setZjbzxbm(res.data.citybm);
+    //读取缓存信息
+    my.getStorage({
+        key:'city',
+        success(res) {
+            console.log(res);
+            app.setZjbzxbm(res.data.citybm);
            
-    //         that.setData({
-    //          citybm:res.data.citybm,
-    //         });
-    //         console.log("this.data.citybm",that.data.citybm);
-    //       my.redirectTo({ url: '../'+that.data.citybm+'/index/index' });
-    //     },
-    //   });
+            that.setData({
+             citybm:res.data.citybm,
+             xzcs: "https://api.sjgjj.cn/img/city/"+res.data.citybm.substr(0, 6)+".png",
+             xzcsflag:"1",
+            });
+            console.log("this.data.citybm",that.data.citybm);
+        },
+      });
   },
 
   //刷新使用
@@ -195,7 +193,7 @@ Page({
         },
         {
           city: '太原市',
-          adCode: 'C14020',
+          adCode: 'C14010',
           spell: 'ty'
         },
         {
@@ -848,15 +846,13 @@ Page({
         //  my.navigateTo({ url: '../index/index' });   
          // my.redirectTo({ url: '../'+this.data.citybm+'/index/index' });
           
-          // 将用户信息放入缓存
-          // my.setStorage({
-          //   key: 'yhxx',
-          //   data: {
-          //     xingming: '任彦军',
-          //     zjhm: '130131198905065112',
-          //     citybm: this.data.citybm,
-          //   }
-          // });
+       //   将城市信息放入缓存
+          my.setStorage({
+            key: 'city',
+            data: {
+              citybm: this.data.citybm,
+            }
+          });
  
         },
       });
