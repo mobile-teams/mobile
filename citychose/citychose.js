@@ -167,7 +167,7 @@ Page({
     my.chooseCity({
       // cities:mycity,
       // showLocatedCity:true,
-      // showHotCities:true,
+       showHotCities:false,
       hotCities: [
         {
           city: '石家庄市',
