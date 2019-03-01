@@ -6,7 +6,7 @@ App({
     dkxx:[],
     xingming: "",
     zjhm: "",
-    
+    urls: "",    //城服接入标志参数，慎改
      url: "https://api.sjgjj.cn",
     //url:"http://192.168.54.77:8089",
     //zjbzxbm:"C23020KF",
@@ -21,12 +21,11 @@ App({
   onLaunch(options) {
     //获取启动参数 
     if (options.query) {
+      if(options.query.citybm){
       this.data.zjbzxbm=JSON.stringify(options.query.citybm).replace(/\"/g, "")
-      if(options.query.xingming){
-      this.data.xingming=JSON.stringify(options.query.xingming).replace(/\"/g, "")
       }
-      if(options.query.zjhm){
-      this.data.zjhm=JSON.stringify(options.query.zjhm).replace(/\"/g, "")
+      if(options.query.urls){
+      this.data.urls=JSON.stringify(options.query.urls).replace(/\"/g, "")
       }
        my.setStorage({
             key: 'city',
@@ -122,32 +121,29 @@ App({
       console.log(s)
       console.log("zjbzxbm:::::",this.data.zjbzxbm);
       0 != s.indexOf("/") && (s = "/" + s);
-      for( var i in e.items){
+      // for( var i in e.items){
         
-        //if(e.items[i].pagePath.indexOf(this.data.zjbzxbm) == -1){
-          //拼接城市编码、区分页面
-           //e.items[i].pagePath = "/"+this.data.zjbzxbm+e.items[i].pagePath
-      if(e.items[i].pagePath.indexOf("C13010CS") == -1){
-          //开发使用
-           e.items[i].pagePath = "/C13010CS"+e.items[i].pagePath
-        }
+      //   if(e.items[i].pagePath.indexOf(this.data.zjbzxbm) == -1){
+      //     拼接城市编码、区分页面
+      //      e.items[i].pagePath = "/"+this.data.zjbzxbm+e.items[i].pagePath
+
        
-      }
+      // }
       for (var n in e.items) e.items[n].selected = !1, e.items[n].pagePath == s && (e.items[n].selected = !0);
       t.setData({
       tabbar: e
       });
     },
     //清除 拼接的城市编码，仅重新选择城市时使用
-    clearTabBar(){
-      var e = this.globalData.tabbar;
-      for(var i in e.items){
-          if(e.items[i].pagePath.indexOf(this.data.zjbzxbm) != -1){
-            var a = e.items[i].pagePath.indexOf(this.data.zjbzxbm)+this.data.zjbzxbm.length 
-           e.items[i].pagePath=e.items[i].pagePath.substr(a);
-        }
-      }
-    },
+    // clearTabBar(){
+    //   var e = this.globalData.tabbar;
+    //   for(var i in e.items){
+    //       if(e.items[i].pagePath.indexOf(this.data.zjbzxbm) != -1){
+    //         var a = e.items[i].pagePath.indexOf(this.data.zjbzxbm)+this.data.zjbzxbm.length 
+    //        e.items[i].pagePath=e.items[i].pagePath.substr(a);
+    //     }
+    //   }
+    // },
     globalData: {
       userInfo: null,
       //配置tabbar
@@ -171,21 +167,21 @@ App({
       {
        // "pagePath": "/"+this.data.citybm+"/index/index",
       //  "pagePath": "/index/index",
-       "pagePath": "/index/index",
+       "pagePath": "/pages/index/index",
         "icon": "/image/gongjijin1.png",
         "activeIcon": "/image/gongjijin.png",
         "name": "账户查询"
       },
       {
         // "pagePath": "/"+this.data.citybm+"/ywbl/fuwu/fuwu",
-        "pagePath": "/ywbl/fuwu/fuwu",
+        "pagePath": "/pages/ywbl/fuwu/fuwu",
         "icon": "/image/zixun1.png",
         "activeIcon": "/image/zixun.png",
         "name": "业务办理"
       },
       {
         // "pagePath": "/"+this.data.citybm+"/user/user",
-        "pagePath": "/user/user",
+        "pagePath": "/pages/user/user",
         "icon": "/image/wode1.png",
         "activeIcon": "/image/wode.png",
         "name": "我的"

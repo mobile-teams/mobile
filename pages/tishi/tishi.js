@@ -10,7 +10,8 @@ Page({
   onShow() {
     console.log("dakai");    
     my.alert({
-    title: '办理该业务请使用手机App' ,
+    title:"提示",
+    content: '办理该业务请使用手机App!',
     success:() =>{
         console.log("111");
         // my.switchTab({

@@ -4,7 +4,7 @@ const  bmgjlist= [
       {
         icon: '/image/icon/ffwdcx.png',
         text: '服务网点查询',
-         path: '/C13010CS/fwwdxx/fwwdxx',
+         path: '/pages/fwwdxx/fwwdxx',
         url:"https://api.sjgjj.cn/html/common/fwwdcx/main.html"
        // url:"http://192.168.54.102:8088/app_12329/main.html"
       },
@@ -21,7 +21,7 @@ const  gjywlist= [
         icon: '/image/icon/gjjtq.png',
         text: '我要提取',
       // path: '../../ywbl/gjjtq/gjjtq',
-       path :'/C13010CS/tishi/tishi',
+       path :'/pages/tishi/tishi',
       }
     ];
 const  dkywlist= [
@@ -33,25 +33,25 @@ const  dkywlist= [
       {
         icon: '/image/icon/tqhb.png',
         text: '提前还本',
-        path: '/C13010CS/tishi/tishi',
+        path: '/pages/tishi/tishi',
         //url:"http://192.168.54.100:8088/app_12329/wyindex.html"
       },
       {
         icon: '/image/icon/tqjq.png',
         text: '提前结清',
-        path: '/C13010CS/tishi/tishi',
+        path: '/pages/tishi/tishi',
       },
       {
         icon: '/image/icon/ydcsq.png',
         text: '月对冲签约',
-        path: '/C13010CS/tishi/tishi',
+        path: '/pages/tishi/tishi',
       },
     ];
 const  wdywlist= [
   {
     icon: '/image/icon/wdyw.png',
     text: '我的业务',
-    path: '/C13010CS/tishi/tishi',
+    path: '/pages/tishi/tishi',
     //path: '../../ywbl/daiban/daiban',
   }
 ];

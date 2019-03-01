@@ -1,4 +1,5 @@
 const app = getApp();
+
 Page({
   data: {
     xzcs: '../image/cityImg/001.png',
@@ -77,7 +78,7 @@ Page({
 
   onLoad() {
     console.log("___>"+my.canIUse('hideBackHome'));
-    app.clearTabBar();
+   // app.clearTabBar();
     let that = this;
     //读取缓存信息
     my.getStorage({
@@ -94,6 +95,9 @@ Page({
             console.log("this.data.citybm",that.data.citybm);
         },
       });
+      if(app.data.urls != ""){
+        this.sqdl();
+      }
   },
 
   //刷新使用
@@ -796,7 +800,8 @@ Page({
       });
       return;
     } else {
-      my.getAuthCode({
+        
+        my.getAuthCode({
         scopes: 'auth_user',
         success: ({ authCode }) => {
           console.log("获取用户授权码：",authCode);
@@ -823,7 +828,8 @@ Page({
               app.data.xingming= res.data.param.userName;
               app.data.zjhm = res.data.param.certNo;          
               app.setZjbzxbm(this.data.citybm);
-              my.redirectTo({ url: '../C13010CS/index/index' });
+              app.data.urls = "";
+              my.redirectTo({ url: '../pages/index/index' });
             },
             fail:()=>{
                 my.alert({
