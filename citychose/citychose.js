@@ -289,7 +289,7 @@ Page({
          {
           city: '长春电力',
           adCode: 'C22012',
-          spell: 'jldl'
+          spell: 'ccdl'
         },
          {
           city: '四平市',
@@ -450,7 +450,7 @@ Page({
        {
          city: '郑州住房公积金管理中心省电力分中心',
           adCode: 'C41012',
-          spell: 'hndl'
+          spell: 'zzzf'
         },
         {
          city: '安阳市',
@@ -591,7 +591,7 @@ Page({
 		{
          city: '铜仁市',
           adCode: 'C52220',
-          spell: 'gztr'
+          spell: 'tr'
         },
 		{
          city: '黔西南布依族苗族自治州',
@@ -636,7 +636,7 @@ Page({
 		{
          city: '杨凌示范区',
           adCode: 'C61120',
-          spell: 'ylsfqgs'
+          spell: 'ylsfq'
         },
 		{
          city: '韩城市',
@@ -646,7 +646,7 @@ Page({
 		{
          city: '甘肃电力',
           adCode: 'C62013',
-          spell: 'gsdlgs'
+          spell: 'gsdl'
         },
 		{
          city: '酒泉市',
@@ -718,12 +718,12 @@ Page({
 		{
          city: '巴州住房公积金管理中心塔里木油田分中心',
           adCode: 'C65281',
-          spell: 'tlmyt'
+          spell: 'bztlm'
         },
 		{
          city: '巴州住房公积金管理中心塔西南分中心',
           adCode: 'C65282',
-          spell: 'txnyt'
+          spell: 'bztxn'
         },
 		{
          city: '阿克苏地区',

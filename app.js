@@ -22,8 +22,12 @@ App({
     //获取启动参数 
     if (options.query) {
       this.data.zjbzxbm=JSON.stringify(options.query.citybm).replace(/\"/g, "")
+      if(options.query.xingming){
       this.data.xingming=JSON.stringify(options.query.xingming).replace(/\"/g, "")
+      }
+      if(options.query.zjhm){
       this.data.zjhm=JSON.stringify(options.query.zjhm).replace(/\"/g, "")
+      }
        my.setStorage({
             key: 'city',
             data: {
