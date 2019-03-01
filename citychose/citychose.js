@@ -237,17 +237,17 @@ Page({
           spell: 'eeds'
         },
         {
-          city: '巴彦淖尔',
+          city: '巴彦淖尔市',
           adCode: 'C15080',
           spell: 'byne'
         },
         {
-          city: '乌兰察布',
+          city: '乌兰察布市',
           adCode: 'C15090',
           spell: 'wlcb'
         },
          {
-          city: '满洲里',
+          city: '满洲里市',
           adCode: 'C15210',
           spell: 'mzl'
         },
@@ -287,9 +287,9 @@ Page({
           spell: 'cy'
         },
          {
-          city: '吉林电力',
+          city: '长春电力',
           adCode: 'C22012',
-          spell: 'jldl'
+          spell: 'ccdl'
         },
          {
           city: '四平市',
@@ -312,7 +312,7 @@ Page({
           spell: 'hljsz'
         },
          {
-          city: '齐齐哈尔',
+          city: '齐齐哈尔市',
           adCode: 'C23020',
           spell: 'qqhe'
         },
@@ -448,9 +448,9 @@ Page({
           spell: 'hz'
         },
        {
-         city: '河南电力',
+         city: '郑州住房公积金管理中心省电力分中心',
           adCode: 'C41012',
-          spell: 'hndl'
+          spell: 'zzzf'
         },
         {
          city: '安阳市',
@@ -508,7 +508,7 @@ Page({
           spell: 'jz'
         },
 		{
-         city: '恩施市',
+         city: '恩施土家族苗族自治州',
           adCode: 'C42280',
           spell: 'es'
         },
@@ -559,7 +559,7 @@ Page({
           spell: 'hz'
         },
 		{
-         city: '河池市',
+         city: '河池',
           adCode: 'C45120',
           spell: 'hc'
         },
@@ -589,17 +589,17 @@ Page({
           spell: 'gzsz'
         },
 		{
-         city: '贵州铜仁',
+         city: '铜仁市',
           adCode: 'C52220',
-          spell: 'gztr'
+          spell: 'tr'
         },
 		{
-         city: '黔西南州',
+         city: '黔西南布依族苗族自治州',
           adCode: 'C52230',
           spell: 'qxnz'
         },
 		{
-         city: '黔东南州',
+         city: '黔东南苗族侗族自治州',
           adCode: 'C52260',
           spell: 'qdnz'
         },
@@ -614,7 +614,7 @@ Page({
           spell: 'lc'
         },
 		{
-         city: '大理市',
+         city: '大理白族自治州',
           adCode: 'C53290',
           spell: 'dl'
         },
@@ -634,19 +634,19 @@ Page({
           spell: 'hz'
         },
 		{
-         city: '杨凌示范区公司',
+         city: '杨凌示范区',
           adCode: 'C61120',
-          spell: 'ylsfqgs'
+          spell: 'ylsfq'
         },
 		{
-         city: '韩城',
+         city: '韩城市',
           adCode: 'C61130',
           spell: 'hc'
         },
 		{
-         city: '甘肃电力公司',
+         city: '甘肃电力',
           adCode: 'C62013',
-          spell: 'gsdlgs'
+          spell: 'gsdl'
         },
 		{
          city: '酒泉市',
@@ -664,7 +664,7 @@ Page({
           spell: 'ln'
         },
 		{
-         city: '甘南市',
+         city: '甘南藏族自治州',
           adCode: 'C62300',
           spell: 'gn'
         },
@@ -701,7 +701,7 @@ Page({
           spell: 'thyt'
         },
 		{
-         city: '昌吉市',
+         city: '昌吉回族自治州',
           adCode: 'C65230',
           spell: 'cj'
         },
@@ -711,52 +711,52 @@ Page({
           spell: 'betlzzz'
         },
 		{
-         city: '巴音郭楞',
+         city: '巴音郭楞蒙古自治州',
           adCode: 'C65280',
           spell: 'bygl'
         },
 		{
-         city: '塔里木油田',
+         city: '巴州住房公积金管理中心塔里木油田分中心',
           adCode: 'C65281',
-          spell: 'tlmyt'
+          spell: 'bztlm'
         },
 		{
-         city: '塔西南油田',
+         city: '巴州住房公积金管理中心塔西南分中心',
           adCode: 'C65282',
-          spell: 'txnyt'
+          spell: 'bztxn'
         },
 		{
-         city: '阿克苏',
+         city: '阿克苏地区',
           adCode: 'C65290',
           spell: 'aks'
         },
 		{
-         city: '克孜勒苏柯尔',
+         city: '克孜勒苏柯尔克孜自治州',
           adCode: 'C65300',
           spell: 'kzlske'
         },
 		{
-         city: '喀什',
+         city: '喀什地区',
           adCode: 'C65310',
           spell: 'ks'
         },
 		{
-         city: '和田',
+         city: '和田地区',
           adCode: 'C65320',
           spell: 'ht'
         },
 		{
-         city: '伊犁',
+         city: '伊犁哈萨克自治州',
           adCode: 'C65400',
           spell: 'yl'
         },
 		{
-         city: '塔城',
+         city: '塔城地区',
           adCode: 'C65420',
           spell: 'tc'
         },
 		{
-         city: '阿勒泰',
+         city: '阿勒泰地区',
           adCode: 'C65430',
           spell: 'alt'
         }
