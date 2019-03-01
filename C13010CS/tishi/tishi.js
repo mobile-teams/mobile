@@ -10,7 +10,7 @@ Page({
   onShow() {
     console.log("dakai");    
     my.alert({
-    title: '服务暂未开通' ,
+    title: '办理该业务请使用手机App' ,
     success:() =>{
         console.log("111");
         // my.switchTab({
