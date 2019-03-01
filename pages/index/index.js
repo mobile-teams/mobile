@@ -165,7 +165,7 @@ Page({
         if (res.data.data == null) {
         my.alert({
               title:"提示",
-              content: '未查询到您的公积金信息!!',
+              content: '未查询到您的公积金信息!',
               success: () => {
                 //my.navigateBack();
                 my.redirectTo({ url: '../../citychose/citychose' });
