@@ -84,6 +84,8 @@ Page({
     my.getStorage({
         key:'city',
         success(res) {
+            
+            if(res.data !=null ){
             console.log(res);
             app.setZjbzxbm(res.data.citybm);
            
@@ -93,6 +95,7 @@ Page({
              xzcsflag:"1",
             });
             console.log("this.data.citybm",that.data.citybm);
+        }
         },
       });
       if(app.data.urls != ""){
@@ -154,7 +157,7 @@ Page({
                 //将姓名和证件号 存入全局变量
                 app.setXingming('尹起才');
                 app.setZjhm('23020419700919021X');
-                my.redirectTo({ url: '../index/index' });
+                my.switchTab({ url: '../index/index' });
               },
             });
           },
@@ -829,7 +832,8 @@ Page({
               app.data.zjhm = res.data.param.certNo;          
               app.setZjbzxbm(this.data.citybm);
               app.data.urls = "";
-              my.redirectTo({ url: '../pages/index/index' });
+             // my.redirectTo({ url: '../pages/index/index' });
+             my.switchTab({ url: '/pages/index/index' });
             },
             fail:()=>{
                 my.alert({

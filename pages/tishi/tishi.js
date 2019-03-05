@@ -15,7 +15,7 @@ Page({
     success:() =>{
         console.log("111");
         // my.switchTab({
-        //   url: '../../pages/index/index'
+        //   url: '/pages/index/index'
         // });
         my.navigateBack();
       }

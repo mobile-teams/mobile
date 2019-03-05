@@ -5,14 +5,16 @@ const  bmgjlist= [
         icon: '/image/icon/ffwdcx.png',
         text: '服务网点查询',
          path: '/pages/fwwdxx/fwwdxx',
-        url:"https://api.sjgjj.cn/html/common/fwwdcx/main.html"
+         url:"https://api.sjgjj.cn/html/mine/grzx/index.html"
+       // url:"https://api.sjgjj.cn/html/common/fwwdcx/main.html"
        // url:"http://192.168.54.102:8088/app_12329/main.html"
       },
       {
         icon: '/image/icon/fdjsq.png',
         text: '房贷计算器',
         path: '/fdjsq/fdjsq',
-       
+        //url:"http://192.168.5.164:6008/html/fdjsq/ceshi.html"
+       url:"http://192.168.5.164:6008/html/about.html"
       },
     ];
 
@@ -22,6 +24,7 @@ const  gjywlist= [
         text: '我要提取',
       // path: '../../ywbl/gjjtq/gjjtq',
        path :'/pages/tishi/tishi',
+       url:"http://192.168.54.101:8088/app_12329/cityList/index.html"
       }
     ];
 const  dkywlist= [
@@ -34,7 +37,7 @@ const  dkywlist= [
         icon: '/image/icon/tqhb.png',
         text: '提前还本',
         path: '/pages/tishi/tishi',
-        //url:"http://192.168.54.100:8088/app_12329/wyindex.html"
+        url:"http://192.168.54.101:8088/app_12329/cityList1/index.html"
       },
       {
         icon: '/image/icon/tqjq.png',
@@ -81,10 +84,10 @@ let basicComponentList = [
 Page({
   data: {
     basicComponentList,
-    tabbar:{},     //放在data中
+    //tabbar:{},     //放在data中
   },
   onLoad() {
-    app.editTabBar(); //放在onLoad中
+    //app.editTabBar(); //放在onLoad中
   },
   tiaozhuan(e){
     console.log(e);

@@ -76,7 +76,7 @@ let basicComponentList = [
 let grzhye1;
 Page({
   data: {
-    tabbar:{},     //放在data中
+   // tabbar:{},     //放在data中
     canUse: my.canIUse('lifestyle'),
     grzhye: 0,
     grzh: '',
@@ -140,7 +140,7 @@ Page({
     })
   },
   onLoad() {
-    app.editTabBar(); //放在onLoad中
+  //  app.editTabBar(); //放在onLoad中
     my.httpRequest({
       url: app.data.url + '/app-web/personal/public/gjjdkjbxxcx.service',
       method: 'POST',

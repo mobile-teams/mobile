@@ -17,5 +17,5 @@
     </view>
   </block>
 </view>
-<import src="/template/template.axml"></import>
-<template is="tabbar" data="{{tabbar:tabbar}}"></template>
+<!-- <import src="/template/template.axml"></import>
+<template is="tabbar" data="{{tabbar:tabbar}}"></template> -->

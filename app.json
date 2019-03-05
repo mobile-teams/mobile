@@ -10,12 +10,12 @@
     "pages/ywbl/fuwu/fuwu",
     "pages/guanggao/guanggao",
     "pages/about/about",
-    "pages/yssm/yssm",
+    "pages/yssm_del/yssm",
     "pages/grzx/grzx",
     "pages/ywbl/gjjtq/gjjtq",
     "template/template",
-    "pages/fwwdxx/fwwdxx",
-    "pages/fwwdxx/detail/detail",
+    "pages/fwwdxx_del/fwwdxx",
+    "pages/fwwdxx_del/detail/detail",
     "pages/ywbl/gjjtq/ltxhtq/ltxhtq",
     "pages/ywbl/gjjtq/ltxhtq/ltxhtq02",
     "pages/ywbl/gjjtq/addYhxx/addYhxx",
@@ -32,5 +32,30 @@
     "pullRefresh": false,
     "backgroundColor": "#ffffff",
     "titleBarColor": "#fff"
+  },
+    "tabBar": {
+    "backgroundColor":"#f6f6f7",
+    "textColor": "#404040",
+    "selectedColor": "#108ee9",
+    "items": [
+       {
+       "pagePath": "pages/index/index",
+        "icon": "/image/gongjijin1.png",
+        "activeIcon": "/image/gongjijin.png",
+        "name": "账户查询"
+      },
+      {
+        "pagePath": "pages/ywbl/fuwu/fuwu",
+        "icon": "/image/zixun1.png",
+        "activeIcon": "/image/zixun.png",
+        "name": "业务办理"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "icon": "/image/wode1.png",
+        "activeIcon": "/image/wode.png",
+        "name": "我的"
+      }
+    ]
   }
 }

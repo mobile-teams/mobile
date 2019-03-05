@@ -1,7 +1,7 @@
 const app = getApp();
 Page({
   data: {
-    tabbar:{},     //放在data中
+   // tabbar:{},     //放在data中
     thumb: 'https://gw.alipayobjects.com/zos/rmsportal/VBqNBOiGYkCjqocXjdUj.png',
     footerImg: 'https://gw.alipayobjects.com/zos/rmsportal/VBqNBOiGYkCjqocXjdUj.png',
     xingming:"",
@@ -22,6 +22,14 @@ Page({
         arrow: true,
       },
     ],
+    itemsQchc: [
+      {
+        thumb: '/image/clearcache.png',
+        title: '清除缓存',
+      // extra: '描述文字',
+        arrow: false,
+      },
+    ],
     // itemsYssm: [
     //   {
     //     thumb: '/image/yssm.png',
@@ -31,7 +39,7 @@ Page({
     // ],
   },
   onLoad() {
-    app.editTabBar(); //放在onLoad中
+   // app.editTabBar(); //放在onLoad中
     console.log(app.data.xingming,app.data.dwmc);
 
     this.setData({
@@ -55,6 +63,14 @@ Page({
   },
   onItemClick1(ev) {
    my.navigateTo({ url: '../about/about' })
+  },
+  onQchcClick(){
+    my.removeStorage({
+      key: 'city',
+      success: function(){
+        my.alert({content: '删除成功'});
+      }
+  });
   },
   onExit(ev) {
     my.redirectTo({
