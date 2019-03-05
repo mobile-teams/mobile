@@ -62,7 +62,7 @@ Page({
     });
   },
   onItemClick1(ev) {
-   my.navigateTo({ url: '../about/about' })
+   my.navigateTo({ url: '../gywm/gywm' })
   },
   onQchcClick(){
     my.removeStorage({
