@@ -25,7 +25,8 @@
     "pages/ywbl/daiban/daiban",
     "pages/ywbl/daiban/lcxxcx",
     "pages/ywbl/daiban/adjust_lxtq/adjust_lxtq",
-    "fdjsq/fdjsq"
+    "fdjsq/fdjsq",
+    "fdjsq/fdxq/fdxq"
   ],
   "window": {
     "defaultTitle": "",
@@ -33,13 +34,13 @@
     "backgroundColor": "#ffffff",
     "titleBarColor": "#fff"
   },
-    "tabBar": {
-    "backgroundColor":"#f6f6f7",
+  "tabBar": {
+    "backgroundColor": "#f6f6f7",
     "textColor": "#404040",
     "selectedColor": "#108ee9",
     "items": [
-       {
-       "pagePath": "pages/index/index",
+      {
+        "pagePath": "pages/index/index",
         "icon": "/image/gongjijin1.png",
         "activeIcon": "/image/gongjijin.png",
         "name": "账户查询"
