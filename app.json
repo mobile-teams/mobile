@@ -27,7 +27,8 @@
     "pages/ywbl/daiban/adjust_lxtq/adjust_lxtq",
     "fdjsq/fdjsq",
     "fdjsq/fdxq/fdxq",
-    "pages/gywm/gywm"
+    "pages/gywm/gywm",
+    "city/city"
   ],
   "window": {
     "defaultTitle": "",

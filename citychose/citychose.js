@@ -80,6 +80,14 @@ Page({
     console.log("___>"+my.canIUse('hideBackHome'));
    // app.clearTabBar();
     let that = this;
+    if(app.data.zjbzxbm !=""){//判断是否从城市选择页面返回
+         this.setData({
+        //  xzcs: "../image/cityImg/"+res.adCode.substr(0, 6)+".png",
+          xzcs: "https://api.sjgjj.cn/img/city/"+app.data.zjbzxbm.substr(0, 6)+".png",
+          xzcsflag:"1",
+          citybm:app.data.zjbzxbm,
+        });
+      }else{
     //读取缓存信息
     my.getStorage({
         key:'city',
@@ -98,9 +106,11 @@ Page({
         }
         },
       });
+      }
       if(app.data.urls != ""){
         this.sqdl();
       }
+
   },
 
   //刷新使用
@@ -170,7 +180,7 @@ Page({
     });
   },
 
-  csxz() {
+  csxz1() {
     my.chooseCity({
       // cities:mycity,
       // showLocatedCity:true,
@@ -793,7 +803,11 @@ Page({
     //   },
     // });
   },
-
+  csxz(){
+     my.navigateTo({
+       url: '/city/city',
+     });
+  },
   //授权登陆
   sqdl() {
     let cs = this.data.xzcsflag;
