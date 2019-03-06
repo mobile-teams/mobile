@@ -14,7 +14,7 @@ const  bmgjlist= [
         text: '房贷计算器',
         path: '/fdjsq/fdjsq',
         //url:"http://192.168.5.164:6008/html/fdjsq/ceshi.html"
-       url:"http://192.168.5.164:6008/html/about.html"
+       //url:"http://192.168.5.164:6008/html/about.html"
       },
     ];
 

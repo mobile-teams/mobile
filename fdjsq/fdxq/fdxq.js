@@ -684,7 +684,7 @@ Page({
         let Syyuebenjin = Syyuebenjindebj;
         ////alert(yuebenjin);
         let Syyuegong = Syyuebenjin + Syyuelixi;
-        Syshengyu = Syzonge - Syyuegong;
+        let Syshengyu = Syzonge - Syyuegong;
         Syzonge = Syzonge - Syyuegong;
         Sybenjin = Sybenjin - Syyuebenjin;
         //合计
