@@ -81,6 +81,7 @@ Page({
    // app.clearTabBar();
     let that = this;
     if(app.data.zjbzxbm !=""){//判断是否从城市选择页面返回
+     console.log("城市列表返回：",app.data.zjbzxbm)
          this.setData({
         //  xzcs: "../image/cityImg/"+res.adCode.substr(0, 6)+".png",
           xzcs: "https://api.sjgjj.cn/img/city/"+app.data.zjbzxbm.substr(0, 6)+".png",
@@ -89,14 +90,13 @@ Page({
         });
       }else{
     //读取缓存信息
+    console.log("读取缓存");
     my.getStorage({
         key:'city',
-        success(res) {
-            
+        success(res) {           
             if(res.data !=null ){
             console.log(res);
-            app.setZjbzxbm(res.data.citybm);
-           
+            app.setZjbzxbm(res.data.citybm);           
             that.setData({
              citybm:res.data.citybm,
              xzcs: "https://api.sjgjj.cn/img/city/"+res.data.citybm.substr(0, 6)+".png",
@@ -804,6 +804,7 @@ Page({
     // });
   },
   csxz(){
+    console.log("单击111");
      my.navigateTo({
        url: '/city/city',
      });

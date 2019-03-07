@@ -35,8 +35,10 @@ Page({
   onMessage(e) {
   	console.log(e); //{'sendToMiniProgram': '0'}
     if(e.detail.getCurrentcity != null){
+      if (this.data.citymc !=null && this.data.citymc !=  ' '){
       console.log("定位城市名称",this.data.citymc);
       this.webViewContext.postMessage({'citymc': this.data.citymc});
+      }
     }
 
     if(e.detail.citybm != null){
@@ -47,7 +49,8 @@ Page({
         
       },
     });
+    
     }
-  //  my.navigateBack();
+  //  
   },
 });
