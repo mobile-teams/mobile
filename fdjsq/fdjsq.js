@@ -468,6 +468,38 @@ Page({
         dijian2:dijian,
      });
   },
+   debxhkxq(){
+   // LoanType,Dkfs(Debx),gjjbenjin(JinE),gjjqixian(QiXian),gjjzhekou(gjjllzk)
+   if(this.data.LoanType=='gongjijin'){
+     //let map =this.data.LoanType+','+'Debx,'+this.data.JinE +','+this.data.QiXian+','+this.data.gjjllzk;
+     let map =this.data.LoanType+','+'Debx,'+this.data.JinE+',,'+this.data.QiXian+','+this.data.gjjllzk+',,';
+     if(this.data.JinE!="0"&&this.data.JinE!=""){
+      my.navigateTo({ url: '../fdjsq/fdxq/fdxq?map='+map  });
+     }
+   }else{ 
+     let map =this.data.LoanType+','+'Debx,'+this.data.GjjJinE +','+this.data.SyJinE +','+this.data.Zhdkqx+','+this.data.zhgjjzk+','+this.data.zhsdzk;
+     if(this.data.GjjJinE!="0"&&this.data.GjjJinE!=""&&this.data.SyJinE!="0"&&this.data.SyJinE!=""){
+      my.navigateTo({ url: '../fdjsq/fdxq/fdxq?map='+map  });
+     }
+   }
+  },
+  debjhkxq(){
+   // LoanType,Dkfs(Debx),gjjbenjin(JinE),gjjqixian(QiXian),gjjzhekou(gjjllzk)
+   if(this.data.LoanType=='gongjijin'){
+     //let map =this.data.LoanType+','+'Debj,'+this.data.JinE +','+this.data.QiXian+','+this.data.gjjllzk;
+     let map =this.data.LoanType+','+'Debj,'+this.data.JinE+',,'+this.data.QiXian+','+this.data.gjjllzk+',,';
+     console.log("this.data.JinE<<<<<<<<<",this.data.JinE,"ssssss");
+     if(this.data.JinE!="0"&&this.data.JinE!=""){
+      my.navigateTo({ url: '../fdjsq/fdxq/fdxq?map='+map  });
+     }
+   }else{ 
+     let map =this.data.LoanType+','+'Debj,'+this.data.GjjJinE +','+this.data.SyJinE +','+this.data.Zhdkqx+','+this.data.zhgjjzk+','+this.data.zhsdzk;
+      console.log("this.data.GjjJinE<<<<<<<<<",this.data.GjjJinE);
+     if(this.data.GjjJinE!="0"&&this.data.GjjJinE!=""&&this.data.SyJinE!="0"&&this.data.SyJinE!=""){
+     my.navigateTo({ url: '../fdjsq/fdxq/fdxq?map='+map  });
+     }
+   }
+  }
 });
 
 

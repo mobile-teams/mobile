@@ -28,7 +28,7 @@
 					</view>
 				</view>
 	    </view>
-      <view class="grayblue">
+      <view class="grayblue" style="text-align: center;"  onTap="debxhkxq">
         <a id="debxhkxq">等额本息还款详情</a>
       </view>
         <!--等额本息结束-->
@@ -63,7 +63,7 @@
 						</view>
 					</view>
       </view>
-      <view class="grayblue">
+      <view class="grayblue" style="text-align: center;" onTap="debjhkxq">
         <a id="debjhkxq">等额本金还款详情</a>
       </view>
 				<!--等额本金结束-->

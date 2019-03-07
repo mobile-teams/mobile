@@ -1,0 +1,120 @@
+@charset "utf-8";
+/* CSS Document */
+*:focus{outline:none;}
+select{
+	/* Chrome和Firefox里面的边框是不一样的,复写了一下  */
+	border: solid 1px #000;
+	/*很关键：将默认的select选择框样式清除*/
+	appearance:none;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	/*在选择框的最右侧中间显示小箭头图片*/
+	background:url("images/arrow.png") no-repeat scroll right center transparent;
+    /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+    padding-right:14px;
+}
+/*清除ie的默认选择框样式，隐藏下拉箭头*/
+select::-ms-expand{
+	display:none;
+}
+body{font-family: '微软雅黑', sans-serif;padding:0px;margin:0px;background:#f4f5f9;}
+.main-div{width:100%;margin:auto; text-align:center;}
+.hundred{width:100%;}
+.title{width:90%;padding-left:4%;font-size:1.2em;line-height:50px;}
+.titleleft{width:40%;float:left;}
+.titleright{float:right;padding-right:4%;color:#0c90f5;}
+.blue-bg{width:100%;background:#0e8ee7;}
+.l{text-align:left;}
+.r{text-align:right;}
+.clear{clear:both;}
+.height24{height:24px; line-height:24px;}
+.head {
+    width: 60%;
+    margin:auto;
+    font-size:0.8em;
+	height:25px;
+    line-height:25px;
+    text-align: center;
+    color: #fff;
+	border-radius:6px;
+	border:1px solid #fff;
+}
+#head_left{
+    width: 50%;
+    float: left;
+    background-color: #fff;
+	
+	border-top-left-radius:6px;
+	border-bottom-left-radius:6px;
+	
+}
+#head_right{
+    width: 50%;
+    float: right;
+    background-color: #0f86ec;
+	color:#2488d6;
+	border-top-right-radius:6px;
+	border-bottom-right-radius:6px;
+}
+.dtleftlist{width:90%;padding:3% 4% 2% 5%;color:#fff;height:60px;}
+.delistl{width:50%;text-align:left;float:left;line-height:30px;}
+.delistlline{width:46%;text-align:left;float:left;line-height:30px;padding-left:3%;border-left:1px solid #fff;}
+.f21{font-size:1.8em;}
+.f20{font-size:1.2em;}
+.f12{font-size:0.8em;}
+.grayblue{height:40px;background:#e9f4f8;border-bottom:1px solid #e3e2e7;color:#6a6e71;line-height:40px;}
+.space-topm10{margin-top:10px;}
+.dkfsdiv{width:95%;padding:2%;background:#fff;}
+.dkfslist{width:100%;height:40px;line-height:40px;border-bottom:1px solid #ddd;}
+.dkfslistleft{width:50%;float:left;text-align:left;}
+.dkfslistright{width:50%;float:left;text-align:right;}
+.dkfslistright select{border:none;}
+.dkfslistright input[type='number']{width:85%;border:none; text-align:right;}
+.tsxx{font-size:0.8em;text-align:left;color:#a9aaac;padding-left:2%;}
+/*利率表*/
+.llbtitle{width:90%;padding-left:4%;padding-right:6%;font-size:1.2em;line-height:50px;border-bottom:1px solid #ddd;background:#fff;text-align:left;}
+.llbtable{width:95%;padding:2%;margin:auto;}
+.llbtable table{ border-collapse:collapse;}
+.llbtable table td{border:1px solid #ddd; text-align:center;padding:5px;}
+.llbtable thead tr{background:#0e8ee7;}
+.llbtable th{color:#fff;font-weight:100;font-size:0.8em;text-align:center;height:30px;line-height:33px;}
+/*还款详情*/
+.xqlist{width:100%;height:70px;margin-top:10px;color:#fff;font-size:0.8em;}
+.xqlistl{width:24%;text-align:center;float:left;line-height:30px;border-left:1px solid #40bdff;}
+
+.xqtabble{width:24%;text-align:center;float:left;line-height:30px;}
+.xqtabble001{width:100%;text-align:left;float:left;}
+
+.bt table{width:95%;padding:1% 0% 0% 5%;}
+
+
+.table table{width:95%;padding:0px 0px 0px 5%;}
+
+.texttitle{color:#49a6df; text-align:center;}
+.textcontent{color:#49a6df;height:34px;line-height:34px;text-align:center;}
+
+.whitebg{background:#fff;}
+.ns{color:#49a6df; background:#ebf4fb;padding-left:7%;}
+
+.scroll{height:400px; overflow-y:auto;}
+/* width 390 */
+@media screen and (max-width:340px) {
+	.dkfslist{font-size:0.8em;}
+	.xqlistl{font-size:0.9em;}
+}
+
+
+
+.scroll-view-item{
+  height: 600px;
+}
+
+
+
+
+
+
+
+
+
+
