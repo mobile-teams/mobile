@@ -1,0 +1,1 @@
+<web-view src="{{ywmxurl}}"  id="web-view_ywmx"  onMessage="ywmx_onMessage"/>

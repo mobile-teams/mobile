@@ -99,7 +99,7 @@ Page({
         }
         console.log(guanggaourl);
         app.setGuanggaourl(guanggaourl);
-        my.navigateTo({ url: '../../guanggao/guanggao' });
+        my.navigateTo({ url: '../yw/yw' });
     }else{
         my.navigateTo({url:tourl});
     }

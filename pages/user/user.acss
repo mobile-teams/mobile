@@ -1,24 +1,32 @@
-page{background-color:rgb(245, 245, 245);}
+page {
+  background-color: rgb(245, 245, 245);
+  height: 100%;
+}
 
-.title{
-    background-color:rgb(245, 245, 245);
-    height: 5px;
+.title {
+  background-color: rgb(245, 245, 245);
+  height: 5px;
 }
-.listStyle{
+
+.listStyle {
   margin-top: 30px;
-  margin-left:15px; 
-  margin-right:15px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
-.card{
-  background-color:rgb(245, 245, 245);
+
+.card {
+  background-color: rgb(245, 245, 245);
   margin: 10px;
 }
+
 .dyt-list {
   margin-top: 0;
 }
+
 .dyt-list .am-list-item-thumb {
   border-radius: 5px;
 }
+
 .dyt-list .am-list-brief {
   color: #909090;
 }
@@ -33,4 +41,5 @@ page{background-color:rgb(245, 245, 245);}
   background-color: #fff;
   z-index: 2;
 }
+
 @import "/template/template.acss";
