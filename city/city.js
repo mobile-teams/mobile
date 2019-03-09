@@ -5,42 +5,36 @@ Page({
     citymc:' '
   },
   onLoad() {
-     let that = this;
-    my.getLocation({
-      type:1,
-      success(res) {
-        my.hideLoading();
-        console.log(res)
-        // that对象为Page可以设置数据刷新界面
-        that.setData({
-         citymc:res.city
-        })
-        
-      },
-      fail() {
-        my.hideLoading();
-        my.alert({ title: '定位失败' });
-      },
-    })
     this.setData({
-      ggurl:"http://192.168.54.101:8088/app_12329/cityList/index.html"
+     // ggurl:"http://192.168.54.101:8088/app_12329/cityList/index.html?a=1"
+     ggurl:"https://www.gjj12329.cn/alipay/cityList/index.html?a=1"
     });
     console.log('url',this.data.ggurl);
     this.webViewContext = my.createWebViewContext('web-view-1');
      // 向H5发送消息
-   //this.webViewContext.postMessage({'sendToWebView0': '0'});
-   //this.webViewContext.postMessage({'zhanghao': '1066','mima':'1234'});
   },
-
+  onReady(){
+     let that = this;
+      my.getLocation({
+        type:1,
+        success(res) {
+          my.hideLoading();
+          console.log(res)
+          // that对象为Page可以设置数据刷新界面
+          that.setData({
+          citymc:res.city
+          })
+          console.log("this.data:",that.data);
+          that.webViewContext.postMessage({'citymc': that.data.citymc});
+        },
+        fail() {
+          my.hideLoading();
+          my.alert({ title: '定位失败' });
+        },
+      })
+  },
   onMessage(e) {
-  	console.log(e); //{'sendToMiniProgram': '0'}
-    if(e.detail.getCurrentcity != null){
-      if (this.data.citymc !=null && this.data.citymc !=  ' '){
-      console.log("定位城市名称",this.data.citymc);
-      this.webViewContext.postMessage({'citymc': this.data.citymc});
-      }
-    }
-
+  	console.log(e); 
     if(e.detail.citybm != null){
     app.data.zjbzxbm = e.detail.citybm;
     my.reLaunch({

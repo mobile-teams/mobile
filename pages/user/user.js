@@ -22,14 +22,14 @@ Page({
         arrow: true,
       },
     ],
-    itemsQchc: [
-      {
-        thumb: '/image/clearcache.png',
-        title: '清除缓存',
-      // extra: '描述文字',
-        arrow: false,
-      },
-    ],
+    // itemsQchc: [
+    //   {
+    //     thumb: '/image/clearcache.png',
+    //     title: '清除缓存',
+    //   // extra: '描述文字',
+    //     arrow: false,
+    //   },
+    // ],
     // itemsYssm: [
     //   {
     //     thumb: '/image/yssm.png',
