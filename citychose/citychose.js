@@ -758,50 +758,52 @@ Page({
         success: ({ authCode }) => {
           console.log("获取用户授权码：",authCode);
           //获取用户姓名证件号码
-          my.httpRequest({
-            url: app.data.url + '/app-web/public/common/alitoken.service',
-            //url:'http://192.168.54.77:8089/app-web/public/common/alitoken.service',
-            method: 'POST',
-            headers: {
-              "Content-Type": "application/json",
-              "citycode": "CSY001"
-            },
-            data: {
-              appid: "20170517000101",
-              sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-              authCode:authCode,
-              citybm:"CSY001"
-            },
-            dataType: 'json',
-            contentType: 'application/json;charset=UTF-8', //contentType很重要    
-            success: (res) => {
-              console.log("获取信息接口返回：",res);
-              console.log("---",res.data.param);
-              app.data.xingming= res.data.param.userName;
-              app.data.zjhm = res.data.param.certNo;          
-              app.setZjbzxbm(this.data.citybm);
-              app.data.urls = "";
-             // my.redirectTo({ url: '../pages/index/index' });
-             my.switchTab({ url: '/pages/index/index' });
-            },
-            fail:()=>{
-                my.alert({
-                  title: '授权失败，请重新授权登录' 
-                });
-            }
-          });
+          // my.httpRequest({
+          //   url: app.data.url + '/app-web/public/common/alitoken.service',
+          //   //url:'http://192.168.54.77:8089/app-web/public/common/alitoken.service',
+          //   method: 'POST',
+          //   headers: {
+          //     "Content-Type": "application/json",
+          //     "citycode": "CSY001"
+          //   },
+          //   data: {
+          //     appid: "20170517000101",
+          //     sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
+          //     authCode:authCode,
+          //     citybm:"CSY001"
+          //   },
+          //   dataType: 'json',
+          //   contentType: 'application/json;charset=UTF-8', //contentType很重要    
+          //   success: (res) => {
+          //     console.log("获取信息接口返回：",res);
+          //     console.log("---",res.data.param);
+          //     // app.data.xingming= res.data.param.userName;
+          //     // app.data.zjhm = res.data.param.certNo;    
+          //     app.data.xingming= "徐建伟",
+          //     app.data.zjhm = "130181198610057370",  
+            app.setZjbzxbm(this.data.citybm);
+          //     app.data.urls = "";
+          //    // my.redirectTo({ url: '../pages/index/index' });
+          //    my.switchTab({ url: '/pages/index/index' });
+          //   },
+          //   fail:()=>{
+          //       my.alert({
+          //         title: '授权失败，请重新授权登录' 
+          //       });
+          //   }
+          // });
           //获取真实用户名和密码;
           // app.setXingming('冯如车');
           // app.setZjhm('130105197412111224');
-            //  app.data.xingming= "徐建伟",
-            //  app.data.zjhm = "130181198610057370",
+             app.data.xingming= "徐建伟",
+             app.data.zjhm = "130181198610057370",
             //  app.data.xingming="许福才",
             //  app.data.zjhm = "220403196208210517"
             // app.data.xingming= "任彦军";
             // app.data.zjhm = "130131198905065112";
           //   app.data.xingming= "卓长高",
           // app.data.zjhm = "130122196610084628",
-            
+            my.switchTab({ url: '/pages/index/index' });
         //  my.navigateTo({ url: '../index/index' });   
          // my.redirectTo({ url: '../'+this.data.citybm+'/index/index' });
           

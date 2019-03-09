@@ -146,7 +146,7 @@ Page({
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm.substr(0, 6)
+        "citycode": app.data.zjbzxbm
       },
       data: {
         appid: "20170517000101",
@@ -241,7 +241,7 @@ Page({
           method: 'POST',
           headers: {
             "Content-Type": "application/json",
-            "citycode": app.data.zjbzxbm.substr(0, 6)
+            "citycode": app.data.zjbzxbm
           },
           data: {
             appid: "20170517000101",
@@ -337,7 +337,7 @@ Page({
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm.substr(0, 6)
+        "citycode": app.data.zjbzxbm
       },
       data: {
         appid: "20181023000101",
@@ -374,7 +374,7 @@ Page({
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm.substr(0, 6)
+        "citycode": app.data.zjbzxbm
       },
       data: {
         appid: "20170517000101",
@@ -408,7 +408,7 @@ Page({
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm.substr(0, 6)
+        "citycode": app.data.zjbzxbm
       },
       data: {
         appid: "20170517000101",
