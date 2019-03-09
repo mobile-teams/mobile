@@ -803,20 +803,20 @@ Page({
                 });
             }
           });
-          //获取真实用户名和密码;
-          // app.setXingming('冯如车');
-          // app.setZjhm('130105197412111224');
+            //获取真实用户名和密码;
+            // app.setXingming('冯如车');
+            // app.setZjhm('130105197412111224');
             //  app.data.xingming= "徐建伟",
             //  app.data.zjhm = "130181198610057370",
             //  app.data.xingming="许福才",
             //  app.data.zjhm = "220403196208210517"
             // app.data.xingming= "任彦军";
             // app.data.zjhm = "130131198905065112";
-          //   app.data.xingming= "卓长高",
-          // app.data.zjhm = "130122196610084628",
-            
-        //  my.navigateTo({ url: '../index/index' });   
-         // my.redirectTo({ url: '../'+this.data.citybm+'/index/index' });
+            //   app.data.xingming= "卓长高",
+            // app.data.zjhm = "130122196610084628",
+            //  my.switchTab({ url: '/pages/index/index' });
+            //  my.navigateTo({ url: '../index/index' });   
+            // my.redirectTo({ url: '../'+this.data.citybm+'/index/index' });
           
        //   将城市信息放入缓存
           my.setStorage({

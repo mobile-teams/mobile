@@ -140,8 +140,8 @@ Page({
     this.setData({
       images: [
       { imgUrl: app.data.url+'/alipay/common/banna/banna1.jpg?citycode='+app.data.zjbzxbm, url: app.data.url+'/alipay/common/banna/banna1.html?citycode='+app.data.zjbzxbm },
-      { imgUrl: app.data.url+'/alipay/common/banna/banna2.jpg?citycode='+app.data.zjbzxbm, url: app.data.url+'/alipay/common/banna/banna1.html?citycode='+app.data.zjbzxbm },
-      { imgUrl: app.data.url+'/alipay/common/banna/banna3.jpg?citycode='+app.data.zjbzxbm, url: app.data.url+'/alipay/common/banna/banna1.html?citycode='+app.data.zjbzxbm  },
+      { imgUrl: app.data.url+'/alipay/common/banna/banna2.jpg?citycode='+app.data.zjbzxbm, url: app.data.url+'/alipay/common/banna/banna2.html?citycode='+app.data.zjbzxbm },
+      { imgUrl: app.data.url+'/alipay/common/banna/banna3.jpg?citycode='+app.data.zjbzxbm, url: app.data.url+'/alipay/common/banna/banna3.html?citycode='+app.data.zjbzxbm  },
     ],
     }),
     my.httpRequest({
@@ -149,7 +149,7 @@ Page({
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm.substr(0, 6)
+        "citycode": app.data.zjbzxbm
       },
       data: {
         appid: "20170517000101",
@@ -244,7 +244,7 @@ Page({
           method: 'POST',
           headers: {
             "Content-Type": "application/json",
-            "citycode": app.data.zjbzxbm.substr(0, 6)
+            "citycode": app.data.zjbzxbm
           },
           data: {
             appid: "20170517000101",
@@ -340,7 +340,7 @@ Page({
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm.substr(0, 6)
+        "citycode": app.data.zjbzxbm
       },
       data: {
         appid: "20181023000101",
@@ -377,7 +377,7 @@ Page({
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm.substr(0, 6)
+        "citycode": app.data.zjbzxbm
       },
       data: {
         appid: "20170517000101",
@@ -411,7 +411,7 @@ Page({
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm.substr(0, 6)
+        "citycode": app.data.zjbzxbm
       },
       data: {
         appid: "20170517000101",

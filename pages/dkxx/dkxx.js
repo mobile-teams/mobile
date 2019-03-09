@@ -63,6 +63,7 @@ Page({
       this.setData({
         activeTab: index,
       });
+
     } else if (index == "1") {
       this.Serchhkmx(this);
       this.setData({
@@ -96,7 +97,7 @@ Page({
       day = '0' + day;
     };
     let formatDate = year + '-' + month + '-' + day;
-    let ksmatDate = (year - 1) + '-' + month + '-' + day;
+    let ksmatDate = (year - 1) + '-' + month + '-' + day; 
     console.log(">>>>>formatDate>>>>>", formatDate);
     console.log(">>>>>ksmatDate>>>>>", ksmatDate);
     my.httpRequest({
@@ -104,7 +105,7 @@ Page({
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm.substr(0, 6)
+        "citycode": app.data.zjbzxbm
       },
       data: {
         appid: "20170517000101",
@@ -115,6 +116,7 @@ Page({
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
+        console.log(">>>>>res>>>>>", res);
         const dkxx = res.data.data[0];
         console.log(dkxx)
         my.hideLoading();
@@ -157,7 +159,7 @@ Page({
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm.substr(0, 6)
+        "citycode": app.data.zjbzxbm
       },
       data: {
         appid: "20170517000101",
@@ -186,6 +188,7 @@ Page({
           that.setData({
             items1: hkjhmx,
             flaghkjh: 1,
+            hkjhxq1: '-2',
           });
 
         } else {
@@ -228,7 +231,7 @@ Page({
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm.substr(0, 6)
+        "citycode": app.data.zjbzxbm
       },
       data: {
         appid: "20170517000101",
@@ -249,7 +252,7 @@ Page({
           dkhkmc1 = res.data.data;
           console.log("dkxxmc");
           for (var i = 0; i < dkhkmc1.length; i++) {
-            if (dkhkmc1[i].hkny.length > 0) {
+            if (dkhkmc1[i].hkny.length > 0 && dkhkmc1[i].hkrq >= that.data.ksrq) {
               console.log("dkxx.length<<<<<<<<", dkhkmc1.length);
               dkhkmc1[i].title = dkhkmc1[i].hkny + '期';
               dkhkmc1[i].extra = "￥" + (dkhkmc1[i].chbj * 100 + dkhkmc1[i].chfx * 100 + dkhkmc1[i].chlx * 100) / 100;
@@ -260,6 +263,7 @@ Page({
           that.setData({
             items: dkhkmc,
             flaghkmx: 1,
+            hkjhxq: '-2',
           });
 
         } else {
@@ -282,7 +286,7 @@ Page({
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm.substr(0, 6)
+        "citycode": app.data.zjbzxbm
       },
       data: {
         appid: "20170517000101",
@@ -310,6 +314,7 @@ Page({
           that.setData({
             items2: yqhkmc,
             flagyqhk: 1,
+            hkjhxq2: '-2',
           });
 
         } else {

@@ -10,7 +10,6 @@ App({
     urlsc:"https://api.sjgjj.cn",
     // url: "https://api.sjgjj.cn",
      url: "https://www.gjj12329.cn",
-    //url:"http://192.168.54.77:8089",
      zjbzxbm: "",
     gruangaourl: " ",
     PinYin: { 

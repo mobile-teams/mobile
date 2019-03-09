@@ -1,20 +1,28 @@
 const app = getApp();
 Page({
   data: {
-    ywmxurl:' '
+    ywmxurl: ' '
   },
   onLoad(e) {
+    var ywmxurl = '';
+    console.log("eee", e);
+    if (e.style != '' && e.style != null && e.style == 'public') {
+      ywmxurl = app.data.url + '/alipay/' + e.ywbm;
+    } else {
+      ywmxurl = app.data.url + '/alipay/' + e.ywbm + '?citycode=' + app.data.zjbzxbm;
+    }
     this.setData({
-     // ywmxurl:'http://192.168.5.164:6008/html/ywbl/gjjtq/tq_index.html?citycode=C13010'
-     // ywmxurl:'http://192.168.5.164:6008/'+e.ywbm
-     ywmxurl: e.ywbm
+      // ywmxurl:'http://192.168.5.164:6008/'+e.ywbm
+      ywmxurl: ywmxurl
     });
-    console.log('url>>>>>>-',this.data.ywmxurl);
+    console.log('url>>>>>>-', this.data.ywmxurl);
     this.webViewContext = my.createWebViewContext('web-view_ywmx');
   },
 
-  ywmx_onMessage(e) { 
-  	console.log("接收业务明细H25！！！",e); //{'sendToMiniProgram': '0'}
-
+  ywmx_onMessage(e) {
+    console.log("接收服务网点打电话！！！", e);
+    if (e.detail.fqbz == '1') {
+      my.makePhoneCall({ number: e.detail.call });
+    }
   },
 });
