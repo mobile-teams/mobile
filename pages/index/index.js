@@ -98,12 +98,7 @@ Page({
     indexgrzh: 0,
 
     // 轮播图变量
-    images: [
-      { imgUrl: '../../image/1.jpg', url: 'http://192.168.5.164:6008/html/fdjsq/home.html' },
-      { imgUrl: '../../image/2.jpg', url: 'http://192.168.54.100:8088/app_12329/index.html' },
-      // { imgUrl: '../../image/3.jpg' },
-      // { imgUrl: '../../image/4.jpg' },
-    ],
+    images: [],
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
@@ -141,6 +136,14 @@ Page({
   },
   onLoad() {
   //  app.editTabBar(); //放在onLoad中
+    
+    this.setData({
+      images: [
+      { imgUrl: app.data.url+'/alipay/common/banna/banna1.jpg?citycode='+app.data.zjbzxbm, url: app.data.url+'/alipay/common/banna/banna1.html?citycode='+app.data.zjbzxbm },
+      { imgUrl: app.data.url+'/alipay/common/banna/banna2.jpg?citycode='+app.data.zjbzxbm, url: app.data.url+'/alipay/common/banna/banna1.html?citycode='+app.data.zjbzxbm },
+      { imgUrl: app.data.url+'/alipay/common/banna/banna3.jpg?citycode='+app.data.zjbzxbm, url: app.data.url+'/alipay/common/banna/banna1.html?citycode='+app.data.zjbzxbm  },
+    ],
+    }),
     my.httpRequest({
       url: app.data.url + '/app-web/personal/public/gjjdkjbxxcx.service',
       method: 'POST',
@@ -537,7 +540,7 @@ Page({
     this.setData({
       current: num,
     })
-    //console.log(num, source)
+    console.log(num, source)
   },
   lunbotu(e) {
     let guanggaourl = e.currentTarget.dataset.value

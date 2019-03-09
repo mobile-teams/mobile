@@ -80,6 +80,18 @@ Page({
     console.log("___>"+my.canIUse('hideBackHome'));
    // app.clearTabBar();
     let that = this;
+    // my.getLocation({//获取定位城市
+    //     type:1,
+    //     success(res) {
+    //       my.hideLoading();
+    //       console.log(res)
+    //       app.data.citymc=res.city                
+    //     },
+    //     fail() {
+    //       my.hideLoading();
+    //       my.alert({ title: '定位失败' });
+    //     },
+    //   })
     if(app.data.zjbzxbm !=""){//判断是否从城市选择页面返回
      console.log("城市列表返回：",app.data.zjbzxbm)
          this.setData({
@@ -96,7 +108,8 @@ Page({
         success(res) {           
             if(res.data !=null ){
             console.log(res);
-            app.setZjbzxbm(res.data.citybm);           
+           // app.setZjbzxbm(res.data.citybm);   
+           app.data.zjbzxbm=res.data.citybm;        
             that.setData({
              citybm:res.data.citybm,
              xzcs: "https://api.sjgjj.cn/img/city/"+res.data.citybm.substr(0, 6)+".png",
@@ -739,9 +752,9 @@ Page({
   },
   csxz(){
     console.log("单击111");
-     my.navigateTo({
-       url: '/city/city',
-     });
+          my.navigateTo({
+            url: '/city/city',
+          });  
   },
   //授权登陆
   sqdl() {
@@ -759,7 +772,7 @@ Page({
           console.log("获取用户授权码：",authCode);
           //获取用户姓名证件号码
           my.httpRequest({
-            url: app.data.url + '/app-web/public/common/alitoken.service',
+            url: app.data.urlsc + '/app-web/public/common/alitoken.service',
             //url:'http://192.168.54.77:8089/app-web/public/common/alitoken.service',
             method: 'POST',
             headers: {

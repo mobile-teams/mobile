@@ -7,14 +7,12 @@ App({
     xingming: "",
     zjhm: "",
     urls: "",    //城服接入标志参数，慎改
+    urlsc:"https://api.sjgjj.cn",
     // url: "https://api.sjgjj.cn",
-     url: "https://www.gjj12329.cn/",
+     url: "https://www.gjj12329.cn",
     //url:"http://192.168.54.77:8089",
-    //zjbzxbm:"C23020KF",
      zjbzxbm: "",
-    //zjbzxbm: "C22040CS",
     gruangaourl: " ",
-    //citybm: "110105",
     PinYin: { 
     }
  },

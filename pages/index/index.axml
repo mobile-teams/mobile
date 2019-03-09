@@ -101,11 +101,9 @@
   </view>
 </view>
  
- <view  style = "margin-top: 5%;width: 90%;margin-left: 5%;border-top: 1rpx solid rgb(222, 222, 222)">
- <lifestyle a:if="{{canUse}}"  publicId="2016112103042239" />
- </view>
 
-   <!-- <view class="card_box">
+
+   <view class="card_box" style = "margin-top: 5%;border-top: 1rpx solid rgb(222, 222, 222)">
     <swiper 
             indicator-dots="{{indicatorDots}}"
             autoplay="{{autoplay}}"
@@ -121,8 +119,10 @@
         </swiper-item>
       </block>
     </swiper>    
-  </view> -->
-
+  </view>
+ <view  style = "margin-top: 5%;border-top: 1rpx solid rgb(222, 222, 222)">
+ <lifestyle a:if="{{canUse}}"  publicId="2016112103042239" />
+ </view>
 <!-- <import src="/template/template.axml"></import>
 <template is="tabbar" data="{{tabbar:tabbar}}"></template> -->
   
