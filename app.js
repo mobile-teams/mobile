@@ -7,8 +7,8 @@ App({
     xingming: "",
     zjhm: "",
     urls: "",    //城服接入标志参数，慎改
-    // url: "https://api.sjgjj.cn",
-     url: "https://www.gjj12329.cn/",
+    //url: "https://api.sjgjj.cn",
+    url: "https://www.gjj12329.cn",
     //url:"http://192.168.54.77:8089",
     //zjbzxbm:"C23020KF",
      zjbzxbm: "",
