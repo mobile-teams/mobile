@@ -51,7 +51,7 @@
       </block>
     </list>
 </view>
-<view class="listStyle" >
+<!-- <view class="listStyle" >
     <list>
       <block a:for="{{itemsQchc}}">
         <list-item
@@ -70,30 +70,5 @@
         </list-item>
       </block>
     </list>
-</view>
- <button type="primary" style="border-radius: 15px; background-color:rgb(50,171,240);   margin: 40px;" onTap="onExit">退出登录</button>
-<!-- <view style="margin-top: 30px;" />
-  <scroll-view style="height: 100%;" >
-    <list>
-      <block a:for="{{itemsYssm}}">
-        <list-item
-          thumb="{{item.thumb}}"
-          arrow="{{item.arrow}}"
-          onClick="onItemClick"
-          index="itemsYssm-{{index}}"
-          last="{{index === (itemsYssm.length - 1)}}"
-          key="itemsYssm-{{index}}"
-        >
-          {{item.title}}
-          <view class="am-list-brief">{{item.brief}}</view>
-          <view a:if="{{item.extra}}" slot="extra">
-            {{item.extra}}
-          </view>
-        </list-item>
-      </block>
-    </list>
-	</scroll-view>
 </view> -->
-
-  <!-- <import src="/template/template.axml"></import>
-<template is="tabbar" data="{{tabbar:tabbar}}"></template> -->
+ <button type="primary" style="border-radius: 15px; background-color:rgb(50,171,240);   margin: 40px;" onTap="onExit">退出登录</button>
