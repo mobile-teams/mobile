@@ -285,7 +285,7 @@ page{background-color:#FFFFFF;}
 }
 
 .card_box{
-    padding-top:24rpx;
+    /* padding-top:24rpx; */
     height: 200rpx;
 }
 /* .card_box .a-image{
