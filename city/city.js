@@ -6,7 +6,7 @@ Page({
   onLoad() {
     this.setData({
      // ggurl:"http://192.168.54.101:8088/app_12329/cityList/index.html?a=1"
-     ggurl:"https://www.gjj12329.cn/alipay/cityList/index.html"
+     ggurl:app.data.url+"/alipay/cityList/index.html"
     });
     console.log('url',this.data.ggurl);
     this.webViewContext = my.createWebViewContext('web-view-1');

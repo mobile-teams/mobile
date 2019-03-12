@@ -772,7 +772,7 @@ Page({
           console.log("获取用户授权码：",authCode);
           //获取用户姓名证件号码
           my.httpRequest({
-            url: app.data.urlsc + '/app-web/public/common/alitoken.service',
+            url: app.data.urlsc + '/app-web/personal/common/alitoken.service',
             //url:'http://192.168.54.77:8089/app-web/public/common/alitoken.service',
             method: 'POST',
             headers: {
