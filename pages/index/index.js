@@ -171,6 +171,7 @@ Page({
               content: '未查询到您的公积金信息!',
               success: () => {
                 //my.navigateBack();
+                app.data.urls = "";//如 从城服进入，没有查到信息，需置空urls。否则导致死循环。
                 my.redirectTo({ url: '../../citychose/citychose' });
               }
             });
