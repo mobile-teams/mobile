@@ -1,6 +1,7 @@
 const app = getApp();
 const jkhtbh = [];
 const dkxx =[];
+const grzhxx=[];
 const wddk = [];
 const preventTurn = () => {
   my.alert({ title: '提示', content: '暂未开通' })
@@ -105,9 +106,9 @@ Page({
     current: 1, //默认显示第几张,0为第一张
     circular: true,
     //缴存提取
-    zjjcje: '',
+    zjjcje: '0.00',
     zjjcsj: '',
-    zjtqje: '',
+    zjtqje: '0.00',
     zjtqsj: '',
     //贷款圈圈
      witch: 100,//
@@ -115,7 +116,18 @@ Page({
     pros: 0,//用于计数进程
 
     dkye:0,
-    dkffe:0
+    dkffe:0,
+
+    //新版本添加贷款字段显示
+    dkztmc:'',
+    dkyemc:'',
+    dkffemc:'',
+    jkhtbhmc:'',
+    jkrgjjzhmc:'',
+    yhrqmc:'',
+    yhbjmc:'',
+    yhlxmc:'',
+    yhbxhjmc:'',
   },
   preventTurn(event) {
     const path = event.currentTarget.dataset.index
@@ -136,7 +148,9 @@ Page({
   },
   onLoad() {
   //  app.editTabBar(); //放在onLoad中
-    
+    my.setNavigationBar({
+      backgroundColor: "#32ABF0",
+    });
     this.setData({
       images: [
       { imgUrl: app.data.url+'/alipay/common/banna/banna1.jpg?citycode='+app.data.zjbzxbm, url: app.data.url+'/alipay/common/banna/banna1.html?citycode='+app.data.zjbzxbm },
@@ -216,7 +230,11 @@ Page({
               flag3: true,
               flagdkzt:res.data.data[0].dkxx[0].dkzt,
               flagdkzt1:flagdkzt2,
-              
+
+
+              dkztmc:res.data.data[0].dkxx[0].dkzt,
+              dkyemc:app.fmoney(res.data.data[0].dkxx[0].dkye),
+              dkffemc:app.fmoney(res.data.data[0].dkxx[0].dkffe),
             });
           }else{
             this.setData({
@@ -227,15 +245,21 @@ Page({
               flag2: true,
               flagdkzt :res.data.data[0].dkxx[0].dkzt,
               flagdkzt1:flagdkzt2,
+
+
+              dkztmc:res.data.data[0].dkxx[0].dkzt,
+              dkyemc:app.fmoney(res.data.data[0].dkxx[0].dkye),
+              dkffemc:app.fmoney(res.data.data[0].dkxx[0].dkffe),
             });
           }
-          this.jdjz(this);
+          //this.jdjz(this);
         }
         for (var i = 0; i < res.data.data[0].gjjxx.length; i++) {
           this.$spliceData({ "array.grzh": [0, 0, res.data.data[0].gjjxx[i].grzh] });
           this.$spliceData({ "array.grzhzt": [0, 0, res.data.data[0].gjjxx[i].grzhzt] });
           this.$spliceData({ "array.grzhye": [0, 0, res.data.data[0].gjjxx[i].grzhye] });
           this.$spliceData({ "array.dwmc": [0, 0, res.data.data[0].gjjxx[i].dwmc] });
+          grzhxx[i]=res.data.data[0].gjjxx[i].grzh+" "+res.data.data[0].gjjxx[i].grzhzt;
         }
         console.log("-----", this.data.array.grzhye);
         //最近缴存提取查询
@@ -361,6 +385,13 @@ Page({
               yhbxhj : app.fmoney(res.data.data[0].dkxx[0].yhbxhj),
               //dkffe : res.data.data[0].dkxx[0].dkffe,
               //dkye : res.data.data[0].dkxx[0].dkye,
+
+              jkhtbhmc:res.data.data[0].dkxx[0].jkhtbh,
+              jkrgjjzhmc:res.data.data[0].dkxx[0].jkrgjjzh,
+              yhrqmc:res.data.data[0].dkxx[0].yhrq,
+              yhbjmc:app.fmoney(res.data.data[0].dkxx[0].yhbj),
+              yhlxmc:app.fmoney(res.data.data[0].dkxx[0].yhlx),
+              yhbxhjmc:app.fmoney(res.data.data[0].dkxx[0].yhbxhj),
             });
           }
           for (var i = 0; i < res.data.data[0].dkxx.length; i++) {
@@ -496,8 +527,8 @@ Page({
   },
   qhzh() {
     my.showActionSheet({
-      title: '个人账号',
-      items: this.data.array.grzh,
+      title: '请选择您的个人账号',
+      items: grzhxx ,
       cancelButtonText: '取消',
       success: (res) => {
         if (res.index != -1) {
@@ -551,88 +582,9 @@ Page({
   redirectTo() {
     my.navigateTo({ url: '../dkxx/dkxx' })
   },
-  jdjz:(that)=>{
-     that.interval = setInterval(that.draw.bind(that), 1);
-     that.ctx = my.createCanvasContext('canvas');
-  },
-  draw() {
-    const { ctx } = this;
-    let width=this.data.witch;
-    //let process=this.data.percent;
-     let process=this.data.dkye/this.data.dkffe*100;
-    this.setData({
-      pros:this.data.pros+1
-    });
-    let pros001=this.data.pros;
-      ctx.clearRect(0, 0, width, width);
-      ctx.beginPath();
-      ctx.moveTo(width/2, width/2);
-      ctx.arc(width/2, width/2, width/2, 0, Math.PI * 2, false);
-      ctx.closePath();
-    if(this.data.dkzt == '结清状态'){
-      ctx.fillStyle = 'rgba(35,170,233,255)';
-    }else{
-      ctx.fillStyle = '#ddd';
-    }
-    
-    ctx.fill();
-
-    ctx.beginPath();
-    ctx.moveTo(width/2, width/2);
-    ctx.arc(width/2, width/2, width/2,  -Math.PI / 2, Math.PI * 2 * pros001 / 100-Math.PI / 2, false);
-    ctx.closePath();
-    if(this.data.dkzt == '逾期还款'){
-      ctx.fillStyle = 'rgba(228,79,96,255)';//进度条颜色
-    }else if(this.data.dkzt == '正常还款'){
-      ctx.fillStyle = '#2a2';//进度条颜色
-    }
-
-    ctx.fill();
-
-    ctx.beginPath();
-    ctx.moveTo(width/2, width/2);
-    ctx.arc(width/2, width/2, width/2 - 5, 0, Math.PI * 2, true);
-    ctx.closePath();
-    ctx.fillStyle = 'rgba(255,255,255,1)';
-    
-    ctx.fill();
-
-    ctx.beginPath();
-    ctx.arc(width/2, width/2, width/2 - 8, 0, Math.PI * 2, true);
-    ctx.closePath();
-    ctx.strokeStyle = '#ffffff';
-    ctx.stroke();
-    ctx.font = "9pt Arial";
-    ctx.fillStyle = '#2a2';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.moveTo(width/2, width/2);
-    //ctx.font="12px Arial";
-    ctx.font="10pt Arial";
-    ctx.fillStyle = '#000';
-    if(this.data.dkzt == '未发放'){
-      ctx.fillText("贷款发放额",width/2,width/3);
-      ctx.font="12pt Arial";
-      ctx.fillText(app.fmoney(0),width/2,width/2);
-    }else {
-      ctx.fillText("贷款余额",width/2,width/3);
-      ctx.font="12pt Arial";
-      ctx.fillText(app.fmoney(this.data.dkye),width/2,width/2);
-    }
-   
-    //关闭计时器
-    if(pros001>process){
-    clearInterval(this.interval);
-     this.setData({
-      pros:0
-    });
-    }
-    ctx.stroke();
-    ctx.draw();
-  },
    xzdk(){    
     my.showActionSheet({
-      title: '我的贷款',
+      title: '请选择您的借款合同编号',
       items: dkxx,//this.data.array.grzh,
       cancelButtonText: '取消',
       success: (res) => {
@@ -651,9 +603,21 @@ Page({
             yhbxhj: app.fmoney(wddk[i].yhbxhj),
             dkye: wddk[i].dkye,
             dkffe : wddk[i].dkffe,
-            dkzt: app.fmoney(wddk[i].dkzt),
+            dkzt: wddk[i].dkzt,
             flagdkzt1 : flagdkzt2,
             flagdkzt : wddk[i].dkzt,
+
+            dkztmc:wddk[i].dkzt,
+            dkyemc:app.fmoney(wddk[i].dkye),
+            dkffemc:app.fmoney(wddk[i].dkffe),
+            jkhtbhmc:wddk[i].jkhtbh,
+            jkrgjjzhmc:wddk[i].jkrgjjzh,
+            yhrqmc:wddk[i].yhrq,
+            yhbjmc:app.fmoney(wddk[i].yhbj),
+            yhlxmc:app.fmoney(wddk[i].yhlx),
+            yhbxhjmc:app.fmoney(wddk[i].yhbxhj),
+        
+
           });
           app.data.jkhtbh = wddk[i].jkhtbh;
           this.jd(this); 
