@@ -71,4 +71,6 @@
       </block>
     </list>
 </view> -->
- <button type="primary" style="border-radius: 15px; background-color:rgb(50,171,240);   margin: 40px;" onTap="onExit">退出登录</button>
+<view a:if="{{iscf}}">
+ <button  type="primary" style="border-radius: 15px; background-color:rgb(50,171,240);   margin: 40px;" onTap="onExit">退出登录</button>
+</view>

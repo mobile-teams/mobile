@@ -1,6 +1,0 @@
-{
-  "defaultTitle": "我要提取",
-  "usingComponents":{
-    "grid": "mini-antui/es/grid/index"
-  }
-}

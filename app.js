@@ -8,8 +8,8 @@ App({
     zjhm: "",
     urls: "",    //城服接入标志参数，慎改
     urlsc:"https://api.sjgjj.cn",
-     url: "https://api.sjgjj.cn",
-    // url: "https://www.gjj12329.cn",
+   //  url: "https://api.sjgjj.cn",
+     url: "https://www.gjj12329.cn",
      zjbzxbm: "",
     gruangaourl: " ",
     PinYin: { 
@@ -111,82 +111,5 @@ App({
     CurrentDate = Year + "-01-01";
     return CurrentDate;
   },
-
-  /////重构导航栏    
-   editTabBar () {
-      var e = this.globalData.tabbar, a = getCurrentPages(), t = a[a.length - 1], s = t.route;
-      console.log(t)
-      console.log(s)
-      console.log("zjbzxbm:::::",this.data.zjbzxbm);
-      0 != s.indexOf("/") && (s = "/" + s);
-      // for( var i in e.items){
-        
-      //   if(e.items[i].pagePath.indexOf(this.data.zjbzxbm) == -1){
-      //     拼接城市编码、区分页面
-      //      e.items[i].pagePath = "/"+this.data.zjbzxbm+e.items[i].pagePath
-
-       
-      // }
-      for (var n in e.items) e.items[n].selected = !1, e.items[n].pagePath == s && (e.items[n].selected = !0);
-      t.setData({
-      tabbar: e
-      });
-    },
-    //清除 拼接的城市编码，仅重新选择城市时使用
-    // clearTabBar(){
-    //   var e = this.globalData.tabbar;
-    //   for(var i in e.items){
-    //       if(e.items[i].pagePath.indexOf(this.data.zjbzxbm) != -1){
-    //         var a = e.items[i].pagePath.indexOf(this.data.zjbzxbm)+this.data.zjbzxbm.length 
-    //        e.items[i].pagePath=e.items[i].pagePath.substr(a);
-    //     }
-    //   }
-    // },
-    globalData: {
-      userInfo: null,
-      //配置tabbar
-      tabbar: {
-      // textColor: "#333",
-      // selectedColor: "#d0501f",
-      // backgroundColor: "#ffffff",
-      // borderStyle: "#d5d5d5",
-      textColor: "#404040",
-      selectedColor: "#108ee9",
-      backgroundColor: "#F5F5F9",
-      statusBarHeight:my.getSystemInfoSync()['statusBarHeight']/4,
-      items:[
-      // {
-      //  "pagePath": "/tishi/tishi",
-      //  //"pagePath": "/ywbl/daiban/daiban",
-      //   "icon": "/image/fuwu1.png",
-      //   "activeIcon": "/image/fuwu.png",
-      //   "name": "新闻动态"
-      // },
-      {
-       // "pagePath": "/"+this.data.citybm+"/index/index",
-      //  "pagePath": "/index/index",
-       "pagePath": "/pages/index/index",
-        "icon": "/image/gongjijin1.png",
-        "activeIcon": "/image/gongjijin.png",
-        "name": "账户查询"
-      },
-      {
-        // "pagePath": "/"+this.data.citybm+"/ywbl/fuwu/fuwu",
-        "pagePath": "/pages/ywbl/fuwu/fuwu",
-        "icon": "/image/zixun1.png",
-        "activeIcon": "/image/zixun.png",
-        "name": "业务办理"
-      },
-      {
-        // "pagePath": "/"+this.data.citybm+"/user/user",
-        "pagePath": "/pages/user/user",
-        "icon": "/image/wode1.png",
-        "activeIcon": "/image/wode.png",
-        "name": "我的"
-      }
-    ],
-      position: "bottom"
-      }
-    },
 
 });

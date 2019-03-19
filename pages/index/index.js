@@ -2,77 +2,8 @@ const app = getApp();
 const jkhtbh = [];
 const dkxx =[];
 const grzhxx=[];
+const grzhxx1=[];
 const wddk = [];
-const preventTurn = () => {
-  my.alert({ title: '提示', content: '暂未开通' })
-}
-const preventTurn1 = (path) => {
-  if (path == '../dkxx/dkxx') {
-    console.log(jkhtbh.length);
-    if (jkhtbh.length > 1) {
-      my.showActionSheet({
-        title: '借款合同编号',
-        items: jkhtbh,
-        cancelButtonText: '取消',
-        success: (res) => {
-          if (res.index != -1) {
-            app.setJkhtbh(jkhtbh[res.index])
-            my.navigateTo({ url: path })
-          }
-        },
-      });
-    } else if (jkhtbh.length == 0) {
-      my.alert({
-        title: '此职工无贷款！'
-      });
-    } else { my.navigateTo({ url: path }) }
-  } else { my.navigateTo({ url: path }) }
-}
-const basicContainers1 = [
-  {
-    name: '缴存信息',
-    thumb: '/image/icon/09.png',
-    path: '../jczqxx/jczqxx',
-  },
-  {
-    name: '贷款信息',
-    thumb: '/image/icon/01.png',
-    path: '../dkxx/dkxx',
-  },
-];
-const basicContainers = [
-  {
-    name: '我要提取',
-    thumb: '/image/icon/02.png',
-    path: false,
-  },
-  {
-    name: '我要贷款',
-    thumb: '/image/icon/03.png',
-    path: false,
-  },
-  {
-    name: '我要还款',
-    thumb: '/image/icon/04.png',
-    path: false,
-  },
-  {
-    name: '冲还贷签约',
-    thumb: '/image/icon/05.png',
-    path: false,
-  },
-];
-let basicComponentList = [
-  {
-    type: '信息查询',
-    list: basicContainers1,
-  },
-  // {
-  //   type: '业务办理',
-  //   list: basicContainers,
-  // },
-
-];
 
 let grzhye1;
 Page({
@@ -88,7 +19,6 @@ Page({
     flag3: false,
     flagdkzt : '',
     flagdkzt1:0,
-    basicComponentList,
     dkzt : '',
     array: {
       grzhye: [],
@@ -129,10 +59,7 @@ Page({
     yhlxmc:'',
     yhbxhjmc:'',
   },
-  preventTurn(event) {
-    const path = event.currentTarget.dataset.index
-    path ? preventTurn1(path) : preventTurn()
-  },
+
   gjjxxcx() {
     my.navigateTo({ url: '../zhxx/zhxx' });
   },
@@ -185,6 +112,7 @@ Page({
               content: '未查询到您的公积金信息!',
               success: () => {
                 //my.navigateBack();
+                app.data.urls = "";//如 从城服进入，没有查到信息，需置空urls。否则导致死循环。
                 my.redirectTo({ url: '../../citychose/citychose' });
               }
             });
@@ -255,13 +183,14 @@ Page({
           //this.jdjz(this);
         }
         for (var i = 0; i < res.data.data[0].gjjxx.length; i++) {
-          this.$spliceData({ "array.grzh": [0, 0, res.data.data[0].gjjxx[i].grzh] });
-          this.$spliceData({ "array.grzhzt": [0, 0, res.data.data[0].gjjxx[i].grzhzt] });
-          this.$spliceData({ "array.grzhye": [0, 0, res.data.data[0].gjjxx[i].grzhye] });
-          this.$spliceData({ "array.dwmc": [0, 0, res.data.data[0].gjjxx[i].dwmc] });
+          // this.$spliceData({ "array.grzh": [0, 0, res.data.data[0].gjjxx[i].grzh] });
+          // this.$spliceData({ "array.grzhzt": [0, 0, res.data.data[0].gjjxx[i].grzhzt] });
+          // this.$spliceData({ "array.grzhye": [0, 0, res.data.data[0].gjjxx[i].grzhye] });
+          // this.$spliceData({ "array.dwmc": [0, 0, res.data.data[0].gjjxx[i].dwmc] }); 
+          grzhxx1.push(res.data.data[0].gjjxx[i]);
           grzhxx[i]=res.data.data[0].gjjxx[i].grzh+" "+res.data.data[0].gjjxx[i].grzhzt;
         }
-        console.log("-----", this.data.array.grzhye);
+       // console.log("-----", this.data.array.grzhye);
         //最近缴存提取查询
         my.httpRequest({
           url: app.data.url + '/app-web/personal/public/gjjywmxcx.service',
@@ -282,6 +211,12 @@ Page({
           dataType: 'json',
           contentType: 'application/json;charset=UTF-8', //contentType很重要    
           success: (res) => {
+          if (res.data.data == null) {
+                  my.alert({
+                        title:"提示",
+                        content: '缴存支取信息查询为空!',
+                      });
+              }else{
             let jczqxx = res.data.data;
             console.log("jczqxx",jczqxx);
             if (jczqxx == null) {
@@ -336,6 +271,7 @@ Page({
               });
             }
             my.hideLoading();
+          }
           },
           fail: (res) => {
             
@@ -528,20 +464,20 @@ Page({
   qhzh() {
     my.showActionSheet({
       title: '请选择您的个人账号',
-      items: grzhxx ,
+      items: grzhxx,
       cancelButtonText: '取消',
       success: (res) => {
         if (res.index != -1) {
           let i = res.index;
           this.setData({
             flag: true,
-            grzhye: app.fmoney(this.data.array.grzhye[i]),
-            grzh: this.data.array.grzh[i],
-            grzhzt: this.data.array.grzhzt[i],
+            grzhye: app.fmoney(grzhxx1[i].grzhye),
+            grzh: grzhxx1[i].grzh,
+            grzhzt: grzhxx1[i].grzhzt,
           });
-          grzhye1 = this.data.array.grzhye[i];
-          app.setGrzh(this.data.array.grzh[i])
-          app.setDwmc(this.data.array.dwmc[i]);
+          grzhye1 = grzhxx1[i].grzhye;
+          app.setGrzh(grzhxx1[i].grzh)
+          app.setDwmc(grzhxx1[i].dwmc);
           this.zjjctqxx(this);
         }
       },
@@ -571,7 +507,7 @@ Page({
     this.setData({
       current: num,
     })
-    console.log(num, source)
+    //console.log(num, source)
   },
   lunbotu(e) {
     let guanggaourl = e.currentTarget.dataset.value

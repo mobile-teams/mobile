@@ -375,11 +375,6 @@ page{background-color:#FFFFFF;}
 .padlgth{
   padding-left: 20rpx;
 }
-
-@import "/template/template.acss";
-
-
-
 .banner {
   height: 400rpx;
   width: 100%;

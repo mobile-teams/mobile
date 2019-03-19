@@ -82,7 +82,7 @@ Page({
         let a = 0; let b = 0; let c = 0; let e = 0;
         let flagtq; let flagqt;
         let s;
-        for (let i = jczqxx.length - 1; i > 0; i--) {
+        for (let i = jczqxx.length - 1; i >= 0; i--) {
           s = {};
           s.ywfsrq = jczqxx[i].ywfsrq;
           s.ywzy = jczqxx[i].ywzy;

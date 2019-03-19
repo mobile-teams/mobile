@@ -1,11 +1,15 @@
 <view class="page">
   <view  class = "page-description">
     <view  class="page-section">
-      <view class="page-section-demo" style="">
+      <view  a:if="{{iscf}}" class="page-section-demo" style="">
         <!-- <button type="primary" style="margin-top: 20px;border-radius: 5px;" onTap="csxz">{{xzcs}}</button> -->
         <image src="{{xzcs}}" mode="" onTap="csxz" style="margin-left: 1.7rem;background-size: 100%;width: 50%;height: 160px;"/>
         <image src="../image/cityImg/dt2.gif" mode="" style="    padding-top: 105px;background-size: 100%;width: 1.7rem;height: 0.9rem;"/>
-        </view>
+      </view>
+      <view  a:else class="page-section-demo" style="">
+        <!-- <button type="primary" style="margin-top: 20px;border-radius: 5px;" onTap="csxz">{{xzcs}}</button> -->
+        <image src="{{xzcs}}" mode="" style="margin-left: 1.7rem;background-size: 100%;width: 50%;height: 160px;"/>
+      </view>
         <view class="page-section-demo" >
          <button type="primary" style="border-radius: 15px;" onTap="sqdl">授权登录</button>
       </view>

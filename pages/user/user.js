@@ -5,7 +5,7 @@ Page({
     thumb: 'https://gw.alipayobjects.com/zos/rmsportal/VBqNBOiGYkCjqocXjdUj.png',
     footerImg: 'https://gw.alipayobjects.com/zos/rmsportal/VBqNBOiGYkCjqocXjdUj.png',
     xingming:"",
-
+    iscf:true,
      itemsGywm: [
       {
         thumb: '/image/lxwm2.png',
@@ -18,7 +18,6 @@ Page({
       {
         thumb: '/image/phone.png',
         title: '服务热线',
-      // extra: '描述文字',
         arrow: true,
       },
     ],
@@ -42,8 +41,15 @@ Page({
    // app.editTabBar(); //放在onLoad中
     console.log(app.data.xingming,app.data.dwmc);
 
+    console.log("app.data.urls",app.data.urls);
+      if(app.data.urls != ""){
+        this.setData({
+          iscf:false,
+        })
+      }
     this.setData({
       xingming:app.data.xingming,
+     //xingming:this.plusXing(app.data.xingming,1,0),
       dwmc:app.data.dwmc
     })
   },
@@ -76,6 +82,15 @@ Page({
     my.redirectTo({
       url: '/citychose/citychose',
     })
-  }
+  },
+     //脱敏
+  plusXing:(str, frontLen, endLen) => {
+    var len = str.length - frontLen - endLen;
+    var xing = '';
+    for (var i = 0; i < len; i++) {
+      xing += '*';
+    }
+    return str.substring(0, frontLen) + xing + str.substring(str.length - endLen);
+  },
 });
 
