@@ -138,12 +138,21 @@ Page({
   },
   //脱敏
   plusXing: (str, frontLen, endLen) => {
-    var len = str.length - frontLen - endLen;
-    var xing = '';
-    for (var i = 0; i < len; i++) {
-      xing += '*';
+    if (str.length > 2) {
+      var len = str.length - frontLen - endLen;
+      var xing = '';
+      for (var i = 0; i < len; i++) {
+        xing += '*';
+      }
+      return str.substring(0, frontLen) + xing + str.substring(str.length - endLen);
+    } else {
+      var len = str.length - frontLen;
+      var xing = '';
+      for (var i = 0; i < len; i++) {
+        xing += '*';
+      }
+      return str.substring(0, frontLen) + xing;
     }
-    return str.substring(0, frontLen) + xing + str.substring(str.length - endLen);
   },
 });
 
