@@ -255,7 +255,7 @@ Page({
             if (dkhkmc1[i].hkny.length > 0 && dkhkmc1[i].hkrq >= that.data.ksrq) {
               console.log("dkxx.length<<<<<<<<", dkhkmc1.length);
               dkhkmc1[i].title = dkhkmc1[i].hkny + '期';
-              dkhkmc1[i].extra = "￥" + (dkhkmc1[i].chbj * 100 + dkhkmc1[i].chfx * 100 + dkhkmc1[i].chlx * 100) / 100;
+              dkhkmc1[i].extra = "￥" + app.fmoney((dkhkmc1[i].chbj * 100 + dkhkmc1[i].chfx * 100 + dkhkmc1[i].chlx * 100) / 100);
               dkhkmc1[i].inum = inum++;
               dkhkmc.push(dkhkmc1[i]);
             }
@@ -306,7 +306,7 @@ Page({
           console.log("dkxxmc");
           for (var i = 0; i < yqhkmc1.length; i++) {
             yqhkmc1[i].title = yqhkmc1[i].yhny + '期';
-            yqhkmc1[i].extra = "￥" + (yqhkmc1[i].yqbj * 100 + yqhkmc1[i].yqfx * 100 + yqhkmc1[i].yqlx * 100) / 100;
+            yqhkmc1[i].extra = "￥" + app.fmoney((yqhkmc1[i].yqbj * 100 + yqhkmc1[i].yqfx * 100 + yqhkmc1[i].yqlx * 100) / 100);
             yqhkmc1[i].inum = i;
             yqhkmc.push(yqhkmc1[i]);
 

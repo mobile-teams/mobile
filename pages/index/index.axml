@@ -8,7 +8,7 @@
         </text>
         <text a:else style="margin-left: 1%;background-color:rgba(228,79,96,255);font-size: 13px;">{{grzhzt}}                                            
         </text>
-        <image a:if="{{flag1}}" onTap="qhzh" style = "width: 0.5rem;height: 0.51rem;margin-left: 45%;" src="/image/zhuanhb.png" mode="aspectFill" />
+        <image a:if="{{flag1}}" onTap="qhzh" style = "width: 0.5rem;height: 0.5rem;margin-left:3rem;" src="/image/zhuanhb.png" mode="aspectFill" />
       </view>
       <!-- </picker>-->
     </view>
@@ -64,7 +64,7 @@
         </view>
         <text class="text-demo-text002 text-demo-text002-fg dktestttt">贷款状态:
            <text class="{{flagdkzt == '逾期还款' ? 'dkztyq' : 'dkzt'}} ">{{dkzt}}</text>         
-          <image a:if="{{flag3}}" onTap="xzdk"  style = "width: 33rpx;height: 33rpx;margin-left: 173px;" src="/image/zhuanh.png" mode="aspectFill" />
+          <image a:if="{{flag3}}" onTap="xzdk"  style = "width: 0.35rem;height: 0.36rem;margin-left: 173px;" src="/image/zhuanh.png" mode="aspectFill" />
         </text>
         <text onTap="redirectTo" class="text-demo-text002 dktestttt">贷款余额:
           <text class="{{flagdkzt == '逾期还款' ? 'dkztyq' : 'dkzt'}}">{{dkyemc}}</text>                                        

@@ -46,7 +46,11 @@
             {{item.extra}}
           </view></list-item></block></list></view> -->
   <view a:if="{{iscf}}">
-    <button style="border-radius: 15px; background-color:rgb(50,171,240); color: #ffffff;  margin: 40px;" onTap="onExit">退出登录                              
+    <button  type="primary" style="border-radius: 20px; background-color:rgb(50,171,240);  margin: 40px;border: 0px solid;    margin-top: 0.5rem;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    height: 0.7rem;
+    line-height: 0.7rem; box-shadow: rgba(153, 153, 153, 0.24) 0 2px 7px;font-size: 15px;" onTap="onExit">退出登录                              
     </button>
   </view>
 </view>

@@ -1,15 +1,18 @@
+.page {
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
 page {
   background-color: #ffffff;
   box-sizing: border-box;
 }
-
 .page-description {
-  margin-bottom: 32rpx;
+  /* margin-bottom: 32rpx; */
 }
 
 .page-section {
   background: #fff;
-  margin-bottom: 32rpx;
+  /* margin-bottom: 32rpx; */
 }
 
 .page-section-demo {
