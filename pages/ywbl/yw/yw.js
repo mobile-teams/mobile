@@ -4,6 +4,9 @@ Page({
     ywurl:' '
   },
   onLoad() {
+    my.setNavigationBar({
+      backgroundColor: "#32ABF0",
+    });
     this.setData({
        ywurl:app.data.url+'/alipay/ywbl/yw.html?citycode='+app.data.zjbzxbm
      // ywurl:'http://192.168.5.164:6008/html/ywbl/gjjtq/SmallApp/yw.html?citycode='+app.data.zjbzxbm//app.data.gruangaourl

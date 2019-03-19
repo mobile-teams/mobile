@@ -1,76 +1,52 @@
-
 <view >
-  <view class="title">
-  </view>
-    <view class="card">
-      <card  
-        title="{{xingming}}"
-        subTitle="{{dwmc}}"
-        onClick="onCardClick"
-        info=""
-      />
+  <view style="background-color:#32ABF0;height:120px;">
+    <view style="padding-top:30px">
+      <view class="card" hover-class="card-active" onTap="onCardClick">
+        <view class="card-body">
+          <view class="card-content">
+            <view class="card-title">{{xingming}}                                                                                                      
+            </view>
+            <view class="card-subtitle">{{dwmc}}                                                                                                      
+            </view>
+            <view class="card-subtitle">{{sjhm}}                                                                                                      
+            </view>
+          </view>
+          <image src="{{userInfo.avatar}}" class="card-thumb" />
+        </view>
+      </view>
     </view>
-
-<view class="listStyle" > 
+  </view>
+  <view class="listStyle" style="margin-top:80px;">
     <list>
       <block a:for="{{itemsGywm}}">
-        <list-item
-          thumb="{{item.thumb}}"
-          arrow="{{item.arrow}}"
-          onClick="onItemClick1"
-          index="itemsGywm-{{index}}"
-          last="{{index === (itemsGywm.length - 1)}}"
-          key="itemsGywm-{{index}}"
-        >
-          {{item.title}}
-          <view class="am-list-brief">{{item.brief}}</view>
-          <view a:if="{{item.extra}}" slot="extra">
-            {{item.extra}}
+        <list-item thumb="{{item.thumb}}" arrow="{{item.arrow}}" onClick="onItemClick1" index="itemsGywm-{{index}}" last="{{index === (itemsGywm.length - 1)}}" key="itemsGywm-{{index}}">          {{item.title}}                                        
+          <view class="am-list-brief">{{item.brief}}                              
+          </view>
+          <view a:if="{{item.extra}}" slot="extra">            {{item.extra}}                                        
           </view>
         </list-item>
       </block>
     </list>
-</view>
-<view class="listStyle" >
+  </view>
+  <view class="listStyle">
     <list>
       <block a:for="{{itemsPhone}}">
-        <list-item
-          thumb="{{item.thumb}}"
-          arrow="{{item.arrow}}"
-          onClick="onItemClick"
-          index="itemsPhone-{{index}}"
-          last="{{index === (itemsPhone.length - 1)}}"
-          key="itemsPhone-{{index}}"
-        >
-          {{item.title}}
-          <view class="am-list-brief">{{item.brief}}</view>
-          <view a:if="{{item.extra}}" slot="extra">
-            {{item.extra}}
+        <list-item thumb="{{item.thumb}}" arrow="{{item.arrow}}" onClick="onItemClick" index="itemsPhone-{{index}}" last="{{index === (itemsPhone.length - 1)}}" key="itemsPhone-{{index}}">          {{item.title}}                                        
+          <view class="am-list-brief">{{item.brief}}                              
+          </view>
+          <view a:if="{{item.extra}}" slot="extra">            {{item.extra}}                                        
           </view>
         </list-item>
       </block>
     </list>
-</view>
-<!-- <view class="listStyle" >
-    <list>
-      <block a:for="{{itemsQchc}}">
-        <list-item
-          thumb="{{item.thumb}}"
-          arrow="{{item.arrow}}"
-          onClick="onQchcClick"
-          index="itemsQchc-{{index}}"
-          last="{{index === (itemsQchc.length - 1)}}"
-          key="itemsQchc-{{index}}"
-        >
+  </view>
+  <!-- <view class="listStyle"><list><block a:for="{{itemsQchc}}"><list-item thumb="{{item.thumb}}" arrow="{{item.arrow}}" onClick="onQchcClick" index="itemsQchc-{{index}}" last="{{index === (itemsQchc.length - 1)}}" key="itemsQchc-{{index}}">
           {{item.title}}
-          <view class="am-list-brief">{{item.brief}}</view>
-          <view a:if="{{item.extra}}" slot="extra">
+          <view class="am-list-brief">{{item.brief}}</view><view a:if="{{item.extra}}" slot="extra">
             {{item.extra}}
-          </view>
-        </list-item>
-      </block>
-    </list>
-</view> -->
-<view a:if="{{iscf}}">
- <button  type="primary" style="border-radius: 15px; background-color:rgb(50,171,240);   margin: 40px;" onTap="onExit">退出登录</button>
+          </view></list-item></block></list></view> -->
+  <view a:if="{{iscf}}">
+    <button style="border-radius: 15px; background-color:rgb(50,171,240); color: #ffffff;  margin: 40px;" onTap="onExit">退出登录                          
+    </button>
+  </view>
 </view>

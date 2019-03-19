@@ -1,7 +1,6 @@
 {
   "defaultTitle": "我的",
   "usingComponents":{
-    "card": "mini-antui/es/card/index",
     "list": "mini-antui/es/list/index",
     "list-item": "mini-antui/es/list/list-item/index"
   }
