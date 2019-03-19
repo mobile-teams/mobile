@@ -2,76 +2,6 @@ const app = getApp();
 const jkhtbh = [];
 const dkxx =[];
 const wddk = [];
-const preventTurn = () => {
-  my.alert({ title: '提示', content: '暂未开通' })
-}
-const preventTurn1 = (path) => {
-  if (path == '../dkxx/dkxx') {
-    console.log(jkhtbh.length);
-    if (jkhtbh.length > 1) {
-      my.showActionSheet({
-        title: '借款合同编号',
-        items: jkhtbh,
-        cancelButtonText: '取消',
-        success: (res) => {
-          if (res.index != -1) {
-            app.setJkhtbh(jkhtbh[res.index])
-            my.navigateTo({ url: path })
-          }
-        },
-      });
-    } else if (jkhtbh.length == 0) {
-      my.alert({
-        title: '此职工无贷款！'
-      });
-    } else { my.navigateTo({ url: path }) }
-  } else { my.navigateTo({ url: path }) }
-}
-const basicContainers1 = [
-  {
-    name: '缴存信息',
-    thumb: '/image/icon/09.png',
-    path: '../jczqxx/jczqxx',
-  },
-  {
-    name: '贷款信息',
-    thumb: '/image/icon/01.png',
-    path: '../dkxx/dkxx',
-  },
-];
-const basicContainers = [
-  {
-    name: '我要提取',
-    thumb: '/image/icon/02.png',
-    path: false,
-  },
-  {
-    name: '我要贷款',
-    thumb: '/image/icon/03.png',
-    path: false,
-  },
-  {
-    name: '我要还款',
-    thumb: '/image/icon/04.png',
-    path: false,
-  },
-  {
-    name: '冲还贷签约',
-    thumb: '/image/icon/05.png',
-    path: false,
-  },
-];
-let basicComponentList = [
-  {
-    type: '信息查询',
-    list: basicContainers1,
-  },
-  // {
-  //   type: '业务办理',
-  //   list: basicContainers,
-  // },
-
-];
 
 let grzhye1;
 Page({
@@ -87,7 +17,6 @@ Page({
     flag3: false,
     flagdkzt : '',
     flagdkzt1:0,
-    basicComponentList,
     dkzt : '',
     array: {
       grzhye: [],
@@ -117,10 +46,7 @@ Page({
     dkye:0,
     dkffe:0
   },
-  preventTurn(event) {
-    const path = event.currentTarget.dataset.index
-    path ? preventTurn1(path) : preventTurn()
-  },
+
   gjjxxcx() {
     my.navigateTo({ url: '../zhxx/zhxx' });
   },

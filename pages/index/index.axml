@@ -40,29 +40,6 @@
       <text class="text-demo-text testttt">最近提取 {{zjtqsj}}</text>
     </view>
   </view>
-
-
-
-
-    <!-- <view class="list-wrap" style ="background-color: white">
-    <view class="list-container" style="{{ transform: 'translate3d(' +(-activeTab * 100) + 'vw, 0, 0)' }}">
-      <view class="list" style="{{ height: 'auto' }}">
-        <block a:for="{{basicComponentList}}" a:for-item="list">
-          <list className="list-item">
-            <view slot="header" class="list-header">{{list.type}}</view>
-            <block a:for="{{list.list}}">
-              <list-item arrow="{{true}}" multipleLine="{{false}}" key="items-{{item.name}}" last="{{true}">
-                <view  data-index={{item.path}} onTap="preventTurn"  style="display: flex; align-items: center">
-                  <image  src="{{item.thumb}}" class="thumb"  mode="aspectFit" />
-                  <text class="component-name">{{item.name}}</text>
-                </view>
-              </list-item>
-            </block>
-          </list>
-        </block>
-      </view>
-    </view>
-  </view> -->
 <view class="da" a:if="{{flag2}}">
   <view class="wddk">
     我的贷款
@@ -123,6 +100,3 @@
  <view  style = "border-top: 1rpx solid rgb(222, 222, 222)">
  <lifestyle a:if="{{canUse}}"  publicId="2016112103042239" />
  </view>
-<!-- <import src="/template/template.axml"></import>
-<template is="tabbar" data="{{tabbar:tabbar}}"></template> -->
-  
