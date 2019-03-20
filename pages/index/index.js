@@ -74,33 +74,32 @@ Page({
     })
   },
   onLoad() {
-  //  app.editTabBar(); //放在onLoad中
-    my.setNavigationBar({
-      backgroundColor: "#32ABF0",
-    });
-    this.setData({
+     this.setData({
       images: [
       { imgUrl: app.data.url+'/alipay/common/banna/banna1.jpg?citycode='+app.data.zjbzxbm, url: app.data.url+'/alipay/common/banna/banna1.html?citycode='+app.data.zjbzxbm },
       { imgUrl: app.data.url+'/alipay/common/banna/banna2.jpg?citycode='+app.data.zjbzxbm, url: app.data.url+'/alipay/common/banna/banna2.html?citycode='+app.data.zjbzxbm },
       { imgUrl: app.data.url+'/alipay/common/banna/banna3.jpg?citycode='+app.data.zjbzxbm, url: app.data.url+'/alipay/common/banna/banna3.html?citycode='+app.data.zjbzxbm  },
     ],
     }),
+  //  app.editTabBar(); //放在onLoad中
+    my.setNavigationBar({
+      backgroundColor: "#32ABF0",
+    });
+    var obj = new Object();
+        obj.appid= app.data.appid;     
+        obj.zjbzxbm=app.data.zjbzxbm;
+        obj.xingming=app.data.xingming;
+        obj.zjhm=app.data.zjhm;
+        obj.sign = app.getSign(obj,app.data.pkey)
     my.httpRequest({
+      
       url: app.data.url + '/app-web/personal/public/gjjdkjbxxcx.service',
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
         "citycode": app.data.zjbzxbm
       },
-      data: {
-        // appid: "20170517000101",
-        // sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-        appid: "20170815290101",
-        sign: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
-        zjbzxbm: app.data.zjbzxbm,
-        xingming: app.data.xingming,
-        zjhm: app.data.zjhm
-      },
+      data:JSON.stringify(obj),
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
@@ -194,6 +193,15 @@ Page({
         }
        // console.log("-----", this.data.array.grzhye);
         //最近缴存提取查询
+
+        var obj = new Object();
+        obj.appid= app.data.appid;
+        obj.zjbzxbm=app.data.zjbzxbm;
+        obj.grzh=app.data.grzh;
+        obj.ksrq=app.getTwoYearAgoFormatDate();
+        obj.jsrq=app.getNowFormatDate();
+        obj.sign = app.getSign(obj,app.data.pkey)
+
         my.httpRequest({
           url: app.data.url + '/app-web/personal/public/gjjywmxcx.service',
           method: 'POST',
@@ -201,17 +209,7 @@ Page({
             "Content-Type": "application/json",
             "citycode": app.data.zjbzxbm
           },
-          data: {
-            // appid: "20170517000101",
-            // sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-            appid: "20170815290101",
-            sign: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
-            zjbzxbm: app.data.zjbzxbm,
-           // citybm: app.data.zjbzxbm,
-            grzh: app.data.grzh,
-            ksrq: app.getTwoYearAgoFormatDate(),
-            jsrq: app.getNowFormatDate()
-          },
+          data: JSON.stringify(obj),
           dataType: 'json',
           contentType: 'application/json;charset=UTF-8', //contentType很重要    
           success: (res) => {
@@ -299,6 +297,13 @@ Page({
             });       
       },
     });
+    var obj = new Object();
+    obj.appid= app.data.appid;
+    obj.zjbzxbm=app.data.zjbzxbm;
+    obj.citybm=app.data.zjbzxbm;
+    obj.xingming=app.data.xingming;
+    obj.zjhm=app.data.zjhm;
+    obj.sign = app.getSign(obj,app.data.pkey)
     my.httpRequest({
       url: app.data.url + '/app-web/public/zhcx/info.service',
       method: 'POST',
@@ -306,16 +311,7 @@ Page({
         "Content-Type": "application/json",
         "citycode": app.data.zjbzxbm
       },
-      data: {
-        // appid: "20181023000101",
-        // sign: "SYWDLSKI0UYH7D7FKIUJME45IJHYRKJ1",
-        appid: "20170815290101",
-        sign: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
-        zjbzxbm: app.data.zjbzxbm,
-        citybm:app.data.zjbzxbm,
-        xingming: app.data.xingming,
-        zjhm: app.data.zjhm
-      },
+      data:JSON.stringify(obj),
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
@@ -345,6 +341,12 @@ Page({
     });
   },
   load: (that) => {
+    var obj = new Object();
+    obj.appid= app.data.appid;
+    obj.zjbzxbm=app.data.zjbzxbm;
+    obj.xingming=app.data.xingming;
+    obj.zjhm=app.data.zjhm;
+    obj.sign = app.getSign(obj,app.data.pkey)
     my.httpRequest({
       url: app.data.url + '/app-web/personal/public/gjjdkjbxxcx.service',
       method: 'POST',
@@ -352,15 +354,7 @@ Page({
         "Content-Type": "application/json",
         "citycode": app.data.zjbzxbm
       },
-      data: {
-        // appid: "20170517000101",
-        // sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-        appid: "20170815290101",
-        sign: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
-        zjbzxbm: app.data.zjbzxbm,
-        xingming: app.data.xingming,
-        zjhm: app.data.zjhm
-      },
+      data:JSON.stringify(obj),
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
@@ -381,6 +375,13 @@ Page({
   zjjctqxx: (that) => {
     //最近缴存提取查询
     console.log('最近缴存提取查询', app.data.grzh);
+    var obj = new Object();
+        obj.appid= app.data.appid;
+        obj.zjbzxbm=app.data.zjbzxbm;
+        obj.grzh=app.data.grzh;
+        obj.ksrq=app.getTwoYearAgoFormatDate();
+        obj.jsrq=app.getNowFormatDate();
+        obj.sign = app.getSign(obj,app.data.pkey)
     my.httpRequest({
       url: app.data.url + '/app-web/personal/public/gjjywmxcx.service',
       method: 'POST',
@@ -388,16 +389,7 @@ Page({
         "Content-Type": "application/json",
         "citycode": app.data.zjbzxbm
       },
-      data: {
-        // appid: "20170517000101",
-        // sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-        appid: "20170815290101",
-        sign: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
-        zjbzxbm: app.data.zjbzxbm,
-        grzh: app.data.grzh,
-        ksrq: app.getTwoYearAgoFormatDate(),
-        jsrq: app.getNowFormatDate()
-      },
+      data: JSON.stringify(obj),
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
