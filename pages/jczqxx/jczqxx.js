@@ -56,6 +56,15 @@ Page({
         }
       },
     });
+    var obj = new Object();
+    obj.appid = app.data.appid;
+    obj.zjbzxbm = app.data.zjbzxbm;
+    obj.grzh = app.data.grzh;
+    obj.ksrq = app.getTwoYearAgoFormatDate();
+    obj.jsrq = app.getNowFormatDate();
+    obj.sign = app.getSign(obj, app.data.pkey);
+    console.log("gjjywmxcx--getSign::", app.getSign(obj, app.data.pkey));
+    console.log("gjjywmxcx--JSON.stringify(obj):::", JSON.stringify(obj))
     my.httpRequest({
       url: app.data.url + '/app-web/personal/public/gjjywmxcx.service',
       method: 'POST',
@@ -63,16 +72,7 @@ Page({
         "Content-Type": "application/json",
         "citycode": app.data.zjbzxbm
       },
-      data: {
-        // appid: "20170517000101",
-        // sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-        appid: "20170815290101",
-        sign: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
-        zjbzxbm: app.data.zjbzxbm,
-        grzh: app.data.grzh,
-        ksrq: app.getTwoYearAgoFormatDate(),
-        jsrq: app.getNowFormatDate()
-      },
+      data: JSON.stringify(obj),
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {

@@ -41,6 +41,14 @@ Page({
     my.setNavigationBar({
       backgroundColor: "#32ABF0",
     });
+    var obj = new Object();
+    obj.appid = app.data.appid;
+    obj.citybm = app.data.zjbzxbm;
+    obj.id = "zjhm";
+    obj.msg = app.data.zjhm;
+    obj.sign = app.getSign(obj, app.data.pkey);
+    console.log("userinfo--getSign::", app.getSign(obj, app.data.pkey));
+    console.log("userinfo--JSON.stringify(obj):::", JSON.stringify(obj))
     my.httpRequest({
       url: app.data.url + '/app-web/public/auth/userinfo.service',
       method: 'POST',
@@ -48,15 +56,7 @@ Page({
         "Content-Type": "application/json",
         "citycode": app.data.zjbzxbm.substr(0, 6)
       },
-      data: {
-        appid: "20181023000101",
-        id: "zjhm",
-        sign: "SYWDLSKI0UYH7D7FKIUJME45IJHYRKJ1",
-        citybm: app.data.zjbzxbm,
-        zjhm: app.data.zjhm,
-        msg: app.data.zjhm,
-
-      },
+      data: JSON.stringify(obj),
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
