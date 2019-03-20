@@ -97,10 +97,10 @@ Page({
           console.log("获取用户授权码：",authCode);
           //获取用户姓名证件号码
           var obj = new Object();
-              obj.appid= "20170517000101";
-              obj.sign="SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0";
+              obj.appid= app.data.appid;
               obj.authCode=authCode;
               obj.citybm="CSY001";
+              obj.sign = app.getSign(obj,app.data.pkey)
               console.log("测试输出");
               console.log("getSign::",app.getSign(obj,app.data.pkey));
               console.log("JSON.stringify(obj):::",JSON.stringify(obj))
