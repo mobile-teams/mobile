@@ -97,9 +97,14 @@ Page({
       day = '0' + day;
     };
     let formatDate = year + '-' + month + '-' + day;
-    let ksmatDate = (year - 1) + '-' + month + '-' + day; 
+    let ksmatDate = (year - 1) + '-' + month + '-' + day;
     console.log(">>>>>formatDate>>>>>", formatDate);
     console.log(">>>>>ksmatDate>>>>>", ksmatDate);
+    var obj = new Object();
+    obj.jkhtbh = app.data.jkhtbh;
+    obj.zjbzxbm = app.data.zjbzxbm;
+    obj.appid = app.data.appid;
+    obj.sign = app.getSign(obj, app.data.pkey);
     my.httpRequest({
       url: app.data.url + '/app-web/personal/public/dkzhxxcx.service',
       method: 'POST',
@@ -107,12 +112,7 @@ Page({
         "Content-Type": "application/json",
         "citycode": app.data.zjbzxbm
       },
-      data: {
-        appid: "20170517000101",
-        zjbzxbm: app.data.zjbzxbm,
-        sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-        jkhtbh: app.data.jkhtbh
-      },
+      data: JSON.stringify(obj),
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
@@ -152,8 +152,13 @@ Page({
   },
 
   Serchhkjh: (that) => {
-    console.log("还款计划ksrq>>>>>>>>>", that.data.ksrq1);
     console.log("还款计划jsrq>>>>>>>>>", that.data.jsrq1);
+    var obj = new Object();
+    obj.zjbzxbm = app.data.zjbzxbm;
+    obj.jsrq = that.data.jsrq1;
+    obj.jkhtbh = app.data.jkhtbh;
+    obj.appid = app.data.appid;
+    obj.sign = app.getSign(obj, app.data.pkey);
     my.httpRequest({
       url: app.data.url + '/app-web/personal/public/dkhkjhcx.service',
       method: 'POST',
@@ -161,14 +166,7 @@ Page({
         "Content-Type": "application/json",
         "citycode": app.data.zjbzxbm
       },
-      data: {
-        appid: "20170517000101",
-        zjbzxbm: app.data.zjbzxbm,
-        ksrq: that.data.ksrq1,
-        jsrq: that.data.jsrq1,
-        sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-        jkhtbh: app.data.jkhtbh
-      },
+      data: JSON.stringify(obj),
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
@@ -226,6 +224,13 @@ Page({
 
       return;
     }
+    var obj = new Object();
+    obj.zjbzxbm = app.data.zjbzxbm;
+    obj.ksrq = that.data.ksrq;
+    obj.jsrq = that.data.jsrq;
+    obj.jkhtbh = app.data.jkhtbh;
+    obj.appid = app.data.appid;
+    obj.sign = app.getSign(obj, app.data.pkey);
     my.httpRequest({
       url: app.data.url + '/app-web/personal/public/dkhkmxcx.service',
       method: 'POST',
@@ -233,14 +238,7 @@ Page({
         "Content-Type": "application/json",
         "citycode": app.data.zjbzxbm
       },
-      data: {
-        appid: "20170517000101",
-        sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-        zjbzxbm: app.data.zjbzxbm,
-        ksrq: that.data.ksrq,
-        jsrq: that.data.jsrq,
-        jkhtbh: app.data.jkhtbh
-      },
+      data: JSON.stringify(obj),
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
@@ -281,6 +279,11 @@ Page({
   },
   //查询逾期明细数据
   Serchyqhk: (that) => {
+    var obj = new Object();
+    obj.appid = app.data.appid;
+    obj.zjbzxbm = app.data.zjbzxbm;
+    obj.jkhtbh = app.data.jkhtbh;
+    obj.sign = app.getSign(obj, app.data.pkey);
     my.httpRequest({
       url: 'https://api.sjgjj.cn/app-web/personal/public/yqwhkmxcx.service',
       method: 'POST',
@@ -288,12 +291,7 @@ Page({
         "Content-Type": "application/json",
         "citycode": app.data.zjbzxbm
       },
-      data: {
-        appid: "20170517000101",
-        zjbzxbm: app.data.zjbzxbm,
-        sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
-        jkhtbh: app.data.jkhtbh
-      },
+      data: JSON.stringify(obj),
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
