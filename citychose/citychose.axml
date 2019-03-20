@@ -1,25 +1,22 @@
 <view class="page">
   <view  class = "page-description">
-    <view  class="page-section">
-      <view  a:if="{{iscf}}" class="page-section-demo" style="">
+    <view class="page-section">
+      <view a:if="{{iscf}}" class="page-section-demo" style="">
         <!-- <button type="primary" style="margin-top: 20px;border-radius: 5px;" onTap="csxz">{{xzcs}}</button> -->
-        <image src="{{xzcs}}" mode="" onTap="csxz" style="margin-left: 1.7rem;background-size: 100%;width: 50%;height: 160px;"/>
-        <image src="../image/cityImg/dt2.gif" mode="" style="    padding-top: 105px;background-size: 100%;width: 1.7rem;height: 0.9rem;"/>
+        <image src="{{xzcs}}" mode="" onTap="csxz" style="margin-left: 1.7rem;background-size: 100%;width: 50%;height: 120px;"/>
+        <image src="../image/cityImg/dt2.gif" mode="" style="    padding-top: 120px;background-size: 100%;width: 1.7rem;height: 0.5rem;"/>
       </view>
       <view  a:else class="page-section-demo" style="">
         <!-- <button type="primary" style="margin-top: 20px;border-radius: 5px;" onTap="csxz">{{xzcs}}</button> -->
-        <image src="{{xzcs}}" mode="" style="margin-left: 1.7rem;background-size: 100%;width: 50%;height: 160px;"/>
+        <image src="{{xzcs}}" mode="" style="margin-left: 1.7rem;background-size: 100%;width: 50%;height: 120px;"/>
       </view>
-        <view class="page-section-demo" >
-         <button type="primary" style="border-radius: 20px; background-color:rgb(50,171,240);  border: 0px solid;    
-                          
-                          margin-left: 0.2rem;
-                          margin-right: 0.2rem;
-                          height: 0.7rem;
-                          line-height: 0.7rem; box-shadow: rgba(153, 153, 153, 0.24) 0 2px 7px;font-size: 15px;" onTap="sqdl">授权登录</button>
+      <view class="page-section-demo">
+        <button type="primary" style="border-radius: 20px; background-color:rgb(50,171,240);  border: 0px solid;                                                        margin-left: 0.2rem;                          margin-right: 0.2rem;                          height: 0.7rem;                          line-height: 0.7rem; box-shadow: rgba(153, 153, 153, 0.24) 0 2px 7px;font-size: 15px;" onTap="sqdl">授权登录                                                        
+        </button>
       </view>
-      <view style="text-align:center;font-size:13;margin-top:4%;margin-bottom:1%;">个人公积金信息属于敏感信息，需授权后才能查看</view>
-    <grid columnNum="{{3}}" list="{{list3}}" hasLine="{{false}}" />
+      <view style="text-align:center;font-size:13;margin-top:4%;margin-bottom:1%;">个人公积金信息属于敏感信息，需授权后才能查看                                          
+      </view>
+      <grid columnNum="{{3}}" list="{{list3}}" hasLine="{{false}}" />
     </view>
   </view>
-  </view>
+</view>
