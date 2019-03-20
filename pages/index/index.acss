@@ -410,7 +410,7 @@ page{background-color:#FFFFFF;}
   font-size: 32rpx;
 }
 
-.dktestttt {
+/* .dktestttt {
   font-size: 27rpx;
   font-weight: bold;
   color: rgba(0, 0, 0, .5) !important;
@@ -418,8 +418,17 @@ page{background-color:#FFFFFF;}
 .rqtestttt {
   font-size: 27rpx;
   color: rgba(0, 0, 0, .5) !important;
+} */
+.dktestttt {
+  font-size: 27rpx;
+  font-weight: bold;
+  color: rgba(0, 0, 0,0.6) !important;
 }
-
+.rqtestttt {
+  font-weight: bold;
+  font-size: 0.27rem;
+  color: rgb(0, 0, 0) !important;
+}
 .text-demo-text002 {
   padding-left: 0.4rem;
   padding-top: 0.1rem;

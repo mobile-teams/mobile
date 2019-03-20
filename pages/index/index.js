@@ -93,8 +93,10 @@ Page({
         "citycode": app.data.zjbzxbm
       },
       data: {
-        appid: "20170517000101",
-        sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
+        // appid: "20170517000101",
+        // sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
+        appid: "20170815290101",
+        sign: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
         zjbzxbm: app.data.zjbzxbm,
         xingming: app.data.xingming,
         zjhm: app.data.zjhm
@@ -103,9 +105,9 @@ Page({
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
       
-        console.log(res);
-        console.log(">>>>>>",res.data);
-        console.log("=====",res.data.data)
+        // console.log(res);
+        // console.log(">>>>>>",res.data);
+        // console.log("=====",res.data.data)
         if (res.data.data == null) {
         my.alert({
               title:"提示",
@@ -133,7 +135,7 @@ Page({
             dkxx[i]=res.data.data[0].dkxx[i].jkhtbh+" "+res.data.data[0].dkxx[i].dkzt;
           }
         }
-        console.log(res.data.data[0].gjjxx.length);
+       // console.log(res.data.data[0].gjjxx.length);
         if (res.data.data[0].gjjxx.length > 1) {
           this.setData({
             flag1: true
@@ -147,7 +149,7 @@ Page({
           }else{
             flagdkzt2=0;
           }
-          console.log("333333333333",this.data.flagdkzt1);
+          //.log("333333333333",this.data.flagdkzt1);
           if(res.data.data[0].dkxx.length > 1){
              this.setData({
               dkzt: res.data.data[0].dkxx[0].dkzt,
@@ -200,10 +202,12 @@ Page({
             "citycode": app.data.zjbzxbm
           },
           data: {
-            appid: "20170517000101",
+            // appid: "20170517000101",
+            // sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
+            appid: "20170815290101",
+            sign: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
             zjbzxbm: app.data.zjbzxbm,
            // citybm: app.data.zjbzxbm,
-            sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
             grzh: app.data.grzh,
             ksrq: app.getTwoYearAgoFormatDate(),
             jsrq: app.getNowFormatDate()
@@ -303,8 +307,10 @@ Page({
         "citycode": app.data.zjbzxbm
       },
       data: {
-        appid: "20181023000101",
-        sign: "SYWDLSKI0UYH7D7FKIUJME45IJHYRKJ1",
+        // appid: "20181023000101",
+        // sign: "SYWDLSKI0UYH7D7FKIUJME45IJHYRKJ1",
+        appid: "20170815290101",
+        sign: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
         zjbzxbm: app.data.zjbzxbm,
         citybm:app.data.zjbzxbm,
         xingming: app.data.xingming,
@@ -347,16 +353,18 @@ Page({
         "citycode": app.data.zjbzxbm
       },
       data: {
-        appid: "20170517000101",
+        // appid: "20170517000101",
+        // sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
+        appid: "20170815290101",
+        sign: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
         zjbzxbm: app.data.zjbzxbm,
-        sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         xingming: app.data.xingming,
         zjhm: app.data.zjhm
       },
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
-        console.log(res);
+       // console.log(res);
         grzhye1 = res.data.data[0].gjjxx[0].grzhye
         that.setData({
           grzhye: app.fmoney(grzhye1),
@@ -381,9 +389,11 @@ Page({
         "citycode": app.data.zjbzxbm
       },
       data: {
-        appid: "20170517000101",
+        // appid: "20170517000101",
+        // sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
+        appid: "20170815290101",
+        sign: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
         zjbzxbm: app.data.zjbzxbm,
-        sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         grzh: app.data.grzh,
         ksrq: app.getTwoYearAgoFormatDate(),
         jsrq: app.getNowFormatDate()
@@ -391,8 +401,8 @@ Page({
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
-        console.log("&&&");
-        console.log(res);
+        // console.log("&&&");
+        // console.log(res);
         let jczqxx = res.data.data;
         if (jczqxx == null) {
           that.setData({
@@ -527,8 +537,8 @@ Page({
         if(res.index!=-1){
           let i =res.index;
           let flagdkzt2 = 0;
-          console.log("index",i);
-          console.log("index",wddk);
+          // console.log("index",i);
+          // console.log("index",wddk);
           if(wddk[i].dkzt == '正常还款' || wddk[i].dkzt == '逾期还款'){
             flagdkzt2=1;
           }else{
@@ -556,13 +566,13 @@ Page({
 
           });
           app.data.jkhtbh = wddk[i].jkhtbh;
-          this.jd(this); 
+          //this.jd(this); 
         }
       },
     });
   },
-  jd:(that)=>{
-    that.interval = setInterval(that.draw.bind(that), 1);
-    that.ctx = my.createCanvasContext('canvas');
-  }
+  // jd:(that)=>{
+  //   that.interval = setInterval(that.draw.bind(that), 1);
+  //   that.ctx = my.createCanvasContext('canvas');
+  // }
 })
