@@ -2,6 +2,7 @@
   "defaultTitle": "账户查询",
   
   "pullRefresh":true,
+  "titleBarColor": "#32ABF0",
 
   "usingComponents": {
     "list":"mini-antui/es/list/index",

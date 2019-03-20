@@ -38,9 +38,6 @@ Page({
     // ],
   },
   onLoad() {
-    my.setNavigationBar({
-      backgroundColor: "#32ABF0",
-    });
     var obj = new Object();
     obj.appid = app.data.appid;
     obj.citybm = app.data.zjbzxbm;
