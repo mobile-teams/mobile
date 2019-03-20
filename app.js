@@ -1,3 +1,12 @@
+//var fun_md5 = require('/utils/aes/md5.js')
+//var fun_sha1 = require('/utils/aes/sha1.js')
+var fun_sign = require('/utils/aes/sha1.min.js')
+//var fun_base64 = require('/utils/base64.js')
+var fun_aes = require('/utils/aes/aes.js')
+//var key = fun_aes.CryptoJS.enc.Utf8.parse("SY9IS82J4NDJS05H");  
+//十六位十六进制数作为秘钥偏移量
+var iv = fun_aes.CryptoJS.enc.Utf8.parse('A-16-Byte-String');  
+
 App({
   data: {
     grzh: 0,
@@ -12,11 +21,11 @@ App({
      url: "https://www.gjj12329.cn",
      zjbzxbm: "",
     gruangaourl: " ",
-    PinYin: { 
-    }
+    appid:"20170815290101",
+    pkey:"SY9IS82J4NDJS05HFNDJS73JRUG5BSKG"
  },
 
-  onLaunch(options) {
+  onLaunch(options) {//城市服务使用，切勿随意修改
     //获取启动参数 
     if (options.query) {
       if(options.query.citybm){
@@ -111,5 +120,8 @@ App({
     CurrentDate = Year + "-01-01";
     return CurrentDate;
   },
-
+  getSign(a,b){
+      //const key= fun_aes.CryptoJS.enc.Utf8.parse(this.data.pkey.substr(0, 16));  
+      return fun_sign.Appsign(a,b);
+  },
 });
