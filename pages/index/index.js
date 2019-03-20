@@ -93,8 +93,10 @@ Page({
         "citycode": app.data.zjbzxbm
       },
       data: {
-        appid: "20170517000101",
-        sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
+        // appid: "20170517000101",
+        // sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
+        appid: "20170815290101",
+        sign: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
         zjbzxbm: app.data.zjbzxbm,
         xingming: app.data.xingming,
         zjhm: app.data.zjhm
@@ -200,10 +202,12 @@ Page({
             "citycode": app.data.zjbzxbm
           },
           data: {
-            appid: "20170517000101",
+            // appid: "20170517000101",
+            // sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
+            appid: "20170815290101",
+            sign: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
             zjbzxbm: app.data.zjbzxbm,
            // citybm: app.data.zjbzxbm,
-            sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
             grzh: app.data.grzh,
             ksrq: app.getTwoYearAgoFormatDate(),
             jsrq: app.getNowFormatDate()
@@ -303,8 +307,10 @@ Page({
         "citycode": app.data.zjbzxbm
       },
       data: {
-        appid: "20181023000101",
-        sign: "SYWDLSKI0UYH7D7FKIUJME45IJHYRKJ1",
+        // appid: "20181023000101",
+        // sign: "SYWDLSKI0UYH7D7FKIUJME45IJHYRKJ1",
+        appid: "20170815290101",
+        sign: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
         zjbzxbm: app.data.zjbzxbm,
         citybm:app.data.zjbzxbm,
         xingming: app.data.xingming,
@@ -347,9 +353,11 @@ Page({
         "citycode": app.data.zjbzxbm
       },
       data: {
-        appid: "20170517000101",
+        // appid: "20170517000101",
+        // sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
+        appid: "20170815290101",
+        sign: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
         zjbzxbm: app.data.zjbzxbm,
-        sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         xingming: app.data.xingming,
         zjhm: app.data.zjhm
       },
@@ -381,9 +389,11 @@ Page({
         "citycode": app.data.zjbzxbm
       },
       data: {
-        appid: "20170517000101",
+        // appid: "20170517000101",
+        // sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
+        appid: "20170815290101",
+        sign: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
         zjbzxbm: app.data.zjbzxbm,
-        sign: "SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         grzh: app.data.grzh,
         ksrq: app.getTwoYearAgoFormatDate(),
         jsrq: app.getNowFormatDate()
@@ -556,13 +566,13 @@ Page({
 
           });
           app.data.jkhtbh = wddk[i].jkhtbh;
-          this.jd(this); 
+          //this.jd(this); 
         }
       },
     });
   },
-  jd:(that)=>{
-    that.interval = setInterval(that.draw.bind(that), 1);
-    that.ctx = my.createCanvasContext('canvas');
-  }
+  // jd:(that)=>{
+  //   that.interval = setInterval(that.draw.bind(that), 1);
+  //   that.ctx = my.createCanvasContext('canvas');
+  // }
 })

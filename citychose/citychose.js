@@ -41,7 +41,7 @@ Page({
     if(app.data.zjbzxbm !=""){//判断是否从城市选择页面返回
      console.log("城市列表返回：",app.data.zjbzxbm)
          this.setData({
-        //  xzcs: "../image/cityImg/"+res.adCode.substr(0, 6)+".png",
+          //xzcs: "../image/cityImg/"+res.adCode.substr(0, 6)+".png",
           xzcs: "https://api.sjgjj.cn/img/city/"+app.data.zjbzxbm.substr(0, 6)+".png",
           xzcsflag:"1",
           citybm:app.data.zjbzxbm,
@@ -52,10 +52,10 @@ Page({
     my.getStorage({
         key:'city',
         success(res) {           
-            if(res.data !=null ){
+          if(res.data !=null ){
             console.log(res);
-           // app.setZjbzxbm(res.data.citybm);   
-           app.data.zjbzxbm=res.data.citybm;        
+            // app.setZjbzxbm(res.data.citybm);   
+            app.data.zjbzxbm=res.data.citybm;        
             that.setData({
              citybm:res.data.citybm,
              xzcs: "https://api.sjgjj.cn/img/city/"+res.data.citybm.substr(0, 6)+".png",
@@ -115,8 +115,10 @@ Page({
             success: (res) => {
               console.log("获取信息接口返回：",res);
               console.log("---",res.data.param);
-              app.data.xingming= res.data.param.userName;
-              app.data.zjhm = res.data.param.certNo;                      
+              // app.data.xingming= res.data.param.userName;
+              // app.data.zjhm = res.data.param.certNo;  
+              app.data.xingming= '孟宇';
+              app.data.zjhm = '130124199101170014';                         
               app.setZjbzxbm(this.data.citybm);
               //app.data.urls = "";  初次登入不再置空，需通过该变量，控制退出登录按钮的存在与否，若未查到信息，在index页面置空，防止造成死循环。
              // my.redirectTo({ url: '../pages/index/index' });

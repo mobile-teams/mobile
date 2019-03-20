@@ -29,9 +29,11 @@ Page({
             "citycode":app.data.zjbzxbm
       },
       data: {
-        appid: "20170517000101",
+        // appid: "20170517000101",
+        // sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
+        appid: "20170815290101",
+        sign: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
         zjbzxbm:app.data.zjbzxbm,
-        sign:"SYWDJSKI8UYH7D7FKIUJNE45IJHYRKJ0",
         grzh:app.data.grzh
       },
       dataType: 'json',
