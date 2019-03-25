@@ -17,7 +17,7 @@ App({
     zjhm: "",
     urls: "",    //城服接入标志参数，慎改
     urlsc:"https://api.sjgjj.cn",
-    //url: "https://api.sjgjj.cn",
+   // url: "https://api.sjgjj.cn",
     url: "https://www.gjj12329.cn",
     zjbzxbm: "",
     gruangaourl: " ",
