@@ -61,7 +61,7 @@ Page({
   },
 
   gjjxxcx() {
-    my.navigateTo({ url: '../zhxx/zhxx' });
+    my.navigateTo({ url: '../zhxx/zhxx?grzh=' + this.data.grzh });
   },
   tapName(event) {
     if (this.data.flag) {
@@ -485,7 +485,10 @@ Page({
   zjjccx() {
     my.setStorage({
       key: "djxx",
-      data: "zjjccx",
+      data: {
+        type: "zjjccx",
+        grzh: this.data.grzh
+      },
       success: (res) => {
         my.navigateTo({ url: '../jczqxx/jczqxx' });
       },
@@ -494,7 +497,10 @@ Page({
   zjtqcx() {
     my.setStorage({
       key: "djxx",
-      data: "zjtqcx",
+      data: {
+        type: "zjtqcx",
+        grzh: this.data.grzh
+      },
       success: (res) => {
         my.navigateTo({ url: '../jczqxx/jczqxx' });
       },

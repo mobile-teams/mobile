@@ -19,10 +19,10 @@ Page({
       key: "djxx",
       success: (res) => {
         console.log("djxx  ", res);
-        this.webViewContext.postMessage({ 'xingming': app.data.xingming, 'zjhm': app.data.zjhm, 'citycode': app.data.zjbzxbm, 'djxx': res.data });
+        this.webViewContext.postMessage({ 'xingming': app.data.xingming, 'zjhm': app.data.zjhm, 'citycode': app.data.zjbzxbm, 'djxx': res.data.type, 'grzh': res.data.grzh });
 
       },
     });
 
-      },
+  },
 });
