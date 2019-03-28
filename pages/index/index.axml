@@ -1,21 +1,22 @@
+<favorite type = 'tips' >收藏小程序，下次使用更方便</favorite>
 <view class="banner">
   <view class="flex col " style="{{padding: '10px 0'}};background-color:#32ABF0;">
     <view class="padlgth" style = "padding-top: 20rpx;color: #FFF;">
       <view>
-        <text style = "margin-right: 5%;font-size: 14px;">{{grzh}}                                                                    
+        <text style = "margin-right: 5%;font-size: 14px;">{{grzh}}
         </text>
-        <text a:if="{{grzhzt=='正常'}}" style="margin-left: 1%;background-color: rgba(68,255,24,255);font-size: 13px;">{{grzhzt}}                                                                    
+        <text a:if="{{grzhzt=='正常'}}" style="margin-left: 1%;background-color: rgba(68,255,24,255);font-size: 13px;">{{grzhzt}}
         </text>
-        <text a:else style="margin-left: 1%;background-color:rgba(228,79,96,255);font-size: 13px;">{{grzhzt}}                                                                    
+        <text a:else style="margin-left: 1%;background-color:rgba(228,79,96,255);font-size: 13px;">{{grzhzt}}
         </text>
         <image a:if="{{flag1}}" onTap="qhzh" style = "width: 0.5rem;height: 0.5rem;margin-left:3rem;" src="/image/zhuanhb.png" mode="aspectFill" />
       </view>
-      <!-- </picker>-->
+      <!--</picker>-->
     </view>
-    <view class="text-white text-14 padlgth" style="{{margin: '10px 0'}}">账户余额(元)                                
+    <view class="text-white text-14 padlgth" style="{{margin: '10px 0'}}">账户余额(元)
     </view>
     <view class="flex  text-white padlgth" style="{{fontSize: 30}}">
-      <view>{{grzhye}}                                                  
+      <view>{{grzhye}}
       </view>
       <view a:if="{{flag}}">
         <image onTap="tapName" style="{{width: '25px', height:'25px'}}" src="{{'../../image/icon/1.png'}}">
@@ -27,28 +28,28 @@
       </view>
     </view>
     <view class="flex col ac" style = "text-align: center;padding-top: 0.1rem;font-size: 12px;">
-      <view class="todo-item" onTap="gjjxxcx">公积金账户信息                                                  
+      <view class="todo-item" onTap="gjjxxcx">公积金账户信息
       </view>
     </view>
   </view>
   <view class="fake-searchbar">
     <view class="tabs-bar-tab">
       <view onTap="zjjccx" style="width:43%;padding-left: 6%;">
-        <text class="text-demo-text testt">最近缴存                                                                            
+        <text class="text-demo-text testt">最近缴存
         </text>
-        <text class="text-demo-text testtt" style="color: #32ABF0;">{{zjjcje}}                                                                              
+        <text class="text-demo-text testtt" style="color: #32ABF0;">{{zjjcje}}
         </text>
-        <text class="text-demo-text testttt">最近缴存{{zjjcsj}}                                                                           
+        <text class="text-demo-text testttt">最近缴存{{zjjcsj}}
         </text>
       </view>
       <view class="zj">
       </view>
       <view onTap="zjtqcx" style="width:45%;">
-        <text class="text-demo-text testt ">最近提取                                                                            
+        <text class="text-demo-text testt ">最近提取
         </text>
-        <text class="text-demo-text testtt" style="color: #8BC34A;">{{zjtqje}}                                                                           
+        <text class="text-demo-text testtt" style="color: #8BC34A;">{{zjtqje}}
         </text>
-        <text class="text-demo-text testttt">最近提取 {{zjtqsj}}                                                                           
+        <text class="text-demo-text testttt">最近提取 {{zjtqsj}}
         </text>
       </view>
     </view>
@@ -58,45 +59,45 @@
   <view class="fake-searchbar002">
     <view class="tabs-bar-tab002">
       <view >
-        <text onTap="redirectTo" class=" text-demo-text002 text-demo-text002-title testt">我的贷款                                                                    
+        <text onTap="redirectTo" class=" text-demo-text002 text-demo-text002-title testt">我的贷款
         </text>
         <view class="bottom-line">
         </view>
-        <text class="text-demo-text002 text-demo-text002-fg dktestttt">贷款状态:                               
-          <text class="{{flagdkzt == '逾期还款' ? 'dkztyq' : 'dkzt'}} ">{{dkzt}}                    
+        <text class="text-demo-text002 text-demo-text002-fg dktestttt">贷款状态:
+          <text class="{{flagdkzt == '逾期还款' ? 'dkztyq' : 'dkzt'}} ">{{dkzt}}
           </text>
           <image a:if="{{flag3}}" onTap="xzdk"  style = "width: 0.35rem;height: 0.36rem;margin-left: 173px;" src="/image/zhuanh.png" mode="aspectFill" />
         </text>
-        <text onTap="redirectTo" class="text-demo-text002 dktestttt">贷款余额:                              
-          <text class="{{flagdkzt == '逾期还款' ? 'dkztyq' : 'dkzt'}}">{{dkyemc}}                    
+        <text onTap="redirectTo" class="text-demo-text002 dktestttt">贷款余额:
+          <text class="{{flagdkzt == '逾期还款' ? 'dkztyq' : 'dkzt'}}">{{dkyemc}}
           </text>
         </text>
-        <text onTap="redirectTo" class="text-demo-text002 dktestttt">贷款发放额:                              
-          <text class="rqtestttt">{{dkffemc}}                    
+        <text onTap="redirectTo" class="text-demo-text002 dktestttt">贷款发放额:
+          <text class="rqtestttt">{{dkffemc}}
           </text>
         </text>
-        <text onTap="redirectTo" class="text-demo-text002 dktestttt">借款合同编号:                              
-          <text class="rqtestttt">{{jkhtbhmc}}                    
+        <text onTap="redirectTo" class="text-demo-text002 dktestttt">借款合同编号:
+          <text class="rqtestttt">{{jkhtbhmc}}
           </text>
         </text>
-        <text onTap="redirectTo" class="text-demo-text002 dktestttt">借款人公积金账号:                              
-          <text class="rqtestttt">{{jkrgjjzhmc}}                    
+        <text onTap="redirectTo" class="text-demo-text002 dktestttt">借款人公积金账号:
+          <text class="rqtestttt">{{jkrgjjzhmc}}
           </text>
         </text>
-        <text onTap="redirectTo" class="text-demo-text002 text-demo-text002-fg rqtestttt">本期应还日期:                              
-          <text class="dktestttt">{{yhrqmc}}                    
+        <text onTap="redirectTo" class="text-demo-text002 text-demo-text002-fg rqtestttt">本期应还日期:
+          <text class="dktestttt">{{yhrqmc}}
           </text>
         </text>
-        <text onTap="redirectTo" class="text-demo-text002 rqtestttt">本期应还本金:                              
-          <text class="dktestttt">{{yhbjmc}}                     
+        <text onTap="redirectTo" class="text-demo-text002 rqtestttt">本期应还本金:
+          <text class="dktestttt">{{yhbjmc}}
           </text>
         </text>
-        <text onTap="redirectTo" class="text-demo-text002 rqtestttt">本期应还利息:                              
-          <text class="dktestttt">{{yhlxmc}}                       
+        <text onTap="redirectTo" class="text-demo-text002 rqtestttt">本期应还利息:
+          <text class="dktestttt">{{yhlxmc}}
           </text>
         </text>
-        <text onTap="redirectTo" class="text-demo-text002 rqtestttt">本期应还金额:                              
-          <text class="dktestttt">{{yhbxhjmc}}                     
+        <text onTap="redirectTo" class="text-demo-text002 rqtestttt">本期应还金额:
+          <text class="dktestttt">{{yhbxhjmc}}
           </text>
         </text>
       </view>

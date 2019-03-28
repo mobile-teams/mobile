@@ -129,9 +129,9 @@ Page({
     });
   },
   onExit(ev) {
-    my.redirectTo({
-      url: '/citychose/citychose',
-    })
+    my.reLaunch({
+      url: '/citychose/citychose'
+    });
   },
   //脱敏
   plusXing: (str, frontLen, endLen) => {
