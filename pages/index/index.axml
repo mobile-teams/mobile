@@ -33,7 +33,7 @@
   </view>
   <view class="fake-searchbar">
     <view class="tabs-bar-tab">
-      <view onTap="zjjccx" style="width:43%;padding-left: 8%;">
+      <view onTap="zjjccx" style="width:43%;padding-left: 6%;">
         <text class="text-demo-text testt">最近缴存                                                                            
         </text>
         <text class="text-demo-text testtt" style="color: #32ABF0;">{{zjjcje}}                                                                              
