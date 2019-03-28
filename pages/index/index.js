@@ -89,7 +89,6 @@ Page({
     obj.zjhm = app.data.zjhm;
     obj.sign = app.getSign(obj, app.data.pkey)
     my.httpRequest({
-
       url: app.data.url + '/app-web/personal/public/gjjdkjbxxcx.service',
       method: 'POST',
       headers: {
@@ -125,7 +124,6 @@ Page({
           app.setGrzh(res.data.data[0].gjjxx[0].grzh);
           if (res.data.data[0].dkxx.length > 0) {
             app.setJkhtbh(res.data.data[0].dkxx[0].jkhtbh);
-
             for (var i = 0; i < res.data.data[0].dkxx.length; i++) {
               jkhtbh[i] = res.data.data[0].dkxx[i].jkhtbh;
               dkxx[i] = res.data.data[0].dkxx[i].jkhtbh + " " + res.data.data[0].dkxx[i].dkzt;
@@ -227,6 +225,9 @@ Page({
                   });
                   return;
                 }
+                jczqxx.sort(function (a, b) {
+                  return Date.parse(a.ywfsrq) - Date.parse(b.ywfsrq);
+                });
                 let jcxx = [];
                 let zqxx = [];
                 let a = 0; let b = 0; let c = 0;
@@ -402,6 +403,9 @@ Page({
           });
           return;
         }
+        jczqxx.sort(function (a, b) {
+          return Date.parse(a.ywfsrq) - Date.parse(b.ywfsrq);
+        });
         let jcxx = [];
         let zqxx = [];
         let a = 0; let b = 0; let c = 0;
