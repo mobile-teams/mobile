@@ -41,3 +41,24 @@ page {
   width: 30px;
   height: 28px;
 }
+.card_box {
+  /* padding-top:24rpx; */
+  height: 200rpx;
+}
+.tabs-bar-tab003 {
+  bottom: 0;
+  justify-content: center;
+  font-size: 32rpx;
+}
+/* 轮播图 */
+
+.swiper {
+  height: 200rpx!important;
+}
+.actives {
+  width: 100%!important;
+  height: 200rpx;
+  transition: 0.5s all linear;
+  background-size: 100% 100%!important;
+  /* margin-left: 56rpx; */
+}

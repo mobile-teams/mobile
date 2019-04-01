@@ -5,9 +5,9 @@
       <view>
         <text style = "margin-right: 5%;font-size: 14px;">{{grzh}}
         </text>
-        <text a:if="{{grzhzt=='正常'}}" style="margin-left: 1%;background-color: rgba(68,255,24,255);font-size: 13px;">{{grzhzt}}
+        <text a:if="{{grzhzt=='正常'}}" style="border-radius: 10rpx; margin-left: 1%;background-color: rgba(68,255,24,255);font-size: 13px;">{{grzhzt}}
         </text>
-        <text a:else style="margin-left: 1%;background-color:rgba(228,79,96,255);font-size: 13px;">{{grzhzt}}
+        <text a:else style="border-radius: 10rpx;margin-left: 1%;background-color:rgba(228,79,96,255);font-size: 13px;">{{grzhzt}}
         </text>
         <image a:if="{{flag1}}" onTap="qhzh" style = "width: 0.5rem;height: 0.5rem;margin-left:3rem;" src="/image/zhuanhb.png" mode="aspectFill" />
       </view>
