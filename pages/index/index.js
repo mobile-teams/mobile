@@ -88,7 +88,7 @@ Page({
     obj.xingming = app.data.xingming;
     obj.zjhm = app.data.zjhm;
     obj.sign = app.getSign(obj, app.data.pkey)
-    my.httpRequest({
+    my.request({
       url: app.data.url + '/app-web/personal/public/gjjdkjbxxcx.service',
       method: 'POST',
       headers: {
@@ -197,7 +197,7 @@ Page({
           obj.jsrq = app.getNowFormatDate();
           obj.sign = app.getSign(obj, app.data.pkey)
 
-          my.httpRequest({
+          my.request({
             url: app.data.url + '/app-web/personal/public/gjjywmxcx.service',
             method: 'POST',
             headers: {
@@ -302,7 +302,7 @@ Page({
     obj.xingming = app.data.xingming;
     obj.zjhm = app.data.zjhm;
     obj.sign = app.getSign(obj, app.data.pkey)
-    my.httpRequest({
+    my.request({
       url: app.data.url + '/app-web/public/zhcx/info.service',
       method: 'POST',
       headers: {
@@ -345,7 +345,7 @@ Page({
     obj.xingming = app.data.xingming;
     obj.zjhm = app.data.zjhm;
     obj.sign = app.getSign(obj, app.data.pkey)
-    my.httpRequest({
+    my.request({
       url: app.data.url + '/app-web/personal/public/gjjdkjbxxcx.service',
       method: 'POST',
       headers: {
@@ -380,7 +380,7 @@ Page({
     obj.ksrq = app.getTwoYearAgoFormatDate();
     obj.jsrq = app.getNowFormatDate();
     obj.sign = app.getSign(obj, app.data.pkey)
-    my.httpRequest({
+    my.request({
       url: app.data.url + '/app-web/personal/public/gjjywmxcx.service',
       method: 'POST',
       headers: {

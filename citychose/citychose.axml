@@ -22,12 +22,12 @@
       </view>
       <view style="text-align:center;font-size:13;margin-top:4%;margin-bottom:1%;">个人公积金信息属于敏感信息，需授权后才能查看            
       </view>
-      <grid columnNum="{{3}}" list="{{list3}}" hasLine="{{false}}" />
+      <!-- <grid columnNum="{{3}}" list="{{list3}}" hasLine="{{false}}" /> -->
     </view>
   </view>
 
 </view>
-  <!-- <view a:if="{{xzcsflag=='1'}}" class="tabs-bar-tab003" style = " margin-top: 10%;">
+  <view a:if="{{xzcsflag=='1'}}" class="tabs-bar-tab003" style = " margin-top: 5%;width:95%;margin-left:2.5%">
   <view  class="card_box" style = "margin-top: 5%;border-top: 1rpx solid rgb(222, 222, 222)">
     <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" class="swiper"            onChange = "changeimage" circular={{circular}}            current = {{current}}          >
       <block a:for="{{images}}" a:for-index="index">
@@ -37,7 +37,7 @@
       </block>
     </swiper>
   </view>
-  </view> -->
-  <view  style = "margin-top: 10%;width:95%;margin-left:2.5%">
+  </view>
+  <view  style = "width:95%;margin-left:2.5%">
     <lifestyle publicId="2016112103042239" />
   </view>

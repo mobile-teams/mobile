@@ -3,7 +3,6 @@ const app = getApp();
 Page({
   data: {
     xzcs: '../image/cityImg/001.png',
-    //xzcs:'https://www.baidu.com/img/bd_logo1.png',
     citybm: '',
     xzcsflag: '0',
     iscf: true,
@@ -89,13 +88,6 @@ Page({
         iscf: false,
       })
     }
-    // this.setData({
-    //   images: [
-    //     { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm },
-    //     { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm },
-    //     { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm },
-    //   ],
-    // });
   },
   csxz() {
     console.log("单击选择城市");
@@ -126,7 +118,7 @@ Page({
           console.log("测试输出");
           console.log("getSign::", app.getSign(obj, app.data.pkey));
           console.log("JSON.stringify(obj):::", JSON.stringify(obj))
-          my.httpRequest({
+          my.request({
             url: app.data.urlsc + '/app-web/personal/common/alitoken.service',
             //url:'http://192.168.54.77:8089/app-web/public/common/alitoken.service',
             method: 'POST',

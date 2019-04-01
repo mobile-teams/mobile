@@ -46,7 +46,7 @@ Page({
     obj.sign = app.getSign(obj, app.data.pkey);
     console.log("userinfo--getSign::", app.getSign(obj, app.data.pkey));
     console.log("userinfo--JSON.stringify(obj):::", JSON.stringify(obj))
-    my.httpRequest({
+    my.request({
       url: app.data.url + '/app-web/public/auth/userinfo.service',
       method: 'POST',
       headers: {
