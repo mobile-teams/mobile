@@ -110,7 +110,10 @@ Page({
             success: () => {
               //my.navigateBack();
               app.data.urls = "";//如 从城服进入，没有查到信息，需置空urls。否则导致死循环。
-              my.redirectTo({ url: '../../citychose/citychose' });
+              //my.redirectTo({ url: '../../citychose/citychose' });
+              my.reLaunch({
+                url: '/citychose/citychose'
+              });
             }
           });
         } else {
@@ -290,7 +293,10 @@ Page({
           content: '服务正在维护。。。',
           success: () => {
             //my.navigateBack();
-            my.redirectTo({ url: '../../citychose/citychose' });
+            // my.redirectTo({ url: '../../citychose/citychose' });
+            my.reLaunch({
+              url: '/citychose/citychose'
+            });
           }
         });
       },
