@@ -4,7 +4,7 @@ const dkxx = [];
 const grzhxx = [];
 const grzhxx1 = [];
 const wddk = [];
-
+const gjjxxArr = [];
 let grzhye1;
 Page({
   data: {
@@ -20,12 +20,6 @@ Page({
     flagdkzt: '',
     flagdkzt1: 0,
     dkzt: '',
-    array: {
-      grzhye: [],
-      grzhzt: [],
-      grzh: [],
-      dwmc: []
-    },
     indexgrzh: 0,
 
     // 轮播图变量
@@ -36,14 +30,10 @@ Page({
     current: 1, //默认显示第几张,0为第一张
     circular: true,
     //缴存提取
-    zjjcje: '0.00',
-    zjjcsj: '',
-    zjtqje: '0.00',
-    zjtqsj: '',
-    //贷款圈圈
-    witch: 100,//
-    percent: 0,//百分比
-    pros: 0,//用于计数进程
+    zjjce: '0.00',
+    zjjcrq: '',
+    zjtqe: '0.00',
+    zjtqrq: '',
 
     dkye: 0,
     dkffe: 0,
@@ -81,7 +71,19 @@ Page({
         { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm },
       ],
     });
-    //  app.editTabBar(); //放在onLoad中
+    this.gjjdkjbxxcx(this);
+  },
+
+  //下拉刷新
+  onPullDownRefresh() {
+    //刷新
+    this.gjjdkjbxxcx(this);
+    my.stopPullDownRefresh();
+  }, 
+
+  //公积金贷款进本信息查询
+  gjjdkjbxxcx: (that) => {
+    that.zhcxinfo(that);
     var obj = new Object();
     obj.appid = app.data.appid;
     obj.zjbzxbm = app.data.zjbzxbm;
@@ -100,9 +102,6 @@ Page({
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (res) => {
 
-        // console.log(res);
-        // console.log(">>>>>>",res.data);
-        // console.log("=====",res.data.data)
         if (res.data.data == null) {
           my.alert({
             title: "提示",
@@ -118,7 +117,8 @@ Page({
           });
         } else {
           grzhye1 = res.data.data[0].gjjxx[0].grzhye
-          this.setData({
+          that.setData({
+            flag: true,
             grzhye: app.fmoney(grzhye1),
             grzh: res.data.data[0].gjjxx[0].grzh,
             grzhzt: res.data.data[0].gjjxx[0].grzhzt,
@@ -134,7 +134,7 @@ Page({
           }
           // console.log(res.data.data[0].gjjxx.length);
           if (res.data.data[0].gjjxx.length > 1) {
-            this.setData({
+            that.setData({
               flag1: true
             })
           }
@@ -146,29 +146,25 @@ Page({
             } else {
               flagdkzt2 = 0;
             }
-            //.log("333333333333",this.data.flagdkzt1);
             if (res.data.data[0].dkxx.length > 1) {
-              this.setData({
+              that.setData({
                 dkzt: res.data.data[0].dkxx[0].dkzt,
                 dkye: res.data.data[0].dkxx[0].dkye,
                 dkffe: res.data.data[0].dkxx[0].dkffe,
-                percent: (res.data.data[0].dkxx[0].dkye * 10) / (res.data.data[0].dkxx[0].dkffe),
                 flag2: true,
                 flag3: true,
                 flagdkzt: res.data.data[0].dkxx[0].dkzt,
                 flagdkzt1: flagdkzt2,
-
 
                 dkztmc: res.data.data[0].dkxx[0].dkzt,
                 dkyemc: app.fmoney(res.data.data[0].dkxx[0].dkye),
                 dkffemc: app.fmoney(res.data.data[0].dkxx[0].dkffe),
               });
             } else {
-              this.setData({
+              that.setData({
                 dkzt: res.data.data[0].dkxx[0].dkzt,
                 dkye: res.data.data[0].dkxx[0].dkye,
                 dkffe: res.data.data[0].dkxx[0].dkffe,
-                percent: (res.data.data[0].dkxx[0].dkye * 10) / (res.data.data[0].dkxx[0].dkffe),
                 flag2: true,
                 flagdkzt: res.data.data[0].dkxx[0].dkzt,
                 flagdkzt1: flagdkzt2,
@@ -179,112 +175,12 @@ Page({
                 dkffemc: app.fmoney(res.data.data[0].dkxx[0].dkffe),
               });
             }
-            //this.jdjz(this);
           }
           for (var i = 0; i < res.data.data[0].gjjxx.length; i++) {
-            // this.$spliceData({ "array.grzh": [0, 0, res.data.data[0].gjjxx[i].grzh] });
-            // this.$spliceData({ "array.grzhzt": [0, 0, res.data.data[0].gjjxx[i].grzhzt] });
-            // this.$spliceData({ "array.grzhye": [0, 0, res.data.data[0].gjjxx[i].grzhye] });
-            // this.$spliceData({ "array.dwmc": [0, 0, res.data.data[0].gjjxx[i].dwmc] }); 
             grzhxx1.push(res.data.data[0].gjjxx[i]);
             grzhxx[i] = res.data.data[0].gjjxx[i].grzh + " " + res.data.data[0].gjjxx[i].grzhzt;
           }
-          // console.log("-----", this.data.array.grzhye);
-          //最近缴存提取查询
 
-          var obj = new Object();
-          obj.appid = app.data.appid;
-          obj.zjbzxbm = app.data.zjbzxbm;
-          obj.grzh = app.data.grzh;
-          obj.ksrq = app.getTwoYearAgoFormatDate();
-          obj.jsrq = app.getNowFormatDate();
-          obj.sign = app.getSign(obj, app.data.pkey)
-
-          my.request({
-            url: app.data.url + '/app-web/personal/public/gjjywmxcx.service',
-            method: 'POST',
-            headers: {
-              "Content-Type": "application/json",
-              "citycode": app.data.zjbzxbm
-            },
-            data: JSON.stringify(obj),
-            dataType: 'json',
-            contentType: 'application/json;charset=UTF-8', //contentType很重要    
-            success: (res) => {
-              if (res.data.data == null) {
-                my.alert({
-                  title: "提示",
-                  content: '缴存支取信息查询为空!',
-                });
-              } else {
-                let jczqxx = res.data.data;
-                console.log("jczqxx", jczqxx);
-                if (jczqxx == null) {
-                  that.setData({
-                    zjjcje: '0.00',
-                    zjjcsj: '',
-                    zjtqje: '0.00',
-                    zjtqsj: ''
-                  });
-                  return;
-                }
-                jczqxx.sort(function (a, b) {
-                  return Date.parse(a.ywfsrq) - Date.parse(b.ywfsrq);
-                });
-                let jcxx = [];
-                let zqxx = [];
-                let a = 0; let b = 0; let c = 0;
-                let s;
-                for (let i = 0; i < jczqxx.length; i++) {
-                  s = {};
-                  s.ywfsrq = jczqxx[i].ywfsrq;
-                  s.ywzy = jczqxx[i].ywzy;
-                  s.yue = app.fmoney(jczqxx[i].yue);
-                  s.fse = app.fmoney(jczqxx[i].fse);
-                  if (jczqxx[i].ywlx == "缴存") {
-                    jcxx[a] = s;
-                    a++;
-                    continue;
-                  } else if (jczqxx[i].ywlx == "提取") {
-                    zqxx[b] = s;
-                    b++;
-                    continue;
-                  }
-                }
-                if (jcxx.length == 0) {
-                  this.setData({
-                    zjjcje: '0.00',
-                    zjjcsj: ''
-                  });
-                } else {
-                  this.setData({
-                    zjjcje: jcxx[jcxx.length - 1].fse,
-                    zjjcsj: jcxx[jcxx.length - 1].ywfsrq
-                  });
-                }
-                if (zqxx.length == 0) {
-                  this.setData({
-                    zjtqje: '0.00',
-                    zjtqsj: ''
-                  });
-                } else {
-                  this.setData({
-                    zjtqje: zqxx[zqxx.length - 1].fse,
-                    zjtqsj: zqxx[zqxx.length - 1].ywfsrq
-                  });
-                }
-                my.hideLoading();
-              }
-            },
-            fail: (res) => {
-
-              console.log("app.data.grzh", app.data.grzh);
-              console.log("app.data.zjbzxbm", app.data.zjbzxbm);
-              my.hideLoading();
-              console.log("res", res);
-              my.alert({ content: "缴存支取信息查询失败！" });
-            },
-          });
         }
       },
       fail: function (res) {
@@ -301,6 +197,10 @@ Page({
         });
       },
     });
+  },
+
+  //账户信息查询
+  zhcxinfo: (that) => {
     var obj = new Object();
     obj.appid = app.data.appid;
     obj.zjbzxbm = app.data.zjbzxbm;
@@ -322,12 +222,7 @@ Page({
         if (res.data.ret == 0) {
           if (res.data.data[0].dkxx.length > 0) {
             console.log("我的贷款", res.data.data[0].dkxx);
-            this.setData({
-              yhrq: res.data.data[0].dkxx[0].yhrq,
-              yhbxhj: app.fmoney(res.data.data[0].dkxx[0].yhbxhj),
-              //dkffe : res.data.data[0].dkxx[0].dkffe,
-              //dkye : res.data.data[0].dkxx[0].dkye,
-
+            that.setData({
               jkhtbhmc: res.data.data[0].dkxx[0].jkhtbh,
               jkrgjjzhmc: res.data.data[0].dkxx[0].jkrgjjzh,
               yhrqmc: res.data.data[0].dkxx[0].yhrq,
@@ -340,136 +235,75 @@ Page({
             console.log("res.data.data[0].dkxx", res.data.data[0].dkxx[i]);
             wddk.push(res.data.data[0].dkxx[i]);
           }
-        }
-      },
-    });
-  },
-  load: (that) => {
-    var obj = new Object();
-    obj.appid = app.data.appid;
-    obj.zjbzxbm = app.data.zjbzxbm;
-    obj.xingming = app.data.xingming;
-    obj.zjhm = app.data.zjhm;
-    obj.sign = app.getSign(obj, app.data.pkey)
-    my.request({
-      url: app.data.url + '/app-web/personal/public/gjjdkjbxxcx.service',
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm
-      },
-      data: JSON.stringify(obj),
-      dataType: 'json',
-      contentType: 'application/json;charset=UTF-8', //contentType很重要    
-      success: (res) => {
-        // console.log(res);
-        grzhye1 = res.data.data[0].gjjxx[0].grzhye
-        that.setData({
-          grzhye: app.fmoney(grzhye1),
-          grzh: res.data.data[0].gjjxx[0].grzh,
-          grzhzt: res.data.data[0].gjjxx[0].grzhzt,
-          flag: true,
-        });
-        app.setGrzh(res.data.data[0].gjjxx[0].grzh)
-        that.zjjctqxx(that);
-        //app.setJkhtbh(res.data.data[0].dkxx[0].jkhtbh)
-      }
-    });
-  },
-  zjjctqxx: (that) => {
-    //最近缴存提取查询
-    console.log('最近缴存提取查询', app.data.grzh);
-    var obj = new Object();
-    obj.appid = app.data.appid;
-    obj.zjbzxbm = app.data.zjbzxbm;
-    obj.grzh = app.data.grzh;
-    obj.ksrq = app.getTwoYearAgoFormatDate();
-    obj.jsrq = app.getNowFormatDate();
-    obj.sign = app.getSign(obj, app.data.pkey)
-    my.request({
-      url: app.data.url + '/app-web/personal/public/gjjywmxcx.service',
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm
-      },
-      data: JSON.stringify(obj),
-      dataType: 'json',
-      contentType: 'application/json;charset=UTF-8', //contentType很重要    
-      success: (res) => {
-        // console.log("&&&");
-        // console.log(res);
-        let jczqxx = res.data.data;
-        if (jczqxx == null) {
-          that.setData({
-            zjjcje: '0.00',
-            zjjcsj: '',
-            zjtqje: '0.00',
-            zjtqsj: ''
-          });
-          return;
-        }
-        jczqxx.sort(function (a, b) {
-          return Date.parse(a.ywfsrq) - Date.parse(b.ywfsrq);
-        });
-        let jcxx = [];
-        let zqxx = [];
-        let a = 0; let b = 0; let c = 0;
-        let s;
-        for (let i = 0; i < jczqxx.length; i++) {
-          s = {};
-          s.ywfsrq = jczqxx[i].ywfsrq;
-          s.ywzy = jczqxx[i].ywzy;
-          s.yue = app.fmoney(jczqxx[i].yue);
-          s.fse = app.fmoney(jczqxx[i].fse);
-          if (jczqxx[i].ywlx == "缴存") {
-            jcxx[a] = s;
-            a++;
-            continue;
-          } else if (jczqxx[i].ywlx == "提取") {
-            zqxx[b] = s;
-            b++;
-            continue;
+          for (var i = 0; i < res.data.data[0].gjjxx.length; i++) {
+            gjjxxArr.push(res.data.data[0].gjjxx[i]);
+          }
+          if (gjjxxArr.length > 0) {
+            var gjjxxmx = gjjxxArr[0];
+            var zjjce = 0.00;
+            var zjjcrq = "";
+            var zjtqe = 0.00;
+            var zjtqrq = "";
+            if (gjjxxmx.zjjce.length > 0) {
+              zjjce = app.fmoney(gjjxxmx.zjjce);
+              zjjcrq = gjjxxmx.zjjcrq;
+            } else {
+              zjjce = app.fmoney(0.00);
+              zjjcrq = "";
+            }
+            if (gjjxxmx.zjtqe.length > 0) {
+              zjtqe = app.fmoney(gjjxxmx.zjtqe);
+              zjtqrq = gjjxxmx.zjtqrq;
+            } else {
+              zjtqe = app.fmoney(0.00);
+              zjtqrq = "";
+            }
+            that.setData({
+              zjjce: zjjce,
+              zjjcrq: zjjcrq,
+              zjtqe: zjtqe,
+              zjtqrq: zjtqrq,
+            });
           }
         }
-        console.log("&&&@@");
-        console.log(jcxx);
-        console.log(zqxx);
-        if (jcxx.length == 0) {
-          that.setData({
-            zjjcje: '0.00',
-            zjjcsj: ''
-          });
-        } else {
-          that.setData({
-            zjjcje: jcxx[jcxx.length - 1].fse,
-            zjjcsj: jcxx[jcxx.length - 1].ywfsrq
-          });
-        }
-        if (zqxx.length == 0) {
-          that.setData({
-            zjtqje: '0.00',
-            zjtqsj: ''
-          });
-        } else {
-          that.setData({
-            zjtqje: zqxx[zqxx.length - 1].fse,
-            zjtqsj: zqxx[zqxx.length - 1].ywfsrq
-          });
-        }
-        my.hideLoading();
-      },
-      fail: (res) => {
-        my.hideLoading();
-        my.alert({ content: "缴存支取信息查询失败！" });
       },
     });
   },
-  onPullDownRefresh() {
-    //刷新
-    this.load(this);
-    my.stopPullDownRefresh();
+
+  //缴存提取信息
+  zjjctqxx: (that) => {
+    for (var i = 0; i < gjjxxArr.length; i++) {
+      if (app.data.grzh == gjjxxArr[i].grzh) {
+        var gjjxxmx = gjjxxArr[i];
+      }
+    }
+    var zjjce = 0.00;
+    var zjjcrq = "";
+    var zjtqe = 0.00;
+    var zjtqrq = "";
+    if (gjjxxmx.zjjce.length > 0) {
+      zjjce = app.fmoney(gjjxxmx.zjjce);
+      zjjcrq = gjjxxmx.zjjcrq;
+    } else {
+      zjjce = app.fmoney(0.00);
+      zjjcrq = "";
+    }
+    if (gjjxxmx.zjtqe.length > 0) {
+      zjtqe = app.fmoney(gjjxxmx.zjtqe);
+      zjtqrq = gjjxxmx.zjtqrq;
+    } else {
+      zjtqe = app.fmoney(0.00);
+      zjtqrq = "";
+    }
+    that.setData({
+      zjjce: zjjce,
+      zjjcrq: zjjcrq,
+      zjtqe: zjtqe,
+      zjtqrq: zjtqrq,
+    });
   },
+
+  //切换账号
   qhzh() {
     my.showActionSheet({
       title: '请选择您的个人账号',
@@ -492,6 +326,8 @@ Page({
       },
     });
   },
+
+  //跳转最近缴存明细
   zjjccx() {
     my.setStorage({
       key: "djxx",
@@ -504,6 +340,8 @@ Page({
       },
     });
   },
+
+  //跳转最近提取明细
   zjtqcx() {
     my.setStorage({
       key: "djxx",
@@ -524,19 +362,25 @@ Page({
     })
     //console.log(num, source)
   },
+
+  //轮播图
   lunbotu(e) {
     let guanggaourl = e.currentTarget.dataset.value
     console.log(guanggaourl);
     app.setGuanggaourl(guanggaourl);
     my.navigateTo({ url: '../guanggao/guanggao' });
   },
+
+  //跳转贷款明细
   redirectTo() {
     my.navigateTo({ url: '../dkxx/dkxx' })
   },
+
+  //选择借款合同编号
   xzdk() {
     my.showActionSheet({
       title: '请选择您的借款合同编号',
-      items: dkxx,//this.data.array.grzh,
+      items: dkxx,
       cancelButtonText: '取消',
       success: (res) => {
         if (res.index != -1) {
@@ -550,11 +394,6 @@ Page({
             flagdkzt2 = 0;
           }
           this.setData({
-            yhrq: wddk[i].yhrq,
-            yhbxhj: app.fmoney(wddk[i].yhbxhj),
-            dkye: wddk[i].dkye,
-            dkffe: wddk[i].dkffe,
-            dkzt: wddk[i].dkzt,
             flagdkzt1: flagdkzt2,
             flagdkzt: wddk[i].dkzt,
 
@@ -571,13 +410,8 @@ Page({
 
           });
           app.data.jkhtbh = wddk[i].jkhtbh;
-          //this.jd(this); 
         }
       },
     });
   },
-  // jd:(that)=>{
-  //   that.interval = setInterval(that.draw.bind(that), 1);
-  //   that.ctx = my.createCanvasContext('canvas');
-  // }
 })
