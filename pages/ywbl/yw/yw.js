@@ -5,7 +5,7 @@ Page({
   },
   onLoad() {
     this.setData({
-       ywurl:app.data.url+'/alipay/ywbl/yw.html?citycode='+app.data.zjbzxbm
+       ywurl:app.data.url+'/alipay/ywbl/yw.html?citycode='+app.data.zjbzxbm+'&date='+new Date().getTime()
      // ywurl:'http://192.168.5.164:6008/html/ywbl/gjjtq/SmallApp/yw.html?citycode='+app.data.zjbzxbm//app.data.gruangaourl
     });
     console.log("app.url>>>>>>--",app.data.url)

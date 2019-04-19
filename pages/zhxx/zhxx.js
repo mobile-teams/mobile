@@ -9,7 +9,7 @@ Page({
     console.log("eee", e);
     this.setData({
       grzh: e.grzh,
-      zhcxurl: app.data.url + '/alipay/zhcx/gjjzhxxcx.html?citycode=' + app.data.zjbzxbm
+      zhcxurl: app.data.url + '/alipay/zhcx/gjjzhxxcx.html?citycode=' + app.data.zjbzxbm+'&date='+new Date().getTime()
     });
     console.log('url>>>>>>-', this.data.zhcxurl);
     this.webViewContext = my.createWebViewContext('web-view_zhcx');

@@ -7,7 +7,7 @@ Page({
     var dkxxurl = '';
     console.log("eee", e);
     this.setData({
-      dkxxurl: app.data.url+'/alipay/zhcx/dkzhxxcx.html?citycode='+app.data.zjbzxbm,
+      dkxxurl: app.data.url+'/alipay/zhcx/dkzhxxcx.html?citycode='+app.data.zjbzxbm+'&date='+new Date().getTime(),
 
     });
     console.log('url>>>>>>-', this.data.dkxxurl);

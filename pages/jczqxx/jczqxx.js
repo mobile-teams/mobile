@@ -7,7 +7,7 @@ Page({
     var jczqxxurl = '';
     console.log("eee", e);
     this.setData({
-      jczqxxurl: app.data.url + '/alipay/zhcx/gjjywmxcx.html?citycode=' + app.data.zjbzxbm
+      jczqxxurl: app.data.url + '/alipay/zhcx/gjjywmxcx.html?citycode=' + app.data.zjbzxbm+'&date='+new Date().getTime()
     });
     console.log('url>>>>>>-', this.data.jczqxxurl);
     this.webViewContext = my.createWebViewContext('web-view_jczqxx');

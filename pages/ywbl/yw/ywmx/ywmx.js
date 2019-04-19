@@ -9,7 +9,7 @@ Page({
     if (e.style != '' && e.style != null && e.style == 'public') {
       ywmxurl = app.data.url + '/alipay/' + e.ywbm;
     } else {
-      ywmxurl = app.data.url + '/alipay/' + e.ywbm + '?citycode=' + app.data.zjbzxbm;
+      ywmxurl = app.data.url + '/alipay/' + e.ywbm + '?citycode=' + app.data.zjbzxbm+'&date='+new Date().getTime();
     }
     this.setData({
       ywmxurl: ywmxurl
