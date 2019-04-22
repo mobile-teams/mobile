@@ -2,9 +2,9 @@ const app = getApp();
 const jkhtbh = [];
 const dkxx = [];
 const grzhxx = [];
-const grzhxx1 = [];
-const wddk = [];
-const gjjxxArr = [];
+let grzhxx1 = [];
+let wddk = [];
+let gjjxxArr = [];
 let grzhye1;
 Page({
   data: {
@@ -176,6 +176,7 @@ Page({
               });
             }
           }
+          grzhxx1 =[];
           for (var i = 0; i < res.data.data[0].gjjxx.length; i++) {
             grzhxx1.push(res.data.data[0].gjjxx[i]);
             grzhxx[i] = res.data.data[0].gjjxx[i].grzh + " " + res.data.data[0].gjjxx[i].grzhzt;
@@ -235,6 +236,7 @@ Page({
             console.log("res.data.data[0].dkxx", res.data.data[0].dkxx[i]);
             wddk.push(res.data.data[0].dkxx[i]);
           }
+          gjjxxArr = [];
           for (var i = 0; i < res.data.data[0].gjjxx.length; i++) {
             gjjxxArr.push(res.data.data[0].gjjxx[i]);
           }

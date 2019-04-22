@@ -68,12 +68,12 @@
         <view class="bottom-line">
         </view>
         <text class="text-demo-text002 text-demo-text002-fg dktestttt">贷款状态:
-          <text class="{{flagdkzt == '逾期还款' ? 'dkztyq' : 'dkzt'}} ">{{dkzt}}
+          <text class="{{flagdkzt == '正常还款' ? 'dkzt' : 'dkztyq'}} ">{{dkztmc}}
           </text>
           <image a:if="{{flag3}}" onTap="xzdk"  style = "width: 0.35rem;height: 0.36rem;margin-left: 173px;" src="/image/zhuanh.png" mode="aspectFill" />
         </text>
         <text onTap="redirectTo" class="text-demo-text002 dktestttt">贷款余额:
-          <text class="{{flagdkzt == '逾期还款' ? 'dkztyq' : 'dkzt'}}">{{dkyemc}}
+          <text class="{{flagdkzt == '正常还款' ? 'dkzt' : 'dkztyq'}}">{{dkyemc}}
           </text>
         </text>
         <text onTap="redirectTo" class="text-demo-text002 dktestttt">贷款发放额:
