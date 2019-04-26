@@ -66,27 +66,12 @@ Page({
   onLoad() {
     this.setData({
       images: [
-        { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm+'&date='+new Date().getTime() },
-        { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm+'&date='+new Date().getTime() },
-        { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm+'&date='+new Date().getTime() },
+        { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime() },
+        { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime() },
+        { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime() },
       ],
     });
-       var obj = new Object();
-			 obj.zjbzxbm="BZB001CF";
-			 obj.xingming="唐海潮"; 			           
-			 obj.zjhm="13062619921201003X";   
-			 obj.appid="20170815290101";
-			 obj.citybm="BZB001CF";
-       //obj.sign = "8862710cdb6d4382e084e1ff4161dca74da24c15";
-       var sign = app.getSign(obj,"SY9IS82J4NDJS05HFNDJS73JRUG5BSKG")
-       console.log("sign:::::",sign);
-       obj.sign = sign;
-       var str_aes_encodeBASE64 = app.EncryptBASE64(JSON.stringify(obj),app.data.pkey)
-
-    console.log("str_aes_encodeBASE64加密：：：",str_aes_encodeBASE64);
-    var str_aes_decrypt = app.Decrypt(str_aes_encodeBASE64,app.data.pkey);
-    console.log("str_aes_decrypt解密：：：",str_aes_decrypt);
-    //this.gjjdkjbxxcx(this);
+    this.gjjdkjbxxcx(this);
   },
 
   //下拉刷新
@@ -94,7 +79,7 @@ Page({
     //刷新
     this.gjjdkjbxxcx(this);
     my.stopPullDownRefresh();
-  }, 
+  },
 
   //公积金贷款进本信息查询
   gjjdkjbxxcx: (that) => {
@@ -191,7 +176,7 @@ Page({
               });
             }
           }
-          grzhxx1 =[];
+          grzhxx1 = [];
           for (var i = 0; i < res.data.data[0].gjjxx.length; i++) {
             grzhxx1.push(res.data.data[0].gjjxx[i]);
             grzhxx[i] = res.data.data[0].gjjxx[i].grzh + " " + res.data.data[0].gjjxx[i].grzhzt;

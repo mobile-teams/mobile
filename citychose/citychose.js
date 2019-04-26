@@ -110,88 +110,56 @@ Page({
               app.data.zjhm = res.data.param.certNo;
               app.setZjbzxbm(this.data.citybm);
               //app.data.urls = "";  初次登入不再置空，需通过该变量，控制退出登录按钮的存在与否，若未查到信息，在index页面置空，防止造成死循环。
-              var obj = new Object();
-              obj.xingming = app.data.xingming;
-              obj.zjhm = app.data.zjhm;
-              obj.appid = app.data.appid;
-              obj.zjbzxbm = app.data.zjbzxbm;
-              obj.citybm = app.data.zjbzxbm;
-              obj.sign = app.getSign(obj, app.data.pkey);
-              //var bodystring = app.EncryptBASE64(JSON.stringify(obj),app.data.pkey);
-              var obj1 = new Object();
-              obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.data.pkey);
-              obj1.appid = app.data.appid;
-              obj1.citybm = app.data.zjbzxbm;
-              obj1.sign = app.getSign(obj1, app.data.pkey);
-              my.request({
-                url: 'http://192.168.5.164:6008/app-web/public/token/issue.service',
-                //url:'https://12329.pub:8088/app-web/public/token/issue.service',
-                method: 'POST',
-                headers: {
-                  "Content-Type": "application/json",
-                  "citycode": app.data.zjbzxbm,
-                  "appid": app.data.appid
-                },
-                data: JSON.stringify(obj1),
-                dataType: 'json',
-                contentType: 'application/json;charset=UTF-8', //contentType很重要  
-                success: (res) => {
-                  console.log(res);
-                  var result = app.Decrypt(res.data.data, app.data.pkey);
-                  console.log("返回结果解密：：", result);
-                  app.data.token = result.token;
-                  app.data.grkey = result.grkey;
-                  console.log(app.data);
-                  // my.switchTab({ url: '/pages/index/index' });
-                },
-                fail: () => {
-                  my.alert({
-                    title: '令牌获取失败，请重新登录'
-                  });
-                }
-
-              })
-
+              my.switchTab({ url: '/pages/index/index' });
             },
             fail: () => {
               my.alert({
-                title: '授权失败，请重新授权登录'
+                title: '令牌获取失败，请重新登录'
               });
             }
-          });
-          //   将城市信息放入缓存
-          my.setStorage({
-            key: 'city',
-            data: {
-              citybm: this.data.citybm,
-            }
-          });
+
+          })
 
         },
+        fail: () => {
+          my.alert({
+            title: '授权失败，请重新授权登录'
+          });
+        }
       });
+      //   将城市信息放入缓存
+      my.setStorage({
+        key: 'city',
+        data: {
+          citybm: this.data.citybm,
+        }
+      });
+
+    },
+  });
     }
 
   },
-  account: function (e) {
-    this.data.accouint = e.detail.value;
-    console.log(this.data.accouint);
-  },
-  password: function (e) {
-    this.data.password = e.detail.value;
-    console.log(this.data.password);
-  },
-  changeimage(e) {
-    var num = e.detail.current;
-    var source = e.detail.source;
-    this.setData({
-      current: num,
-    })
-    //console.log(num, source)
-  },
-  lunbotu(e) {
-    let guanggaourl = e.currentTarget.dataset.value
-    console.log(guanggaourl);
-    app.setGuanggaourl(guanggaourl);
-    my.navigateTo({ url: '../pages/guanggao/guanggao' });
-  },
+account: function (e) {
+  this.data.accouint = e.detail.value;
+  console.log(this.data.accouint);
+},
+password: function (e) {
+  this.data.password = e.detail.value;
+  console.log(this.data.password);
+},
+changeimage(e) {
+  var num = e.detail.current;
+  var source = e.detail.source;
+  this.setData({
+    current: num,
+  })
+  //console.log(num, source)
+},
+lunbotu(e) {
+  let guanggaourl = e.currentTarget.dataset.value
+  console.log(guanggaourl);
+  app.setGuanggaourl(guanggaourl);
+  my.navigateTo({ url: '../pages/guanggao/guanggao' });
+},
 });
