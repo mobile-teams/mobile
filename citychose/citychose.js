@@ -6,32 +6,6 @@ Page({
     citybm: '',
     xzcsflag: '0',
     iscf: true,
-    list3: [
-      {
-        icon: '../image/icon/03.png',
-        text: '缴存信息',
-      },
-      {
-        icon: '../image/icon/gjjtq.png',
-        text: '提取信息',
-      },
-      {
-        icon: '../image/icon/dkyw.png',
-        text: '贷款信息',
-      },
-      {
-        icon: '../image/icon/ffwdcx.png',
-        text: '服务网点查询',
-      },
-      {
-        icon: '../image/icon/fdjsq.png',
-        text: '房贷计算器',
-      },
-      {
-        icon: '../image/icon/mine.png',
-        text: '个人信息',
-      },
-    ],
     // 轮播图变量
     images: [],
     indicatorDots: true,
@@ -136,8 +110,48 @@ Page({
               app.data.zjhm = res.data.param.certNo;
               app.setZjbzxbm(this.data.citybm);
               //app.data.urls = "";  初次登入不再置空，需通过该变量，控制退出登录按钮的存在与否，若未查到信息，在index页面置空，防止造成死循环。
-              // my.redirectTo({ url: '../pages/index/index' });
-              my.switchTab({ url: '/pages/index/index' });
+              var obj = new Object();
+              obj.xingming = app.data.xingming;
+              obj.zjhm = app.data.zjhm;
+              obj.appid = app.data.appid;
+              obj.zjbzxbm = app.data.zjbzxbm;
+              obj.citybm = app.data.zjbzxbm;
+              obj.sign = app.getSign(obj, app.data.pkey);
+              //var bodystring = app.EncryptBASE64(JSON.stringify(obj),app.data.pkey);
+              var obj1 = new Object();
+              obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.data.pkey);
+              obj1.appid = app.data.appid;
+              obj1.citybm = app.data.zjbzxbm;
+              obj1.sign = app.getSign(obj1, app.data.pkey);
+              my.request({
+                url: 'http://192.168.5.164:6008/app-web/public/token/issue.service',
+                //url:'https://12329.pub:8088/app-web/public/token/issue.service',
+                method: 'POST',
+                headers: {
+                  "Content-Type": "application/json",
+                  "citycode": app.data.zjbzxbm,
+                  "appid": app.data.appid
+                },
+                data: JSON.stringify(obj1),
+                dataType: 'json',
+                contentType: 'application/json;charset=UTF-8', //contentType很重要  
+                success: (res) => {
+                  console.log(res);
+                  var result = app.Decrypt(res.data.data, app.data.pkey);
+                  console.log("返回结果解密：：", result);
+                  app.data.token = result.token;
+                  app.data.grkey = result.grkey;
+                  console.log(app.data);
+                  // my.switchTab({ url: '/pages/index/index' });
+                },
+                fail: () => {
+                  my.alert({
+                    title: '令牌获取失败，请重新登录'
+                  });
+                }
+
+              })
+
             },
             fail: () => {
               my.alert({

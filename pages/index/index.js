@@ -71,7 +71,22 @@ Page({
         { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm+'&date='+new Date().getTime() },
       ],
     });
-    this.gjjdkjbxxcx(this);
+       var obj = new Object();
+			 obj.zjbzxbm="BZB001CF";
+			 obj.xingming="唐海潮"; 			           
+			 obj.zjhm="13062619921201003X";   
+			 obj.appid="20170815290101";
+			 obj.citybm="BZB001CF";
+       //obj.sign = "8862710cdb6d4382e084e1ff4161dca74da24c15";
+       var sign = app.getSign(obj,"SY9IS82J4NDJS05HFNDJS73JRUG5BSKG")
+       console.log("sign:::::",sign);
+       obj.sign = sign;
+       var str_aes_encodeBASE64 = app.EncryptBASE64(JSON.stringify(obj),app.data.pkey)
+
+    console.log("str_aes_encodeBASE64加密：：：",str_aes_encodeBASE64);
+    var str_aes_decrypt = app.Decrypt(str_aes_encodeBASE64,app.data.pkey);
+    console.log("str_aes_decrypt解密：：：",str_aes_decrypt);
+    //this.gjjdkjbxxcx(this);
   },
 
   //下拉刷新

@@ -17,12 +17,14 @@ App({
     zjhm: "",
     urls: "",    //城服接入标志参数，慎改
     urlsc:"https://api.sjgjj.cn",//实名认证访问该服务器。
-   // url: "https://api.sjgjj.cn",//正式环境
+    //url: "https://api.sjgjj.cn",//正式环境
     url: "https://apics.sjgjj.cn",//测试环境。
     zjbzxbm: "",
     gruangaourl: " ",
     appid:"20170815290101",
-    pkey:"SY9IS82J4NDJS05HFNDJS73JRUG5BSKG"
+    pkey:"SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
+    token:"",
+    grkey:""
  },
 
   onLaunch(options) {//城市服务使用，切勿随意修改
@@ -124,4 +126,18 @@ App({
       //const key= fun_aes.CryptoJS.enc.Utf8.parse(this.data.pkey.substr(0, 16));  
       return fun_sign.Appsign(a,b);
   },
+    EncryptBASE64: function (word,keys) {
+    var key = fun_aes.CryptoJS.enc.Utf8.parse(keys.substr(0, 16));
+    var srcs1 = fun_aes.CryptoJS.enc.Utf8.parse(word);
+    var encrypted1 = fun_aes.CryptoJS.AES.encrypt(srcs1, key, { iv: iv, mode: fun_aes.CryptoJS.mode.CBC, padding: fun_aes.CryptoJS.pad.Pkcs7 });
+     //返回base64加密结果
+    return encrypted1.toString();
+  },
+    Decrypt: function (word,keys) {
+      var key = fun_aes.CryptoJS.enc.Utf8.parse(keys.substr(0, 16));
+      var decrypt = fun_aes.CryptoJS.AES.decrypt(word, key, { iv: iv, mode: fun_aes.CryptoJS.mode.CBC, padding: fun_aes.CryptoJS.pad.Pkcs7 });
+   
+    return JSON.parse(fun_aes.CryptoJS.enc.Utf8.stringify(decrypt).toString());
+  },
 });
+  
