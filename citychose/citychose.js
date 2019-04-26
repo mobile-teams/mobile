@@ -111,15 +111,6 @@ Page({
               app.setZjbzxbm(this.data.citybm);
               //app.data.urls = "";  初次登入不再置空，需通过该变量，控制退出登录按钮的存在与否，若未查到信息，在index页面置空，防止造成死循环。
               my.switchTab({ url: '/pages/index/index' });
-            },
-            fail: () => {
-              my.alert({
-                title: '令牌获取失败，请重新登录'
-              });
-            }
-
-          })
-
         },
         fail: () => {
           my.alert({
