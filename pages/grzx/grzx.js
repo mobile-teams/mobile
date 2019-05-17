@@ -11,31 +11,41 @@ Page({
     obj.id = "zjhm";
     obj.msg = app.data.zjhm;
     obj.sign = app.getSign(obj, app.data.pkey);
-    console.log("userinfo--getSign::", app.getSign(obj, app.data.pkey));
-    console.log("userinfo--JSON.stringify(obj):::", JSON.stringify(obj))
+
+    var obj1 = new Object();
+    obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.data.grkey);
+    obj1.appid = app.data.appid;
+    obj1.citybm = app.data.zjbzxbm;
+    obj1.sign = app.getSign(obj1, app.data.pkey);
+
     my.request({
-      url: app.data.url + '/app-web/public/auth/userinfo.service',
+      url: app.data.url + '/app-web/public/auth/userinfo.service?token=' + app.data.token,
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm
+        // "citycode": app.data.zjbzxbm,
+        "appid": app.data.appid
       },
-      data: JSON.stringify(obj),
-    
+      data: JSON.stringify(obj1),
+
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
-      success: (res) => {
-        if (res.data.ret == 0) {
-          console.log("12312312", res.data);
+      success: (result) => {
+        console.log("info接口返回结果res ：", result);
+        var res = app.Decrypt(result.data.data, app.data.grkey);
+        console.log("返回结果解密：：", res);
+    //    console.log("返回结果解密：", res.data);
+        if (res.ret == 0) {
+          console.log("12312312", res);
 
           // app.data.sjhm = res.data.khbh;
           //app.setSjhm(res.data.khbh);
           this.setData({
-            sjhm: this.plusXing(res.data.sjhm, 3, 4),
-            zjhm: this.plusXing(res.data.zjhm, 10, 4),
-            xingming: res.data.xingming
+            sjhm: this.plusXing(res.sjhm, 3, 4),
+            zjhm: this.plusXing(res.zjhm, 10, 4),
+            xingming: res.xingming
           })
-          console.log('99999999', this.data.sjhm);
+          console.log('个人中心userinfo查询成功', this.data.sjhm);
         }
 
       },

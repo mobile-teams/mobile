@@ -45,7 +45,7 @@ Page({
             obj.sign = app.getSign(obj, app.data.pkey);
             console.log("刷脸--JSON.stringify(obj):::", JSON.stringify(obj))
             my.request({
-              url: 'https://api.sjgjj.cn/app-web/personal/common/aliface.service',
+              url:app.data.url+'app-web/personal/common/aliface.service',            
               method: 'POST',
               headers: {
                 "Content-Type": "application/json",

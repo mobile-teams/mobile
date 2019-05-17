@@ -90,19 +90,27 @@ Page({
     obj.xingming = app.data.xingming;
     obj.zjhm = app.data.zjhm;
     obj.sign = app.getSign(obj, app.data.pkey)
+
+    var obj1 = new Object();
+    obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.data.grkey);
+    obj1.appid = app.data.appid;
+    obj1.citybm = app.data.zjbzxbm;
+    obj1.sign = app.getSign(obj1, app.data.pkey);
+
     my.request({
-      url: app.data.url + '/app-web/personal/public/gjjdkjbxxcx.service',
+      url: app.data.url + '/app-web/personal/public/gjjdkjbxxcx.service?token=' + app.data.token,
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm
+        "citycode": app.data.zjbzxbm,
+        "appid": app.data.appid
       },
-      data: JSON.stringify(obj),
+      data: JSON.stringify(obj1),
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
-      success: (res) => {
-
-        if (res.data.data == null) {
+      success: (result) => {
+        var res = app.Decrypt(result.data.data, app.data.grkey);
+        if (res.data == null) {
           my.alert({
             title: "提示",
             content: '未查询到您的公积金信息!',
@@ -116,75 +124,73 @@ Page({
             }
           });
         } else {
-          grzhye1 = res.data.data[0].gjjxx[0].grzhye
+          grzhye1 = res.data[0].gjjxx[0].grzhye
           that.setData({
             flag: true,
             grzhye: app.fmoney(grzhye1),
-            grzh: res.data.data[0].gjjxx[0].grzh,
-            grzhzt: res.data.data[0].gjjxx[0].grzhzt,
+            grzh: res.data[0].gjjxx[0].grzh,
+            grzhzt: res.data[0].gjjxx[0].grzhzt,
           });
-          app.setDwmc(res.data.data[0].gjjxx[0].dwmc);
-          app.setGrzh(res.data.data[0].gjjxx[0].grzh);
-          if (res.data.data[0].dkxx.length > 0) {
-            app.setJkhtbh(res.data.data[0].dkxx[0].jkhtbh);
-            for (var i = 0; i < res.data.data[0].dkxx.length; i++) {
-              jkhtbh[i] = res.data.data[0].dkxx[i].jkhtbh;
-              dkxx[i] = res.data.data[0].dkxx[i].jkhtbh + " " + res.data.data[0].dkxx[i].dkzt;
+          app.setDwmc(res.data[0].gjjxx[0].dwmc);
+          app.setGrzh(res.data[0].gjjxx[0].grzh);
+          if (res.data[0].dkxx.length > 0) {
+            app.setJkhtbh(res.data[0].dkxx[0].jkhtbh);
+            for (var i = 0; i < res.data[0].dkxx.length; i++) {
+              jkhtbh[i] = res.data[0].dkxx[i].jkhtbh;
+              dkxx[i] = res.data[0].dkxx[i].jkhtbh + " " + res.data[0].dkxx[i].dkzt;
             }
           }
-          // console.log(res.data.data[0].gjjxx.length);
-          if (res.data.data[0].gjjxx.length > 1) {
+          if (res.data[0].gjjxx.length > 1) {
             that.setData({
               flag1: true
             })
           }
-          console.log('贷款信息：', res.data.data[0].dkxx.length);
           let flagdkzt2 = 0;
-          if (res.data.data[0].dkxx.length > 0) {
-            if (res.data.data[0].dkxx[0].dkzt == '正常还款' || res.data.data[0].dkxx[0].dkzt == '逾期还款') {
+          if (res.data[0].dkxx.length > 0) {
+            if (res.data[0].dkxx[0].dkzt == '正常还款' || res.data[0].dkxx[0].dkzt == '逾期还款') {
               flagdkzt2 = 1;
             } else {
               flagdkzt2 = 0;
             }
-            if (res.data.data[0].dkxx.length > 1) {
+            if (res.data[0].dkxx.length > 1) {
               that.setData({
-                dkzt: res.data.data[0].dkxx[0].dkzt,
-                dkye: res.data.data[0].dkxx[0].dkye,
-                dkffe: res.data.data[0].dkxx[0].dkffe,
+                dkzt: res.data[0].dkxx[0].dkzt,
+                dkye: res.data[0].dkxx[0].dkye,
+                dkffe: res.data[0].dkxx[0].dkffe,
                 flag2: true,
                 flag3: true,
-                flagdkzt: res.data.data[0].dkxx[0].dkzt,
+                flagdkzt: res.data[0].dkxx[0].dkzt,
                 flagdkzt1: flagdkzt2,
 
-                dkztmc: res.data.data[0].dkxx[0].dkzt,
-                dkyemc: app.fmoney(res.data.data[0].dkxx[0].dkye),
-                dkffemc: app.fmoney(res.data.data[0].dkxx[0].dkffe),
+                dkztmc: res.data[0].dkxx[0].dkzt,
+                dkyemc: app.fmoney(res.data[0].dkxx[0].dkye),
+                dkffemc: app.fmoney(res.data[0].dkxx[0].dkffe),
               });
             } else {
               that.setData({
-                dkzt: res.data.data[0].dkxx[0].dkzt,
-                dkye: res.data.data[0].dkxx[0].dkye,
-                dkffe: res.data.data[0].dkxx[0].dkffe,
+                dkzt: res.data[0].dkxx[0].dkzt,
+                dkye: res.data[0].dkxx[0].dkye,
+                dkffe: res.data[0].dkxx[0].dkffe,
                 flag2: true,
-                flagdkzt: res.data.data[0].dkxx[0].dkzt,
+                flagdkzt: res.data[0].dkxx[0].dkzt,
                 flagdkzt1: flagdkzt2,
 
 
-                dkztmc: res.data.data[0].dkxx[0].dkzt,
-                dkyemc: app.fmoney(res.data.data[0].dkxx[0].dkye),
-                dkffemc: app.fmoney(res.data.data[0].dkxx[0].dkffe),
+                dkztmc: res.data[0].dkxx[0].dkzt,
+                dkyemc: app.fmoney(res.data[0].dkxx[0].dkye),
+                dkffemc: app.fmoney(res.data[0].dkxx[0].dkffe),
               });
             }
           }
           grzhxx1 = [];
-          for (var i = 0; i < res.data.data[0].gjjxx.length; i++) {
-            grzhxx1.push(res.data.data[0].gjjxx[i]);
-            grzhxx[i] = res.data.data[0].gjjxx[i].grzh + " " + res.data.data[0].gjjxx[i].grzhzt;
+          for (var i = 0; i < res.data[0].gjjxx.length; i++) {
+            grzhxx1.push(res.data[0].gjjxx[i]);
+            grzhxx[i] = res.data[0].gjjxx[i].grzh + " " + res.data[0].gjjxx[i].grzhzt;
           }
 
         }
       },
-      fail: function (res) {
+      fail: function (result) {
         my.alert({
           title: "提示",
           content: '服务正在维护。。。',
@@ -209,36 +215,43 @@ Page({
     obj.xingming = app.data.xingming;
     obj.zjhm = app.data.zjhm;
     obj.sign = app.getSign(obj, app.data.pkey)
+
+    var obj1 = new Object();
+    obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.data.grkey);
+    obj1.appid = app.data.appid;
+    obj1.citybm = app.data.zjbzxbm;
+    obj1.sign = app.getSign(obj1, app.data.pkey);
+
     my.request({
-      url: app.data.url + '/app-web/public/zhcx/info.service',
+      url: app.data.url + '/app-web/public/zhcx/info.service?token=' + app.data.token,
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm
+        "citycode": app.data.zjbzxbm,
+        "appid": app.data.appid
       },
-      data: JSON.stringify(obj),
+      data: JSON.stringify(obj1),
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
-      success: (res) => {
-        if (res.data.ret == 0) {
-          if (res.data.data[0].dkxx.length > 0) {
-            console.log("我的贷款", res.data.data[0].dkxx);
+      success: (result) => {
+        var res = app.Decrypt(result.data.data, app.data.grkey);
+        if (res.ret == 0) {
+          if (res.data[0].dkxx.length > 0) {
             that.setData({
-              jkhtbhmc: res.data.data[0].dkxx[0].jkhtbh,
-              jkrgjjzhmc: res.data.data[0].dkxx[0].jkrgjjzh,
-              yhrqmc: res.data.data[0].dkxx[0].yhrq,
-              yhbjmc: app.fmoney(res.data.data[0].dkxx[0].yhbj),
-              yhlxmc: app.fmoney(res.data.data[0].dkxx[0].yhlx),
-              yhbxhjmc: app.fmoney(res.data.data[0].dkxx[0].yhbxhj),
+              jkhtbhmc: res.data[0].dkxx[0].jkhtbh,
+              jkrgjjzhmc: res.data[0].dkxx[0].jkrgjjzh,
+              yhrqmc: res.data[0].dkxx[0].yhrq,
+              yhbjmc: app.fmoney(res.data[0].dkxx[0].yhbj),
+              yhlxmc: app.fmoney(res.data[0].dkxx[0].yhlx),
+              yhbxhjmc: app.fmoney(res.data[0].dkxx[0].yhbxhj),
             });
           }
-          for (var i = 0; i < res.data.data[0].dkxx.length; i++) {
-            console.log("res.data.data[0].dkxx", res.data.data[0].dkxx[i]);
-            wddk.push(res.data.data[0].dkxx[i]);
+          for (var i = 0; i < res.data[0].dkxx.length; i++) {
+            wddk.push(res.data[0].dkxx[i]);
           }
           gjjxxArr = [];
-          for (var i = 0; i < res.data.data[0].gjjxx.length; i++) {
-            gjjxxArr.push(res.data.data[0].gjjxx[i]);
+          for (var i = 0; i < res.data[0].gjjxx.length; i++) {
+            gjjxxArr.push(res.data[0].gjjxx[i]);
           }
           if (gjjxxArr.length > 0) {
             var gjjxxmx = gjjxxArr[0];
@@ -362,7 +375,6 @@ Page({
     this.setData({
       current: num,
     })
-    //console.log(num, source)
   },
 
   //轮播图
@@ -388,8 +400,6 @@ Page({
         if (res.index != -1) {
           let i = res.index;
           let flagdkzt2 = 0;
-          // console.log("index",i);
-          // console.log("index",wddk);
           if (wddk[i].dkzt == '正常还款' || wddk[i].dkzt == '逾期还款') {
             flagdkzt2 = 1;
           } else {
