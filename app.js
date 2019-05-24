@@ -25,7 +25,8 @@ App({
     pkey: "SY9IS82J4NDJS05HFNDJS73JRUG5BSKG",
     token: "",
     grkey: "",
-    hctime:24*60*60
+    hctime:24*60*60,
+    pdsfdl:false
   },
 
   onLaunch(options) {//城市服务使用，切勿随意修改
@@ -36,6 +37,9 @@ App({
       }
       if (options.query.urls) {
         this.data.urls = JSON.stringify(options.query.urls).replace(/\"/g, "")
+      }
+      if (options.query.dlzt) {
+        this.data.pdsfdl = true
       }
       my.setStorage({
         key: 'city',

@@ -9,7 +9,7 @@ Page({
     // 轮播图变量
     images: [],
     indicatorDots: true,
-    autoplay: true,
+    autoplay: false,
     interval: 3000,
     current: 1, //默认显示第几张,0为第一张
     circular: true,
@@ -81,6 +81,11 @@ Page({
           obj.authCode = authCode;
           obj.citybm = "CSY001";
           obj.sign = app.getSign(obj, app.data.pkey)
+          var obj1 = new Object();
+          obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.data.pkey);
+          obj1.appid = app.data.appid;
+          obj1.citybm = app.data.zjbzxbm;
+          obj1.sign = app.getSign(obj1, app.data.pkey);
           my.request({
             url: app.data.url + '/app-web/personal/common/alitoken.service',
             method: 'POST',
@@ -88,14 +93,18 @@ Page({
               "Content-Type": "application/json",
               "citycode": "CSY001"
             },
-            data: JSON.stringify(obj),
+            data: JSON.stringify(obj1),
             dataType: 'json',
             contentType: 'application/json;charset=UTF-8', //contentType很重要    
-            success: (res) => {
-              app.data.xingming = res.data.param.userName;
-              app.data.zjhm = res.data.param.certNo;
+            success: (result) => {
+              var res = app.Decrypt(result.data.data,app.data.pkey);
+              console.log('实名接口返回数据：',result);
+              console.log('实名接口返回数据解密：',res);
+              app.data.xingming = res.param.userName;
+              app.data.zjhm = res.param.certNo; 
               //app.data.urls = "";  初次登入不再置空，需通过该变量，控制退出登录按钮的存在与否，若未查到信息，在index页面置空，防止造成死循环。
               app.setZjbzxbm(this.data.citybm);
+              app.data.pdsfdl = true;
               this.getissue();//获取token令牌
             },
             fail: () => {
@@ -130,7 +139,7 @@ Page({
           yx_time = (result.data.expire - app.data.hctime) * 1000; //app.data.hctime缓存时间在app.js中手动修改;yx_time有效时间
         }
 
-        if (result.data != null && jg_time < yx_time && result.data.zjhm ==app.data.zjhm) {//有缓存且缓存生成令牌没有失去时效，且是同一个用户
+        if (result.data != null && jg_time < yx_time && result.data.zjhm == app.data.zjhm) {//有缓存且缓存生成令牌没有失去时效，且是同一个用户
           app.data.token = result.data.token;
           app.data.grkey = result.data.grkey;
           my.switchTab({ url: '/pages/index/index' });
@@ -170,7 +179,7 @@ Page({
                   grkey: result.grkey,
                   token: result.token,
                   hc_sytime: app.CurentTime(),
-                  zjhm:app.data.zjhm//增加zjhm缓存，判断换用户登录情况
+                  zjhm: app.data.zjhm//增加zjhm缓存，判断换用户登录情况
                 }
               });
               my.switchTab({ url: '/pages/index/index' });

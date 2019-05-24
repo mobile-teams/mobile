@@ -48,6 +48,7 @@ Page({
     yhbjmc: '',
     yhlxmc: '',
     yhbxhjmc: '',
+    pdsfdl: true,
   },
 
   gjjxxcx() {
@@ -63,24 +64,54 @@ Page({
       flag: !this.data.flag
     })
   },
-  onLoad() {
+  // onLoad() {
+  //   this.setData({
+  //      pdsfdl:app.data.pdsfdl,
+  //   });
+  //   console.log("pdsfdl<<<<<<",app.data.pdsfdl);
+  //   if(app.data.pdsfdl){
+  //   this.setData({
+  //     images: [
+  //       { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm+'&date='+new Date().getTime() },
+  //       { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm+'&date='+new Date().getTime() },
+  //       { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm+'&date='+new Date().getTime() },
+  //     ],
+  //   });
+  //   this.gjjdkjbxxcx(this);
+  //   }
+  // },
+  onShow() {
+    console.log(">>>>>>")
     this.setData({
-      images: [
-        { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime() },
-        { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime() },
-        { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime() },
-      ],
+      pdsfdl: app.data.pdsfdl,
     });
-    this.gjjdkjbxxcx(this);
+    console.log("pdsfdl<<<<<<", app.data.pdsfdl);
+    if (app.data.pdsfdl) {
+      this.setData({
+        images: [
+          { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime() },
+          { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime() },
+          { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime() },
+        ],
+      });
+      this.gjjdkjbxxcx(this);
+    }
   },
 
   //下拉刷新
   onPullDownRefresh() {
+    //判断是否登录状态
     //刷新
-    this.gjjdkjbxxcx(this);
+    if (app.data.pdsfdl) {
+      this.gjjdkjbxxcx(this);
+    }
+
     my.stopPullDownRefresh();
   },
-
+  sqdltab() {
+    app.data.jmtzbz = 'index',
+      my.navigateTo({ url: '/citychose/citychose' });
+  },
   //公积金贷款进本信息查询
   gjjdkjbxxcx: (that) => {
     that.zhcxinfo(that);
@@ -99,6 +130,7 @@ Page({
 
     my.request({
       url: app.data.url + '/app-web/personal/public/gjjdkjbxxcx.service?token=' + app.data.token,
+      //url: 'http://192.168.54.64:8000/app-web/personal/public/gjjdkjbxxcx.service?token='+app.data.token,
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
@@ -109,7 +141,10 @@ Page({
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (result) => {
+        console.log("gjjdkjbxxcx接口返回结果res ：", result);
         var res = app.Decrypt(result.data.data, app.data.grkey);
+        console.log("返回结果解密：：", res);
+
         if (res.data == null) {
           my.alert({
             title: "提示",
@@ -117,6 +152,7 @@ Page({
             success: () => {
               //my.navigateBack();
               app.data.urls = "";//如 从城服进入，没有查到信息，需置空urls。否则导致死循环。
+              app.data.pdsfdl = false;
               //my.redirectTo({ url: '../../citychose/citychose' });
               my.reLaunch({
                 url: '/citychose/citychose'
@@ -140,11 +176,13 @@ Page({
               dkxx[i] = res.data[0].dkxx[i].jkhtbh + " " + res.data[0].dkxx[i].dkzt;
             }
           }
+          // console.log(res.data[0].gjjxx.length);
           if (res.data[0].gjjxx.length > 1) {
             that.setData({
               flag1: true
             })
           }
+          console.log('贷款信息：', res.data[0].dkxx.length);
           let flagdkzt2 = 0;
           if (res.data[0].dkxx.length > 0) {
             if (res.data[0].dkxx[0].dkzt == '正常还款' || res.data[0].dkxx[0].dkzt == '逾期还款') {
@@ -191,6 +229,7 @@ Page({
         }
       },
       fail: function (result) {
+        app.data.pdsfdl = false;
         my.alert({
           title: "提示",
           content: '服务正在维护。。。',
@@ -234,9 +273,13 @@ Page({
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (result) => {
+        console.log("info接口返回结果res ：", result);
         var res = app.Decrypt(result.data.data, app.data.grkey);
+        console.log("返回结果解密：：", res);
+
         if (res.ret == 0) {
           if (res.data[0].dkxx.length > 0) {
+            console.log("我的贷款", res.data[0].dkxx);
             that.setData({
               jkhtbhmc: res.data[0].dkxx[0].jkhtbh,
               jkrgjjzhmc: res.data[0].dkxx[0].jkrgjjzh,
@@ -247,6 +290,7 @@ Page({
             });
           }
           for (var i = 0; i < res.data[0].dkxx.length; i++) {
+            console.log("res.data[0].dkxx", res.data[0].dkxx[i]);
             wddk.push(res.data[0].dkxx[i]);
           }
           gjjxxArr = [];
@@ -375,6 +419,7 @@ Page({
     this.setData({
       current: num,
     })
+    //console.log(num, source)
   },
 
   //轮播图
@@ -400,6 +445,8 @@ Page({
         if (res.index != -1) {
           let i = res.index;
           let flagdkzt2 = 0;
+          // console.log("index",i);
+          // console.log("index",wddk);
           if (wddk[i].dkzt == '正常还款' || wddk[i].dkzt == '逾期还款') {
             flagdkzt2 = 1;
           } else {

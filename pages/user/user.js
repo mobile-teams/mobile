@@ -4,7 +4,8 @@ Page({
     // tabbar:{},     //放在data中
     thumb: 'https://gw.alipayobjects.com/zos/rmsportal/VBqNBOiGYkCjqocXjdUj.png',
     footerImg: 'https://gw.alipayobjects.com/zos/rmsportal/VBqNBOiGYkCjqocXjdUj.png',
-    xingming: "",
+    xingming: "欢迎使用手机公积金",
+    dwmc: "请授权登录后查看账户信息",
     iscf: true,
     itemsGywm: [
       {
@@ -37,7 +38,7 @@ Page({
     //   },
     // ],
   },
-  onLoad() {
+  onShow() {
     var obj = new Object();
     obj.appid = app.data.appid;
     obj.citybm = app.data.zjbzxbm;
@@ -62,7 +63,7 @@ Page({
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (result) => {
-         console.log("info接口返回结果res ：", result);
+        console.log("info接口返回结果res ：", result);
         var res = app.Decrypt(result.data.data, app.data.grkey);
         console.log("返回结果解密：：", res);
         if (res.ret == 0) {
@@ -100,19 +101,19 @@ Page({
     console.log(app.data.xingming, app.data.dwmc);
 
     console.log("app.data.urls", app.data.urls);
-    if (app.data.urls != "") {
+    if (app.data.urls != "" || !app.data.pdsfdl) {
       this.setData({
         iscf: false,
       })
     }
-    // this.setData({
-    //   xingming: app.data.xingming,
-    //   //xingming:this.plusXing(app.data.xingming,1,0),
-    //   dwmc: app.data.dwmc
-    // })
   },
-  onCardClick: function(ev) {
-    my.navigateTo({ url: '../grzx/grzx' })
+  onCardClick: function (ev) {
+    if (app.data.pdsfdl) {
+      my.navigateTo({ url: '../grzx/grzx' })
+    } else { 
+      my.navigateTo({ url: '/citychose/citychose' })
+    }
+
   },
   onItemClick(ev) {
     my.confirm({
@@ -131,7 +132,7 @@ Page({
   onQchcClick() {
     my.removeStorage({
       key: 'city',
-      success: function() {
+      success: function () {
         my.alert({ content: '删除成功' });
       }
     });

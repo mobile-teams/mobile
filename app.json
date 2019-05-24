@@ -1,7 +1,8 @@
 {
   "pages": [
+     "pages/index/index",
     "citychose/citychose",
-    "pages/index/index",
+   
     "pages/zhxx/zhxx",
     "pages/dkxx/dkxx",
     "pages/jczqxx/jczqxx",
