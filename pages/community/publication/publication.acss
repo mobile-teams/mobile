@@ -1,0 +1,131 @@
+.community_page {
+  background-color: rgb(245, 245, 245);
+  padding-top: 10px;
+}
+
+.box_card {
+  background-color: #fff;
+  padding: 10px;
+  border-bottom: 8px solid rgb(245, 245, 245);
+}
+
+.card_title_title_logo_img {
+  width: 37px;
+  height: 37px;
+    border-radius: 25px;
+  margin-right: 0.15rem;
+}
+
+.card_title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 16px 0
+}
+
+.card_title_content_1 {
+  font-weight: bold;
+  font-family: "微软雅黑";
+  font-size: 14px;
+  line-height: 25px;
+  color: rgb(120, 120, 120);
+}
+
+.card_title_content_2 {
+  font-size: 13px;
+  font-family: "微软雅黑";
+  line-height: 20px;
+  color: rgb(120, 120, 120);
+}
+
+.card_title_content {
+  -webkit-box-flex: 1;
+  flex: 1 1 0%;
+  min-width:
+}
+
+.card_title_little_class {
+  position: relative;
+  top: -20px;
+  padding: 0.08rem;
+  font-size: 13px;
+  color: rgb(255, 255, 255);
+border-radius: 4px;
+}
+
+.card_content {
+  padding-bottom: 5px;
+}
+
+.card_content_title {
+  font-weight: bold;
+  font-family: "微软雅黑";
+  font-size: 0.318rem;
+  color: black;
+  padding-bottom: 5px;
+}
+
+.card_content_content {
+  font-family: "微软雅黑";
+  font-size: 14px;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  color: rgb(110, 110, 110);
+}
+
+.card_content_imgage {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* padding: 16px 0 */
+}
+
+.card_content_img {
+  -webkit-box-flex: 1;
+  flex: 1 1 0%;
+  min-width:
+}
+
+.card_content_img_3 {
+  width: 2.2rem;
+  height: 1.6rem;
+}
+
+.card_content_img_1 {
+  width: 6.9rem;
+  height: 3.55rem;
+}
+
+.card_footer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 4px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.card_footer_menu {
+  align-items: center;
+  text-align: center;
+  -webkit-box-flex: 1;
+  flex: 1 0 0%;
+  width: 100px;
+  display: flex;
+  padding-left: 0.78rem;
+}
+
+.card_footer_img {
+  width: 0.38rem;
+  height: 0.34rem;
+}
+
+.card_footer_num {
+  font-size: 13px;
+  -webkit-box-flex: 1;
+  flex: 1 1 0%;
+  width: 15px;
+  height: 9px;
+  padding-right: 0.65rem;
+}

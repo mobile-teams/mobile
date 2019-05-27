@@ -1,0 +1,8 @@
+{   "defaultTitle": "社区",
+  "pullRefresh":true,
+  "titleBarColor": "#32ABF0",
+   "usingComponents": {
+    "popover": "mini-antui/es/popover/index",
+    "popover-item": "mini-antui/es/popover/popover-item/index"
+  }
+}

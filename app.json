@@ -1,6 +1,7 @@
 {
   "pages": [
     "citychose/citychose",
+    "pages/community/community",
     "pages/index/index",
     "pages/zhxx/zhxx",
     "pages/dkxx/dkxx",
@@ -12,7 +13,16 @@
     "pages/grzx/grzx",
     "pages/ywbl/yw/ywmx/ywmx",
     "pages/gywm/gywm",
-    "city/city"
+    "city/city",
+    "pages/community/collection/collection",
+    "pages/community/publication/publication",
+    "pages/community/draft/draft",
+    "pages/community/community_theme/community_theme",
+    "pages/community/editProfile/editProfile",
+    "pages/community/search/search",
+    "pages/community/editProfile/modifyHead/modifyHead",
+    "pages/community/editProfile/modifyHobbies/modifyHobbies",
+    "pages/community/H5page/H5page"
   ],
   "window": {
     "defaultTitle": "",
@@ -36,6 +46,12 @@
         "icon": "/image/zixun1.png",
         "activeIcon": "/image/zixun.png",
         "name": "业务办理"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "icon": "/image/community/sq.png",
+        "activeIcon": "/image/community/sq_select.png",
+        "name": "社区"
       },
       {
         "pagePath": "pages/user/user",

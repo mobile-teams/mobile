@@ -1,0 +1,41 @@
+<view class="search_box">
+  <input placeholder="请输入要搜索的内容" value="{{titleKey}}" class='search_input' onInput='searchInput' placeholder-class='search-input-placeholder' />
+  <image onTap="titleSearchTap" class="search_img" src="/image/search.png"/>
+</view>
+<view a:if="{{searchFlag === '0'}}">
+  <view class="search_title">
+    <view style="flex:1">热搜</view>
+    <view onTap="titleSearchTap" style="color:#32ABF0">换一换</view>
+  </view>
+  <view a:for="{{searchItems}}" a:for-item="searchItem">
+    <view a:if="{{searchItem.title.length>19}}">
+      <view data-data="{{searchItem}}" onTap="searchTap" class="search_data">{{searchItem.title.substr(0,19)+'...'}}</view>
+    </view>
+    <view a:elif="{{searchItem.title.length<20}}">
+      <view data-data="{{searchItem}}" onTap="searchTap" class="search_data">{{searchItem.title}}</view>
+    </view>
+  </view>
+  <view class="history_title">
+    <view style="flex:1">搜索历史</view>
+    <view onTap="deleteHistory" style="color:#32ABF0">删除</view>
+  </view>
+  <view a:for="{{searchHistory}}" a:for-item="searchHistoryItem">
+    <view a:if="{{searchHistoryItem.length > 19}}">
+      <view data-value="{{searchHistoryItem}}" onTap="searchHistoryTap" class="search_data">{{searchHistoryItem.substr(0,19)+'...'}}</view>
+    </view>
+    <view a:elif="{{searchHistoryItem.length < 20}}">
+      <view data-value="{{searchHistoryItem}}" onTap="searchHistoryTap" class="search_data">{{searchHistoryItem}}</view>
+    </view>
+  </view>
+</view>
+<view a:elif="{{searchFlag === '1'}}" style="padding: 1.1rem 0.2rem">
+  <view a:for="{{searchItems}}" a:for-item="searchItem">
+    <view a:if="{{searchItem.title.length>19}}">
+      <view data-data="{{searchItem}}" onTap="searchTap" class="search_data">{{searchItem.title.substr(0,19)+'...'}}</view>
+    </view>
+    <view a:elif="{{searchItem.title.length<20}}">
+      <view data-data="{{searchItem}}" onTap="searchTap" class="search_data">{{searchItem.title}}</view>
+    </view>
+  </view>
+</view>
+

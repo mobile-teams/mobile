@@ -1,0 +1,6 @@
+<view class='new_city_box'>
+  <view class='new_city_text' a:for="{{hobbies}}" onTap="hobbyTap" style="background:{{item.color}};" data-data='{{item}}'>{{item.hobby}}
+  </view>
+</view>
+<button class="tapBtn" onTap="affirm">确认
+</button>

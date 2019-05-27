@@ -1,0 +1,51 @@
+<view a:if="{{sfcg==1}}">
+  <!-- 列表循环开始 -->
+  <view class="community_page">
+    <view a:for="{{data_list}}" class="box_card" onTap="edit_draft" data-value={{item.title_id}}>
+      <!-- 时间 图片 -->
+      <view class="card_title">
+        <!-- logo -->
+        <view class="card_title_title_logo">
+          <image class="card_title_title_logo_img" src="{{item.avatar}}"/>
+        </view>
+        <!-- 内容 -->
+        <view class="card_title_content">
+          <view class="card_title_content_1">{{item.nick_name}}</view>
+          <view class="card_title_content_2">{{item.createdate.substr(0,10)}}</view>
+        </view>
+        <!-- 小课堂 -->
+        <!--<view a:if="{{item.szsx==1}}"><text class="card_title_little_class" style='color:red; border: 1px solid red;'>热门</text></view><view a:elif="{{item.szsx==2}}"><text class="card_title_little_class">小课堂</text></view> -->
+      </view>
+      <!-- 标题、内容 -->
+      <view class="card_content">
+        <!-- 标题 -->
+        <view class="card_content_title">{{item.title}}</view>
+        <!-- 内容 -->
+        <view class="card_content_content">{{item.content}}</view>
+      </view>
+      <!-- 图片 -->
+      <!-- 判断图片是否存在 -->
+      <!--<view class="card_content_imgage" a:if="{{item.picture.trim().length >1}}"> -->
+      <!-- 判断图片个数 切分图片字符串 indexOf(',')>0 -1是没有 -->
+      <!--<view style="display: flex;width: 100%;" a:if="{{item.picture.indexOf(',')>0}}"> -->
+      <!-- 多个图片 -->
+      <!--<view class="card_content_img" a:for="{{item.picture.split(',')}}" a:for-item="img_data" a:for-index="img_index"> -->
+      <!--<view a:if="{{img_index< 3}}"> -->
+      <!--<image class="card_content_img_3" src="{{img_data}}"/> -->
+      <!--</view> -->
+      <!--</view> -->
+      <!--</view> -->
+      <!-- 只有一个图片 -->
+      <!--<view class="card_content_imgage" a:else> -->
+      <!--<view class="card_content_img"> -->
+      <!--<image class="card_content_img_1" src="{{item.picture}}"/> -->
+      <!--</view> -->
+      <!--</view> -->
+      <!--</view> -->
+    </view>
+  </view>
+  <!-- 列表循环结束 -->
+  </view>
+  <view a:elif="{{sfcg==0}}">
+    <view style="margin-top:1rem; px;text-align: center;font-size: 24px; font-family:'微软雅黑';color: rgb(150, 150, 150);">暂无保存草稿</view>
+  </view>

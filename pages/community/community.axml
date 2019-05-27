@@ -1,0 +1,105 @@
+<view class="community_page">
+  <view class="search_box">
+    <view class='search_view' onTap="searchTap">
+      <input placeholder="请输要搜索的内容" disabled="disabled" class='search_input' placeholder-class='search-input-placeholder'/>
+    </view>
+    <view class="search_img_box">
+      <popover position="{{position}}" show="{{show}}" showMask="{{showMask}}" onMaskClick="onMaskClick">
+        <view onTap="onShowPopoverTap">
+          <!-- onTap="head_img_click" -->
+          <image class="search_img" src="{{head_img}}"/>
+        </view>
+        <view class="head_img_menu" slot="items">
+          <popover-item style="background:red" onItemClick="user_editProfile">
+            <text>个人信息</text>
+          </popover-item >
+          <popover-item onItemClick="user_collection">
+            <text>我的收藏</text>
+          </popover-item>
+          <popover-item onItemClick="user_publication">
+            <text>我的发布</text>
+          </popover-item>
+          <popover-item onItemClick="user_draft">
+            <text>我的草稿</text>
+          </popover-item>
+        </view>
+      </popover>
+    </view>
+  </view>
+  <!-- 发布入口 -->
+  <view class="fabu_box" hidden="{{fabu_img}}">
+    <view class="fabu_button" onTap="fabbu_img_click">
+      <image class="fabbu_button_img" src="/image/community/fabu.png" />
+      <view class="fabu_box_text">发布</view>
+    </view>
+  </view>
+  <!-- 列表循环开始 -->
+  <view style="margin-top:37px;">
+    <view a:for="{{data_list}}" class="box_card">
+      <!-- 时间 图片 -->
+      <view class="card_title">
+        <!-- logo -->
+        <view class="card_title_title_logo">
+          <image class="card_title_title_logo_img" src="{{item.avatar}}"/>
+        </view>
+        <!-- 内容 -->
+        <view class="card_title_content">
+          <view class="card_title_content_1">{{item.nick_name}}</view>
+          <view class="card_title_content_2">{{item.createdate.substr(0,10)}}</view>
+        </view>
+        <!-- 小课堂 -->
+        <view a:if="{{item.szsx==1}}">
+          <text class="card_title_little_class" style='color:red; border: 1px solid red;'>热门</text>
+        </view>
+        <view a:elif="{{item.szsx==2}}">
+          <text class="card_title_little_class" data-value={{item.title_id}} onTap="theme_detail">小课堂</text>
+        </view>
+      </view>
+      <!-- 标题、内容 -->
+      <view class="card_content" onTap="sqztxx" data-value={{item}}>
+        <!-- 标题 -->
+        <view class="card_content_title">{{item.title}}</view>
+        <!-- 内容 -->
+        <view class="card_content_content">{{item.content.substr(0,47)+'...'}}</view>
+      </view>
+      <!-- 图片 -->
+      <!-- 判断图片是否存在 -->
+      <view class="card_content_imgage" onTap="sqztxx" data-value={{item}} a:if="{{item.picture.trim().length >1}}">
+        <!-- 判断图片个数 切分图片字符串 indexOf(',')>0 -1是没有 -->
+        <view style="display: flex;width: 100%;" a:if="{{item.picture.indexOf(',')>0}}">
+          <!-- 多个图片 -->
+          <view class="card_content_img" a:for="{{item.picture.split(',')}}" a:for-item="img_data" a:for-index="img_index">
+            <view a:if="{{img_index< 3}}">
+              <image class="card_content_img_3" src="{{img_data}}"/>
+            </view>
+          </view>
+        </view>
+        <!-- 只有一个图片 -->
+        <view class="card_content_imgage" onTap="sqztxx" data-value={{item}} a:else>
+          <view class="card_content_img">
+            <image class="card_content_img_1" src="{{item.picture}}"/>
+          </view>
+        </view>
+      </view>
+      <!-- 观看、点赞 -->
+      <view class="card_footer" onTap="sqztxx" data-value={{item}} >
+        <!-- 观看 -->
+        <view class="card_footer_menu">
+          <image class="card_footer_img" src="/image/community/yd.png"/>
+          <view class="card_footer_num">{{item.ydl}}</view>
+        </view>
+        <!-- 评论 -->
+        <view class="card_footer_menu">
+          <image class="card_footer_img" src="/image/community/pl.png"/>
+          <view class="card_footer_num">{{item.hfts}}</view>
+        </view>
+        <!-- 点赞 -->
+        <view class="card_footer_menu">
+          <image class="card_footer_img" src="/image/community/dz.png"/>
+          <view class="card_footer_num">{{item.article_dzs}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 列表循环结束 -->
+</view>

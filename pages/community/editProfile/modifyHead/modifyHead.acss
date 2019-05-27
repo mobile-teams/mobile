@@ -1,0 +1,15 @@
+.img {
+  width: 0.8rem;
+  height: 0.8rem;
+  margin: 0rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.title {
+  display: flex;
+  padding-top: 0.3rem;
+}
+
+.bg_view {
+  background-color: rgb(240, 240, 240);
+}

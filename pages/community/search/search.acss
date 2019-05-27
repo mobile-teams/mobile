@@ -1,0 +1,49 @@
+.search_box {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  background: #32ABF0;
+  height: 95rpx;
+  font-size: 30rpx;
+  z-index: 1;
+}
+
+.search_input {
+  height: 50rpx;
+  line-height: 60rpx;
+  width: 67%;
+  margin-left: 7.5%;
+  border-radius: 20rpx;
+  background: #fff;
+  margin-top: 20rpx;
+  padding-left: 5%;
+  font-size: 14px;
+}
+
+.search-input-placeholder {
+  text-align: center;
+}
+
+.search_img {
+  border-radius: 1rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-left: 0.3rem;
+}
+
+.search_title {
+  display: flex;
+  padding: 1.1rem 0.5rem 0.1rem 0.5rem;
+  background-color: rgb(240, 240, 240);
+}
+
+.history_title {
+  display: flex;
+  padding: 0.1rem 0.5rem;
+  background-color: rgb(240, 240, 240);
+}
+
+.search_data {
+  height: 0.3rem;
+  padding: 0.1rem 0.2rem;
+}
