@@ -5,8 +5,8 @@ Page({
   },
   onLoad() {
     this.setData({
-     // ggurl:"http://192.168.54.101:8088/app_12329/cityList/index.html?a=1"
-     ggurl:app.data.url+"/alipay/cityList/index.html"
+     // ggurl:"http://192.168.54.101:8088/app_12329/cityList/index.html?date="+new Date().getTime()
+     ggurl:app.data.url+"/alipay/cityList/index.html?date="+new Date().getTime()
     });
     console.log('url',this.data.ggurl);
     this.webViewContext = my.createWebViewContext('web-view-1');

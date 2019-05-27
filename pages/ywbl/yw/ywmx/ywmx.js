@@ -9,7 +9,7 @@ Page({
     if (e.style != '' && e.style != null && e.style == 'public') {
       ywmxurl = app.data.url + '/alipay/' + e.ywbm;
     } else {
-      ywmxurl = app.data.url + '/alipay/' + e.ywbm + '?citycode=' + app.data.zjbzxbm+'&date='+new Date().getTime();
+      ywmxurl = app.data.url + '/alipay/' + e.ywbm + '?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime();
     }
     this.setData({
       ywmxurl: ywmxurl
@@ -44,21 +44,27 @@ Page({
             obj.bizid = e.detail.bizid;
             obj.sign = app.getSign(obj, app.data.pkey);
             console.log("刷脸--JSON.stringify(obj):::", JSON.stringify(obj))
+            var obj1 = new Object();
+            obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.data.pkey);
+            obj1.appid = app.data.appid;
+            obj1.citybm = app.data.zjbzxbm;
+            obj1.sign = app.getSign(obj1, app.data.pkey);
             my.request({
-              url: 'https://api.sjgjj.cn/app-web/personal/common/aliface.service',
+              url: app.data.url + '/app-web/personal/common/aliface.service',
               method: 'POST',
               headers: {
                 "Content-Type": "application/json",
                 "citycode": "CSY001"
               },
-              data: JSON.stringify(obj),
+              data: JSON.stringify(obj1),
               dataType: 'json',
               contentType: 'application/json;charset=UTF-8', //contentType很重要    
-              success: (res) => {
+              success: (result) => {
                 //判断刷脸是否成功
-                console.log("刷脸接口222成功成功返回》》》：", res);
-                  //向H5发送成功信息
-                  this.webViewContext.postMessage({ 'success': res.data.success,'zimmsg':res.data.zimMsg });
+                console.log("刷脸接口222成功成功返回》》》：", result);
+                //向H5发送成功信息
+                var res = app.Decrypt(result.data.data, app.data.pkey);
+                this.webViewContext.postMessage({ 'success': res.success, 'zimmsg': res.zimMsg });
               },
               fail: (res) => {
                 console.log("刷脸接口222失败返回(网络波动)《《《《：", res);

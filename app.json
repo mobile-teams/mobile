@@ -1,8 +1,7 @@
 {
   "pages": [
+     "pages/index/index",
     "citychose/citychose",
-    "pages/community/community",
-    "pages/index/index",
     "pages/zhxx/zhxx",
     "pages/dkxx/dkxx",
     "pages/jczqxx/jczqxx",
@@ -14,6 +13,7 @@
     "pages/ywbl/yw/ywmx/ywmx",
     "pages/gywm/gywm",
     "city/city",
+    "pages/community/community",
     "pages/community/collection/collection",
     "pages/community/publication/publication",
     "pages/community/draft/draft",

@@ -7,7 +7,8 @@ Page({
     var jczqxxurl = '';
     console.log("eee", e);
     this.setData({
-      jczqxxurl: app.data.url + '/alipay/zhcx/gjjywmxcx.html?citycode=' + app.data.zjbzxbm+'&date='+new Date().getTime()
+      // jczqxxurl: app.data.url + '/alipay/zhcx/gjjywmxcx.html?citycode=' + app.data.zjbzxbm+'&date='+new Date().getTime()
+      jczqxxurl: app.data.url + '/alipay/zhcx/gjjywmxcx.html?date=' + new Date().getTime()
     });
     console.log('url>>>>>>-', this.data.jczqxxurl);
     this.webViewContext = my.createWebViewContext('web-view_jczqxx');
@@ -18,8 +19,16 @@ Page({
     my.getStorage({
       key: "djxx",
       success: (res) => {
-        console.log("djxx  ", res);
-        this.webViewContext.postMessage({ 'xingming': app.data.xingming, 'zjhm': app.data.zjhm, 'citycode': app.data.zjbzxbm, 'djxx': res.data.type, 'grzh': res.data.grzh });
+        console.log("djxx ", res);
+        this.webViewContext.postMessage({
+          'xingming': app.data.xingming,
+          'zjhm': app.data.zjhm,
+          'citycode': app.data.zjbzxbm,
+          'djxx': res.data.type,
+          'grzh': res.data.grzh,
+          'grkey': app.data.grkey,
+          'token': app.data.token
+        });
 
       },
     });
