@@ -77,6 +77,11 @@ Page({
         }
 
       },
+      fail:(res)=>{
+        my.alert({
+          title: '网络错误' 
+        });
+      }
     });
     my.getAuthCode({
       scopes: 'auth_user',

@@ -46,9 +46,18 @@ Page({
             xingming: res.xingming
           })
           console.log('个人中心userinfo查询成功', this.data.sjhm);
+        }else{
+          my.alert({
+            title: res.msg
+          });
         }
 
       },
+      fail: (res)=>{
+        my.alert({
+          title: '网络错误' 
+        });
+      }
     });
   },
   //脱敏

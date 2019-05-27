@@ -102,6 +102,8 @@ Page({
               console.log('实名接口返回数据解密：',res);
               app.data.xingming = res.param.userName;
               app.data.zjhm = res.param.certNo; 
+              // app.data.xingming = '闽意常';
+              // app.data.zjhm = '210603198210280037'
               //app.data.urls = "";  初次登入不再置空，需通过该变量，控制退出登录按钮的存在与否，若未查到信息，在index页面置空，防止造成死循环。
               app.setZjbzxbm(this.data.citybm);
               app.data.pdsfdl = true;
@@ -168,7 +170,8 @@ Page({
             dataType: 'json',
             contentType: 'application/json;charset=UTF-8', //contentType很重要  
             success: (res) => {
-              var result = app.Decrypt(res.data.data, app.data.pkey);
+              if (res.ret == 0){
+              var result = app.Decrypt(res.data.data, app.data.pkey);            
               app.data.token = result.token;
               app.data.grkey = result.grkey;
               //将当前令牌信息放入缓存
@@ -183,6 +186,12 @@ Page({
                 }
               });
               my.switchTab({ url: '/pages/index/index' });
+              }else{
+                my.alert({
+                  title: '查无您的信息，请确认所选公积金中心' 
+                });
+              }
+
             },
             fail: () => {
               my.alert({
