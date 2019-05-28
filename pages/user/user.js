@@ -22,14 +22,14 @@ Page({
         arrow: true,
       },
     ],
-    // itemsQchc: [
-    //   {
-    //     thumb: '/image/clearcache.png',
-    //     title: '清除缓存',
-    //   // extra: '描述文字',
-    //     arrow: false,
-    //   },
-    // ],
+    itemsQchc: [
+      {
+        thumb: '/image/clearcache.png',
+        title: '清除缓存',
+      // extra: '描述文字',
+        arrow: false,
+      },
+    ],
     // itemsYssm: [
     //   {
     //     thumb: '/image/yssm.png',
@@ -147,12 +147,8 @@ Page({
     my.navigateTo({ url: '../gywm/gywm' })
   },
   onQchcClick() {
-    my.removeStorage({
-      key: 'city',
-      success: function() {
-        my.alert({ content: '删除成功' });
-      }
-    });
+   my.clearStorage()
+   my.alert({ content: '删除成功' });
   },
   onExit(ev) {
     app.data.pdsfdl=false;

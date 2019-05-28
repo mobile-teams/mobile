@@ -177,6 +177,7 @@ Page({
               console.log("issue_res",res);
               if (res.data.ret == 0) {
                 var result = app.Decrypt(res.data.data, app.data.pkey);
+                console.log("令牌返回解密：：",result);
                 app.data.token = result.token;
                 app.data.grkey = result.grkey;
                 //将当前令牌信息放入缓存
