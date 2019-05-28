@@ -52,7 +52,7 @@
         <!-- 评论 -->
         <view class="card_footer_menu2" onTap="user_reply" style="background-color:#32ABF0;height:0.7rem;border-radius:0.22rem;">
           <!--<image class="card_footer_img2" src="/image/community/pl.png"/> -->
-          <view class="card_footer_num2" style="color:#ffffff;">回复</view>
+          <view class="card_footer_num2" style="color:#ffffff;font-weight: bold;font-size: 0.29rem;">回复</view>
         </view>
         <!-- 点赞 -->
         <view class="card_footer_menu2" onTap="user_dz">

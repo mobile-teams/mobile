@@ -35,7 +35,7 @@
   </view>
   <!-- 列表循环开始 -->
   <view style="margin-top:37px;">
-    <view a:for="{{data_list}}" class="box_card">
+    <view a:for="{{data_list}}" class="box_card" data-value={{item}} onTap="theme_detail">
       <!-- 时间 图片 -->
       <view class="card_title">
         <!-- logo -->
@@ -52,7 +52,7 @@
           <text class="card_title_little_class" style='color:red; border: 1px solid red;'>热门</text>
         </view>
         <view a:elif="{{item.szsx==2}}">
-          <text class="card_title_little_class" data-value={{item.title_id}} onTap="theme_detail">小课堂</text>
+          <text class="card_title_little_class">小课堂</text>
         </view>
       </view>
       <!-- 标题、内容 -->
@@ -64,7 +64,7 @@
       </view>
       <!-- 图片 -->
       <!-- 判断图片是否存在 -->
-      <view class="card_content_imgage" onTap="sqztxx" data-value={{item}} a:if="{{item.picture.trim().length >1}}">
+      <view class="card_content_imgage" data-value={{item}} a:if="{{item.picture.trim().length >1}}">
         <!-- 判断图片个数 切分图片字符串 indexOf(',')>0 -1是没有 -->
         <view style="display: flex;width: 100%;" a:if="{{item.picture.indexOf(',')>0}}">
           <!-- 多个图片 -->
@@ -75,14 +75,14 @@
           </view>
         </view>
         <!-- 只有一个图片 -->
-        <view class="card_content_imgage" onTap="sqztxx" data-value={{item}} a:else>
+        <view class="card_content_imgage" data-value={{item}} a:else>
           <view class="card_content_img">
             <image class="card_content_img_1" src="{{item.picture}}"/>
           </view>
         </view>
       </view>
       <!-- 观看、点赞 -->
-      <view class="card_footer" onTap="sqztxx" data-value={{item}} >
+      <view class="card_footer" data-value={{item}} >
         <!-- 观看 -->
         <view class="card_footer_menu">
           <image class="card_footer_img" src="/image/community/yd.png"/>

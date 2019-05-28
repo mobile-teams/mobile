@@ -15,11 +15,13 @@ Page({
     showMask: true,
     user_type: '0',//0未登录 1一登陆
   },
-
-  onShow() {
+  onLoad() {
     my.showLoading({
       content: '正在加载...',
     });
+    this.sqztlbcx(this);
+  },
+  onShow() {
 
     //用户信息查询
     this.userinfo(this);
@@ -43,6 +45,39 @@ Page({
       my.navigateTo({
         url: '/citychose/citychose'
       })
+    }
+  },
+
+  //下拉刷新
+  onPullDownRefresh() {
+    //清空数组数据，赋值默认值重新查询
+    this.setData({
+      data_page: 1,
+      data_list: []
+    })
+    //用户信息查询
+    this.userinfo(this);
+    this.sqztlbcx(this);
+    my.stopPullDownRefresh();
+  },
+
+  //上拉加载数据
+  onReachBottom() {
+    this.setData({
+      data_page: this.data.data_page + 1,
+    })
+    //控制显示条数，=总条数后不允许查询
+    console.log("当前显示总条数", this.data.data_list.length);
+    if (this.data.data_list.length >= this.data.total_count) {
+      console.log("无更多数据...");
+      my.showToast({
+        type: 'none',
+        content: '没有更多数据',
+        duration: 1000,
+      });
+    } else {
+      this.sqztlbcx(this);
+      console.log("正在加载...");
     }
   },
 
@@ -72,24 +107,22 @@ Page({
     });
   },
 
-  //点击小课堂直接进详情页面
+  //判断进入二级页面还是三级页面
   theme_detail(e) {
-    //获取对应主题的title_id
-    console.log("点击小课堂-title_id：", e.currentTarget.dataset.value);
-    my.navigateTo({ url: '/pages/community/H5page/H5page?h5param=detail&userid=' + this.data.data_userid + '&title_id=' + e.currentTarget.dataset.value })
-
-  },
-
-  //下拉刷新
-  onPullDownRefresh() {
-    //清空数组数据，赋值默认值重新查询
-    this.setData({
-      data_page: 1,
-      data_list: []
-    })
-    //用户信息查询
-    this.userinfo(this);
-    my.stopPullDownRefresh();
+    //判断是否是小课堂图标 - 如果是小课堂直接跳转详情H5页面 ==2 小课堂 ==1热门
+    if (e.currentTarget.dataset.value.szsx == 2) {
+      //获取对应主题的title_id
+      console.log("点击小课堂-title_id：", e.currentTarget.dataset.value);
+      my.navigateTo({ url: '/pages/community/H5page/H5page?h5param=detail&userid=' + this.data.data_userid + '&title_id=' + e.currentTarget.dataset.value.title_id })
+    } else {
+      console.log("点击获取主题信息", e.currentTarget.dataset.value.title_id, e.currentTarget.dataset.value.content);
+      //如果用户未登录，跳转主题二级
+      my.navigateTo({
+        url: 'community_theme/community_theme?userid=' + this.data.data_userid
+          + '&title_id=' + e.currentTarget.dataset.value.title_id
+          + '&content=' + e.currentTarget.dataset.value.content
+      })
+    }
   },
 
   //有发布主题权限-跳转发布
@@ -98,16 +131,16 @@ Page({
     my.navigateTo({ url: '/pages/community/H5page/H5page?h5param=edit_detail&userid=' + this.data.data_userid })
   },
 
-  //用户点主题
-  sqztxx(e) {
-    console.log("点击获取主题信息", e.currentTarget.dataset.value.title_id, e.currentTarget.dataset.value.content);
-    //如果用户未登录，跳转主题二级
-    my.navigateTo({
-      url: 'community_theme/community_theme?userid=' + this.data.data_userid
-        + '&title_id=' + e.currentTarget.dataset.value.title_id
-        + '&content=' + e.currentTarget.dataset.value.content
-    })
-  },
+  // //用户点主题
+  // sqztxx(e) {
+  //   console.log("点击获取主题信息", e.currentTarget.dataset.value.title_id, e.currentTarget.dataset.value.content);
+  //   //如果用户未登录，跳转主题二级
+  //   my.navigateTo({
+  //     url: 'community_theme/community_theme?userid=' + this.data.data_userid
+  //       + '&title_id=' + e.currentTarget.dataset.value.title_id
+  //       + '&content=' + e.currentTarget.dataset.value.content
+  //   })
+  // },
 
   /**
    * 点击搜索
@@ -116,26 +149,6 @@ Page({
     my.navigateTo({
       url: '/pages/community/search/search?userid=' + this.data.data_userid
     })
-  },
-
-  //上拉加载数据
-  onReachBottom() {
-    this.setData({
-      data_page: this.data.data_page + 1,
-    })
-    //控制显示条数，=总条数后不允许查询
-    console.log("当前显示总条数", this.data.data_list.length);
-    if (this.data.data_list.length == this.data.total_count) {
-      console.log("无更多数据...");
-      my.showToast({
-        type: 'none',
-        content: '没有更多数据',
-        duration: 1000,
-      });
-    } else {
-      this.sqztlbcx(this);
-      console.log("正在加载...");
-    }
   },
 
   //虚拟用户信息查询
@@ -166,7 +179,7 @@ Page({
             data_userid: result.data.data[0].userid,
             head_img: result.data.data[0].avatar,
           })
-          app.data.virtual_user_state = result.data.data[0].state;//个人审核是否通过  0未通过审批，1通过审批
+          app.data.virtual_user_state = result.data.data[0].state;//个人审核是否通过  0未通过审批，1通过审批 2审批拒绝通过
 
           if (result.data.data[0].state == '1') {
             //通过审核后，校验个人发布权限 0不能发布，1能发布
@@ -187,7 +200,7 @@ Page({
           })
         }
         console.log("查询用户是否存在：", result.data.msg);
-        that.sqztlbcx(that);
+        //that.sqztlbcx(that);
       }
     });
   },
