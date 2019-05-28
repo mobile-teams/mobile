@@ -92,15 +92,15 @@ Page({
     //先判断是用户是否注册虚拟用户
     if (app.data.virtual_user == '1') {
       //判断用户是否通过审核，未审核通过不允许添加回复
-      if (app.data.virtual_user_state == '0') {
+      if (app.data.virtual_user_state == '1') {
+        my.navigateTo({ url: '/pages/community/H5page/H5page?h5param=edit_reply&userid=' + this.data.data_userid + '&title_id=' + this.data.title_id })
+      } else {
         my.showToast({
           type: 'none',
           content: '您未通过审核，暂时不能操作',
           duration: 1000,
         });
         return;
-      } else {
-        my.navigateTo({ url: '/pages/community/H5page/H5page?h5param=edit_reply&userid=' + this.data.data_userid + '&title_id=' + this.data.title_id })
       }
     } else {
       my.alert({
@@ -416,8 +416,8 @@ Page({
   user_reply_dc(e) {
     // console.log("接收用户回复点<踩>……", e.currentTarget.dataset.value);
     console.log("接收用户点击回复点<踩>……", e);
-   //判断用户是否登录
-     if (!app.data.pdsfdl) {
+    //判断用户是否登录
+    if (!app.data.pdsfdl) {
       my.alert({
         content: '请登陆后使用此功能',
       });
