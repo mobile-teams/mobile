@@ -3,7 +3,7 @@ Page({
   data: {
     data_isshow: '',
     reply_page: 1,
-    reply_size: '2',//列表内容
+    reply_size: '10',//列表内容
     data_list: [],//主题列表
     reply_list: [],//回复列表
     total_count: '',
@@ -82,6 +82,13 @@ Page({
 
   //社区主题信息回复
   user_reply() {
+    //判断用户是否登录
+    if (!app.data.pdsfdl) {
+      my.alert({
+        content: '请登陆后使用此功能',
+      });
+      return;
+    }
     //先判断是用户是否注册虚拟用户
     if (app.data.virtual_user == '1') {
       //判断用户是否通过审核，未审核通过不允许添加回复
@@ -97,7 +104,7 @@ Page({
       }
     } else {
       my.alert({
-        title: '请完善信息后回复',
+        content: '请完善信息后回复',
         success: () => {
           my.navigateTo({ url: "/pages/community/editProfile/editProfile" })
         },
@@ -113,9 +120,16 @@ Page({
   user_sc() {
     console.log("用户点击收藏……");
     //判断用户是否登陆
+    if (!app.data.pdsfdl) {
+      my.alert({
+        content: '请登陆后使用此功能',
+      });
+      return;
+    }
+    //判断用户是否注册
     if (app.data.virtual_user == '0') {
       my.alert({
-        title: '请完善信息后操作',
+        content: '请完善信息后操作',
         success: () => {
           my.navigateTo({ url: "/pages/community/editProfile/editProfile" })
         },
@@ -174,7 +188,7 @@ Page({
           });
         } else {
           my.alert({
-            title: result.data.msg
+            content: result.data.msg
             //  title:"网络错误"
           });
         }
@@ -214,7 +228,7 @@ Page({
           });
         } else {
           my.alert({
-            title: result.data.msg
+            content: result.data.msg
             //  title:"网络错误"
           });
         }
@@ -226,10 +240,17 @@ Page({
   //主题用户点赞
   user_dz() {
     console.log("用户点赞……");
-    //判断用户是否登陆
+    //判断用户是否登录
+    if (!app.data.pdsfdl) {
+      my.alert({
+        content: '请登陆后使用此功能',
+      });
+      return;
+    }
+    //判断用户是否注册
     if (app.data.virtual_user == '0') {
       my.alert({
-        title: '请完善信息后操作',
+        content: '请完善信息后操作',
         success: () => {
           my.navigateTo({ url: "/pages/community/editProfile/editProfile" })
         },
@@ -288,7 +309,7 @@ Page({
           });
         } else {
           my.alert({
-            title: result.data.msg
+            content: result.data.msg
             //  title:"网络错误"
           });
         }
@@ -328,7 +349,7 @@ Page({
           });
         } else {
           my.alert({
-            title: result.data.msg
+            content: result.data.msg
             //  title:"网络错误"
           });
         }
@@ -340,10 +361,17 @@ Page({
   user_reply_dz(e) {
     console.log("接收用户点击回复点<赞>……", e.currentTarget.dataset.value);
     console.log("接收用户点击回复点<赞>…33333333…", e);
+    //判断用户是否登录
+    if (!app.data.pdsfdl) {
+      my.alert({
+        content: '请登陆后使用此功能',
+      });
+      return;
+    }
     //判断用户是否注册
     if (app.data.virtual_user == '0') {
       my.alert({
-        title: '请完善信息后操作',
+        content: '请完善信息后操作',
         success: () => {
           my.navigateTo({ url: "/pages/community/editProfile/editProfile" })
         },
@@ -388,11 +416,17 @@ Page({
   user_reply_dc(e) {
     // console.log("接收用户回复点<踩>……", e.currentTarget.dataset.value);
     console.log("接收用户点击回复点<踩>……", e);
-
+   //判断用户是否登录
+     if (!app.data.pdsfdl) {
+      my.alert({
+        content: '请登陆后使用此功能',
+      });
+      return;
+    }
     //判断用户是否注册
     if (app.data.virtual_user == '0') {
       my.alert({
-        title: '请完善信息后操作',
+        content: '请完善信息后操作',
         success: () => {
           my.navigateTo({ url: "/pages/community/editProfile/editProfile" })
         },
@@ -466,7 +500,7 @@ Page({
           });
         } else {
           my.alert({
-            title: result.data.msg
+            content: result.data.msg
             //  title:"网络错误"
           });
         }
@@ -507,7 +541,7 @@ Page({
         } else {
           my.hideLoading();
           my.alert({
-            title: result.data.msg
+            content: result.data.msg
             //  title:"网络错误"
           });
         }
@@ -554,7 +588,7 @@ Page({
           }
           my.hideLoading();
         } else {
-          my.hideLoading();s
+          my.hideLoading();
           console.log("无回复信息");
         }
       },

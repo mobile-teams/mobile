@@ -68,7 +68,8 @@ Page({
     let cs = this.data.xzcsflag;
     if (cs == '0') {
       my.alert({
-        title: '请选择公积金城市'
+        title:'提示',
+        content: '请选择公积金城市'
       });
       return;
     } else {
@@ -97,21 +98,23 @@ Page({
             dataType: 'json',
             contentType: 'application/json;charset=UTF-8', //contentType很重要    
             success: (result) => {
-              var res = app.Decrypt(result.data.data,app.data.pkey);
-              console.log('实名接口返回数据：',result);
-              console.log('实名接口返回数据解密：',res);
+              var res = app.Decrypt(result.data.data, app.data.pkey);
+              console.log('实名接口返回数据：', result);
+              console.log('实名接口返回数据解密：', res);
               app.data.xingming = res.param.userName;
-              app.data.zjhm = res.param.certNo; 
+              app.data.zjhm = res.param.certNo;
               // app.data.xingming = '闽意常';
               // app.data.zjhm = '210603198210280037'
+              app.data.xingming = '况后文最';
+              app.data.zjhm = '130102197012030629'
               //app.data.urls = "";  初次登入不再置空，需通过该变量，控制退出登录按钮的存在与否，若未查到信息，在index页面置空，防止造成死循环。
               app.setZjbzxbm(this.data.citybm);
-              app.data.pdsfdl = true;
               this.getissue();//获取token令牌
             },
             fail: () => {
               my.alert({
-                title: '授权失败，请重新授权登录'
+                title:'提示',
+                content: '授权失败，请重新授权登录'
               });
             }
           });
@@ -144,6 +147,7 @@ Page({
         if (result.data != null && jg_time < yx_time && result.data.zjhm == app.data.zjhm) {//有缓存且缓存生成令牌没有失去时效，且是同一个用户
           app.data.token = result.data.token;
           app.data.grkey = result.data.grkey;
+          app.data.pdsfdl = true;
           my.switchTab({ url: '/pages/index/index' });
         } else {
           var obj = new Object();
@@ -170,32 +174,36 @@ Page({
             dataType: 'json',
             contentType: 'application/json;charset=UTF-8', //contentType很重要  
             success: (res) => {
-              if (res.ret == 0){
-              var result = app.Decrypt(res.data.data, app.data.pkey);            
-              app.data.token = result.token;
-              app.data.grkey = result.grkey;
-              //将当前令牌信息放入缓存
-              my.setStorage({
-                key: 'token_issue',
-                data: {
-                  expire: result.expire,
-                  grkey: result.grkey,
-                  token: result.token,
-                  hc_sytime: app.CurentTime(),
-                  zjhm: app.data.zjhm//增加zjhm缓存，判断换用户登录情况
-                }
-              });
-              my.switchTab({ url: '/pages/index/index' });
-              }else{
+              console.log("issue_res",res);
+              if (res.data.ret == 0) {
+                var result = app.Decrypt(res.data.data, app.data.pkey);
+                app.data.token = result.token;
+                app.data.grkey = result.grkey;
+                //将当前令牌信息放入缓存
+                my.setStorage({
+                  key: 'token_issue',
+                  data: {
+                    expire: result.expire,
+                    grkey: result.grkey,
+                    token: result.token,
+                    hc_sytime: app.CurentTime(),
+                    zjhm: app.data.zjhm//增加zjhm缓存，判断换用户登录情况
+                  }
+                });
+                app.data.pdsfdl = true;
+                my.switchTab({ url: '/pages/index/index' });
+              } else {
                 my.alert({
-                  title: '查无您的信息，请确认所选公积金中心' 
+                  title:'提示',
+                  content: '查无您的信息，请确认所选公积金中心'
                 });
               }
 
             },
             fail: () => {
               my.alert({
-                title: '授权信息获取失败，请重新登录'
+                title:'提示',
+                content: '授权信息获取失败，请重新登录'
               });
             }
 
@@ -204,10 +212,10 @@ Page({
       },
     });
   },
-  account: function (e) {
+  account: function(e) {
     this.data.accouint = e.detail.value;
   },
-  password: function (e) {
+  password: function(e) {
     this.data.password = e.detail.value;
   },
   changeimage(e) {

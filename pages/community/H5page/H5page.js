@@ -8,10 +8,15 @@ Page({
   },
   onLoad(e) {
     console.log("接收传入参数：", e);
+    //判断用户是否未登录
+    if (!app.data.pdsfdl && app.data.zjbzxbm == "") {
+      app.data.zjbzxbm = 'C13010'
+    }
+    console.log("城市编码：", app.data.zjbzxbm);
     //主题详情页面
     if (e.h5param == 'detail') {
       this.setData({
-        H5_url: app.data.url + '/alipay/community/detail/index.html?date=' + new Date().getTime() + '&citybm=' + app.data.zjbzxbm+ '&appid=' + app.data.appid+ '&zjhm=' + app.data.zjhm,
+        H5_url: app.data.url + '/alipay/community/detail/index.html?date=' + new Date().getTime() + '&citybm=' + app.data.zjbzxbm + '&appid=' + app.data.appid + '&zjhm=' + app.data.zjhm,
         userid: e.userid,
         title_id: e.title_id,
       });

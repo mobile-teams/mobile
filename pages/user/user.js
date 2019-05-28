@@ -50,39 +50,46 @@ Page({
     obj1.appid = app.data.appid;
     obj1.citybm = app.data.zjbzxbm;
     obj1.sign = app.getSign(obj1, app.data.pkey);
-    my.request({
-      url: app.data.url + '/app-web/public/auth/userinfo.service?token=' + app.data.token,
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-        // "citycode": app.data.zjbzxbm,
-        "appid": app.data.appid
-      },
-      data: JSON.stringify(obj1),
+    if (app.data.pdsfdl) {
+      my.request({
+        url: app.data.url + '/app-web/public/auth/userinfo.service?token=' + app.data.token,
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+          // "citycode": app.data.zjbzxbm,
+          "appid": app.data.appid
+        },
+        data: JSON.stringify(obj1),
 
-      dataType: 'json',
-      contentType: 'application/json;charset=UTF-8', //contentType很重要    
-      success: (result) => {
-        console.log("info接口返回结果res ：", result);
-        var res = app.Decrypt(result.data.data, app.data.grkey);
-        console.log("返回结果解密：：", res);
-        if (res.ret == 0) {
-          console.log("12312312", res.data);
-          this.setData({
-            xingming: this.plusXing(app.data.xingming, 1, 1),
-            dwmc: this.plusXing(app.data.dwmc, 2, 2),
-            sjhm: this.plusXing(res.sjhm, 3, 4),
-          })
-          console.log('99999999', this.data.sjhm);
+        dataType: 'json',
+        contentType: 'application/json;charset=UTF-8', //contentType很重要    
+        success: (result) => {
+          console.log("info接口返回结果res ：", result);
+          if (result.data.ret == 0) {
+            var res = app.Decrypt(result.data.data, app.data.grkey);
+            console.log("返回结果解密：：", res);
+            if (res.ret == 0) {
+              console.log("12312312", res.data);
+              this.setData({
+                xingming: this.plusXing(app.data.xingming, 1, 1),
+                dwmc: this.plusXing(app.data.dwmc, 2, 2),
+                sjhm: this.plusXing(res.sjhm, 3, 4),
+              })
+              console.log('99999999', this.data.sjhm);
+            }
+          }
+
+
+        },
+        fail: (res) => {
+          my.alert({
+            title: '提示',
+            content: '网络错误'
+          });
         }
+      });
+    }
 
-      },
-      fail:(res)=>{
-        my.alert({
-          title: '网络错误' 
-        });
-      }
-    });
     my.getAuthCode({
       scopes: 'auth_user',
       fail: (error) => {
@@ -106,16 +113,21 @@ Page({
     console.log(app.data.xingming, app.data.dwmc);
 
     console.log("app.data.urls", app.data.urls);
+    console.log("app.data.pdsfdl", app.data.pdsfdl);
     if (app.data.urls != "" || !app.data.pdsfdl) {
       this.setData({
         iscf: false,
       })
+    } else {
+      this.setData({
+        iscf: true,
+      })
     }
   },
-  onCardClick: function (ev) {
+  onCardClick: function(ev) {
     if (app.data.pdsfdl) {
       my.navigateTo({ url: '../grzx/grzx' })
-    } else { 
+    } else {
       my.navigateTo({ url: '/citychose/citychose' })
     }
 
@@ -137,14 +149,26 @@ Page({
   onQchcClick() {
     my.removeStorage({
       key: 'city',
-      success: function () {
+      success: function() {
         my.alert({ content: '删除成功' });
       }
     });
   },
   onExit(ev) {
-    my.reLaunch({
-      url: '/citychose/citychose'
+    app.data.pdsfdl=false;
+    // my.reLaunch({
+    //   url: '/citychose/citychose'
+    // });
+    this.setData({
+          xingming: "欢迎使用手机公积金",
+          dwmc: "请授权登录后查看账户信息",
+          sjhm:""
+    }),
+    my.switchTab({
+      url: '../index/index', // 跳转的 tabBar 页面的路径（需在 app.json 的 tabBar 字段定义的页面）。注意：路径后不能带参数
+      success: (res) => {
+        
+      },
     });
   },
   //脱敏

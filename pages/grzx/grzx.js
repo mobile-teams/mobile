@@ -48,14 +48,16 @@ Page({
           console.log('个人中心userinfo查询成功', this.data.sjhm);
         }else{
           my.alert({
-            title: res.msg
+            title:'提示',
+            content: res.msg
           });
         }
 
       },
       fail: (res)=>{
         my.alert({
-          title: '网络错误' 
+          title:'提示',
+          content: '网络错误' 
         });
       }
     });

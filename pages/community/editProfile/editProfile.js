@@ -173,7 +173,7 @@ Page({
     obj.zjhm = app.data.zjhm; //'13062619921201003X'//app.data.zjhm;//
     obj.avatar = that.data.head_img;
     obj.nick_name = that.data.nick_name;
-    //obj.user_hobby = that.data.user_hobby;
+    obj.user_hobby = that.data.user_hobby;
     obj.sign = app.getSign(obj, app.data.pkey);
     my.request({
       url: app.data.url + '/app/community/tuser_add.service',

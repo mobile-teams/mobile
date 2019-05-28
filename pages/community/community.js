@@ -2,7 +2,7 @@ const app = getApp();
 Page({
   data: {
     data_page: 1,
-    data_size: '5',//列表内容
+    data_size: '10',//列表内容
     data_list: [],
     total_count: '',
     data_userid: '',
@@ -15,7 +15,8 @@ Page({
     showMask: true,
     user_type: '0',//0未登录 1一登陆
   },
-  onLoad() {
+
+  onShow() {
     my.showLoading({
       content: '正在加载...',
     });
@@ -24,7 +25,6 @@ Page({
     this.userinfo(this);
     //社区主题列表信息查询
     //this.sqztlbcx(this);
-
   },
   onMaskClick() {
     this.setData({
@@ -32,10 +32,20 @@ Page({
     });
   },
   onShowPopoverTap() {
-    this.setData({
-      show: true,
-    });
+    //判断是否登录app 未登录跳转登陆页面
+    console.log("app.data.pdsfdl", app.data.pdsfdl);
+    if (app.data.pdsfdl) {
+      this.setData({
+        show: true,
+      });
+    } else {
+      console.log("用户未登陆！！！");
+      my.navigateTo({
+        url: '/citychose/citychose'
+      })
+    }
   },
+
   //个人信息编辑
   user_editProfile() {
     my.navigateTo({ url: 'editProfile/editProfile' })
@@ -61,6 +71,7 @@ Page({
       show: false,
     });
   },
+
   //点击小课堂直接进详情页面
   theme_detail(e) {
     //获取对应主题的title_id
@@ -76,7 +87,8 @@ Page({
       data_page: 1,
       data_list: []
     })
-    this.sqztlbcx(this);
+    //用户信息查询
+    this.userinfo(this);
     my.stopPullDownRefresh();
   },
 
@@ -84,6 +96,26 @@ Page({
   fabbu_img_click() {
     console.log("跳转公共H5跳转页面》》》》》》");
     my.navigateTo({ url: '/pages/community/H5page/H5page?h5param=edit_detail&userid=' + this.data.data_userid })
+  },
+
+  //用户点主题
+  sqztxx(e) {
+    console.log("点击获取主题信息", e.currentTarget.dataset.value.title_id, e.currentTarget.dataset.value.content);
+    //如果用户未登录，跳转主题二级
+    my.navigateTo({
+      url: 'community_theme/community_theme?userid=' + this.data.data_userid
+        + '&title_id=' + e.currentTarget.dataset.value.title_id
+        + '&content=' + e.currentTarget.dataset.value.content
+    })
+  },
+
+  /**
+   * 点击搜索
+   */
+  searchTap() {
+    my.navigateTo({
+      url: '/pages/community/search/search?userid=' + this.data.data_userid
+    })
   },
 
   //上拉加载数据
@@ -110,7 +142,7 @@ Page({
   userinfo: (that) => {
     var obj = new Object();
     obj.appid = app.data.appid;//'20181127000101'//
-    obj.zjhm = app.data.zjhm;// '13062619921201003X';//'130102199508132441';////'130582199311173016';////
+    obj.zjhm = app.data.pdsfdl ? app.data.zjhm : '';// '13062619921201003X';////'130582199311173016';////
     obj.user_type = '0';//0个人用户 1机构用户 //手机登录都是个人用户
     obj.sign = app.getSign(obj, app.data.pkey);
     my.request({
@@ -129,16 +161,14 @@ Page({
         if (result.data.ret == '0') {
           //存在虚拟用户
           console.log("存在虚拟用户：", result.data.data);
-          app.data.virtual_user = '1',
-            that.setData({
-              data_userid: result.data.data[0].userid,
-              head_img: result.data.data[0].avatar,
-            })
-          if (result.data.data[0].state == '0') {
-            //个人审核是否通过  0未通过审批，1通过审批
-            that.setData({
-              virtual_user_state: result.data.data[0].state,
-            })
+          app.data.virtual_user = '1';
+          that.setData({
+            data_userid: result.data.data[0].userid,
+            head_img: result.data.data[0].avatar,
+          })
+          app.data.virtual_user_state = result.data.data[0].state;//个人审核是否通过  0未通过审批，1通过审批
+
+          if (result.data.data[0].state == '1') {
             //通过审核后，校验个人发布权限 0不能发布，1能发布
             if (result.data.data[0].fban_type == 1) {
               console.log("存在个人发布权限:", result.data.data[0].fban_type);
@@ -152,6 +182,8 @@ Page({
           app.data.virtual_user = '0'
           that.setData({
             data_userid: '',//游客登录
+            head_img: '/image/community/head_img.png',
+            fabu_img: true,
           })
         }
         console.log("查询用户是否存在：", result.data.msg);
@@ -201,23 +233,5 @@ Page({
       },
     });
   },
-  //用户点主题
-  sqztxx(e) {
-    console.log("点击获取主题信息", e.currentTarget.dataset.value.title_id, e.currentTarget.dataset.value.content);
-    //如果用户未登录，跳转主题二级
-    my.navigateTo({
-      url: 'community_theme/community_theme?userid=' + this.data.data_userid
-        + '&title_id=' + e.currentTarget.dataset.value.title_id
-        + '&content=' + e.currentTarget.dataset.value.content
-    })
-  },
 
-  /**
-   * 点击搜索
-   */
-  searchTap() {
-    my.navigateTo({
-      url: '/pages/community/search/search?userid=' + this.data.data_userid
-    })
-  },
 });

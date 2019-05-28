@@ -16,6 +16,7 @@ Page({
       this.webViewContext = my.createWebViewContext('web-view_yw');
     }
     else{
+      var that = this
         my.getStorage({
         key: 'city',
         success(res) {
