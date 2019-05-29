@@ -40,11 +40,11 @@
       </block>
     </list>
   </view>
-  <!-- <view class="listStyle"><list><block a:for="{{itemsQchc}}"><list-item thumb="{{item.thumb}}" arrow="{{item.arrow}}" onClick="onQchcClick" index="itemsQchc-{{index}}" last="{{index === (itemsQchc.length - 1)}}" key="itemsQchc-{{index}}">
+  <view class="listStyle"><list><block a:for="{{itemsQchc}}"><list-item thumb="{{item.thumb}}" arrow="{{item.arrow}}" onClick="onQchcClick" index="itemsQchc-{{index}}" last="{{index === (itemsQchc.length - 1)}}" key="itemsQchc-{{index}}">
           {{item.title}}
           <view class="am-list-brief">{{item.brief}}</view><view a:if="{{item.extra}}" slot="extra">
             {{item.extra}}
-          </view></list-item></block></list></view> -->
+          </view></list-item></block></list></view>
   <view a:if="{{iscf}}">
     <button  type="primary" style="border-radius: 20px; background-color:rgb(50,171,240);  margin: 40px;border: 0px solid;    margin-top: 0.5rem;
     margin-left: 0.4rem;
