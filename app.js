@@ -18,6 +18,7 @@ App({
     urls: "",    //城服接入标志参数，慎改
     urlsc: "https://api.sjgjj.cn",//实名认证访问该服务器。
     //url: "https://api.sjgjj.cn",//正式环境
+    //url: "https://openapi.sjgjj.cn",
     url: "https://apics.sjgjj.cn",//测试环境。
     zjbzxbm: "",
     gruangaourl: " ",
