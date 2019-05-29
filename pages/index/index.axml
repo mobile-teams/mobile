@@ -130,6 +130,6 @@
     </view>
   </view>
 </view>
-<view a:else onTap="sqdltab">
-    <view   style = "height: 200px;  text-align:center;padding-top:50%"> 请授权后查看账户信息</view>
+<view a:else onTap="sqdltab" style="width:100%; height:100%; position:absolute;">
+  <view class="unauthorized"> 请授权后查看账户信息</view>
 </view>
