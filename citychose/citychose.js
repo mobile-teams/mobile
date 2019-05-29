@@ -15,7 +15,7 @@ Page({
     circular: true,
   },
 
-  onLoad() {
+  onShow() {
     let that = this;
     if (app.data.zjbzxbm != "") {//判断是否从城市选择页面返回
       console.log("城市列表返回：", app.data.zjbzxbm)
@@ -68,7 +68,7 @@ Page({
     let cs = this.data.xzcsflag;
     if (cs == '0') {
       my.alert({
-        title:'提示',
+        title: '提示',
         content: '请选择公积金城市'
       });
       return;
@@ -108,12 +108,12 @@ Page({
               app.data.xingming = '况后文最';
               app.data.zjhm = '130102197012030629'
               //app.data.urls = "";  初次登入不再置空，需通过该变量，控制退出登录按钮的存在与否，若未查到信息，在index页面置空，防止造成死循环。
-              app.setZjbzxbm(this.data.citybm);
+              app.data.zjbzxbm=this.data.citybm;
               this.getissue();//获取token令牌
             },
             fail: () => {
               my.alert({
-                title:'提示',
+                title: '提示',
                 content: '授权失败，请重新授权登录'
               });
             }
@@ -148,7 +148,10 @@ Page({
           app.data.token = result.data.token;
           app.data.grkey = result.data.grkey;
           app.data.pdsfdl = true;
-          my.switchTab({ url: '/pages/index/index' });
+          my.reLaunch({
+            url: '/pages/index/index', // 页面路径。如果页面不为 tabbar 页面则路径后可以带参数。参数规则如下：路径与参数之间使用
+          });
+          //my.switchTab({ url: '/pages/index/index' });
         } else {
           var obj = new Object();
           obj.xingming = app.data.xingming;
@@ -174,7 +177,7 @@ Page({
             dataType: 'json',
             contentType: 'application/json;charset=UTF-8', //contentType很重要  
             success: (res) => {
-              console.log("issue_res",res);
+              console.log("issue_res", res);
               if (res.data.ret == 0) {
                 var result = app.Decrypt(res.data.data, app.data.pkey);
                 app.data.token = result.token;
@@ -191,10 +194,13 @@ Page({
                   }
                 });
                 app.data.pdsfdl = true;
-                my.switchTab({ url: '/pages/index/index' });
+                my.reLaunch({
+                  url: '/pages/index/index', // 页面路径。如果页面不为 tabbar 页面则路径后可以带参数。参数规则如下：路径与参数之间使用
+                });
+                //my.switchTab({ url: '/pages/index/index' });
               } else {
                 my.alert({
-                  title:'提示',
+                  title: '提示',
                   content: '查无您的信息，请确认所选公积金中心'
                 });
               }
@@ -202,7 +208,7 @@ Page({
             },
             fail: () => {
               my.alert({
-                title:'提示',
+                title: '提示',
                 content: '授权信息获取失败，请重新登录'
               });
             }

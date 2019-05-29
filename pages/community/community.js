@@ -10,7 +10,7 @@ Page({
     user_state: '',
     head_img: '/image/community/head_img.png',
     fabu_img: true,
-    position: 'bottomRight',
+    position: 'bottomRight',//头像点击弹出pop框位置
     show: false,
     showMask: true,
     user_type: '0',//0未登录 1一登陆
@@ -19,15 +19,10 @@ Page({
     my.showLoading({
       content: '正在加载...',
     });
-    this.sqztlbcx(this);
-  },
-  onShow() {
-
     //用户信息查询
     this.userinfo(this);
-    //社区主题列表信息查询
-    //this.sqztlbcx(this);
   },
+
   onMaskClick() {
     this.setData({
       show: false,
@@ -57,7 +52,6 @@ Page({
     })
     //用户信息查询
     this.userinfo(this);
-    this.sqztlbcx(this);
     my.stopPullDownRefresh();
   },
 
@@ -109,7 +103,7 @@ Page({
 
   //判断进入二级页面还是三级页面
   theme_detail(e) {
-    //判断是否是小课堂图标 - 如果是小课堂直接跳转详情H5页面 ==2 小课堂 ==1热门
+    //判断是否是小课堂图标 - 如果是小课堂直接跳转详情H5页面 ==2小课堂 ==1热门
     if (e.currentTarget.dataset.value.szsx == 2) {
       //获取对应主题的title_id
       console.log("点击小课堂-title_id：", e.currentTarget.dataset.value);
@@ -130,17 +124,6 @@ Page({
     console.log("跳转公共H5跳转页面》》》》》》");
     my.navigateTo({ url: '/pages/community/H5page/H5page?h5param=edit_detail&userid=' + this.data.data_userid })
   },
-
-  // //用户点主题
-  // sqztxx(e) {
-  //   console.log("点击获取主题信息", e.currentTarget.dataset.value.title_id, e.currentTarget.dataset.value.content);
-  //   //如果用户未登录，跳转主题二级
-  //   my.navigateTo({
-  //     url: 'community_theme/community_theme?userid=' + this.data.data_userid
-  //       + '&title_id=' + e.currentTarget.dataset.value.title_id
-  //       + '&content=' + e.currentTarget.dataset.value.content
-  //   })
-  // },
 
   /**
    * 点击搜索
@@ -189,6 +172,11 @@ Page({
                 fabu_img: false,
               })
             }
+          }else{
+            //用户未审核通过
+             that.setData({
+                fabu_img: true,
+              })
           }
         } else {
           //不存在虚拟用户
@@ -200,7 +188,7 @@ Page({
           })
         }
         console.log("查询用户是否存在：", result.data.msg);
-        //that.sqztlbcx(that);
+        that.sqztlbcx(that);
       }
     });
   },
@@ -216,7 +204,6 @@ Page({
     obj.sign = app.getSign(obj, app.data.pkey);
     my.request({
       url: app.data.url + '/app/community/titleck_list.service',
-      //url:' https://api.sjgjj.cn/app/community/titleck_list.service',
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
@@ -240,7 +227,6 @@ Page({
           my.hideLoading();
           my.alert({
             title: result.data.msg
-            //  title:"网络错误"
           });
         }
       },

@@ -156,20 +156,20 @@ Page({
   },
   onExit(ev) {
     app.data.pdsfdl=false;
-    // my.reLaunch({
-    //   url: '/citychose/citychose'
-    // });
     this.setData({
           xingming: "欢迎使用手机公积金",
           dwmc: "请授权登录后查看账户信息",
           sjhm:""
     }),
-    my.switchTab({
-      url: '../index/index', // 跳转的 tabBar 页面的路径（需在 app.json 的 tabBar 字段定义的页面）。注意：路径后不能带参数
-      success: (res) => {
-        
-      },
+    my.reLaunch({
+      url: '../index/index'
     });
+    // my.switchTab({
+    //   url: '../index/index', // 跳转的 tabBar 页面的路径（需在 app.json 的 tabBar 字段定义的页面）。注意：路径后不能带参数
+    //   success: (res) => {
+        
+    //   },
+    // });
   },
   //脱敏
   plusXing: (str, frontLen, endLen) => {

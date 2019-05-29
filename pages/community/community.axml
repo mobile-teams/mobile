@@ -10,7 +10,7 @@
           <image class="search_img" src="{{head_img}}"/>
         </view>
         <view class="head_img_menu" slot="items">
-          <popover-item style="background:red" onItemClick="user_editProfile">
+          <popover-item onItemClick="user_editProfile">
             <text>个人信息</text>
           </popover-item >
           <popover-item onItemClick="user_collection">
@@ -56,7 +56,7 @@
         </view>
       </view>
       <!-- 标题、内容 -->
-      <view class="card_content" onTap="sqztxx" data-value={{item}}>
+      <view class="card_content" data-value={{item}}>
         <!-- 标题 -->
         <view class="card_content_title">{{item.title}}</view>
         <!-- 内容 -->

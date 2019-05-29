@@ -5,7 +5,6 @@ Page({
   },
   onLoad() {
     this.setData({
-     // ggurl:"http://192.168.54.101:8088/app_12329/cityList/index.html?date="+new Date().getTime()
      ggurl:app.data.url+"/alipay/cityList/index.html?date="+new Date().getTime()
     });
     console.log('url',this.data.ggurl);
@@ -16,12 +15,13 @@ Page({
   	console.log(e); 
     if(e.detail.citybm != null){
     app.data.zjbzxbm = e.detail.citybm;
-    my.reLaunch({
-      url: '/citychose/citychose', // 需要跳转的应用内非 tabBar 的目标页面路径 ,路径后可以带参数。参数规则如下：路径与参数之间使用
-      success: (res) => {
+    my.navigateBack({ });
+    // my.reLaunch({
+    //   url: '/citychose/citychose', // 需要跳转的应用内非 tabBar 的目标页面路径 ,路径后可以带参数。参数规则如下：路径与参数之间使用
+    //   success: (res) => {
         
-      },
-    });
+    //   },
+    // });
     
     }
   //  

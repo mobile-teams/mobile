@@ -64,23 +64,8 @@ Page({
       flag: !this.data.flag
     })
   },
-  // onLoad() {
-  //   this.setData({
-  //      pdsfdl:app.data.pdsfdl,
-  //   });
-  //   console.log("pdsfdl<<<<<<",app.data.pdsfdl);
-  //   if(app.data.pdsfdl){
-  //   this.setData({
-  //     images: [
-  //       { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm+'&date='+new Date().getTime() },
-  //       { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm+'&date='+new Date().getTime() },
-  //       { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm+'&date='+new Date().getTime() },
-  //     ],
-  //   });
-  //   this.gjjdkjbxxcx(this);
-  //   }
-  // },
-  onShow() {
+ 
+  onLoad() {
     console.log(">>>>>>")
     this.setData({
       pdsfdl: app.data.pdsfdl,
@@ -142,6 +127,20 @@ Page({
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (result) => {
         console.log("gjjdkjbxxcx接口返回结果res ：", result);
+        if (result.data.ret != '0') {
+          my.alert({
+            title: "提示",
+            content: result.data.msg,
+            success: () => {
+              app.data.urls = "";//如 从城服进入，没有查到信息，需置空urls。否则导致死循环。
+              app.data.pdsfdl = false;
+              my.reLaunch({
+                url: '/citychose/citychose'
+              });
+            }
+          });
+          return;
+        }
         var res = app.Decrypt(result.data.data, app.data.grkey);
         console.log("返回结果解密：：", res);
 
@@ -155,7 +154,7 @@ Page({
               app.data.pdsfdl = false;
               //my.redirectTo({ url: '../../citychose/citychose' });
               my.reLaunch({
-                url: '/citychose/citychose'
+                url: '/pages/index/index'
               });
             }
           });
@@ -228,7 +227,7 @@ Page({
 
         }
       },
-      fail: function (result) {
+      fail: function(result) {
         app.data.pdsfdl = false;
         my.alert({
           title: "提示",
@@ -274,6 +273,20 @@ Page({
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (result) => {
         console.log("info接口返回结果res ：", result);
+        if (result.data.ret != '0') {
+          my.alert({
+            title: "提示",
+            content: result.data.msg,
+            success: () => {
+              app.data.urls = "";//如 从城服进入，没有查到信息，需置空urls。否则导致死循环。
+              app.data.pdsfdl = false;
+              my.reLaunch({
+                url: '/citychose/citychose'
+              });
+            }
+          });
+          return;
+        }
         var res = app.Decrypt(result.data.data, app.data.grkey);
         console.log("返回结果解密：：", res);
 
