@@ -131,5 +131,6 @@
   </view>
 </view>
 <view a:else onTap="sqdltab" style="width:100%; height:100%; position:absolute;">
+   <lifestyle a:if="{{canUse}}" publicId="2016112103042239" />
   <view class="unauthorized"> 请授权后查看账户信息</view>
 </view>
