@@ -1,6 +1,6 @@
 <view class="community_page">
   <view class="search_box" onTap="searchTap">
-    <input placeholder="请输要搜索的内容" disabled="disabled" class='search_input'  placeholder-class='search-input-placeholder'/>
+    <input placeholder="请输要搜索的内容" disabled="disabled" class='search_input' placeholder-class='search-input-placeholder'/>
   </view>
   <!-- 列表循环开始 -->
   <view style="margin-top:37px;">
@@ -40,12 +40,12 @@
         <!-- 标题 -->
         <view class="card_content_title">{{item.title}}</view>
         <!-- 内容 -->
-        <view class="card_content_content">{{data_content}}</view>
+        <view class="card_content_content">{{data_content.length>=47?data_content.substr(0,47)+'...':data_content}}</view>
       </view>
       <!-- 收藏、回复、点赞 -->
       <view class="card_footer2">
         <!-- 观看 -->
-        <view class="card_footer_menu2" onTap="user_sc" >
+        <view class="card_footer_menu2" onTap="user_sc">
           <image class="card_footer_img2" src="{{user_sfsc=='0'?'/image/community/sc.png':'/image/community/sc_selecter.png'}}"/>
           <view class="card_footer_num2">收藏</view>
         </view>
@@ -92,8 +92,8 @@
       <!-- 回复内容 -->
       <view class="card_content" onTap="reply_detal" data-value={{item.content_id}}>
         <!-- 内容 -->
-        <!-- <view class="card_content_content">{{item.content.replace(stra,'')}}</view> -->
-        <view class="card_content_content" data-idx={{idx}} >{{hfnr[idx].substr(0,47)+'...'}}</view>
+        <!--<view class="card_content_content">{{item.content.replace(stra,'')}}</view> -->
+        <view class="card_content_content" data-idx={{idx}} >{{hfnr[idx].length>47?hfnr[idx].substr(0,47)+'...':hfnr[idx]}}</view>
         <!-- .replace(/<[^>]+>/g,'' -->
       </view>
       <!--  -->

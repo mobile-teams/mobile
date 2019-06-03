@@ -26,7 +26,7 @@ Page({
       {
         thumb: '/image/clearcache.png',
         title: '清除缓存',
-      // extra: '描述文字',
+        // extra: '描述文字',
         arrow: false,
       },
     ],
@@ -38,7 +38,14 @@ Page({
     //   },
     // ],
   },
+
   onShow() {
+    my.setNavigationBar({
+      title: '我的',
+    });
+  },
+
+  onLoad() {
     var obj = new Object();
     obj.appid = app.data.appid;
     obj.citybm = app.data.zjbzxbm;
@@ -147,23 +154,23 @@ Page({
     my.navigateTo({ url: '../gywm/gywm' })
   },
   onQchcClick() {
-   my.clearStorage()
-   my.alert({ content: '删除成功' });
+    my.clearStorage()
+    my.alert({ content: '删除成功' });
   },
   onExit(ev) {
-    app.data.pdsfdl=false;
+    app.data.pdsfdl = false;
     this.setData({
-          xingming: "欢迎使用手机公积金",
-          dwmc: "请授权登录后查看账户信息",
-          sjhm:""
+      xingming: "欢迎使用手机公积金",
+      dwmc: "请授权登录后查看账户信息",
+      sjhm: ""
     }),
-    my.reLaunch({
-      url: '../index/index'
-    });
+      my.reLaunch({
+        url: '../index/index'
+      });
     // my.switchTab({
     //   url: '../index/index', // 跳转的 tabBar 页面的路径（需在 app.json 的 tabBar 字段定义的页面）。注意：路径后不能带参数
     //   success: (res) => {
-        
+
     //   },
     // });
   },

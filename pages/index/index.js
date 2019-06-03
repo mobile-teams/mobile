@@ -64,7 +64,13 @@ Page({
       flag: !this.data.flag
     })
   },
- 
+
+  onShow() {
+    my.setNavigationBar({
+      title: '账户查询',
+    });
+  },
+
   onLoad() {
     console.log(">>>>>>")
     this.setData({
