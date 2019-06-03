@@ -5,7 +5,7 @@ Page({
   },
   onLoad() {
     this.setData({
-     ggurl:app.data.url+"/alipay/cityList/index.html?date="+new Date().getTime()
+     ggurl:app.data.url+"/alipay/cityListnew/index.html?date="+new Date().getTime()
     });
     console.log('url',this.data.ggurl);
     this.webViewContext = my.createWebViewContext('web-view-1');

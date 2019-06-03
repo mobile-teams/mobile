@@ -105,8 +105,8 @@ Page({
               app.data.zjhm = res.param.certNo;
               // app.data.xingming = '闽意常';
               // app.data.zjhm = '210603198210280037'
-              app.data.xingming = '况后文最';
-              app.data.zjhm = '130102197012030629'
+              // app.data.xingming = '况后文最';
+              // app.data.zjhm = '130102197012030629'
               //app.data.urls = "";  初次登入不再置空，需通过该变量，控制退出登录按钮的存在与否，若未查到信息，在index页面置空，防止造成死循环。
               app.data.zjbzxbm=this.data.citybm;
               this.getissue();//获取token令牌

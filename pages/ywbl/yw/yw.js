@@ -3,9 +3,16 @@ Page({
   data: {
     ywurl: ' '
   },
+
+  onShow() {
+    my.setNavigationBar({
+      title: '业务办理',
+    });
+  },
+
   onLoad() {
-    console.log("app.data.pdsfdl<<<<<<<<<",app.data.pdsfdl);
-    console.log("app.data.zjbzxbm<<<<<<<<<",app.data.zjbzxbm);
+    console.log("app.data.pdsfdl<<<<<<<<<", app.data.pdsfdl);
+    console.log("app.data.zjbzxbm<<<<<<<<<", app.data.zjbzxbm);
     if (app.data.pdsfdl) {
       this.setData({
         ywurl: app.data.url + '/alipay/ywbl/yw.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime()
@@ -14,9 +21,9 @@ Page({
       console.log('url>>>>>>>>-', this.data.ywurl);
       this.webViewContext = my.createWebViewContext('web-view_yw');
     }
-    else{
+    else {
       var that = this
-        my.getStorage({
+      my.getStorage({
         key: 'city',
         success(res) {
           if (res.data != null) {
@@ -28,7 +35,7 @@ Page({
         },
       });
       this.setData({
-        ywurl: app.data.url + '/alipay/yw.html?data='+ new Date().getTime()
+        ywurl: app.data.url + '/alipay/yw.html?data=' + new Date().getTime()
       });
       console.log("app.url>>>>>>--", app.data.url)
       console.log('url>>>>>>>>-', this.data.ywurl);

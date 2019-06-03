@@ -7,7 +7,7 @@
 
 .title {
   display: flex;
-  padding-top: 0.3rem;
+  flex-wrap: wrap;
 }
 
 .bg_view {

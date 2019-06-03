@@ -47,7 +47,7 @@
                 <!-- 标题 -->
                 <view class="card_content_title">{{item.title}}</view>
                 <!-- 内容 -->
-                <view class="card_content_content">{{data_content}}</view>
+                <view class="card_content_content">{{data_content.length>=47?data_content.substr(0,47)+'...':data_content}}</view>
             </view>
             <!-- 收藏、回复、点赞 -->
             <view class="card_footer2">
@@ -98,7 +98,7 @@
             <!-- 回复内容 -->
             <view class="card_content" onTap="reply_detal" data-value={{item.content_id}}>
                 <!-- 内容 -->
-                <view class="card_content_content" data-idx={{idx}}>{{hfnr[idx].substr(0,47)+'...'}}</view>
+                <view class="card_content_content" data-idx={{idx}}>{{hfnr[idx].length>47?hfnr[idx].substr(0,47)+'...':hfnr[idx]}}</view>
             </view>
             <!--  -->
             <view class="card_footer2">

@@ -1,5 +1,5 @@
 <view class="title">
-  <view a:for="{{headImages}}" a:for-item="headImage" style="flex:1">
+  <view a:for="{{headImages}}" a:for-item="headImage" style="flex:1;padding-top:0.5rem">
     <view hover-class="bg_view" onTap="imageTap" data-data="{{headImage}}">
       <image class="img" src="{{headImage.url}}"/>
     </view>
