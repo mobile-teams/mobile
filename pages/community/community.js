@@ -52,7 +52,7 @@ Page({
 
   //下拉刷新
   onPullDownRefresh() {
-    my.showNavigationBarLoading();
+    //my.showNavigationBarLoading();
     //清空数组数据，赋值默认值重新查询
     this.setData({
       data_page: 1,
@@ -60,6 +60,7 @@ Page({
     })
     //用户信息查询
     this.userinfo(this);
+    //my.hideNavigationBarLoading();
     my.stopPullDownRefresh();
   },
 
