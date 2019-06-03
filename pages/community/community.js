@@ -16,12 +16,19 @@ Page({
     user_type: '0',//0未登录 1一登陆
   },
   onLoad() {
-    my.showLoading({
-      content: '正在加载...',
-    });
+    // my.showLoading({
+    //   content: '正在加载...'
+    // });
     //用户信息查询
     this.userinfo(this);
   },
+
+  onShow() {
+    my.setNavigationBar({
+      title: '社区',
+    });
+  },
+
 
   onMaskClick() {
     this.setData({
@@ -45,6 +52,7 @@ Page({
 
   //下拉刷新
   onPullDownRefresh() {
+    my.showNavigationBarLoading();
     //清空数组数据，赋值默认值重新查询
     this.setData({
       data_page: 1,
@@ -172,11 +180,11 @@ Page({
                 fabu_img: false,
               })
             }
-          }else{
+          } else {
             //用户未审核通过
-             that.setData({
-                fabu_img: true,
-              })
+            that.setData({
+              fabu_img: true,
+            })
           }
         } else {
           //不存在虚拟用户
@@ -214,6 +222,7 @@ Page({
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (result) => {
+        my.hideLoading();
         if (result.data.ret == '0') {
           console.log("社区主题列表信息result.data:", result.data, that);
           that.setData({
@@ -222,9 +231,7 @@ Page({
             data_list: that.data.data_list.concat(result.data.data)
           })
           console.log("社区主题总个数", result.data.count);
-          my.hideLoading();
         } else {
-          my.hideLoading();
           my.alert({
             title: result.data.msg
           });

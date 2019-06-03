@@ -60,7 +60,7 @@
         <!-- 标题 -->
         <view class="card_content_title">{{item.title}}</view>
         <!-- 内容 -->
-        <view class="card_content_content">{{item.content.substr(0,47)+'...'}}</view>
+        <view class="card_content_content">{{item.content.length>47?item.content.substr(0,47)+'...':item.content}}</view>
       </view>
       <!-- 图片 -->
       <!-- 判断图片是否存在 -->
