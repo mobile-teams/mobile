@@ -41,7 +41,6 @@
 .card_title_content {
   -webkit-box-flex: 1;
   flex: 1 1 0%;
-  min-width:
 }
 
 .card_title_little_class {
@@ -85,7 +84,6 @@
 .card_content_img {
   -webkit-box-flex: 1;
   flex: 1 1 0%;
-  min-width:
 }
 
 .card_content_img_3 {
@@ -114,7 +112,7 @@
   flex: 1 0 0%;
   width: 100px;
   display: flex;
-  padding-left: 0.78rem;
+  padding-left: 0.6rem;
 }
 
 .card_footer_img {
@@ -126,9 +124,12 @@
   font-size: 13px;
   -webkit-box-flex: 1;
   flex: 1 1 0%;
-  width: 15px;
-  height: 9px;
-  padding-right: 0.65rem;
+  padding-left: 0.15rem;
+  /* padding-right: 0.55rem; */
+  font-family: "微软雅黑";
+  color: rgb(120, 120, 120);
+  padding-top: 0.08rem;
+  text-align: left;
 }
 
 .search_box {
@@ -187,7 +188,7 @@
   border-radius: 30px;
 }
 
-.fabu_button{
+.fabu_button {
   text-align: center;
   align-items: center;
   height: 100%;
