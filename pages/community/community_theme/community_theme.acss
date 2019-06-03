@@ -48,7 +48,6 @@
 .card_title_content {
   -webkit-box-flex: 1;
   flex: 1 1 0%;
-  min-width:
 }
 
 .card_title_little_class {
@@ -92,7 +91,6 @@
 .card_content_img {
   -webkit-box-flex: 1;
   flex: 1 1 0%;
-  min-width:
 }
 
 .card_content_img_3 {
@@ -142,7 +140,12 @@
   font-size: 13px;
   -webkit-box-flex: 1;
   width: 15px;
-  padding-right: 0.65rem;
+  /* padding-right: 0.60rem; */
+  padding-left: 0.1rem;
+  width: 1rem;
+  text-align: left;
+  font-family: "微软雅黑";
+  color: rgb(120, 120, 120);
 }
 
 .reply_footer_num {
@@ -236,4 +239,3 @@
 .search-input-placeholder {
   text-align: center;
 }
-
