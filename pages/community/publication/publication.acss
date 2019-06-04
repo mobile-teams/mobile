@@ -41,7 +41,6 @@
 .card_title_content {
   -webkit-box-flex: 1;
   flex: 1 1 0%;
-  min-width:
 }
 
 .card_title_little_class {
@@ -84,7 +83,6 @@ border-radius: 4px;
 .card_content_img {
   -webkit-box-flex: 1;
   flex: 1 1 0%;
-  min-width:
 }
 
 .card_content_img_3 {

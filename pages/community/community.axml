@@ -86,21 +86,21 @@
         <!-- 观看 -->
         <view class="card_footer_menu">
           <image class="card_footer_img" src="/image/community/yd.png"/>
-          <view class="card_footer_num" a:if="{{item.ydl >= 999999}}">99万</view>
+          <view class="card_footer_num" a:if="{{item.ydl >= 999999}}">99万+</view>
           <view class="card_footer_num" a:elif="{{9999 <item.ydl && item.ydl < 999999}}">{{(item.ydl/ 10000).toFixed(1)}}万</view>
           <view class="card_footer_num" a:elif="{{item.ydl <= 9999}}">{{item.ydl}}</view>
         </view>
         <!-- 评论 -->
         <view class="card_footer_menu">
           <image class="card_footer_img" src="/image/community/pl.png"/>
-           <view class="card_footer_num" a:if="{{item.hfts >= 999999}}">99万</view>
+           <view class="card_footer_num" a:if="{{item.hfts >= 999999}}">99万+</view>
           <view class="card_footer_num" a:elif="{{9999 <item.hfts &&  item.hfts < 999999}}">{{(item.hfts/ 10000).toFixed(1)}}万</view>
           <view class="card_footer_num" a:elif="{{item.hfts <= 9999}}">{{item.hfts}}</view>
         </view>
         <!-- 点赞 -->
         <view class="card_footer_menu">
           <image class="card_footer_img" src="/image/community/dz.png"/>
-           <view class="card_footer_num" a:if="{{item.article_dzs >= 999999}}">99万</view>
+           <view class="card_footer_num" a:if="{{item.article_dzs >= 999999}}">99万+</view>
           <view class="card_footer_num" a:elif="{{9999 <item.article_dzs && item.article_dzs < 999999}}">{{(item.article_dzs/ 10000).toFixed(1)}}万</view>
           <view class="card_footer_num" a:elif="{{item.article_dzs <= 9999}}">{{item.article_dzs}}</view>
         </view>
