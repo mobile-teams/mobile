@@ -31,33 +31,34 @@ Page({
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (result) => {
-        console.log("info接口返回结果res ：", result);
-        var res = app.Decrypt(result.data.data, app.data.grkey);
-        console.log("返回结果解密：：", res);
-    //    console.log("返回结果解密：", res.data);
-        if (res.ret == 0) {
-          console.log("12312312", res);
-
-          // app.data.sjhm = res.data.khbh;
-          //app.setSjhm(res.data.khbh);
-          this.setData({
-            sjhm: this.plusXing(res.sjhm, 3, 4),
-            zjhm: this.plusXing(res.zjhm, 10, 4),
-            xingming: res.xingming
-          })
-          console.log('个人中心userinfo查询成功', this.data.sjhm);
-        }else{
+        console.log("info接口返回结果result ：", result);
+        if (result.data.ret == 0) {
+          var res = app.Decrypt(result.data.data, app.data.grkey);
+          console.log("返回结果解密：：", res);
+          if (res.ret == 0) {
+            this.setData({
+              sjhm: this.plusXing(res.sjhm, 3, 4),
+              zjhm: this.plusXing(res.zjhm, 10, 4),
+              xingming: res.xingming
+            })
+            console.log('个人中心userinfo查询成功', this.data.sjhm);
+          } else {
+            my.alert({
+              title: '提示',
+              content: res.msg
+            });
+          }
+        } else {
           my.alert({
-            title:'提示',
-            content: res.msg
+            title: '提示',
+            content: '查询失败'
           });
         }
-
       },
-      fail: (res)=>{
+      fail: (res) => {
         my.alert({
-          title:'提示',
-          content: '网络错误' 
+          title: '提示',
+          content: '网络错误'
         });
       }
     });

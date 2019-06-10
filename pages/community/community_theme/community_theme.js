@@ -93,7 +93,17 @@ Page({
     if (app.data.virtual_user == '1') {
       //判断用户是否通过审核，未审核通过不允许添加回复
       if (app.data.virtual_user_state == '1') {
-        my.navigateTo({ url: '/pages/community/H5page/H5page?h5param=edit_reply&userid=' + this.data.data_userid + '&title_id=' + this.data.title_id })
+        //判断信息是否是未展示信息
+        if (this.data.data_isshow == '2' || this.data.data_isshow == '0') {
+          my.showToast({
+            type: 'none',
+            content: '该信息未通过审核，暂不能操作',
+            duration: 1000,
+          });
+          return;
+        } else {
+          my.navigateTo({ url: '/pages/community/H5page/H5page?h5param=edit_reply&userid=' + this.data.data_userid + '&title_id=' + this.data.title_id })
+        }
       } else {
         my.showToast({
           type: 'none',
@@ -140,7 +150,7 @@ Page({
     if (this.data.data_isshow == '2' || this.data.data_isshow == '0') {
       my.showToast({
         type: 'none',
-        content: '您未通过审核，暂时不能操作',
+        content: '该信息未通过审核，暂不能操作',
         duration: 1000,
       });
       return;
@@ -261,7 +271,7 @@ Page({
     if (this.data.data_isshow == '2' || this.data.data_isshow == '0') {
       my.showToast({
         type: 'none',
-        content: '您未通过审核，暂时不能操作',
+        content: '该信息未通过审核，暂不能操作',
         duration: 1000,
       });
       return;

@@ -83,7 +83,17 @@ Page({
                 sjhm: this.plusXing(res.sjhm, 3, 4),
               })
               console.log('99999999', this.data.sjhm);
+            } else {
+              my.alert({
+                title: '提示',
+                content: res.msg
+              });
             }
+          } else {
+            my.alert({
+              title: '提示',
+              content: result.data.msg
+            });
           }
 
 

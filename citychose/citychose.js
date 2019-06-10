@@ -87,6 +87,8 @@ Page({
           obj1.appid = app.data.appid;
           obj1.citybm = app.data.zjbzxbm;
           obj1.sign = app.getSign(obj1, app.data.pkey);
+          console.log('实名接口请求数据：：', obj1);
+          // return;
           my.request({
             url: app.data.url + '/app-web/personal/common/alitoken.service',
             method: 'POST',
@@ -98,18 +100,34 @@ Page({
             dataType: 'json',
             contentType: 'application/json;charset=UTF-8', //contentType很重要    
             success: (result) => {
-              var res = app.Decrypt(result.data.data, app.data.pkey);
-              console.log('实名接口返回数据：', result);
-              console.log('实名接口返回数据解密：', res);
-              app.data.xingming = res.param.userName;
-              app.data.zjhm = res.param.certNo;
-              // app.data.xingming = '闽意常';
-              // app.data.zjhm = '210603198210280037'
-              // app.data.xingming = '况后文最';
-              // app.data.zjhm = '130102197012030629'
-              //app.data.urls = "";  初次登入不再置空，需通过该变量，控制退出登录按钮的存在与否，若未查到信息，在index页面置空，防止造成死循环。
-              app.data.zjbzxbm=this.data.citybm;
-              this.getissue();//获取token令牌
+              if (result.data.ret == 0) {
+                var res = app.Decrypt(result.data.data, app.data.pkey);
+                console.log('实名接口返回数据：', result);
+                console.log('实名接口返回数据解密：', res);
+                if (res.msg == null) {
+                  app.data.xingming = res.param.userName;
+                  app.data.zjhm = res.param.certNo;
+                  // app.data.xingming = '闽意常';
+                  // app.data.zjhm = '210603198210280037'
+                  // app.data.xingming = '况后文最';
+                  // app.data.zjhm = '130102197012030629'
+                  //app.data.urls = "";  初次登入不再置空，需通过该变量，控制退出登录按钮的存在与否，若未查到信息，在index页面置空，防止造成死循环。
+                  app.data.zjbzxbm = this.data.citybm;
+                  this.getissue();//获取token令牌
+                } else {
+                  my.alert({
+                    title: '提示',
+                    content: res.msg
+                  });
+                }
+
+              } else {
+                my.alert({
+                  title: '提示',
+                  content: '授权信息获取失败'
+                });
+              }
+
             },
             fail: () => {
               my.alert({
@@ -151,7 +169,7 @@ Page({
           my.reLaunch({
             url: '/pages/index/index', // 页面路径。如果页面不为 tabbar 页面则路径后可以带参数。参数规则如下：路径与参数之间使用
           });
-          //my.switchTab({ url: '/pages/index/index' });
+
         } else {
           var obj = new Object();
           obj.xingming = app.data.xingming;
@@ -180,7 +198,7 @@ Page({
               console.log("issue_res", res);
               if (res.data.ret == 0) {
                 var result = app.Decrypt(res.data.data, app.data.pkey);
-                console.log("令牌返回解密：：",result);
+                console.log("令牌返回解密：：", result);
                 app.data.token = result.token;
                 app.data.grkey = result.grkey;
                 //将当前令牌信息放入缓存
@@ -198,7 +216,6 @@ Page({
                 my.reLaunch({
                   url: '/pages/index/index', // 页面路径。如果页面不为 tabbar 页面则路径后可以带参数。参数规则如下：路径与参数之间使用
                 });
-                //my.switchTab({ url: '/pages/index/index' });
               } else {
                 my.alert({
                   title: '提示',
@@ -211,6 +228,12 @@ Page({
               my.alert({
                 title: '提示',
                 content: '授权信息获取失败，请重新登录'
+              });
+              my.removeStorage({
+                key: 'token_issue',
+                success: function() {
+
+                }
               });
             }
 
