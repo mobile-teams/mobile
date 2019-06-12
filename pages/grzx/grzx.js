@@ -23,7 +23,7 @@ Page({
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        // "citycode": app.data.zjbzxbm,
+        "citycode": app.data.zjbzxbm,
         "appid": app.data.appid
       },
       data: JSON.stringify(obj1),

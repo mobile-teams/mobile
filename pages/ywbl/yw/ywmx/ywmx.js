@@ -54,7 +54,8 @@ Page({
               method: 'POST',
               headers: {
                 "Content-Type": "application/json",
-                "citycode": "CSY001"
+                "citycode": "CSY001",
+                "appid": app.data.appid
               },
               data: JSON.stringify(obj1),
               dataType: 'json',
