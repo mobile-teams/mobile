@@ -65,6 +65,12 @@ Page({
   },
   //授权登陆
   sqdl() {
+    my.showLoading({
+      content: '登录中...',
+      success: (res) => {
+        
+      },
+    });
     let cs = this.data.xzcsflag;
     if (cs == '0') {
       my.alert({
@@ -116,6 +122,7 @@ Page({
                   app.data.zjbzxbm = this.data.citybm;
                   this.getissue();//获取token令牌
                 } else {
+                  my.hideLoading();
                   my.alert({
                     title: '提示',
                     content: res.msg
@@ -123,6 +130,7 @@ Page({
                 }
 
               } else {
+                my.hideLoading();
                 my.alert({
                   title: '提示',
                   content: '授权信息获取失败'
@@ -131,6 +139,7 @@ Page({
 
             },
             fail: () => {
+              my.hideLoading();
               my.alert({
                 title: '提示',
                 content: '授权失败，请重新授权登录'
@@ -167,6 +176,7 @@ Page({
           app.data.token = result.data.token;
           app.data.grkey = result.data.grkey;
           app.data.pdsfdl = true;
+          my.hideLoading();
           my.reLaunch({
             url: '/pages/index/index', // 页面路径。如果页面不为 tabbar 页面则路径后可以带参数。参数规则如下：路径与参数之间使用
           });
@@ -196,6 +206,7 @@ Page({
             dataType: 'json',
             contentType: 'application/json;charset=UTF-8', //contentType很重要  
             success: (res) => {
+              my.hideLoading();
               console.log("issue_res", res);
               if (res.data.ret == 0) {
                 var result = app.Decrypt(res.data.data, app.data.pkey);
@@ -226,6 +237,7 @@ Page({
 
             },
             fail: () => {
+              my.hideLoading();
               my.alert({
                 title: '提示',
                 content: '授权信息获取失败，请重新登录'
