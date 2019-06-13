@@ -64,7 +64,10 @@ Page({
       flag: !this.data.flag
     })
   },
-
+  sqdltab() {
+      app.data.jmtzbz = '/index/index',
+      my.navigateTo({ url: '/citychose/citychose' });
+  },
   onShow() {
     my.setNavigationBar({
       title: '账户查询',
