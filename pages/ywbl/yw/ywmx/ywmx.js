@@ -8,9 +8,33 @@ Page({
     console.log("ywmx_接参数eee》》》", e);
     if (e.style != '' && e.style != null && e.style == 'public') {
       ywmxurl = app.data.url + '/alipay/' + e.ywbm;
+    }
+    //跳转公共页面 - 年度账单
+    else if (e.style && e.style === 'ndzd') {
+      ywmxurl = app.data.url + '/alipay/' + e.ywbm +
+        '?citybm=' + app.data.zjbzxbm +
+        '&grzh=' + app.data.grzh +
+        '&jkhtbh=' + app.data.jkhtbh +
+        '&appid=' + app.data.appid +
+        '&grkey=' + app.data.grkey +
+        '&token=' + app.data.token +
+        '&date=' + new Date().getTime();
+    }
+    //跳转公共页面 - 问题反馈
+    else if (e.style && e.style === 'wtfk') {
+      ywmxurl = app.data.url + '/alipay/' + e.ywbm +
+        '?citybm=' + app.data.zjbzxbm +
+        '&grzh=' + app.data.grzh +
+        '&zjhm=' + app.data.zjhm +
+        '&appid=' + app.data.appid +
+        '&grkey=' + app.data.grkey +
+        '&token=' + app.data.token +
+        '&date=' + new Date().getTime();
+
     } else {
       ywmxurl = app.data.url + '/alipay/' + e.ywbm + '?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime();
     }
+
     this.setData({
       ywmxurl: ywmxurl
     });

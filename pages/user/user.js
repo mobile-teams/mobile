@@ -22,6 +22,13 @@ Page({
         arrow: true,
       },
     ],
+    wtfk: [
+      {
+        thumb: '/image/yjfk.png',
+        title: '问题反馈',
+        arrow: true,
+      },
+    ],
     itemsQchc: [
       {
         thumb: '/image/clearcache.png',
@@ -131,6 +138,21 @@ Page({
       })
     }
   },
+
+  /**
+   * 问题反馈
+   */
+  wtfkClick: function(ev) {
+    if (app.data.pdsfdl) {
+    my.navigateTo({ url: '../ywbl/yw/ywmx/ywmx?style=wtfk&ywbm=ywbl/feedback/index1.html' })
+    } else {
+      my.alert({ content: '请登陆后使用该功能' });
+
+    }
+
+  },
+
+
   onCardClick: function(ev) {
     if (app.data.pdsfdl) {
       my.navigateTo({ url: '../grzx/grzx' })

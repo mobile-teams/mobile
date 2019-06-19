@@ -115,7 +115,7 @@
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" class="swiper"            onChange = "changeimage" circular={{circular}}            current = {{current}}          >
           <block a:for="{{images}}" a:for-index="index">
             <swiper-item >
-              <image onTap="lunbotu" data-value={{item.url}} src="{{item.imgUrl}}" mode="aspectFit" class="actives"/>
+              <image onTap="lunbotu" data-value={{item}} src="{{item.imgUrl}}" mode="aspectFit" class="actives"/>
             </swiper-item>
           </block>
         </swiper>
