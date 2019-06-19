@@ -70,7 +70,7 @@ Page({
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
-          // "citycode": app.data.zjbzxbm,
+          "citycode": app.data.zjbzxbm,
           "appid": app.data.appid
         },
         data: JSON.stringify(obj1),
@@ -90,7 +90,17 @@ Page({
                 sjhm: this.plusXing(res.sjhm, 3, 4),
               })
               console.log('99999999', this.data.sjhm);
+            } else {
+              my.alert({
+                title: '提示',
+                content: res.msg
+              });
             }
+          } else {
+            my.alert({
+              title: '提示',
+              content: result.data.msg
+            });
           }
 
 

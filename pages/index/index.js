@@ -64,7 +64,10 @@ Page({
       flag: !this.data.flag
     })
   },
-
+  sqdltab() {
+      app.data.jmtzbz = '/index/index',
+      my.navigateTo({ url: '/citychose/citychose' });
+  },
   onShow() {
     my.setNavigationBar({
       title: '账户查询',
@@ -99,10 +102,6 @@ Page({
     }
 
     my.stopPullDownRefresh();
-  },
-  sqdltab() {
-    app.data.jmtzbz = 'index',
-      my.navigateTo({ url: '/citychose/citychose' });
   },
   //公积金贷款进本信息查询
   gjjdkjbxxcx: (that) => {
@@ -141,6 +140,11 @@ Page({
             success: () => {
               app.data.urls = "";//如 从城服进入，没有查到信息，需置空urls。否则导致死循环。
               app.data.pdsfdl = false;
+              my.removeStorage({
+                key: 'token_issue',
+                success: function() {
+                }
+              });
               my.reLaunch({
                 url: '/citychose/citychose'
               });
@@ -159,7 +163,6 @@ Page({
               //my.navigateBack();
               app.data.urls = "";//如 从城服进入，没有查到信息，需置空urls。否则导致死循环。
               app.data.pdsfdl = false;
-              //my.redirectTo({ url: '../../citychose/citychose' });
               my.reLaunch({
                 url: '/pages/index/index'
               });
@@ -240,8 +243,11 @@ Page({
           title: "提示",
           content: '服务正在维护。。。',
           success: () => {
-            //my.navigateBack();
-            // my.redirectTo({ url: '../../citychose/citychose' });
+            my.removeStorage({
+              key: 'token_issue',
+              success: function() {
+              }
+            });
             my.reLaunch({
               url: '/citychose/citychose'
             });
@@ -287,6 +293,11 @@ Page({
             success: () => {
               app.data.urls = "";//如 从城服进入，没有查到信息，需置空urls。否则导致死循环。
               app.data.pdsfdl = false;
+              my.removeStorage({
+                key: 'token_issue',
+                success: function() {
+                }
+              });
               my.reLaunch({
                 url: '/citychose/citychose'
               });

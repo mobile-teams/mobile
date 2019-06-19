@@ -47,5 +47,5 @@
   <!-- 列表循环结束 -->
   </view>
   <view a:elif="{{sfcg==0}}">
-    <view style="margin-top:1rem; px;text-align: center;font-size: 24px; font-family:'微软雅黑';color: rgb(150, 150, 150);">暂无保存草稿</view>
+    <view style="margin-top:1rem;text-align: center;font-size: 24px; font-family:'微软雅黑';color: rgb(150, 150, 150);">暂无保存草稿</view>
   </view>
