@@ -25,7 +25,7 @@ Page({
     wtfk: [
       {
         thumb: '/image/yjfk.png',
-        title: '问题反馈',
+        title: '意见反馈',
         arrow: true,
       },
     ],
