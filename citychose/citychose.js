@@ -25,7 +25,8 @@ Page({
         citybm: app.data.zjbzxbm,
         images: [
           { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm },
-          { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm },
+          { imgUrl: app.data.url + '/alipay/ywbl/ndzd/ndzd_banner.png', url: app.data.url + '/alipay/ywbl/ndzd/index.html', style: 'ndzd' },
+          // { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm },
           { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm },
         ],
       });
@@ -41,11 +42,11 @@ Page({
               citybm: res.data.citybm,
               xzcs: "https://api.sjgjj.cn/img/city/" + res.data.citybm.substr(0, 6) + ".png",
               xzcsflag: "1",
-               images: [
-                { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm , style: 'banna' },
+              images: [
+                { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm, style: 'banna' },
                 { imgUrl: app.data.url + '/alipay/ywbl/ndzd/ndzd_banner.png', url: app.data.url + '/alipay/ywbl/ndzd/index.html', style: 'ndzd' },
                 // { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm },
-                { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm , style: 'banna' },
+                { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm, style: 'banna' },
               ],
             });
           }
@@ -69,7 +70,7 @@ Page({
     my.showLoading({
       content: '登录中...',
       success: (res) => {
-        
+
       },
     });
     let cs = this.data.xzcsflag;
@@ -102,7 +103,7 @@ Page({
             headers: {
               "Content-Type": "application/json",
               "citycode": "CSY001",
-              "apppid":app.data.appid
+              "apppid": app.data.appid
             },
             data: JSON.stringify(obj1),
             dataType: 'json',
