@@ -72,9 +72,9 @@ Page({
     my.setNavigationBar({
       title: '账户查询',
     });
-  },
+  // },
 
-  onLoad() {
+  // onLoad() {
     console.log(">>>>>>")
     this.setData({
       pdsfdl: app.data.pdsfdl,
@@ -84,9 +84,9 @@ Page({
       this.setData({
         images: [
           { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime(), style:'banna' },
+          { imgUrl: app.data.url + '/alipay/ywbl/ndzd/ndzd_banner.png', url: app.data.url + '/alipay/ywbl/ndzd/index.html', style:'ndzd' },
           { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime(), style:'banna' },
-          { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime(), style:'banna' },
-          { imgUrl: app.data.url + '/alipay/banna/ndzd_banner.png', url: app.data.url + '/alipay/ywbl/ndzd/index.html', style:'ndzd' }
+          // { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime(), style:'banna' },
         ],
       });
       this.gjjdkjbxxcx(this);
@@ -458,7 +458,7 @@ Page({
     let guanggaourl = e.currentTarget.dataset.value.url;
       console.log(guanggaourl);
     if (e.currentTarget.dataset.value.style == 'ndzd') {
-      my.navigateTo({ url: '../ywbl/yw/ywmx/ywmx?style=ndzd&ywbm=ywbl/ndzd/index.html' })
+      my.navigateTo({ url: '../ywbl/yw/ywmx/ywmx?style=ndzd&location=index&ywbm=ywbl/ndzd/index.html' })
     } else if (e.currentTarget.dataset.value.style == 'banna') {
       app.setGuanggaourl(guanggaourl);
       my.navigateTo({ url: '../guanggao/guanggao' });

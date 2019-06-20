@@ -18,6 +18,7 @@ Page({
         '&appid=' + app.data.appid +
         '&grkey=' + app.data.grkey +
         '&token=' + app.data.token +
+        '&location=' + e.location +
         '&date=' + new Date().getTime();
     }
     //跳转公共页面 - 问题反馈

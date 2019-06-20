@@ -41,10 +41,11 @@ Page({
               citybm: res.data.citybm,
               xzcs: "https://api.sjgjj.cn/img/city/" + res.data.citybm.substr(0, 6) + ".png",
               xzcsflag: "1",
-              images: [
-                { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm },
-                { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm },
-                { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm },
+               images: [
+                { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm , style: 'banna' },
+                { imgUrl: app.data.url + '/alipay/ywbl/ndzd/ndzd_banner.png', url: app.data.url + '/alipay/ywbl/ndzd/index.html', style: 'ndzd' },
+                // { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm },
+                { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm , style: 'banna' },
               ],
             });
           }
@@ -269,9 +270,14 @@ Page({
     })
   },
   lunbotu(e) {
-    let guanggaourl = e.currentTarget.dataset.value
+    let guanggaourl = e.currentTarget.dataset.value.url;
     console.log(guanggaourl);
-    app.setGuanggaourl(guanggaourl);
-    my.navigateTo({ url: '../pages/guanggao/guanggao' });
+    if (e.currentTarget.dataset.value.style == 'ndzd') {
+      //citychose年度账单入口
+      my.navigateTo({ url: '/pages/ywbl/yw/ywmx/ywmx?style=ndzd&location=citychose&ywbm=ywbl/ndzd/index.html' })
+    } else if (e.currentTarget.dataset.value.style == 'banna') {
+      app.setGuanggaourl(guanggaourl);
+      my.navigateTo({ url: '/pages/guanggao/guanggao' });
+    }
   },
 });
