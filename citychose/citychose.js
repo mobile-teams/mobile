@@ -9,7 +9,7 @@ Page({
     // 轮播图变量
     images: [],
     indicatorDots: true,
-    autoplay: false,
+    autoplay: true,
     interval: 3000,
     current: 1, //默认显示第几张,0为第一张
     circular: true,
