@@ -28,12 +28,13 @@ App({
     grkey: "",
     virtual_user: '0',//0是虚拟用户未注册 1是虚拟用户已经注册
     virtual_user_state: '0',//0是未审批通过 1是用户注册审批通过
-    hctime:24*60*60,
-    pdsfdl:false
+    hctime: 24 * 60 * 60,
+    pdsfdl: false
 
   },
 
-  onLaunch(options) {//城市服务使用，切勿随意修改
+  onLaunch(options) {
+    /************************城市服务使用，切勿随意修改**************************** */
     //获取启动参数 
     if (options.query) {
       if (options.query.citybm) {
@@ -53,6 +54,38 @@ App({
       });
 
     }
+    /************************城市服务使用，切勿随意修改**************************** */
+
+    /**
+     * 强制更新
+     */
+    const updateManager = my.getUpdateManager()
+    updateManager.onCheckForUpdate(function(res) {
+      // 请求完新版本信息的回调
+      console.log("请求完新版本信息的回调", res.hasUpdate)
+      if (res.hasUpdate) {
+        updateManager.onUpdateReady(function(res) {
+          //清除缓存
+          my.clearStorage();
+          my.alert({
+            title: '更新提示',
+            content: '新版本已经准备好，是否重启应用？',
+            success: function() {
+              // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+              updateManager.applyUpdate();
+            }
+          })
+        })
+
+        // 新版本下载失败
+        updateManager.onUpdateFailed(function() {
+          my.alert({
+            title: '提示',
+            content: '新版本已经上线啦~，请您删除当前小程序，重新搜索打开~'
+          });
+        })
+      }
+    })
   },
   onShow(options) {
     //热启动
@@ -137,14 +170,14 @@ App({
     //const key= fun_aes.CryptoJS.enc.Utf8.parse(this.data.pkey.substr(0, 16));  
     return fun_sign.Appsign(a, b);
   },
-  EncryptBASE64: function (word, keys) {
+  EncryptBASE64: function(word, keys) {
     var key = fun_aes.CryptoJS.enc.Utf8.parse(keys.substr(0, 16));
     var srcs1 = fun_aes.CryptoJS.enc.Utf8.parse(word);
     var encrypted1 = fun_aes.CryptoJS.AES.encrypt(srcs1, key, { iv: iv, mode: fun_aes.CryptoJS.mode.CBC, padding: fun_aes.CryptoJS.pad.Pkcs7 });
     //返回base64加密结果
     return encrypted1.toString();
   },
-  Decrypt: function (word, keys) {
+  Decrypt: function(word, keys) {
     var key = fun_aes.CryptoJS.enc.Utf8.parse(keys.substr(0, 16));
     var decrypt = fun_aes.CryptoJS.AES.decrypt(word, key, { iv: iv, mode: fun_aes.CryptoJS.mode.CBC, padding: fun_aes.CryptoJS.pad.Pkcs7 });
 
@@ -153,10 +186,10 @@ App({
 
   CurentTime() {
     var myDate = new Date();
-    return  myDate.getTime(); //获取当前时间(从1970.1.1开始的毫秒数)
+    return myDate.getTime(); //获取当前时间(从1970.1.1开始的毫秒数)
   },
   onShareAppMessage() {
-    return {    
+    return {
       path: 'citychose/citychose',
     };
   },
