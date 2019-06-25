@@ -73,7 +73,9 @@ Page({
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (result) => {
+        console.log("result#@@@",result.data);
         if (result.data.msg && result.data.msg === "查询为空") {
+          that.getUserMsg(that);
           that.setData({
             ifExit: false
           });
@@ -93,6 +95,32 @@ Page({
     });
   },
 
+  /**
+   * 获取用户个人信息
+   */
+  getUserMsg: (that) => {
+    my.getAuthCode({
+      scopes: 'auth_user',
+      fail: (error) => {
+        console.error('getAuthCode', error);
+      },
+      success: () => {
+        my.getAuthUserInfo({
+          fail: (error) => {
+            console.error('授权信息获取失败', error);
+          },
+          success: (userInfo) => {
+            console.log('授权信息userInfo:', userInfo);
+            that.setData({
+              userInfo,
+              nick_name:userInfo.nickName,
+              head_img:userInfo.avatar,
+            });
+          }
+        });
+      }
+    });
+  },
   /**
    * 昵称输入
    * @param {*} options 

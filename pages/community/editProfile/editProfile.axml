@@ -1,14 +1,12 @@
-<view style="padding-top:0.2rem;">
-  <view class='weui-cell' hover-class="bg_view" onTap="modifyHead">
-    <view class='weui-cell__bd'>头像</view>
-    <view class='weui-cell__ft'>
+<view style="padding-top:0.5rem;">
+  <view class='weui-cell_head' hover-class="bg_view" onTap="modifyHead">
+    <view class='weui-cell__ft_head'>
       <image class="thumb" src="{{head_img}}" mode="scaleToFill" />
     </view>
-    <view class='arrow' ></view>
   </view>
   <view class='weui-cell' >
     <view class='weui-cell__bd'>昵称</view>
-    <input class='weui-cell__ft' style="background-color:rgb(245,245,245);" value="{{nick_name}}" onInput="nickNameValue"/>
+    <input class='weui-cell__ft' style="background-color:rgb(255,255,255);" value="{{nick_name}}" onInput="nickNameValue"/>
   </view>
   <view class='weui-cell' hover-class="bg_view" onTap="modifyHobbies">
     <view class='weui-cell__bd'>兴趣爱好</view>
