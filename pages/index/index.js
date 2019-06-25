@@ -72,9 +72,9 @@ Page({
     my.setNavigationBar({
       title: '账户查询',
     });
-  // },
+  },
 
-  // onLoad() {
+  onLoad() {
     console.log(">>>>>>")
     this.setData({
       pdsfdl: app.data.pdsfdl,
