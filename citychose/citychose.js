@@ -67,12 +67,6 @@ Page({
   },
   //授权登陆
   sqdl() {
-    my.showLoading({
-      content: '登录中...',
-      success: (res) => {
-
-      },
-    });
     let cs = this.data.xzcsflag;
     if (cs == '0') {
       my.alert({
@@ -81,6 +75,11 @@ Page({
       });
       return;
     } else {
+      my.showLoading({
+        content: '登录中...',
+        success: (res) => {
+        },
+      });
       my.getAuthCode({
         scopes: 'auth_user',
         success: ({ authCode }) => {
