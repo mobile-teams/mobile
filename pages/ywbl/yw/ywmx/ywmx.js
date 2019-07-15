@@ -14,7 +14,7 @@ Page({
       ywmxurl = app.data.url + '/alipay/' + e.ywbm +
         '?citybm=' + app.data.zjbzxbm +
         '&grzh=' + app.data.grzh +
-        '&jkhtbh=' + app.data.jkhtbh +
+        '&jkhtbh=' + encodeURI(encodeURI(app.data.jkhtbh)) +
         '&appid=' + app.data.appid +
         '&grkey=' + app.data.grkey +
         '&token=' + app.data.token +
