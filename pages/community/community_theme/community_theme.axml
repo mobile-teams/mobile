@@ -20,25 +20,25 @@
                 <view class="card_footer">
                     <!-- 观看 -->
                     <view class="card_footer_menu">
-                        <image class="card_footer_img" src="/image/community/yd.png"/>
+                        <image class="card_footer_img" src="/image/community/icon_eye3.png"/>
                         <view class="card_footer_num" a:if="{{item.ydl >= 999999}}">99万+</view>
                         <view class="card_footer_num" a:elif="{{9999 <item.ydl && item.ydl < 999999}}">{{(item.ydl/10000).toFixed(1)}}万</view>
                         <view class="card_footer_num" a:elif="{{item.ydl <= 9999}}">{{item.ydl}}</view>
                     </view>
-                    <!-- 评论  -->
-                    <view class="card_footer_menu">
-                        <image class="card_footer_img" src="{{item.sfhf==0?'/image/community/pl.png':'/image/community/pl_selecter.png'}}"/>
-                        <view class="card_footer_num" a:if="{{item.hfts >= 999999}}">99万+</view>
-                        <view class="card_footer_num" a:elif="{{9999 <item.hfts &&  item.hfts < 999999}}">{{(item.hfts/10000).toFixed(1)}}万</view>
-                        <view class="card_footer_num" a:elif="{{item.hfts <= 9999}}">{{item.hfts}}</view>
-                    </view>
                     <!-- 点赞 -->
                     <view class="card_footer_menu">
-                        <image class="card_footer_img" src="{{user_sfdz==0?'/image/community/dz.png':'/image/community/dz_selecter.png'}}"/>
+                        <image class="card_footer_img" src="{{user_sfdz==0?'/image/community/icon_dz.png':'/image/community/icon_dz1.png'}}"/>
                         <view class="card_footer_num" a:if="{{theme_article_dzs>= 999999}}">99万+</view>
                         <view class="card_footer_num" a:elif="{{9999 <theme_article_dzs && theme_article_dzs < 999999}}">{{(item.article_dzs/10000).toFixed(1)}}万</view>
                         <view class="card_footer_num" a:elif="{{theme_article_dzs <= 9999}}">{{theme_article_dzs}}
                         </view>
+                    </view>
+                    <!-- 评论  -->
+                    <view class="card_footer_menu">
+                        <image class="card_footer_img" src="{{item.sfhf==0?'/image/community/icon_reply3.png':'/image/community/icon_reply3.png'}}"/>
+                        <view class="card_footer_num" a:if="{{item.hfts >= 999999}}">99万+</view>
+                        <view class="card_footer_num" a:elif="{{9999 <item.hfts &&  item.hfts < 999999}}">{{(item.hfts/10000).toFixed(1)}}万</view>
+                        <view class="card_footer_num" a:elif="{{item.hfts <= 9999}}">{{item.hfts}}</view>
                     </view>
                 </view>
             </view>
@@ -62,8 +62,8 @@
                 </view>
                 <!-- 点赞 -->
                 <view class="card_footer_menu2" onTap="user_dz">
-                    <image class="card_footer_img2" src="{{user_sfdz=='0'?'/image/community/dz.png':'/image/community/dz_selecter.png'}}"/>
-                    <view class="card_footer_num2">点赞</view>
+                    <image class="card_footer_img2" src="{{user_sfdz=='0'?'/image/community/icon_reply_dz.png':'/image/community/icon_reply_dz_1.png'}}"/>
+                    <view class="card_footer_num2">赞同</view>
                 </view>
             </view>
         </view>

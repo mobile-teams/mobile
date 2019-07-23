@@ -21,7 +21,8 @@ Page({
     flagdkzt1: 0,
     dkzt: '',
     indexgrzh: 0,
-
+    xingming: '',
+    notlogged_img:app.data.url+'/alipay/img/icon_zhcx_notlogged.png',//index未登录图片
     // 轮播图变量
     images: [],
     indicatorDots: true,
@@ -65,27 +66,28 @@ Page({
     })
   },
   sqdltab() {
-      app.data.jmtzbz = '/index/index',
+    app.data.jmtzbz = '/index/index',
       my.navigateTo({ url: '/citychose/citychose' });
   },
   onShow() {
     my.setNavigationBar({
       title: '账户查询',
     });
-  },
+    },
 
-  onLoad() {
-    console.log(">>>>>>")
+    onLoad() {
+    console.log(">>>>>>xingming:",app.data.xingming)
     this.setData({
       pdsfdl: app.data.pdsfdl,
     });
     console.log("pdsfdl<<<<<<", app.data.pdsfdl);
     if (app.data.pdsfdl) {
       this.setData({
+        xingming:app.data.xingming,
         images: [
-          { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime(), style:'banna' },
-          { imgUrl: app.data.url + '/alipay/ywbl/ndzd/ndzd_banner.png', url: app.data.url + '/alipay/ywbl/ndzd/index.html', style:'ndzd' },
-          { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime(), style:'banna' },
+          { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime(), style: 'banna' },
+          { imgUrl: app.data.url + '/alipay/ywbl/ndzd/ndzd_banner.png', url: app.data.url + '/alipay/ywbl/ndzd/index.html', style: 'ndzd' },
+          { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime(), style: 'banna' },
           // { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime(), style:'banna' },
         ],
       });
@@ -456,7 +458,7 @@ Page({
   //轮播图
   lunbotu(e) {
     let guanggaourl = e.currentTarget.dataset.value.url;
-      console.log(guanggaourl);
+    console.log(guanggaourl);
     if (e.currentTarget.dataset.value.style == 'ndzd') {
       my.navigateTo({ url: '../ywbl/yw/ywmx/ywmx?style=ndzd&location=index&ywbm=ywbl/ndzd/index.html' })
     } else if (e.currentTarget.dataset.value.style == 'banna') {

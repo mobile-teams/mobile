@@ -103,32 +103,34 @@
   padding-bottom: 4px;
   padding-top: 10px;
   text-align: center;
+  padding-left: 5px;
 }
 
 .card_footer_menu {
   align-items: center;
   text-align: center;
   -webkit-box-flex: 1;
-  flex: 1 0 0%;
-  width: 100px;
+  /* flex: 1 0 0%; */
+  width: auto;
   display: flex;
-  padding-left: 0.6rem;
+  padding-left: 0.08rem;
+  padding-right: 0.05rem;
 }
 
 .card_footer_img {
-  width: 0.38rem;
-  height: 0.34rem;
+  width: 0.5rem;
+  height: 0.5rem;
 }
 
 .card_footer_num {
   font-size: 13px;
   -webkit-box-flex: 1;
-  flex: 1 1 0%;
-  padding-left: 0.15rem;
+  /* flex: 1 1 0%; */
+  /* padding-left: 0.05rem; */
   /* padding-right: 0.55rem; */
   font-family: "微软雅黑";
   color: rgb(120, 120, 120);
-  padding-top: 0.08rem;
+  padding-top: 0.04rem;
   text-align: left;
 }
 

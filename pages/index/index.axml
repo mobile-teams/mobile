@@ -1,136 +1,155 @@
 <favorite type = 'tips' >收藏小程序，下次使用更方便</favorite>
-<view class="da" a:if="{{pdsfdl}}">
-  <view class="banner">
-    <view class="flex col " style="{{padding: '8px 0'}};background-color:#32ABF0;">
-      <view class="padlgth" style = "padding-top: 20rpx;color: #FFF;">
-        <view style="height: 0.6rem;display:flex;align-items:center;">
-          <view style="width: 83%;float: left;">
-            <text style = "margin-right: 5%;font-size: 14px;">{{grzh}}
+<view clsss ="page1">
+  <view class="da" a:if="{{pdsfdl}}">
+    <view class="banner">
+      <view class="flex col " style="{{padding: '8px 0'}};">
+        <view class="padlgth" style = "padding-top: 0.28rem;color: #FFF;">
+          <view style="height: 0.6rem;display:flex;align-items:center;">
+            <view style="width: 83%;float: left;">
+              <text style = "margin-right: 5%;font-size: 16px;">{{xingming}}:{{grzh}}
+              </text>
+              <text a:if="{{grzhzt=='正常'}}" class="index_grzhzt_normal">{{grzhzt}}
+              </text>
+              <text a:else class="index_grzhzt_other">{{grzhzt}}
+              </text>
+            </view>
+            <view style="width:17%;float: right;">
+              <image a:if="{{flag1}}" onTap="qhzh" style = "width: 0.5rem;height: 0.5rem;" src="/image/arrowright.png" mode="aspectFill" />
+            </view>
+          </view>
+          <!--</picker>-->
+        </view>
+        <view class="text-white text-14 padlgth" style="height:0.32rem;margin:0.1rem 0rem;font-size:0.3rem">账户余额(元)
+        </view>
+        <view class="flex  text-white padlgth" style="font-size: 0.58rem;height:0.7rem;">
+          <view>{{grzhye}}
+          </view>
+          <view a:if="{{flag}}">
+            <image onTap="tapName" style="width:0.4rem; height:0.4rem; margin-left:0.1rem" src="{{'../../image/icon/1.png'}}">
+            </image>
+          </view>
+          <view a:else>
+            <!--<image onTap="tapName" style="{{width: '25px', height:'25px'}}" src="{{'../../image/icon/2.png'}}"> -->
+            <image onTap="tapName" style="width:0.4rem; height:0.4rem; margin-left:0.1rem;" src="{{'../../image/icon/2.png'}}">
+            </image>
+          </view>
+          <view class="flex col ac" style = "text-align: center;font-size: 0.24rem;">
+            <view class="todo-item" onTap="gjjxxcx">查询账户信息
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="fake-searchbar">
+        <view class="tabs-bar-tab">
+          <view onTap="zjjccx" style="width:43%;">
+            <text class="text-demo-text testt">最近缴存
             </text>
-            <text a:if="{{grzhzt=='正常'}}" style="border-radius: 10rpx; margin-left: 1%;background-color: rgba(68,255,24,255);font-size: 13px;">{{grzhzt}}
+            <text class="text-demo-text testtt" style="color: #32ABF0;">{{zjjce}}
             </text>
-            <text a:else style="border-radius: 10rpx;margin-left: 1%;background-color:rgba(228,79,96,255);font-size: 13px;">{{grzhzt}}
+            <text class="text-demo-text testttt">最近缴存{{zjjcrq}}
             </text>
           </view>
-          <view style="width:17%;float: right;">
-            <image a:if="{{flag1}}" onTap="qhzh" style = "width: 0.5rem;height: 0.5rem;" src="/image/zhuanhb.png" mode="aspectFill" />
+          <view class="zj">
+          </view>
+          <view onTap="zjtqcx" style="width:45%;">
+            <text class="text-demo-text testt ">最近提取
+            </text>
+            <text class="text-demo-text testtt" style="color: #8BC34A;">{{zjtqe}}
+            </text>
+            <text class="text-demo-text testttt">最近提取 {{zjtqrq}}
+            </text>
           </view>
         </view>
-        <!--</picker>-->
       </view>
-      <view class="text-white text-14 padlgth" style="height:0.3rem;margin: 8px 0">账户余额(元)
-      </view>
-      <view class="flex  text-white padlgth" style="font-size: 30px;height:0.7rem;">
-        <view>{{grzhye}}
-        </view>
-        <view a:if="{{flag}}">
-          <image onTap="tapName" style="{{width: '25px', height:'25px'}}" src="{{'../../image/icon/1.png'}}">
-          </image>
-        </view>
-        <view a:else>
-          <image onTap="tapName" style="{{width: '25px', height:'25px'}}" src="{{'../../image/icon/2.png'}}">
-          </image>
-        </view>
-      </view>
-      <view class="flex col ac" style = "text-align: center;padding-top: 2px;font-size: 12px;">
-        <view class="todo-item" onTap="gjjxxcx">公积金账户信息
+    </view>
+    <view class="{{flag2 == true ? 'fake-searchbar003' : 'fake-searchbar003-01'}}">
+      <view class="tabs-bar-tab003">
+        <view class="card_box" style = "margin-top: 5%;border-top: 1rpx solid rgb(222, 222, 222)">
+          <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" class="swiper"            onChange = "changeimage" circular={{circular}}            current = {{current}}          >
+            <block a:for="{{images}}" a:for-index="index">
+              <swiper-item >
+                <image onTap="lunbotu" data-value={{item}} src="{{item.imgUrl}}" mode="aspectFit" class="actives"/>
+              </swiper-item>
+            </block>
+          </swiper>
         </view>
       </view>
     </view>
-    <view class="fake-searchbar">
-      <view class="tabs-bar-tab">
-        <view onTap="zjjccx" style="width:43%;padding-left: 6%;">
-          <text class="text-demo-text testt">最近缴存
+    <view class="wddk_div"a:if="{{flag2}}">
+      <!-- 我的贷款 -->
+      <view class="fake-searchbar-wddk">
+        <!-- 我的贷款-tab -->
+        <view class="wddk_tab_div">
+          <text onTap="redirectTo" class="text-demo-text-wddk-fg wddk_text">我的贷款
           </text>
-          <text class="text-demo-text testtt" style="color: #32ABF0;">{{zjjce}}
-          </text>
-          <text class="text-demo-text testttt">最近缴存{{zjjcrq}}
-          </text>
-        </view>
-        <view class="zj">
-        </view>
-        <view onTap="zjtqcx" style="width:45%;">
-          <text class="text-demo-text testt ">最近提取
-          </text>
-          <text class="text-demo-text testtt" style="color: #8BC34A;">{{zjtqe}}
-          </text>
-          <text class="text-demo-text testttt">最近提取 {{zjtqrq}}
-          </text>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class="da" a:if="{{flag2}}">
-    <view class="fake-searchbar002">
-      <view class="tabs-bar-tab002">
-        <view >
-          <text onTap="redirectTo" class=" text-demo-text002 text-demo-text002-title testt">我的贷款
-          </text>
-          <view class="bottom-line">
+          <view wx:if="{{flag3}}" onTap="xzdk" class="wddk_choose_div">
+            <image class="ddk_choose" src="/image/arrowdown.png" mode="aspectFill" />
           </view>
-          <text class="text-demo-text002 text-demo-text002-fg dktestttt">贷款状态:
-            <text class="{{flagdkzt == '正常还款' ? 'dkzt' : 'dkztyq'}} ">{{dkztmc}}
-            </text>
-            <image a:if="{{flag3}}" onTap="xzdk"  style = "width: 0.35rem;height: 0.36rem;margin-left: 173px;" src="/image/zhuanh.png" mode="aspectFill" />
-          </text>
-          <text onTap="redirectTo" class="text-demo-text002 dktestttt">贷款余额:
-            <text class="{{flagdkzt == '正常还款' ? 'dkzt' : 'dkztyq'}}">{{dkyemc}}
-            </text>
-          </text>
-          <text onTap="redirectTo" class="text-demo-text002 dktestttt">贷款发放额:
-            <text class="rqtestttt">{{dkffemc}}
-            </text>
-          </text>
-          <text onTap="redirectTo" class="text-demo-text002 dktestttt">借款合同编号:
-            <text class="rqtestttt">{{jkhtbhmc}}
-            </text>
-          </text>
-          <text onTap="redirectTo" class="text-demo-text002 dktestttt">借款人公积金账号:
-            <text class="rqtestttt">{{jkrgjjzhmc}}
-            </text>
-          </text>
-          <text onTap="redirectTo" class="text-demo-text002 text-demo-text002-fg rqtestttt">本期应还日期:
-            <text class="dktestttt">{{yhrqmc}}
-            </text>
-          </text>
-          <text onTap="redirectTo" class="text-demo-text002 rqtestttt">本期应还本金:
-            <text class="dktestttt">{{yhbjmc}}
-            </text>
-          </text>
-          <text onTap="redirectTo" class="text-demo-text002 rqtestttt">本期应还利息:
-            <text class="dktestttt">{{yhlxmc}}
-            </text>
-          </text>
-          <text onTap="redirectTo" class="text-demo-text002 rqtestttt">本期应还金额:
-            <text class="dktestttt">{{yhbxhjmc}}
-            </text>
-          </text>
+        </view>
+        <!-- 我的贷款详情 -->
+        <view class="wddk_content" onTap="redirectTo">
+          <!-- 第一层 -->
+          <view class="wddk_content_first">
+            <view class="wddk_content_first_content">
+              <view class="wddk_content_first_content_up">
+                <text class="wddk_content_text">借款合同编号:</text>
+                <text class="test-rq">{{jkhtbhmc}}</text>
+              </view>
+              <view class="wddk_content_first_content_down">
+                <text class="wddk_content_text">贷款余额:</text>
+                <text class="{{flagdkzt == '正常还款' ? 'dkzt' : 'dkztyq'}}">{{dkyemc}}</text>
+              </view>
+            </view>
+            <view class="wddk_content_first_content">
+              <view class="wddk_content_first_content_up">
+                <text class="wddk_content_text">贷款状态:</text>
+                <text class="{{flagdkzt == '正常还款' ? 'dkzt' : 'dkztyq'}}">{{dkztmc}}</text>
+              </view>
+              <view class="wddk_content_first_content_down">
+                <text class="wddk_content_text">贷款发放额:</text>
+                <text class="test-rq">{{dkffemc}}</text>
+              </view>
+            </view>
+          </view>
+          <!-- 第二层 -->
+          <view class="wddk_content_secend">
+            <view class="wddk_content_secend_content">
+              <view class="wddk_content_secend_content_up">
+                <text class="wddk_content_secend_text">本期应还日期:</text>
+                <text class="wddk_content_secend_text">{{yhrqmc}}</text>
+              </view>
+              <view class="wddk_content_secend_content_down">
+                <text class="wddk_content_secend_text">本期应还本金:</text>
+                <text class="wddk_content_secend_text">{{yhbjmc}}</text>
+              </view>
+            </view>
+            <view class=" wddk_content_secend_content ">
+              <view class="wddk_content_secend_content_up ">
+                <text class="wddk_content_secend_text">本期应还金额:</text>
+                <text class="wddk_content_secend_text">{{yhbxhjmc}}</text>
+              </view>
+              <view class=" wddk_content_secend_content_down ">
+                <text class="wddk_content_secend_text ">本期应还利息:</text>
+                <text class="wddk_content_secend_text">{{yhlxmc}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="{{flag2 == true ? 'fake-searchbar004' : 'fake-searchbar004-01'}}">
+      <view class="tabs-bar-tab004">
+        <view>
+          <lifestyle a:if="{{canUse}}" publicId="2016112103042239" />
         </view>
       </view>
     </view>
   </view>
-  <view class="{{flag2 == true ? 'fake-searchbar003' : 'fake-searchbar003-01'}}">
-    <view class="tabs-bar-tab003">
-      <view class="card_box" style = "margin-top: 5%;border-top: 1rpx solid rgb(222, 222, 222)">
-        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" class="swiper"            onChange = "changeimage" circular={{circular}}            current = {{current}}          >
-          <block a:for="{{images}}" a:for-index="index">
-            <swiper-item >
-              <image onTap="lunbotu" data-value={{item}} src="{{item.imgUrl}}" mode="aspectFit" class="actives"/>
-            </swiper-item>
-          </block>
-        </swiper>
-      </view>
+  <view a:else onTap="sqdltab" class="notlogged">
+    <lifestyle a:if="{{canUse}}" publicId="2016112103042239" />
+    <view class="notlogged_div">
+      <image class="notlogged_img" src="{{notlogged_img}}"></image>
+      <view class="unauthorized"> 请授权后查看账户信息</view>
     </view>
   </view>
-  <view class="{{flag2 == true ? 'fake-searchbar004' : 'fake-searchbar004-01'}}">
-    <view class="tabs-bar-tab004">
-      <view  style = "border-top: 1rpx solid rgb(222, 222, 222)">
-        <lifestyle a:if="{{canUse}}" publicId="2016112103042239" />
-      </view>
-    </view>
-  </view>
-</view>
-<view a:else onTap="sqdltab" style="width:100%; height:100%; position:absolute;">
-   <lifestyle a:if="{{canUse}}" publicId="2016112103042239" />
-  <view class="unauthorized"> 请授权后查看账户信息</view>
 </view>

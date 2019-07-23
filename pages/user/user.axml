@@ -1,22 +1,21 @@
 <view>
-  <view style="background-color:#32ABF0;height:120px;">
-    <view style="padding-top:30px">
-      <view class="card" hover-class="card-active" onTap="onCardClick">
-        <view class="card-body">
-          <view class="card-content">
-            <view class="card-title">{{xingming}}
-            </view>
-            <view class="card-subtitle">{{dwmc}}
-            </view>
-            <view class="card-subtitle">{{sjhm}}
-            </view>
+  <view style="background-color:rgb(255, 255, 255);padding-top:1.65rem">
+     <view class="user_banner">
+      <view class="user_card_div">
+        <view class="card" hover-class="card-active" onTap="onCardClick">
+          <view class="card-body">
+            <image src="{{userInfo.avatar}}" class="card-thumb" />
           </view>
-          <image src="{{userInfo.avatar}}" class="card-thumb" />
+          <view class="user-card-content">
+            <view class="user-card-content-name">{{xingming}}</view>
+            <view class="user-card-content-sjhm" a:if="{{sjhm != ''}}">{{sjhm}}</view>
+          </view>
+          <view class="user-card-content_dw">{{dwmc}}</view>
         </view>
       </view>
     </view>
   </view>
-  <view class="listStyle" style="margin-top:80px;">
+  <view class="listStyle" style="margin-top:0.5rem;">
     <list>
       <block a:for="{{itemsGywm}}">
         <list-item thumb="{{item.thumb}}" arrow="{{item.arrow}}" onClick="onItemClick1" index="itemsGywm-{{index}}" last="{{index === (itemsGywm.length - 1)}}" key="itemsGywm-{{index}}">          {{item.title}}
@@ -59,11 +58,7 @@
             {{item.extra}}
           </view></list-item></block></list></view>
   <view a:if="{{iscf}}">
-    <button type="primary" style="border-radius: 20px; background-color:rgb(50,171,240);  margin: 40px;border: 0px solid;    margin-top: 0.5rem;
-    margin-left: 0.4rem;
-    margin-right: 0.4rem;
-    height: 0.75rem;
-    line-height: 0.75rem; box-shadow: rgba(153, 153, 153, 0.24) 0 2px 7px;font-size: 15px;" onTap="onExit">退出登录
+    <button type="primary" class="exit_button" onTap="onExit">退出登录
     </button>
   </view>
 </view>

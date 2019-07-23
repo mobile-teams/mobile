@@ -132,8 +132,8 @@
 }
 
 .card_footer_img {
-  width: 0.38rem;
-  height: 0.34rem;
+  width: 0.5rem;
+  height: 0.5rem;
 }
 
 .card_footer_num {

@@ -5,43 +5,21 @@ page {
 
 .listStyle {
   /* margin-top: 30px; */
-  margin-left: 15px;
-  margin-right: 15px;
+  /* margin-left: 15px; */
+  /* margin-right: 15px; */
 }
+
 .listStyle_clear {
-  margin-top: 30px;
-  margin-left: 15px;
-  margin-right: 15px;
-}
-
-.dyt-list {
-  margin-top: 0;
-}
-
-.dyt-list .am-list-item-thumb {
-  border-radius: 5px;
-}
-
-.dyt-list .am-list-brief {
-  color: #909090;
-}
-
-.dyt-list .am-list-extra {
-  color: #000;
-}
-
-.am-list-sticky {
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-  z-index: 2;
+  margin-top: 0.5rem;
+  /* margin-left: 15px; */
+  /* margin-right: 15px; */
 }
 
 .card {
   margin-top: 6px;
   display: flex;
-  background-color: #fff;
-  border-radius: 12px;
+  /* background-color: #fff; */
+  /* border-radius: 12px; */
   margin: 0px 10px;
   align-items: center;
   min-height: 130px;
@@ -58,6 +36,7 @@ page {
   align-items: center;
   width: 100%;
   padding: 16px 0;
+  justify-content: center;
 }
 
 .card-content {
@@ -65,25 +44,71 @@ page {
   min-width: 100px;
 }
 
-.card-title {
-  font-size: 18px;
-  line-height: 25px;
-  color: #333;
-  margin-bottom: 4px;
-}
-
-.card-subtitle {
-  font-size: 14px;
-  line-height: 20px;
-  color: #999;
-  margin-bottom: 5px;
-  margin-top: 10px;
-}
-
 .card-thumb {
-  margin-right: 15px;
+  /* margin-right: 15px; */
   margin-top: 15px;
-  width: 65px;
-  height: 65px;
+  width: 80px;
+  height: 80px;
   border-radius: 50px;
+}
+
+.user_banner {
+  background-image: url(https://apics.sjgjj.cn/alipay/images/bj_grzx.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 2.21rem;
+  /* z-index: 2; */
+  /* padding-top: 60rpx; */
+}
+
+.user_card_div {
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  height: 1.2rem
+}
+
+.user-card-content {
+  display: flex;
+}
+
+.user-card-content-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.user-card-content-sjhm {
+  border-radius: 15px;
+  height: 16px;
+  border: 1px solid rgb(117, 196, 247);
+  margin-left: 12px;
+  font-size: 13px;
+  color: rgb(117, 196, 247);
+  line-height: 20px;
+  margin-top: 2px;
+  padding: 1px 4px;
+}
+
+.user-card-content_dw {
+  font-size: 15px;
+  color: rgb(120, 120, 120);
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.exit_button {
+  border-radius: 20px;
+  background-color: rgb(50, 171, 240);
+  margin: 40px;
+  border: 0px solid;
+  margin-top: 0.5rem;
+  margin-left: 0.4rem;
+  margin-right: 0.4rem;
+  height: 0.75rem;
+  line-height: 0.75rem;
+  box-shadow: rgba(153, 153, 153, 0.24) 0 2px 7px;
+  font-size: 15px;
 }

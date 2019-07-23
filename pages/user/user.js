@@ -6,6 +6,7 @@ Page({
     footerImg: 'https://gw.alipayobjects.com/zos/rmsportal/VBqNBOiGYkCjqocXjdUj.png',
     xingming: "欢迎使用手机公积金",
     dwmc: "请授权登录后查看账户信息",
+    sjhm: "",
     iscf: true,
     itemsGywm: [
       {
@@ -154,7 +155,7 @@ Page({
    */
   wtfkClick: function(ev) {
     if (app.data.pdsfdl) {
-    my.navigateTo({ url: '../ywbl/yw/ywmx/ywmx?style=wtfk&ywbm=ywbl/feedback/index1.html' })
+      my.navigateTo({ url: '../ywbl/yw/ywmx/ywmx?style=wtfk&ywbm=ywbl/feedback/index1.html' })
     } else {
       my.alert({ content: '请登陆后使用该功能' });
 
