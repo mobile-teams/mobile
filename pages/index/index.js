@@ -113,6 +113,7 @@ Page({
     obj.zjbzxbm = app.data.zjbzxbm;
     obj.xingming = app.data.xingming;
     obj.zjhm = app.data.zjhm;
+    obj.login_way ='05';
     obj.sign = app.getSign(obj, app.data.pkey)
 
     var obj1 = new Object();
@@ -267,6 +268,7 @@ Page({
     obj.citybm = app.data.zjbzxbm;
     obj.xingming = app.data.xingming;
     obj.zjhm = app.data.zjhm;
+    obj.login_way ='05';
     obj.sign = app.getSign(obj, app.data.pkey)
 
     var obj1 = new Object();
