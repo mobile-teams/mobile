@@ -95,13 +95,20 @@ Page({
     console.log("点收藏事件：", e);
     var title_id = e.currentTarget.dataset.value.title_id;
     var content = e.currentTarget.dataset.value.content;
-    //跳转草稿箱H5页面
-    my.navigateTo({
-      url: '/pages/community/community_theme/community_theme?userid='
-        + this.data.data_userid
-        + '&title_id=' + title_id
-        + '&content=' + content
-    })
-
+    var szsx = e.currentTarget.dataset.value.szsx;
+    //判断收藏目录中是否存在小课堂
+    if (szsx == '2') {
+       my.navigateTo({
+       url: '/pages/community/H5page/H5page?h5param=detail&userid=' + this.data.data_userid + '&title_id=' + title_id
+      })
+    } else {
+      //跳转社区二级页面
+      my.navigateTo({
+        url: '/pages/community/community_theme/community_theme?userid='
+          + this.data.data_userid
+          + '&title_id=' + title_id
+          + '&content=' + content
+      })
+    }
   }
 });

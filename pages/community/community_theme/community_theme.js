@@ -563,13 +563,14 @@ Page({
   replycx: (that) => {
     var obj = new Object();
     obj.appid = app.data.appid;//'20181127000101'//
-    obj.userid = that.data.data_userid;
+    obj.userid = app.data.pdsfdl?that.data.data_userid:'0';
     obj.title_id = that.data.title_id;//是否展示
     obj.kssj = '2019-01-01';
     obj.jssj = '3019-01-01';
     obj.page = that.data.reply_page;
     obj.size = that.data.reply_size;
     obj.sign = app.getSign(obj, app.data.pkey);
+    console.log("reply obj:",obj);
     my.request({
       url: app.data.url + '/app/community/reply_list.service',
       method: 'POST',
@@ -599,7 +600,7 @@ Page({
           my.hideLoading();
         } else {
           my.hideLoading();
-          console.log("无回复信息");
+           console.log("无回复信息data:", result.data);
         }
       },
     });
