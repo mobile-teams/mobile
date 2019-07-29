@@ -570,6 +570,7 @@ Page({
     obj.page = that.data.reply_page;
     obj.size = that.data.reply_size;
     obj.sign = app.getSign(obj, app.data.pkey);
+    console.log("reply obj:",obj);
     my.request({
       url: app.data.url + '/app/community/reply_list.service',
       method: 'POST',
@@ -599,7 +600,7 @@ Page({
           my.hideLoading();
         } else {
           my.hideLoading();
-          console.log("无回复信息");
+           console.log("无回复信息data:", result.data);
         }
       },
     });
