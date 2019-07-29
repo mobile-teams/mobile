@@ -563,7 +563,7 @@ Page({
   replycx: (that) => {
     var obj = new Object();
     obj.appid = app.data.appid;//'20181127000101'//
-    obj.userid = that.data.data_userid;
+    obj.userid = that.data.data_userid==''?'0':that.data.data_userid;
     obj.title_id = that.data.title_id;//是否展示
     obj.kssj = '2019-01-01';
     obj.jssj = '3019-01-01';

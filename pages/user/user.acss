@@ -53,7 +53,7 @@ page {
 }
 
 .user_banner {
-  background-image: url(https://apics.sjgjj.cn/alipay/images/bj_grzx.png);
+  background-image: url(https://openapi.sjgjj.cn/alipay/images/bj_grzx.png);
   background-size: contain;
   background-repeat: no-repeat;
   position: relative;
