@@ -86,7 +86,7 @@
                 <view class="reply_footer">
                     <!-- 观看 -->
                     <view class="card_footer_menu">
-                        <image class="card_footer_img" src="/image/community/yd.png"/>
+                        <image class="card_footer_img" src="/image/community/icon_eye3.png"/>
                         <view class="reply_footer_num">{{item.ydl}}</view>
                     </view>
                     <!-- 时间 -->
