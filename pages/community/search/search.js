@@ -101,7 +101,7 @@ Page({
     obj.appid = app.data.appid;//'20181127000101'//
     obj.page = that.data.page;
     obj.title_key = that.data.titleKey;
-    obj.userid = that.data.userid;
+    obj.userid = that.data.userid==''?'0':that.data.userid;
     obj.sign = app.getSign(obj, app.data.pkey);
     console.log("obj", obj);
     my.request({

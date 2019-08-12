@@ -34,7 +34,7 @@ Page({
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (result) => {
         hobbiesArr = [];
-        let color = 'rgb(235,235,235)';
+        let color = 'rgb(255,255,255)';
         console.log("result11", result);
         result.data.data.forEach(function(hobbiesItem, index) {
           let flag = false;
@@ -46,7 +46,7 @@ Page({
               if (flag) {
                 color = '#32ABF0'
               } else {
-                color = 'rgb(235,235,235)'
+                color = 'rgb(255,255,255)'
               }
             }
           });
@@ -72,7 +72,7 @@ Page({
     hobbiesArr.forEach(function(item, index) {
       if (item.hobby === hobby) {
         if (item.color === '#32ABF0') {
-          hobbiesArr[index].color = 'rgb(235,235,235)'
+          hobbiesArr[index].color = 'rgb(255,255,255)'
         } else {
           hobbiesArr[index].color = '#32ABF0'
         }

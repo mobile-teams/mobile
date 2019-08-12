@@ -115,10 +115,26 @@ Page({
                 if (res.msg == null) {
                   app.data.xingming = res.param.userName;
                   app.data.zjhm = res.param.certNo;
-                  // app.data.xingming = '闽意常';
-                  // app.data.zjhm = '210603198210280037'
-                  // app.data.xingming = '况后文最';
-                  // app.data.zjhm = '130102197012030629'
+                  // app.data.xingming = '王薇';
+                  // app.data.zjhm = '130929199401028023'
+                  // app.data.xingming = '佘佴自加';
+                  // app.data.zjhm = '610481198210253410'
+                  // app.data.xingming = '戚很世';
+                  // app.data.zjhm = '130102199508132441'
+                  app.data.xingming = '凌感日';
+                  app.data.zjhm = '130104198208162129'
+                  //贷款未发放
+                  //  app.data.xingming = '司徒身位';
+                  // app.data.zjhm = '133001198007200238'
+                  // app.data.xingming = '古次爱';
+                  // app.data.zjhm = '130102197909202165'
+                  // app.data.xingming = '堵死地';
+                  // app.data.zjhm = '142635198210031043'
+                  //  app.data.xingming = '庞西作';
+                  // app.data.zjhm = '230121198504251062'
+                  //锡盟
+                  // app.data.xingming = '殷多比';
+                  // app.data.zjhm = '15252919810813001X'
                   //app.data.urls = "";  初次登入不再置空，需通过该变量，控制退出登录按钮的存在与否，若未查到信息，在index页面置空，防止造成死循环。
                   app.data.zjbzxbm = this.data.citybm;
                   this.getissue();//获取token令牌
@@ -178,8 +194,14 @@ Page({
           app.data.grkey = result.data.grkey;
           app.data.pdsfdl = true;
           my.hideLoading();
-          my.reLaunch({
-            url: '/pages/index/index', // 页面路径。如果页面不为 tabbar 页面则路径后可以带参数。参数规则如下：路径与参数之间使用
+          // my.reLaunch({
+          //   url: '/pages/index/index', // 页面路径。如果页面不为 tabbar 页面则路径后可以带参数。参数规则如下：路径与参数之间使用
+          // });
+          my.switchTab({
+            url: '/pages/index/index', // 跳转的 tabBar 页面的路径（需在 app.json 的 tabBar 字段定义的页面）。注意：路径后不能带参数
+            success: (res) => {
+
+            },
           });
 
         } else {
@@ -226,8 +248,14 @@ Page({
                   }
                 });
                 app.data.pdsfdl = true;
-                my.reLaunch({
-                  url: '/pages/index/index', // 页面路径。如果页面不为 tabbar 页面则路径后可以带参数。参数规则如下：路径与参数之间使用
+                // my.reLaunch({
+                //   url: '/pages/index/index', // 页面路径。如果页面不为 tabbar 页面则路径后可以带参数。参数规则如下：路径与参数之间使用
+                // });
+                        my.switchTab({
+                  url: '/pages/index/index', // 跳转的 tabBar 页面的路径（需在 app.json 的 tabBar 字段定义的页面）。注意：路径后不能带参数
+                  success: (res) => {
+
+                  },
                 });
               } else {
                 my.alert({
@@ -250,7 +278,6 @@ Page({
                 }
               });
             }
-
           })
         }
       },

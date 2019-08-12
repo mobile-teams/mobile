@@ -2,21 +2,22 @@
   top: 0;
   position: fixed;
   width: 100%;
-  background: #32ABF0;
+  background:rgb(255, 255, 255);
   height: 95rpx;
   font-size: 30rpx;
   z-index: 1;
+  align-content: center;
 }
 
 .search_input {
-  height: 50rpx;
-  line-height: 60rpx;
-  width: 67%;
-  margin-left: 7.5%;
-  border-radius: 20rpx;
-  background: #fff;
-  margin-top: 20rpx;
-  padding-left: 5%;
+  height: 0.55rem;
+  line-height: 0.6rem;
+  width: 75%;
+  margin-left: 6.5%;
+  border-radius: 0.1rem;
+  background: rgb(245, 245, 245);
+  margin-top: 0.1rem;
+  /* padding-left: 5%; */
   font-size: 14px;
 }
 
@@ -45,5 +46,5 @@
 
 .search_data {
   height: 0.3rem;
-  padding: 0.1rem 0.2rem;
+  padding: 0.14rem 0.2rem;
 }

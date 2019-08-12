@@ -1,6 +1,6 @@
 {
   "defaultTitle": "我的",
-  "titleBarColor": "#32ABF0",
+  "titleBarColor": "#ffffff",
   "usingComponents": {
     "list": "mini-antui/es/list/index",
     "list-item": "mini-antui/es/list/list-item/index"

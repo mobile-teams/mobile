@@ -15,6 +15,7 @@ page {
   font-size: 0.4rem;
   border-bottom: solid rgb(240, 240, 240) 2rpx;
 }
+
 .weui-cell_head {
   align-items: center;
   background-color: rgb(255, 255, 255);
@@ -22,18 +23,20 @@ page {
   font-size: 0.35rem;
   border-bottom: solid rgb(255, 255, 255) 2rpx;
 }
+
 .weui-cell__ft_head {
   text-align: center;
   color: #fff;
   margin-top: 0.55rem;
 }
+
 .weui-cell__ft {
   flex: 1;
   text-align: right;
   color: #808080;
   margin-right: 20rpx;
   font-size: 32rpx;
-
+  font-family: '微软雅黑';
 }
 
 .weui-cell__bd {
@@ -43,8 +46,7 @@ page {
   flex: 0.5 1 0%;
   color: rgba(80, 80, 80);
   font-size: 32rpx;
-
-
+  font-family: '微软雅黑';
 }
 
 .thumb {

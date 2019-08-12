@@ -19,8 +19,9 @@
 .card_title {
   display: flex;
   align-items: center;
-  width: 100%;
-  padding: 16px 0
+  /* width: 100%; */
+  padding: 0.05rem 0rem 0.05rem 0rem;
+   position: relative;
 }
 
 .card_title_content_1 {
@@ -45,16 +46,19 @@
 
 .card_title_little_class {
   position: relative;
-  top: -20px;
-  padding: 0.08rem;
-  font-size: 13px;
+  top: -0.06rem;
+  padding:0.01rem 0.02rem 0.01rem 0.02rem;
+  font-size: 0.16rem;
   color: rgb(30, 144, 255);
   border: 1px solid #1E90FF;
-  border-radius: 7px;
+  border-radius: 3px;
 }
 
 .card_content {
   padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
 }
 
 .card_content_title {
@@ -63,6 +67,7 @@
   font-size: 0.318rem;
   color: black;
   padding-bottom: 5px;
+  padding-top: 0.15rem;
 }
 
 .card_content_content {
@@ -103,7 +108,7 @@
   padding-bottom: 4px;
   padding-top: 10px;
   text-align: center;
-  padding-left: 5px;
+  /* padding-left: 5px; */
 }
 
 .card_footer_menu {
@@ -123,7 +128,7 @@
 }
 
 .card_footer_num {
-  font-size: 13px;
+  font-size: 0.24rem;
   -webkit-box-flex: 1;
   /* flex: 1 1 0%; */
   /* padding-left: 0.05rem; */
@@ -138,39 +143,47 @@
   top: 0;
   position: fixed;
   width: 100%;
-  background: #32ABF0;
-  height: 95rpx;
-  font-size: 30rpx;
+  background: rgb(255, 255, 255);
+  height: 0.95rem;
+  font-size: 0.3rem;
   z-index: 1;
 }
 
 .search_input {
-  height: 50rpx;
-  line-height: 60rpx;
-  width: 83%;
-  margin-left: 7.5%;
-  border-radius: 20rpx;
-  background: #fff;
-  margin-top: 20rpx;
-  padding-left: 5%;
-  font-size: 14px;
+  /* height: 0.55rem;
+  line-height: 0.6rem;
+  width: 85%;
+  margin-left: 10%;
+  border-radius: 0.1rem; */
+  background: rgb(245, 245, 245);
+  /* margin-top: 0.11rem;
+  font-size: 14px; */
+  margin-top: 0.09rem;
+  padding: 0px;
+  width: 100%;
 }
 
 .search-input-placeholder {
-  text-align: center;
+  /* text-align: center; */
+  font-size: 14px;
+  /* line-height: 1.2rem; */
+  height: 25px;
+  padding-left: 10px;
+  padding-top: 3px;
+  font-family: '微软雅黑';
 }
 
 .search_img_box {
   width: 10%;
   float: right;
-  padding-top: 0.12rem;
+  padding-top: 0.145rem;
   padding-right: 0.44rem;
 }
 
 .search_img {
   border-radius: 25px;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   margin-left: 12px;
 }
 
@@ -180,7 +193,6 @@
 }
 
 .fabu_box {
-  background-color: rgb(50, 171, 240);
   position: fixed;
   z-index: 1;
   width: 1rem;
@@ -203,12 +215,67 @@
 }
 
 .fabbu_button_img {
-  width: 0.5rem;
-  height: 0.5rem;
-  margin-top: 0.08rem;
+  width: 1rem;
+  height: 1rem;
 }
 
 .search_view {
   float: left;
   width: 84%;
+}
+
+.search_view_box {
+  width: 94%;
+  background-color: rgb(245, 245, 245);
+  height: 0.72rem;
+  line-height: 0.6rem;
+  margin-left: 6%;
+  border-radius: 0.1rem;
+  margin-top: 0.13rem;
+  /* padding-left: 5%; */
+  font-size: 14px;
+  display: flex;
+}
+
+.search_icon {
+  width: 0.37rem;
+  height: 0.35rem;
+  margin-left: 0.2rem;
+  margin-top: 0.2rem;
+}
+
+
+.card_title_topic {
+  font-size: 0.24rem;
+  color: #32abf0;
+  font-family: '微软雅黑';
+  font-weight: bold;
+}
+
+.card_title_discuss {
+  display: flex;
+  right: 0.01rem;
+  position: absolute;
+}
+
+.card_title_discuss_num {
+  font-size:  0.24rem;
+  color: #32abf0;
+}
+
+.card_title_discuss_text {
+  font-size:  0.24rem;
+  font-family: '微软雅黑';
+  color: rgb(150, 150, 150);
+}
+
+.card_footer_time {
+  position: absolute;
+  right: 0.35rem;
+}
+
+.card_footer_time_text {
+  font-size:  0.25rem;
+  color: rgb(150, 150, 150);
+  font-family: '微软雅黑';
 }

@@ -15,9 +15,9 @@ Page({
     console.log("app.data.zjbzxbm<<<<<<<<<", app.data.zjbzxbm);
     if (app.data.pdsfdl) {
       this.setData({
-        // ywurl: app.data.url + '/alipay/ywbl/yw.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime()
-        //先修改为统一登录样式，修改完所有页面后在修改地址
-        ywurl: app.data.url + '/alipay/yw_login.html?date=' + new Date().getTime()
+        //跳转common下对应城市yw页面（已登录）
+                // ywurl: app.data.url + '/alipay/yw_cx.html?date=' + new Date().getTime()
+       ywurl: app.data.url + '/alipay/common/ywbl/'+app.data.zjbzxbm+'/yw.html?date=' + new Date().getTime()
       });
       console.log("app.url>>>>>>--", app.data.url)
       console.log('url>>>>>>>>-', this.data.ywurl);

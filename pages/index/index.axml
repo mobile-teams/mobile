@@ -82,8 +82,11 @@
         <view class="wddk_tab_div">
           <text onTap="redirectTo" class="text-demo-text-wddk-fg wddk_text">我的贷款
           </text>
-          <view wx:if="{{flag3}}" onTap="xzdk" class="wddk_choose_div">
+          <view a:if="{{flag3}}" onTap="xzdk" class="wddk_choose_div">
             <image class="ddk_choose" src="/image/arrowdown.png" mode="aspectFill" />
+          </view>
+          <view a:else  class="wddk_choose_div">
+            <!-- <image class="ddk_choose" src="/image/arrowdown.png" mode="aspectFill" /> -->
           </view>
         </view>
         <!-- 我的贷款详情 -->

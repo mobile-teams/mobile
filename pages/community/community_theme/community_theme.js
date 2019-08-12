@@ -370,7 +370,6 @@ Page({
   //回复点赞功能
   user_reply_dz(e) {
     console.log("接收用户点击回复点<赞>……", e.currentTarget.dataset.value);
-    console.log("接收用户点击回复点<赞>…33333333…", e);
     //判断用户是否登录
     if (!app.data.pdsfdl) {
       my.alert({
@@ -390,7 +389,7 @@ Page({
     }
     //判断用户状态 sfdz==null时 数据是接口返回 如果!=null 数据从集合中取
     var sfdz_1 = this.data.sfdz[e.currentTarget.dataset.idx] == null ? e.currentTarget.dataset.value.sfdz : this.data.sfdz[e.currentTarget.dataset.idx]
-    var sfdc_1 = this.data.sfdc[e.currentTarget.dataset.idx] == null ? e.currentTarget.dataset.value.sfdc : this.data.sfdc[e.currentTarget.dataset.idx]
+    // var sfdc_1 = this.data.sfdc[e.currentTarget.dataset.idx] == null ? e.currentTarget.dataset.value.sfdc : this.data.sfdc[e.currentTarget.dataset.idx]
 
     if (sfdz_1 == '0') {
       //点赞
@@ -398,84 +397,89 @@ Page({
       this.data.dzpj = 'dz_reply';
       this.data.reply_id = e.currentTarget.dataset.value.content_id;
       var dzs1 = 'dzs[' + e.currentTarget.dataset.idx + ']'//将页面点赞数存入
-      var dcs1 = 'dcs[' + e.currentTarget.dataset.idx + ']'//将页面点踩数存入
-      var sfdc1 = 'sfdc[' + e.currentTarget.dataset.idx + ']';//页面是否点踩存入
+      // var dcs1 = 'dcs[' + e.currentTarget.dataset.idx + ']'//将页面点踩数存入
+      // var sfdc1 = 'sfdc[' + e.currentTarget.dataset.idx + ']';//页面是否点踩存入
       var sfdz1 = 'sfdz[' + e.currentTarget.dataset.idx + ']';//页面是否点赞存入
       var dzs_1 = this.data.dzs[e.currentTarget.dataset.idx] == null ? e.currentTarget.dataset.value.content_dzs : this.data.dzs[e.currentTarget.dataset.idx]
-      var dcs_1 = this.data.dcs[e.currentTarget.dataset.idx] == null ? e.currentTarget.dataset.value.content_dcs : this.data.dcs[e.currentTarget.dataset.idx]
-      if (sfdc_1 == '0') {
+      // var dcs_1 = this.data.dcs[e.currentTarget.dataset.idx] == null ? e.currentTarget.dataset.value.content_dcs : this.data.dcs[e.currentTarget.dataset.idx]
+
         this.setData({
           [dzs1]: parseInt(dzs_1) + 1,
           [sfdz1]: 1
         })
-      } else {
-        this.setData({
-          [dzs1]: parseInt(dzs_1) + 1,
-          [dcs1]: parseInt(dcs_1) - 1,
-          [sfdc1]: 0,
-          [sfdz1]: 1
-        })
-      }
-      console.log(this.data.dzs);
+
+      console.log("点赞+1……", this.data.dzs);
       this.user_reply_dzdc(this);
-    }
-
-  },
-
-  //回复点踩功能
-  user_reply_dc(e) {
-    // console.log("接收用户回复点<踩>……", e.currentTarget.dataset.value);
-    console.log("接收用户点击回复点<踩>……", e);
-    //判断用户是否登录
-    if (!app.data.pdsfdl) {
-      my.alert({
-        content: '请登陆后使用此功能',
-      });
-      return;
-    }
-    //判断用户是否注册
-    if (app.data.virtual_user == '0') {
-      my.alert({
-        content: '请完善信息后操作',
-        success: () => {
-          my.navigateTo({ url: "/pages/community/editProfile/editProfile" })
-        },
-      });
-      return;
-    }
-    //判断用户状态
-    var sfdc_2 = this.data.sfdc[e.currentTarget.dataset.idx] == null ? e.currentTarget.dataset.value.sfdc : this.data.sfdc[e.currentTarget.dataset.idx]
-    var sfdz_2 = this.data.sfdz[e.currentTarget.dataset.idx] == null ? e.currentTarget.dataset.value.sfdz : this.data.sfdz[e.currentTarget.dataset.idx]
-    // if (e.currentTarget.dataset.value.sfdc == '0') {
-    if (sfdc_2 == '0') {
-      //点踩
-      this.data.dzlx = 'reply';
+    } else {
       this.data.dzpj = 'dc_reply';
-      this.data.reply_id = e.currentTarget.dataset.value.content_id;
+       this.data.reply_id = e.currentTarget.dataset.value.content_id;
       var dzs2 = 'dzs[' + e.currentTarget.dataset.idx + ']';
-      var dcs2 = 'dcs[' + e.currentTarget.dataset.idx + ']';
-      var sfdc2 = 'sfdc[' + e.currentTarget.dataset.idx + ']';
       var sfdz2 = 'sfdz[' + e.currentTarget.dataset.idx + ']';
       var dzs_2 = this.data.dzs[e.currentTarget.dataset.idx] == null ? e.currentTarget.dataset.value.content_dzs : this.data.dzs[e.currentTarget.dataset.idx]
-      var dcs_2 = this.data.dcs[e.currentTarget.dataset.idx] == null ? e.currentTarget.dataset.value.content_dcs : this.data.dcs[e.currentTarget.dataset.idx]
-      if (sfdz_2 == '0') {
-        this.setData({
-          [dcs2]: parseInt(dcs_2) + 1,
-          [sfdc2]: 1,
-        })
-      } else {
-        this.setData({
-          [dzs2]: parseInt(dzs_2) - 1,
-          [dcs2]: parseInt(dcs_2) + 1,
-          [sfdc2]: 1,
-          [sfdz2]: 0
-        })
-      }
-
-      console.log(this.data.dzs);
+      this.setData({
+        [dzs2]: parseInt(dzs_2) - 1,
+        [sfdz2]: 0
+      })
+      console.log("取消点赞", this.data.dzs);
       this.user_reply_dzdc(this);
     }
+
   },
+
+  // //回复点踩功能
+  // user_reply_dc(e) {
+  //   // console.log("接收用户回复点<踩>……", e.currentTarget.dataset.value);
+  //   console.log("接收用户点击回复点<踩>……", e);
+  //   //判断用户是否登录
+  //   if (!app.data.pdsfdl) {
+  //     my.alert({
+  //       content: '请登陆后使用此功能',
+  //     });
+  //     return;
+  //   }
+  //   //判断用户是否注册
+  //   if (app.data.virtual_user == '0') {
+  //     my.alert({
+  //       content: '请完善信息后操作',
+  //       success: () => {
+  //         my.navigateTo({ url: "/pages/community/editProfile/editProfile" })
+  //       },
+  //     });
+  //     return;
+  //   }
+  //   //判断用户状态
+  //   var sfdc_2 = this.data.sfdc[e.currentTarget.dataset.idx] == null ? e.currentTarget.dataset.value.sfdc : this.data.sfdc[e.currentTarget.dataset.idx]
+  //   var sfdz_2 = this.data.sfdz[e.currentTarget.dataset.idx] == null ? e.currentTarget.dataset.value.sfdz : this.data.sfdz[e.currentTarget.dataset.idx]
+  //   // if (e.currentTarget.dataset.value.sfdc == '0') {
+  //   if (sfdc_2 == '0') {
+  //     //点踩
+  //     this.data.dzlx = 'reply';
+  //     this.data.dzpj = 'dc_reply';
+  //     this.data.reply_id = e.currentTarget.dataset.value.content_id;
+  //     var dzs2 = 'dzs[' + e.currentTarget.dataset.idx + ']';
+  //     var dcs2 = 'dcs[' + e.currentTarget.dataset.idx + ']';
+  //     var sfdc2 = 'sfdc[' + e.currentTarget.dataset.idx + ']';
+  //     var sfdz2 = 'sfdz[' + e.currentTarget.dataset.idx + ']';
+  //     var dzs_2 = this.data.dzs[e.currentTarget.dataset.idx] == null ? e.currentTarget.dataset.value.content_dzs : this.data.dzs[e.currentTarget.dataset.idx]
+  //     var dcs_2 = this.data.dcs[e.currentTarget.dataset.idx] == null ? e.currentTarget.dataset.value.content_dcs : this.data.dcs[e.currentTarget.dataset.idx]
+  //     if (sfdz_2 == '0') {
+  //       this.setData({
+  //         [dcs2]: parseInt(dcs_2) + 1,
+  //         [sfdc2]: 1,
+  //       })
+  //     } else {
+  //       this.setData({
+  //         [dzs2]: parseInt(dzs_2) - 1,
+  //         [dcs2]: parseInt(dcs_2) + 1,
+  //         [sfdc2]: 1,
+  //         [sfdz2]: 0
+  //       })
+  //     }
+
+  //     console.log(this.data.dzs);
+  //     this.user_reply_dzdc(this);
+  //   }
+  // },
 
   //虚拟用户点赞统计及对回复进行点赞点踩接口
   user_reply_dzdc: (that) => {
@@ -484,7 +488,7 @@ Page({
     obj.appid = app.data.appid;//'20181127000101'//
     obj.userid = that.data.data_userid;//不传时，返回的是否点赞（收藏）均未未点赞（收藏）
     obj.btid = that.data.title_id;//主题id
-    obj.dzlx = that.data.dzlx;//对回复进行点赞必传，传reply
+    obj.dzlx = 'reply';//对回复进行点赞必传，传reply
     obj.dzpj = that.data.dzpj;//对回复进行点赞必传，传dz_reply(点赞)或者dc_reply（点踩）
     obj.reply_id = that.data.reply_id;//对回复进行点赞时必传，传回复的id
     obj.sign = app.getSign(obj, app.data.pkey);
@@ -501,8 +505,9 @@ Page({
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (result) => {
+        console.log("&&&&&&&&&&&&&&&&&&&",result);
         if (result.data.ret == '0') {
-          console.log("主题点赞、踩回复result.data:", result.data);
+          console.log("@@@主题点赞、踩回复result.data:", result.data);
           my.showToast({
             type: 'none',
             content: '成功',
@@ -563,14 +568,14 @@ Page({
   replycx: (that) => {
     var obj = new Object();
     obj.appid = app.data.appid;//'20181127000101'//
-    obj.userid = app.data.pdsfdl?that.data.data_userid:'0';
+    obj.userid = that.data.data_userid == '' ? '0' : that.data.data_userid;
     obj.title_id = that.data.title_id;//是否展示
     obj.kssj = '2019-01-01';
     obj.jssj = '3019-01-01';
     obj.page = that.data.reply_page;
     obj.size = that.data.reply_size;
     obj.sign = app.getSign(obj, app.data.pkey);
-    console.log("reply obj:",obj);
+    console.log("reply obj:", obj);
     my.request({
       url: app.data.url + '/app/community/reply_list.service',
       method: 'POST',
@@ -600,7 +605,7 @@ Page({
           my.hideLoading();
         } else {
           my.hideLoading();
-           console.log("无回复信息data:", result.data);
+          console.log("无回复信息data:", result.data);
         }
       },
     });

@@ -6,7 +6,7 @@
   </view>
   <view class='weui-cell' >
     <view class='weui-cell__bd'>昵称</view>
-    <input class='weui-cell__ft' style="background-color:rgb(255,255,255);" value="{{nick_name}}" onInput="nickNameValue"/>
+    <input class='weui-cell__ft' style="background-color:rgb(255,255,255);font-family:'微软雅黑'" value="{{nick_name}}" onInput="nickNameValue"/>
   </view>
   <view class='weui-cell' hover-class="bg_view" onTap="modifyHobbies">
     <view class='weui-cell__bd'>兴趣爱好</view>
