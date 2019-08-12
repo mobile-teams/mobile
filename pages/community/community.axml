@@ -37,7 +37,7 @@
   </view>
   <!-- 列表循环开始 -->
   <view style="margin-top:37px;">
-    <view a:for="{{data_list}}" class="box_card" data-value={{item}} onTap="theme_detail">
+    <view a:if="{{item.szsx != 3}}" a:for="{{data_list}}" class="box_card" data-value={{item}} onTap="theme_detail">
       <!-- 时间 图片 -->
       <view class="card_title" a:if="{{item.szsx==0 || item.szsx==1}}">
         <view class="card_title_topic">#互动话题</view>
