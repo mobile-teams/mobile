@@ -19,8 +19,8 @@ Page({
                 // ywurl: app.data.url + '/alipay/yw_cx.html?date=' + new Date().getTime()
        ywurl: app.data.url + '/alipay/common/ywbl/'+app.data.zjbzxbm+'/yw.html?date=' + new Date().getTime()
       });
-      console.log("app.url>>>>>>--", app.data.url)
-      console.log('url>>>>>>>>-', this.data.ywurl);
+      console.log("（已登录）app.url>>>>>>--", app.data.url)
+      console.log('（已登录）url>>>>>>>>-', this.data.ywurl);
       this.webViewContext = my.createWebViewContext('web-view_yw');
     }
     else {
@@ -39,8 +39,8 @@ Page({
       this.setData({
         ywurl: app.data.url + '/alipay/yw.html?data=' + new Date().getTime()
       });
-      console.log("app.url>>>>>>--", app.data.url)
-      console.log('url>>>>>>>>-', this.data.ywurl);
+      console.log("《《未登录》》app.url>>>>>>--", app.data.url)
+      console.log('《《未登录》》url>>>>>>>>-', this.data.ywurl);
       this.webViewContext = my.createWebViewContext('web-view_yw');
     }
   },

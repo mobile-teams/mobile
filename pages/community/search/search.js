@@ -8,7 +8,7 @@ Page({
   },
 
   onLoad(options) {
-    console.log("213444444444444", searchHistory);
+    console.log("搜索onLoad options", searchHistory);
     if (options && options.userid !== '') {
       this.data.userid = options.userid;
     } else {
@@ -17,12 +17,16 @@ Page({
     my.getStorage({ //读取searchHistory缓存信息
       key: 'searchHistory',
       success(result) {
-        if (result.data.searchHistory.length > 0) {
-          searchHistory = result.data.searchHistory
+        if (result.data != null && result.data != '') {
+          if (result.data.searchHistory.length > 0) {
+            searchHistory = result.data.searchHistory
+          }
+        } else {
+          console.log("之前没有搜索记录！");
         }
       }
     });
-    console.log("searchHistory", searchHistory);
+    console.log("searchHistory data", searchHistory);
     this.setData({
       searchHistory: searchHistory
     });
@@ -101,7 +105,7 @@ Page({
     obj.appid = app.data.appid;//'20181127000101'//
     obj.page = that.data.page;
     obj.title_key = that.data.titleKey;
-    obj.userid = that.data.userid==''?'0':that.data.userid;
+    obj.userid = that.data.userid == '' ? '0' : that.data.userid;
     obj.sign = app.getSign(obj, app.data.pkey);
     console.log("obj", obj);
     my.request({
@@ -130,11 +134,21 @@ Page({
   searchTap(options) {
     let that = this;
     let searchData = options.currentTarget.dataset.data;
-    my.redirectTo({
-      url: '/pages/community/community_theme/community_theme?userid=' + that.data.userid
-        + '&title_id=' + searchData.title_id
-        + '&content=' + searchData.content
-    })
+    console.log("热搜点击:", searchData);
+    //判断目录中是否存在小课堂主题
+    if (searchData.szsx == '2') {
+      my.navigateTo({
+        url: '/pages/community/H5page/H5page?h5param=detail&userid=' + this.data.userid + '&title_id=' + searchData.title_id
+      })
+    } else {
+      //跳转社区二级页面
+      my.redirectTo({
+        url: '/pages/community/community_theme/community_theme?userid=' + this.data.userid
+          + '&title_id=' + searchData.title_id
+          + '&content=' + searchData.content
+      })
+    }
+
   },
 
   //搜索历史点击
