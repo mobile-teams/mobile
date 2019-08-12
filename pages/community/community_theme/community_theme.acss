@@ -168,7 +168,7 @@
   font-size: 13px;
   -webkit-box-flex: 1;
   width: 15px;
-  padding-right: 0.45rem;
+  padding-right: 0.2rem;
   color: rgb(100, 100, 100);
   font-family: '微软雅黑'；
 }
