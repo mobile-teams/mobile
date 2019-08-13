@@ -120,13 +120,13 @@
     <view style="margin-top:0.13rem;">
         <view a:for="{{reply_list}}" a:for-index='idx' class="box_reply">
             <!-- 头像图片 -->
-            <view class="card_title" data-value={{item.content_id}}>
+            <view class="card_title">
                 <!-- 头像 -->
-                <view class="card_title_title_logo" onTap="reply_detal">
+                <view class="card_title_title_logo" onTap="reply_detal"  data-value={{item.content_id}}>
                     <image class="card_title_title_logo_img" src="{{item.avatar}}"/>
                 </view>
                 <!-- 名称 -->
-                <view class="card_title_content" onTap="reply_detal">
+                <view class="card_title_content" onTap="reply_detal"  data-value={{item.content_id}}>
                     <view class="card_title_content_1">{{item.nick_name}}</view>
                     <view class="card_title_content_2">{{item.createdate.substr(0,10)}}</view>
                 </view>
