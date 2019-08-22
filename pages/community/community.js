@@ -162,10 +162,10 @@ Page({
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (result) => {
-        console.log("用户信息查询result.data:", result.data);
+        console.log("用户信息查询 result.data:", result.data);
         if (result.data.ret == '0') {
+
           //存在虚拟用户
-          console.log("存在虚拟用户：", result.data.data);
           app.data.virtual_user = '1';
           that.setData({
             data_userid: result.data.data[0].userid,
@@ -187,17 +187,65 @@ Page({
               fabu_img: true,
             })
           }
+          that.sqztlbcx(that);
         } else {
-          //不存在虚拟用户
-          app.data.virtual_user = '0'
-          that.setData({
-            data_userid: '',//游客登录
-            head_img: '/image/community/head_img.png',
-            fabu_img: true,
-          })
+          //不存在虚拟用户 - 判断用是否初在登录在状态 登录未注册则自动注册
+          if (app.data.pdsfdl) {
+            //用户登录，虚拟用户未注册，注册虚拟用户
+            that.addUser(that);
+          } else {
+            //用户未登录
+            app.data.virtual_user = '0'
+            that.setData({
+              data_userid: '1',//游客登录
+              head_img: '/image/community/head_img.png',
+              fabu_img: true,
+            })
+            console.log("用户未登录，以游客状态访问社区");
+            that.sqztlbcx(that);
+          }
         }
-        console.log("查询用户是否存在：", result.data.msg);
-        that.sqztlbcx(that);
+      }
+    });
+  },
+
+  /**
+ * 虚拟用户新增
+ */
+  addUser: (that) => {
+    var random_number = new Date().getTime()+'';
+    var obj = new Object();
+    obj.appid = app.data.appid;
+    obj.zjhm = app.data.zjhm;
+    obj.avatar = '/image/community/head_img.png';
+    obj.nick_name = '用户' + random_number.substr(5, 13);
+    obj.user_hobby = '';
+    obj.sign = app.getSign(obj, app.data.pkey);
+    my.request({
+      url: app.data.url + '/app/community/tuser_add.service',
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "citycode": 'CSY001',
+      },
+      data: JSON.stringify(obj),
+
+      dataType: 'json',
+      contentType: 'application/json;charset=UTF-8', //contentType很重要    
+      success: (result) => {
+        console.log("虚拟用户自动注册 result.data:", result.data);
+        if (result.data.ret === '0') {
+          //注册成功，查询用户注册信息
+          that.userinfo(that);
+        } else {
+          console.log("自动注册失败》》》》");
+          that.sqztlbcx(that);
+          my.showToast({
+            type: 'none',
+            content: result.data.msg,
+          });
+          return;
+        }
       }
     });
   },
