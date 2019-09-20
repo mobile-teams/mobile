@@ -6,7 +6,7 @@
       <view class="card_title">
         <!-- logo -->
         <view class="card_title_title_logo">
-          <image class="card_title_title_logo_img" src="{{item.avatar}}"/>
+          <image class="card_title_title_logo_img" src="{{item.avatar}}" />
         </view>
         <!-- 内容 -->
         <view class="card_title_content">
@@ -25,90 +25,66 @@
       <view class="card_content">
         <!-- 标题 -->
         <view class="card_content_title">{{item.title}}</view>
-        <!-- 内容 -->
-        <view class="card_content_content">{{item.content.length>47?item.content.substr(0,47)+'...':item.content}}</view>
       </view>
       <!-- 图片 -->
-      <!-- 判断图片是否存在 -->
-      <view class="card_content_imgage" a:if="{{item.picture.trim().length >1}}">
-        <!-- 判断图片个数 切分图片字符串 indexOf(',')>0 -1是没有 -->
-        <view style="display: flex;width: 100%;" a:if="{{item.picture.indexOf(',')>0}}">
-          <!-- 多个图片 -->
-          <view class="card_content_img" a:for="{{item.picture.split(',')}}" a:for-item="img_data" a:for-index="img_index">
-            <view a:if="{{img_index< 3}}">
-              <image class="card_content_img_3" src="{{img_data}}"/>
-            </view>
-          </view>
-        </view>
-        <!-- 只有一个图片 -->
-        <view class="card_content_imgage" a:else>
-          <view class="card_content_img">
-            <image class="card_content_img_1" src="{{item.picture}}"/>
-          </view>
-        </view>
-      </view>
+      <!--<view class="card_content_imgage" a:if="{{item.fm_picture.trim().length >1}}"> -->
+      <!-- 判断图片个数 切分图片字符串 indexOf(',')>0 -1是没有 -->
+      <!-- 只有一个图片 -->
+      <!--<view class="card_content_imgage"> -->
+      <!--<view class="card_content_img"> -->
+      <!--<image class="card_content_img_1" src="{{item.fm_picture}}"/> -->
+      <!--</view> -->
+      <!--</view> -->
+      <!--</view> -->
       <!-- 观看、点赞 -->
       <view class="card_footer">
         <!-- 观看 -->
-        <!-- <view class="card_footer_menu">
-          <image class="card_footer_img" src="/image/community/yd.png"/>
-          <view class="card_footer_num">{{item.ydl}}</view>
-        </view> -->
+        <!--<view class="card_footer_menu"><image class="card_footer_img" src="/image/community/yd.png"/><view class="card_footer_num">{{item.ydl}}</view></view> -->
         <!-- 评论 -->
-        <!-- <view class="card_footer_menu">
-          <image class="card_footer_img" src="/image/community/pl.png"/>
-          <view class="card_footer_num">{{item.hfts}}</view>
-        </view> -->
+        <!--<view class="card_footer_menu"><image class="card_footer_img" src="/image/community/pl.png"/><view class="card_footer_num">{{item.hfts}}</view></view> -->
         <!-- 点赞 -->
-        <!-- <view class="card_footer_menu">
-          <image class="card_footer_img" src="/image/community/dz.png"/>
-          <view class="card_footer_num">{{item.article_dzs}}</view>
-        </view> -->
-          <view class="card_footer_menu">
-              <image class="card_footer_img" src="/image/community/icon_eye3.png"/>
-              <view class="card_footer_num" a:if="{{item.ydl >= 999999}}">99万+</view>
-              <view class="card_footer_num" a:elif="{{9999
-    <item.ydl && item.ydl< 999999}}">{{(item.ydl/10000).toFixed(1)}}万
-              </view>
-              <view class="card_footer_num" a:elif="{{item.ydl<= 9999}}">{{item.ydl}}</view>
+        <!--<view class="card_footer_menu"><image class="card_footer_img" src="/image/community/dz.png"/><view class="card_footer_num">{{item.article_dzs}}</view></view> -->
+        <view class="card_footer_menu">
+          <image class="card_footer_img" src="/image/community/icon_eye3.png" />
+          <view class="card_footer_num" a:if="{{item.ydl >= 999999}}">99万+</view>
+          <view class="card_footer_num" a:elif="{{9999
+            <item.ydl && item.ydl< 999999}}">{{(item.ydl/10000).toFixed(1)}}万
           </view>
-          <!-- 点赞 -->
-          <view class="card_footer_menu">
-              <image class="card_footer_img"
-                      src="/image/community/icon_dz.png"/>
-              <view class="card_footer_num" a:if="{{item.article_dzs>= 999999}}">99万+</view>
-              <view class="card_footer_num" a:elif="{{9999
-          <item.article_dzs && item.article_dzs< 999999}}">{{(item.article_dzs/10000).toFixed(1)}}万
-              </view>
-              <view class="card_footer_num" a:elif="{{item.article_dzss<= 9999}}">{{item.article_dzs}}
-              </view>
+          <view class="card_footer_num" a:elif="{{item.ydl<= 9999}}">{{item.ydl}}</view>
+        </view>
+        <!-- 点赞 -->
+        <view class="card_footer_menu">
+          <image class="card_footer_img" src="/image/community/icon_dz.png" />
+          <view class="card_footer_num" a:if="{{item.article_dzs>= 999999}}">99万+</view>
+          <view class="card_footer_num" a:elif="{{9999 <item.article_dzs && item.article_dzs< 999999}}">{{(item.article_dzs/10000).toFixed(1)}}万
           </view>
-          <!-- 评论  -->
-          <view class="card_footer_menu">
-              <image class="card_footer_img"
-                      src="{{item.sfhf==0?'/image/community/icon_reply3.png':'/image/community/icon_reply3.png'}}"/>
-              <view class="card_footer_num" a:if="{{item.hfts >= 999999}}">99万+</view>
-              <view class="card_footer_num" a:elif="{{9999
-                <item.hfts &&  item.hfts< 999999}}">{{(item.hfts/10000).toFixed(1)}}万
-              </view>
-              <view class="card_footer_num" a:elif="{{item.hfts<= 9999}}">{{item.hfts}}</view>
+          <view class="card_footer_num" a:elif="{{item.article_dzs<= 9999}}">{{item.article_dzs}}
           </view>
+        </view>
+        <!-- 评论  -->
+        <view class="card_footer_menu" a:if="{{item.szsx !=2 && item.szsx !=3 }}">
+          <image class="card_footer_img" src="{{item.sfhf==0?'/image/community/icon_reply3.png':'/image/community/icon_reply3.png'}}" />
+          <view class="card_footer_num" a:if="{{item.hfts >= 999999}}">99万+</view>
+          <view class="card_footer_num" a:elif="{{9999 <item.hfts &&  item.hfts< 999999}}">{{(item.hfts/10000).toFixed(1)}}万
+          </view>
+          <view class="card_footer_num" a:elif="{{item.hfts<= 9999}}">{{item.hfts}}</view>
+        </view>
       </view>
       <view class="card_bottom_img">
-         <view a:if="{{item.isshow==0}}">
-           <image class="isshow_img" mode="scaleToFill" src="/image/community/icon_checking.png"/>
+        <view a:if="{{item.isshow==0}}">
+          <image class="isshow_img" mode="scaleToFill" src="/image/community/icon_checking.png" />
         </view>
         <view a:elif="{{item.isshow==1}}">
-              <image class="isshow_img"  mode="scaleToFill" src="/image/community/icon_success.png"/>
+          <image class="isshow_img" mode="scaleToFill" src="/image/community/icon_success.png" />
         </view>
         <view a:elif="{{item.isshow==2}}">
-              <image class="isshow_img"  mode="scaleToFill" src="/image/community/icon_refuse.png"/>
+          <image class="isshow_img" mode="scaleToFill" src="/image/community/icon_refuse.png" />
         </view>
-      </view>
       </view>
     </view>
   </view>
-  <!-- 列表循环结束 -->
+</view>
+<!-- 列表循环结束 -->
 </view>
 <view a:elif="{{sffb==0}}">
   <view style="margin-top:1rem;text-align: center;font-size: 24px; font-family:'微软雅黑';color: rgb(150, 150, 150);">暂无发布信息</view>

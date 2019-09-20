@@ -112,20 +112,16 @@ Page({
 
   //判断进入二级页面还是三级页面
   theme_detail(e) {
-    //判断是否是小课堂图标 - 如果是小课堂直接跳转详情H5页面 ==2小课堂 ==1热门
-    if (e.currentTarget.dataset.value.szsx == 2) {
-      //获取对应主题的title_id
-      console.log("点击小课堂-title_id：", e.currentTarget.dataset.value);
-      my.navigateTo({ url: '/pages/community/H5page/H5page?h5param=detail&userid=' + this.data.data_userid + '&title_id=' + e.currentTarget.dataset.value.title_id })
-    } else {
-      console.log("点击获取主题信息", e.currentTarget.dataset.value.title_id, e.currentTarget.dataset.value.content);
-      //如果用户未登录，跳转主题二级
-      my.navigateTo({
-        url: 'community_theme/community_theme?userid=' + this.data.data_userid
-          + '&title_id=' + e.currentTarget.dataset.value.title_id
-          + '&content=' + e.currentTarget.dataset.value.content
-      })
-    }
+    //判断是否是小课堂图标 - ==2小课堂 ==1热门
+    //获取对应主题的title_id
+    var szsx = e.currentTarget.dataset.value.szsx;
+    console.log("点击小课堂-title_id：", e.currentTarget.dataset.value);
+    my.navigateTo({
+      url: '/pages/community/H5page/H5page?h5param=detail&userid='
+        + this.data.data_userid
+        + '&title_id=' + e.currentTarget.dataset.value.title_id
+        + '&szsx=' + e.currentTarget.dataset.value.szsx
+    })
   },
 
   //有发布主题权限-跳转发布
@@ -162,9 +158,9 @@ Page({
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (result) => {
-        console.log("用户信息查询 result.data:", result.data);
+        // console.log("用户信息查询 result.data:", result.data);
         if (result.data.ret == '0') {
-
+          console.log("存在虚拟用户：", result.data.data);
           //存在虚拟用户
           app.data.virtual_user = '1';
           that.setData({
@@ -189,6 +185,16 @@ Page({
           }
           that.sqztlbcx(that);
         } else {
+          console.log("不存在虚拟用户>>>>>", result);
+          // //用户未登录
+          // app.data.virtual_user = '0'
+          // that.setData({
+          //   data_userid: '0',//游客登录
+          //   head_img: '/image/community/head_img.png',
+          //   fabu_img: true,
+          // })
+          // console.log("用户未登录，以游客状态访问社区");
+          // that.sqztlbcx(that);
           //不存在虚拟用户 - 判断用是否初在登录在状态 登录未注册则自动注册
           if (app.data.pdsfdl) {
             //用户登录，虚拟用户未注册，注册虚拟用户
@@ -197,7 +203,7 @@ Page({
             //用户未登录
             app.data.virtual_user = '0'
             that.setData({
-              data_userid: '1',//游客登录
+              data_userid: '0',//游客登录
               head_img: '/image/community/head_img.png',
               fabu_img: true,
             })
@@ -213,7 +219,7 @@ Page({
  * 虚拟用户新增
  */
   addUser: (that) => {
-    var random_number = new Date().getTime()+'';
+    var random_number = new Date().getTime() + '';
     var obj = new Object();
     obj.appid = app.data.appid;
     obj.zjhm = app.data.zjhm;

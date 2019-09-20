@@ -46,12 +46,13 @@
 
 .card_title_little_class {
   position: relative;
-  top: -10px;
-  padding: 0.08rem;
-  font-size: 13px;
+  top: -20px;
+  padding-left: 0.02rem;
+  padding-right: 0.02rem;
+  font-size: 0.18rem;
   color: rgb(30, 144, 255);
   border: 1px solid #1E90FF;
-  border-radius: 6px;
+  border-radius:4px;
 }
 
 .card_content {
@@ -117,12 +118,12 @@
 }
 
 .card_footer_img {
-  width: 0.6rem;
-  height: 0.55rem;
+  width: 0.42rem;
+  height: 0.4rem;
 }
 
 .card_footer_num {
-  font-size: 13px;
+  font-size: 0.2rem;
   -webkit-box-flex: 1;
   /* flex: 1 1 0%; */
   height: 12px;
@@ -134,7 +135,7 @@
 
 .card_bottom_img {
   right: 0.01rem;
-  top: 160px;
+  top: 110px;
   display: inline;
   position: absolute;
   z-index: 1;

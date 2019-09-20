@@ -136,19 +136,11 @@ Page({
     let searchData = options.currentTarget.dataset.data;
     console.log("热搜点击:", searchData);
     //判断目录中是否存在小课堂主题
-    if (searchData.szsx == '2') {
-      my.navigateTo({
-        url: '/pages/community/H5page/H5page?h5param=detail&userid=' + this.data.userid + '&title_id=' + searchData.title_id
-      })
-    } else {
-      //跳转社区二级页面
-      my.redirectTo({
-        url: '/pages/community/community_theme/community_theme?userid=' + this.data.userid
-          + '&title_id=' + searchData.title_id
-          + '&content=' + searchData.content
-      })
-    }
-
+    my.navigateTo({
+      url: '/pages/community/H5page/H5page?h5param=detail&userid=' + that.data.userid
+        + '&title_id=' + searchData.title_id +
+        '&szsx=' + searchData.szsx
+    })
   },
 
   //搜索历史点击
@@ -157,6 +149,7 @@ Page({
     this.setData({
       titleKey: options.currentTarget.dataset.value
     });
+     this.titleSearch(this);
   },
 
   //删除搜索历史

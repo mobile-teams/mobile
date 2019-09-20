@@ -18,7 +18,7 @@ Page({
   },
 
 
-    //下拉刷新
+  //下拉刷新
   onPullDownRefresh() {
     //清空数组数据，赋值默认值重新查询
     this.setData({
@@ -95,27 +95,13 @@ Page({
   },
   //点击进入发布主题二级页面
   publish_detail(e) {
-     var title_id = e.currentTarget.dataset.value.title_id;
-    var content = e.currentTarget.dataset.value.content;
+    var title_id = e.currentTarget.dataset.value.title_id;
     var szsx = e.currentTarget.dataset.value.szsx;
-    //判断收藏目录中是否存在小课堂
-    if (szsx == '2') {
-       my.navigateTo({
-       url: '/pages/community/H5page/H5page?h5param=detail&userid=' + this.data.data_userid + '&title_id=' + title_id
-      })
-    } else {
-      //跳转社区二级页面
-      my.navigateTo({
-        url: '/pages/community/community_theme/community_theme?userid='
-          + this.data.data_userid
-          + '&title_id=' + title_id
-          + '&content=' + content
-      })
-    }
-    // my.navigateTo({
-    //   url: '../community_theme/community_theme?userid=' + this.data.data_userid
-    //     + '&title_id=' + e.currentTarget.dataset.value.title_id
-    //     + '&content=' + e.currentTarget.dataset.value.content
-    // })
+    //跳转社区二级页面
+    my.navigateTo({
+      url: '/pages/community/H5page/H5page?h5param=detail&userid=' + this.data.data_userid
+        + '&title_id=' + title_id
+        + '&szsx=' + szsx
+    })
   }
 });

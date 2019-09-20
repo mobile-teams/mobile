@@ -12,6 +12,7 @@
 .card_title_title_logo_img {
   width: 37px;
   height: 37px;
+  
 }
 
 .card_title {
@@ -35,7 +36,9 @@
   line-height: 20px;
   color: rgb(120, 120, 120);
 }
-
+.card_title_title_logo{
+  padding-right: 0.1rem;
+}
 .card_title_content {
   -webkit-box-flex: 1;
   flex: 1 1 0%;
@@ -44,11 +47,12 @@
 .card_title_little_class {
   position: relative;
   top: -20px;
-  padding: 0.08rem;
-  font-size: 13px;
+  padding-left: 0.02rem;
+  padding-right: 0.02rem;
+  font-size: 0.18rem;
   color: rgb(30, 144, 255);
   border: 1px solid #1E90FF;
-  border-radius: 7px;
+  border-radius: 4px;
 }
 
 .card_content {
@@ -90,8 +94,8 @@
 }
 
 .card_content_img_1 {
-  width: 6.9rem;
-  height: 3.55rem;
+  width: 6.7rem;
+  height: 2.8rem;
 }
 
 .card_footer {
@@ -107,15 +111,14 @@
   align-items: center;
   text-align: center;
   -webkit-box-flex: 1;
-  flex: 1 0 0%;
-  width: 100px;
+  width: auto;
   display: flex;
-  padding-left: 0.78rem;
+  padding-left: 0.1rem;
 }
 
 .card_footer_img {
-  width: 0.38rem;
-  height: 0.34rem;
+  width: 0.42rem;
+  height: 0.40rem;
 }
 
 /* .card_footer_num {
@@ -128,13 +131,13 @@
 } */
 
 .card_footer_num {
-  font-size: 13px;
+  font-size: 0.21rem;
   -webkit-box-flex: 1;
   flex: 1 1 0%;
-  padding-left: 0.15rem;
+  /* padding-left: 0.15rem; */
   /* padding-right: 0.55rem; */
   font-family: "微软雅黑";
   color: rgb(120, 120, 120);
-  padding-top: 0.08rem;
+  padding-top: 0.02rem;
   text-align: left;
 }

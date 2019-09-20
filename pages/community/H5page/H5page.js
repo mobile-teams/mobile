@@ -16,7 +16,7 @@ Page({
     //主题详情页面
     if (e.h5param == 'detail') {
       this.setData({
-        H5_url: app.data.url + '/alipay/community/detail/index.html?date=' + new Date().getTime() + '&citybm=' + app.data.zjbzxbm + '&appid=' + app.data.appid + '&zjhm=' + app.data.zjhm,
+        H5_url: app.data.url + '/alipay/community/detail/index.html?date=' + new Date().getTime() + '&citybm=' + app.data.zjbzxbm + '&appid=' + app.data.appid + '&zjhm=' + app.data.zjhm + '&szsx=' + e.szsx ,
         userid: e.userid,
         title_id: e.title_id,
       });
@@ -26,23 +26,6 @@ Page({
       this.setData({
         H5_url: app.data.url + '/alipay/community/editor/publish.html?date=' + new Date().getTime() + '&citybm=' + app.data.zjbzxbm + '&zjhm=' + app.data.zjhm,
         userid: e.userid,
-      });
-    }
-    //回复详情页面 
-    else if (e.h5param == 'reply') {
-      this.setData({
-        H5_url: app.data.url + '/alipay/community/detail/replycon.html?date=' + new Date().getTime() + '&citybm=' + app.data.zjbzxbm,
-        userid: e.userid,
-        reply_id: e.reply_id,
-      });
-    }
-
-    //添加回复页面
-    else if (e.h5param == 'edit_reply') {
-      this.setData({
-        H5_url: app.data.url + '/alipay/community/editor/reply.html?date=' + new Date().getTime() + '&citybm=' + app.data.zjbzxbm,
-        userid: e.userid,
-        title_id: e.title_id,
       });
     }
 
