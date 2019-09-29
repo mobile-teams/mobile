@@ -20,7 +20,7 @@ Page({
     if (app.data.zjbzxbm != "") {//判断是否从城市选择页面返回
       console.log("城市列表返回：", app.data.zjbzxbm)
       this.setData({
-        xzcs: "https://api.sjgjj.cn/img/city/" + app.data.zjbzxbm.substr(0, 6) + ".png",
+        xzcs: "https://openapi.sjgjj.cn/img/city/" + app.data.zjbzxbm.substr(0, 6) + ".png",
         xzcsflag: "1",
         citybm: app.data.zjbzxbm,
         images: [
@@ -83,6 +83,7 @@ Page({
       my.getAuthCode({
         scopes: 'auth_user',
         success: ({ authCode }) => {
+          my.hideLoading();
           //获取用户姓名证件号码
           var obj = new Object();
           obj.appid = app.data.appid;
@@ -108,6 +109,7 @@ Page({
             dataType: 'json',
             contentType: 'application/json;charset=UTF-8', //contentType很重要    
             success: (result) => {
+              let that = this;
               if (result.data.ret == 0) {
                 var res = app.Decrypt(result.data.data, app.data.pkey);
                 console.log('实名接口返回数据：', result);
@@ -120,12 +122,14 @@ Page({
                   // app.data.xingming = '况后文最';
                   // app.data.zjhm = '130102197012030629'
                   //app.data.urls = "";  初次登入不再置空，需通过该变量，控制退出登录按钮的存在与否，若未查到信息，在index页面置空，防止造成死循环。
-                 // app.data.xingming = '古次爱';  app.data.zjhm = '130102197909202165';
-                 // app.data.xingming = '凌感日'; app.data.zjhm = '130104198208162129';
+                  // app.data.xingming = '古次爱';  app.data.zjhm = '130102197909202165';
+                  //app.data.xingming = '凌感日'; app.data.zjhm = '130104198208162129';
                   app.data.zjbzxbm = this.data.citybm;
                   this.getissue();//获取token令牌
                 } else {
-                  my.hideLoading();
+                  my.hideLoading({
+                    page: that,  // 防止执行时已经切换到其它页面，page 指向不准确
+                  });
                   my.alert({
                     title: '提示',
                     content: res.msg
@@ -133,7 +137,9 @@ Page({
                 }
 
               } else {
-                my.hideLoading();
+                my.hideLoading({
+                  page: that,  // 防止执行时已经切换到其它页面，page 指向不准确
+                });
                 my.alert({
                   title: '提示',
                   content: '授权信息获取失败'
@@ -142,7 +148,9 @@ Page({
 
             },
             fail: () => {
-              my.hideLoading();
+              my.hideLoading({
+                page: that,  // 防止执行时已经切换到其它页面，page 指向不准确
+              });
               my.alert({
                 title: '提示',
                 content: '授权失败，请重新授权登录'
@@ -159,6 +167,23 @@ Page({
           });
 
         },
+        fail: () => {
+          let that = this;
+          my.hideLoading({
+            page: that,  // 防止执行时已经切换到其它页面，page 指向不准确
+          });
+          my.alert({
+            title: '提示',
+            content: '您未授权！'
+          });
+        },
+        complete: () => {
+          // my.hideLoading();
+          // my.alert({
+          //   title: '提示',
+          //   content: 'hhhhhh'
+          //});
+        }
       });
     }
 
