@@ -121,7 +121,7 @@ Page({
                   // app.data.zjhm = '130102197012030629'
                   //app.data.urls = "";  初次登入不再置空，需通过该变量，控制退出登录按钮的存在与否，若未查到信息，在index页面置空，防止造成死循环。
                  // app.data.xingming = '古次爱';  app.data.zjhm = '130102197909202165';
-                 // app.data.xingming = '凌感日'; app.data.zjhm = '130104198208162129';
+                //  app.data.xingming = '凌感日'; app.data.zjhm = '130104198208162129';
                   app.data.zjbzxbm = this.data.citybm;
                   this.getissue();//获取token令牌
                 } else {
