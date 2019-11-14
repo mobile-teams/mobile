@@ -1,4 +1,5 @@
 const app = getApp();
+var virtual_user_info;
 Page({
   data: {
     data_page: 1,
@@ -115,12 +116,20 @@ Page({
     //判断是否是小课堂图标 - ==2小课堂 ==1热门
     //获取对应主题的title_id
     var szsx = e.currentTarget.dataset.value.szsx;
+    //获取用户信息（头像、名称）
+    var avatar = "";
+    var nick_name = "";
+    //判断用户是否注册、登录-未登录状态下不可添加回复
+    if (app.data.virtual_user == '1') {
+      avatar = virtual_user_info.avatar;
+      nick_name = virtual_user_info.nick_name;
+    }
     console.log("点击小课堂-title_id：", e.currentTarget.dataset.value);
     my.navigateTo({
       url: '/pages/community/H5page/H5page?h5param=detail&userid='
         + this.data.data_userid
         + '&title_id=' + e.currentTarget.dataset.value.title_id
-        + '&szsx=' + e.currentTarget.dataset.value.szsx
+        + '&szsx=' + e.currentTarget.dataset.value.szsx+ '&avatar=' + avatar + '&nick_name=' + nick_name
     })
   },
 
@@ -161,6 +170,7 @@ Page({
         // console.log("用户信息查询 result.data:", result.data);
         if (result.data.ret == '0') {
           console.log("存在虚拟用户：", result.data.data);
+           virtual_user_info = result.data.data[0];
           //存在虚拟用户
           app.data.virtual_user = '1';
           that.setData({

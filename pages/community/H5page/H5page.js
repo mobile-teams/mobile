@@ -16,7 +16,7 @@ Page({
     //主题详情页面
     if (e.h5param == 'detail') {
       this.setData({
-        H5_url: app.data.url + '/alipay/community/detail/index.html?date=' + new Date().getTime() + '&citybm=' + app.data.zjbzxbm + '&appid=' + app.data.appid + '&zjhm=' + app.data.zjhm + '&szsx=' + e.szsx ,
+        H5_url: app.data.url + '/alipay/community/detail/index1.html?date=' + new Date().getTime() + '&citybm=' + app.data.zjbzxbm + '&appid=' + app.data.appid + '&zjhm=' + app.data.zjhm + '&szsx=' + e.szsx  + '&avatar=' + e.avatar+ '&btid=' + e.title_id + '&nick_name=' + encodeURI(encodeURI(e.nick_name)) ,
         userid: e.userid,
         title_id: e.title_id,
       });
