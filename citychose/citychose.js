@@ -83,7 +83,7 @@ Page({
       my.getAuthCode({
         scopes: 'auth_user',
         success: ({ authCode }) => {
-          my.hideLoading();
+          //my.hideLoading();
           //获取用户姓名证件号码
           var obj = new Object();
           obj.appid = app.data.appid;
