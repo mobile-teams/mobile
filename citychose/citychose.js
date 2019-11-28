@@ -24,10 +24,10 @@ Page({
         xzcsflag: "1",
         citybm: app.data.zjbzxbm,
         images: [
-          { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm+ '&date=' + new Date().getTime(), url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm+ '&date=' + new Date().getTime(),style:'banna' },
+          { imgUrl: app.data.url + '/alipay/banner/' + app.data.zjbzxbm + '/banna1.jpg?date=' + new Date().getTime(), url: app.data.url + '/alipay/banner/' + app.data.zjbzxbm + '/banna1.html?date=' + new Date().getTime(), style: 'banna' },
           { imgUrl: app.data.url + '/alipay/ywbl/ndzd/ndzd_banner.png', url: app.data.url + '/alipay/ywbl/ndzd/index.html', style: 'ndzd' },
           // { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm },
-          { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm+ '&date=' + new Date().getTime(), url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm+ '&date=' + new Date().getTime(),style:'banna'  },
+          { imgUrl: app.data.url + '/alipay/banner/' + app.data.zjbzxbm + '/banna3.jpg?date=' + new Date().getTime(), url: app.data.url + '/alipay/banner/' + app.data.zjbzxbm + '/banna3.html?date=' + new Date().getTime(), style: 'banna' },
         ],
       });
     } else {
@@ -43,10 +43,10 @@ Page({
               xzcs: "https://api.sjgjj.cn/img/city/" + res.data.citybm.substr(0, 6) + ".png",
               xzcsflag: "1",
               images: [
-                { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm+ '&date=' + new Date().getTime(), url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm+ '&date=' + new Date().getTime(), style: 'banna' },
+                { imgUrl: app.data.url + '/alipay/banner/' + app.data.zjbzxbm + '/banna1.jpg?date=' + new Date().getTime(), url: app.data.url + '/alipay/banner/' + app.data.zjbzxbm + '/banna1.html?date=' + new Date().getTime(), style: 'banna' },
                 { imgUrl: app.data.url + '/alipay/ywbl/ndzd/ndzd_banner.png', url: app.data.url + '/alipay/ywbl/ndzd/index.html', style: 'ndzd' },
                 // { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm },
-                { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm+ '&date=' + new Date().getTime(), url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm+ '&date=' + new Date().getTime(), style: 'banna' },
+                { imgUrl: app.data.url + '/alipay/banner/' + app.data.zjbzxbm + '/banna3.jpg?date=' + new Date().getTime(), url: app.data.url + '/alipay//banner/' + app.data.zjbzxbm + '/banna3.html?date=' + new Date().getTime(), style: 'banna' },
               ],
             });
           }
@@ -122,8 +122,8 @@ Page({
                   // app.data.xingming = '况后文最';
                   // app.data.zjhm = '130102197012030629'
                   //app.data.urls = "";  初次登入不再置空，需通过该变量，控制退出登录按钮的存在与否，若未查到信息，在index页面置空，防止造成死循环。
-                 // app.data.xingming = '古次爱';  app.data.zjhm = '130102197909202165';
-                  //app.data.xingming = '凌感日'; app.data.zjhm = '130104198208162129';
+                  // app.data.xingming = '古次爱';  app.data.zjhm = '130102197909202165';
+                //  app.data.xingming = '凌感日'; app.data.zjhm = '130104198208162129';
                   app.data.zjbzxbm = this.data.citybm;
                   this.getissue();//获取token令牌
                 } else {
@@ -208,7 +208,6 @@ Page({
           my.reLaunch({
             url: '/pages/index/index', // 页面路径。如果页面不为 tabbar 页面则路径后可以带参数。参数规则如下：路径与参数之间使用
           });
-
         } else {
           var obj = new Object();
           obj.xingming = app.data.xingming;
@@ -272,7 +271,7 @@ Page({
               });
               my.removeStorage({
                 key: 'token_issue',
-                success: function() {
+                success: function () {
 
                 }
               });
@@ -283,10 +282,10 @@ Page({
       },
     });
   },
-  account: function(e) {
+  account: function (e) {
     this.data.accouint = e.detail.value;
   },
-  password: function(e) {
+  password: function (e) {
     this.data.password = e.detail.value;
   },
   changeimage(e) {

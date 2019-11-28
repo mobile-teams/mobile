@@ -22,7 +22,7 @@ Page({
     dkzt: '',
     indexgrzh: 0,
     xingming: '',
-    notlogged_img:app.data.url+'/alipay/img/icon_zhcx_notlogged.png',//index未登录图片
+    notlogged_img: app.data.url + '/alipay/img/icon_zhcx_notlogged.png',//index未登录图片
     // 轮播图变量
     images: [],
     indicatorDots: true,
@@ -73,23 +73,21 @@ Page({
     my.setNavigationBar({
       title: '账户查询',
     });
-    },
+  },
 
-    onLoad() {
-    console.log(">>>>>>xingming:",app.data.xingming)
+  onLoad() {
+    console.log(">>>>>>xingming:", app.data.xingming)
     this.setData({
       pdsfdl: app.data.pdsfdl,
     });
     console.log("pdsfdl<<<<<<", app.data.pdsfdl);
     if (app.data.pdsfdl) {
       this.setData({
-        xingming:app.data.xingming,
+        xingming: app.data.xingming,
         images: [
-          { imgUrl: app.data.url + '/alipay/common/banna/banna3.jpg?citycode=' + app.data.zjbzxbm+ '&date=' + new Date().getTime(), url: app.data.url + '/alipay/common/banna/banna3.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime(), style: 'banna' },
+          { imgUrl: app.data.url + '/alipay/banner/' + app.data.zjbzxbm + '/banna3.jpg?date=' + new Date().getTime(), url: app.data.url + '/alipay/banner/' + app.data.zjbzxbm + '/banna3.html?date=' + new Date().getTime(), style: 'banna' },
           { imgUrl: app.data.url + '/alipay/ywbl/ndzd/ndzd_banner.png', url: app.data.url + '/alipay/ywbl/ndzd/index.html', style: 'ndzd' },
-          { imgUrl: app.data.url + '/alipay/common/banna/banna1.jpg?citycode=' + app.data.zjbzxbm+ '&date=' + new Date().getTime(), url: app.data.url + '/alipay/common/banna/banna1.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime(), style: 'banna' },
-          // { imgUrl: app.data.url + '/alipay/common/banna/banna2.jpg?citycode=' + app.data.zjbzxbm, url: app.data.url + '/alipay/common/banna/banna2.html?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime(), style:'banna' },
-        ],
+          { imgUrl: app.data.url + '/alipay/banner/' + app.data.zjbzxbm + '/banna1.jpg?date=' + new Date().getTime(), url: app.data.url + '/alipay/banner/' + app.data.zjbzxbm + '/banna1.html?date=' + new Date().getTime(), style: 'banna' },],
       });
       this.gjjdkjbxxcx(this);
     }
@@ -113,7 +111,7 @@ Page({
     obj.zjbzxbm = app.data.zjbzxbm;
     obj.xingming = app.data.xingming;
     obj.zjhm = app.data.zjhm;
-    obj.login_way ='05';
+    obj.login_way = '05';
     obj.sign = app.getSign(obj, app.data.pkey)
 
     var obj1 = new Object();
@@ -268,7 +266,7 @@ Page({
     obj.citybm = app.data.zjbzxbm;
     obj.xingming = app.data.xingming;
     obj.zjhm = app.data.zjhm;
-    obj.login_way ='05';
+    obj.login_way = '05';
     obj.sign = app.getSign(obj, app.data.pkey)
 
     var obj1 = new Object();
