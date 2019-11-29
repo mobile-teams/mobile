@@ -24,7 +24,7 @@ Page({
       this.setData({
         //跳转common下对应城市yw页面（已登录）
         //  ywurl: app.data.url + '/alipay/common/ywbl/'+app.data.zjbzxbm+'/yw.html?date=' + new Date().getTime()
-        ywurl: app.data.url + '/alipay/ywbl/yw_cx.html?date=' + new Date().getTime()
+        ywurl: app.data.url + '/alipay/ywbl/yw/'+ app.data.zjbzxbm+'/yw_cx.html?date=' + new Date().getTime()
       });
       console.log("（已登录）app.url>>>>>>--", app.data.url)
       console.log('（已登录）url>>>>>>>>-', this.data.ywurl);
