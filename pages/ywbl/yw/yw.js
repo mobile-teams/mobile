@@ -2,14 +2,14 @@ const app = getApp();
 Page({
   data: {
     ywurl: ' ',
-   // yw_zjbzxbm: ''
+    // yw_zjbzxbm: ''
   },
 
   onShow() {
     my.setNavigationBar({
       title: '业务办理',
     });
-      console.log("onShow zjbzxbm<<<<<<<<<", app.data.zjbzxbm);
+    console.log("onShow zjbzxbm<<<<<<<<<", app.data.zjbzxbm);
   },
 
   onLoad() {
@@ -17,33 +17,34 @@ Page({
     console.log("onLoad app.data.zjbzxbm<<<<<<<<<", app.data.zjbzxbm);
     this.ywpage();
   },
-  ywpage: function() {
+  ywpage: function () {
     console.log("进入ywpage方法：");
-    
+
     if (app.data.pdsfdl) {
       this.setData({
-        //跳转common下对应城市yw页面（已登录）
-        //  ywurl: app.data.url + '/alipay/common/ywbl/'+app.data.zjbzxbm+'/yw.html?date=' + new Date().getTime()
-        ywurl: app.data.url + '/alipay/ywbl/yw/'+ app.data.zjbzxbm+'/yw_cx.html?date=' + new Date().getTime()
+        //跳转ywbl下对应城市yw页面（已登录）
+        ywurl: app.data.url + '/alipay/ywbl/yw/' + app.data.zjbzxbm + '/yw_cx.html?date=' + new Date().getTime()
       });
       console.log("（已登录）app.url>>>>>>--", app.data.url)
       console.log('（已登录）url>>>>>>>>-', this.data.ywurl);
       // this.webViewContext = my.createWebViewContext('web-view_yw');
-    } 
+    }
     else {
-      var that = this
-      my.getStorage({
-        key: 'city',
-        success(res) {
-          if (res.data != null) {
-            app.data.zjbzxbm = res.data.citybm;
-            that.setData({
-              citybm: res.data.citybm,
-            });
-            console.log("缓存zjbzxbm<<<<<<<<<", app.data.zjbzxbm);
-          }
-        },
-      });
+      if (app.data.zjbzxbm == '') {
+        var that = this
+        my.getStorage({
+          key: 'city',
+          success(res) {
+            if (res.data != null) {
+              app.data.zjbzxbm = res.data.citybm;
+              that.setData({
+                citybm: res.data.citybm,
+              });
+              console.log("缓存zjbzxbm<<<<<<<<<", app.data.zjbzxbm);
+            }
+          },
+        });
+      }
       this.setData({
         ywurl: app.data.url + '/alipay/ywbl/yw_simple.html?date=' + new Date().getTime()
       });
