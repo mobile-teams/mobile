@@ -9,7 +9,7 @@ Page({
     });
     console.log('url',this.data.ggurl);
     this.webViewContext = my.createWebViewContext('web-view-1');
-     // 向H5发送消息
+     // 向H5发送消息。
   },
   onMessage(e) {
   	console.log(e); 
