@@ -4,7 +4,7 @@
         <view class='search_view' onTap="searchTap">
             <view class="search_view_box">
                 <image mode="scaleToFill" class="search_icon" src="/image/community/icon_index_search.png"/>
-                <input placeholder="请输入搜索内容" disabl评论ed="disabled" class='search_input'
+                <input placeholder="请输入搜索内容" disabled="disabled" class='search_input'
                        placeholder-class='search-input-placeholder'/>
             </view>
         </view>
