@@ -118,7 +118,7 @@ Page({
     my.getAuthCode({
       scopes: 'auth_user',
       fail: (error) => {
-        console.error('getAuthCode', error);
+        console.log('getAuthCode', error);
       },
       success: () => {
         my.getAuthUserInfo({
