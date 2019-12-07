@@ -102,12 +102,12 @@ Page({
     my.getAuthCode({
       scopes: 'auth_user',
       fail: (error) => {
-        console.error('getAuthCode', error);
+        console.log('getAuthCode', error);
       },
       success: () => {
         my.getAuthUserInfo({
           fail: (error) => {
-            console.error('授权信息获取失败', error);
+            console.log('授权信息获取失败', error);
           },
           success: (userInfo) => {
             console.log('授权信息userInfo:', userInfo);

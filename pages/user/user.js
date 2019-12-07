@@ -123,7 +123,7 @@ Page({
       success: () => {
         my.getAuthUserInfo({
           fail: (error) => {
-            console.error('getAuthUserInfo', error);
+            console.log('getAuthUserInfo', error);
           },
           success: (userInfo) => {
             console.log(`userInfo:`, userInfo);
