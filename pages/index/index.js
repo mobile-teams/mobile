@@ -82,6 +82,7 @@ Page({
     });
     console.log("pdsfdl<<<<<<", app.data.pdsfdl);
     if (app.data.pdsfdl) {
+         my.reportAnalytics('p_login', { "xingming": app.data.xingming, "zjbzxbm": app.data.zjbzxbm,"zjhm":app.getSign(app.data.zjhm , app.data.pkey)});
       this.setData({
         xingming: app.data.xingming,
         images: [
@@ -90,6 +91,8 @@ Page({
           { imgUrl: app.data.url + '/alipay/banner/' + app.data.zjbzxbm + '/banna1.jpg?date=' + new Date().getTime(), url: app.data.url + '/alipay/banner/' + app.data.zjbzxbm + '/banna1.html?date=' + new Date().getTime(), style: 'banna' },],
       });
       this.gjjdkjbxxcx(this);
+       
+
     }
   },
 
@@ -105,6 +108,7 @@ Page({
   },
   //公积金贷款进本信息查询
   gjjdkjbxxcx: (that) => {
+
     that.zhcxinfo(that);
     var obj = new Object();
     obj.appid = app.data.appid;
@@ -143,7 +147,7 @@ Page({
               app.data.pdsfdl = false;
               my.removeStorage({
                 key: 'token_issue',
-                success: function() {
+                success: function () {
                 }
               });
               my.reLaunch({
@@ -235,10 +239,11 @@ Page({
             grzhxx1.push(res.data[0].gjjxx[i]);
             grzhxx[i] = res.data[0].gjjxx[i].grzh + " " + res.data[0].gjjxx[i].grzhzt;
           }
-
+ //my.reportAnalytics('p_login', { "xingming": that.data.xingming, "zjbzxbm": app.data.zjbzxbm,"grzh":that.data.grzh });
         }
+       
       },
-      fail: function(result) {
+      fail: function (result) {
         app.data.pdsfdl = false;
         my.alert({
           title: "提示",
@@ -246,7 +251,7 @@ Page({
           success: () => {
             my.removeStorage({
               key: 'token_issue',
-              success: function() {
+              success: function () {
               }
             });
             my.reLaunch({
@@ -256,6 +261,7 @@ Page({
         });
       },
     });
+
   },
 
   //账户信息查询
@@ -297,7 +303,7 @@ Page({
               app.data.pdsfdl = false;
               my.removeStorage({
                 key: 'token_issue',
-                success: function() {
+                success: function () {
                 }
               });
               my.reLaunch({

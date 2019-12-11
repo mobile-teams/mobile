@@ -7,7 +7,7 @@ Page({
     var ywmxurl = '';
     console.log("ywmx_接参数eee》》》", e);
     if (e.style != '' && e.style != null && e.style == 'public') {
-      ywmxurl = app.data.url + '/alipay/' + e.ywbm;
+      ywmxurl = app.data.url + '/alipay/' + e.ywbm+'?date=' + new Date().getTime();
     }
     //跳转公共页面 - 年度账单
     else if (e.style && e.style === 'ndzd') {
