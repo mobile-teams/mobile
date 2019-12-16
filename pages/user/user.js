@@ -118,12 +118,12 @@ Page({
     my.getAuthCode({
       scopes: 'auth_user',
       fail: (error) => {
-        console.error('getAuthCode', error);
+        console.log('getAuthCode', error);
       },
       success: () => {
         my.getAuthUserInfo({
           fail: (error) => {
-            console.error('getAuthUserInfo', error);
+            console.log('getAuthUserInfo', error);
           },
           success: (userInfo) => {
             console.log(`userInfo:`, userInfo);
