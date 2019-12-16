@@ -9,7 +9,9 @@ Page({
 
   onLoad(options) {
     console.log("options", options);
-    this.data.hobbiesList = options.user_hobby.split(',');
+    this.setData({
+      hobbiesList: options.user_hobby.split(','),
+    });
     console.log("this.data.hobbiesList", this.data.hobbiesList);
     this.hobbyList(this);
   },
@@ -36,9 +38,9 @@ Page({
         hobbiesArr = [];
         let color = 'rgb(255,255,255)';
         console.log("result11", result);
-        result.data.data.forEach(function(hobbiesItem, index) {
+        result.data.data.forEach(function (hobbiesItem, index) {
           let flag = false;
-          that.data.hobbiesList.forEach(function(item, num) {
+          that.data.hobbiesList.forEach(function (item, num) {
             if (hobbiesItem === item) {
               flag = true;
             }
@@ -69,7 +71,7 @@ Page({
     console.log("hobbiesArr", hobbiesArr)
     let that = this;
     let hobby = options.currentTarget.dataset.data.hobby;
-    hobbiesArr.forEach(function(item, index) {
+    hobbiesArr.forEach(function (item, index) {
       if (item.hobby === hobby) {
         if (item.color === '#32ABF0') {
           hobbiesArr[index].color = 'rgb(255,255,255)'
@@ -92,7 +94,7 @@ Page({
   affirm(options) {
     console.log("confirmoptions", options);
     let hobby = '';
-    hobbiesArr.forEach(function(item, index) {
+    hobbiesArr.forEach(function (item, index) {
       if (item.color === '#32ABF0') {
         if (hobby.trim().length > 0) {
           hobby = hobby + ',' + item.hobby

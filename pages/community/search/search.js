@@ -1,5 +1,6 @@
 const app = getApp();
 let searchHistory = [];
+let v_userid;
 Page({
   data: {
     page: 1,
@@ -10,9 +11,9 @@ Page({
   onLoad(options) {
     console.log("搜索onLoad options", searchHistory);
     if (options && options.userid !== '') {
-      this.data.userid = options.userid;
+      v_userid = options.userid;
     } else {
-      this.data.userid = '';
+      v_userid = '';
     }
     my.getStorage({ //读取searchHistory缓存信息
       key: 'searchHistory',
@@ -107,7 +108,7 @@ Page({
     obj.appid = app.data.appid;//'20181127000101'//
     obj.page = that.data.page;
     obj.title_key = that.data.titleKey;
-    obj.userid = that.data.userid == '' ? '0' : that.data.userid;
+    obj.userid = v_userid == '' ? '0' : v_userid;
     obj.sign = app.getSign(obj, app.data.pkey);
     console.log("obj", obj);
     my.request({
@@ -161,7 +162,7 @@ Page({
       });
     //判断目录中是否存在小课堂主题
     my.navigateTo({
-      url: '/pages/community/H5page/H5page?h5param=detail&userid=' + that.data.userid
+      url: '/pages/community/H5page/H5page?h5param=detail&userid=' + v_userid
         + '&title_id=' + searchData.title_id +
         '&szsx=' + searchData.szsx
     })

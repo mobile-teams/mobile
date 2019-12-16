@@ -82,9 +82,9 @@ body {
   padding: 15px 0 9px 15px;
 }
 
-.am-list-content, .am-input-label, .am-input-control input[type=text] {
+/* .am-list-content, .am-input-label, .am-input-control input[type=text] {
   font-size: 14px !important;
-}
+} */
 
 .am-image-picker-list {
   padding-bottom: 3px !important;
@@ -98,6 +98,6 @@ body {
   height: 100vh !important;
 }
 
-input[readonly] {
+/* input[readonly] {
   color: rgba(0,0,0,.5) !important;
-}
+} */

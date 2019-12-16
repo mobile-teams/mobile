@@ -196,15 +196,6 @@ Page({
           that.sqztlbcx(that);
         } else {
           console.log("不存在虚拟用户>>>>>", result);
-          // //用户未登录
-          // app.data.virtual_user = '0'
-          // that.setData({
-          //   data_userid: '0',//游客登录
-          //   head_img: '/image/community/head_img.png',
-          //   fabu_img: true,
-          // })
-          // console.log("用户未登录，以游客状态访问社区");
-          // that.sqztlbcx(that);
           //不存在虚拟用户 - 判断用是否初在登录在状态 登录未注册则自动注册
           if (app.data.pdsfdl) {
             //用户登录，虚拟用户未注册，注册虚拟用户

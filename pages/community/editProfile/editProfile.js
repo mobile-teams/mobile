@@ -73,7 +73,7 @@ Page({
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
       success: (result) => {
-        console.log("result#@@@",result.data);
+        console.log("result#@@@", result.data);
         if (result.data.msg && result.data.msg === "查询为空") {
           that.getUserMsg(that);
           that.setData({
@@ -113,8 +113,8 @@ Page({
             console.log('授权信息userInfo:', userInfo);
             that.setData({
               userInfo,
-              nick_name:userInfo.nickName,
-              head_img:userInfo.avatar,
+              nick_name: userInfo.nickName,
+              head_img: userInfo.avatar,
             });
           }
         });
@@ -131,7 +131,9 @@ Page({
     if (options.detail.value && options.detail.value.trim().length > 0) {
       nickName = options.detail.value;
     }
-    this.data.nick_name = nickName;
+    this.setData({
+      nick_name: nickName
+    });
   },
 
   /**

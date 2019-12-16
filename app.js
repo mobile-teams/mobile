@@ -18,7 +18,7 @@ App({
     urls: "",    //城服接入标志参数，慎改
     urlsc: "https://api.sjgjj.cn",//实名认证访问该服务器。
     //url: "https://api.sjgjj.cn",//正式环境
-    //url: "https://openapi.sjgjj.cn",
+    // url: "https://openapi.sjgjj.cn",
     url: "https://apics.sjgjj.cn",//测试环境。
     zjbzxbm: "",
     gruangaourl: " ",
@@ -193,15 +193,4 @@ App({
       path: 'citychose/citychose',
     };
   },
-  Decrypt: function(word, keys) {
-    var key = fun_aes.CryptoJS.enc.Utf8.parse(keys.substr(0, 16));
-    var decrypt = fun_aes.CryptoJS.AES.decrypt(word, key, { iv: iv, mode: fun_aes.CryptoJS.mode.CBC, padding: fun_aes.CryptoJS.pad.Pkcs7 });
-
-    return JSON.parse(fun_aes.CryptoJS.enc.Utf8.stringify(decrypt).toString());
-  },
-
-  CurentTime() {
-    var myDate = new Date();
-    return myDate.getTime(); //获取当前时间(从1970.1.1开始的毫秒数)
-  }
 });
