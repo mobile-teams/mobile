@@ -36,18 +36,18 @@ App({
     //获取启动参数 
     if (options.query) {
       if (options.query.citybm) {
-        this.data.zjbzxbm = JSON.stringify(options.query.citybm).replace(/\"/g, "")
+        this.globalData.zjbzxbm = JSON.stringify(options.query.citybm).replace(/\"/g, "")
       }
       if (options.query.urls) {
-        this.data.urls = JSON.stringify(options.query.urls).replace(/\"/g, "")
+        this.globalData.urls = JSON.stringify(options.query.urls).replace(/\"/g, "")
       }
       if (options.query.dlzt) {
-        this.data.pdsfdl = true
+        this.globalData.pdsfdl = true
       }
       my.setStorage({
         key: 'city',
         data: {
-          citybm: this.data.zjbzxbm
+          citybm: this.globalData.zjbzxbm
         }
       });
 
@@ -90,34 +90,34 @@ App({
   },
   //存放全局变量
   setGrzh: function (event) {
-    this.data.grzh = event
-    console.log('=======个人账号==', this.data.grzh)
+    this.globalData.grzh = event
+    console.log('=======个人账号==', this.globalData.grzh)
   },
   setJkhtbh: function (event) {
-    this.data.jkhtbh = event
-    console.log('=======借款合同编号==', this.data.jkhtbh)
+    this.globalData.jkhtbh = event
+    console.log('=======借款合同编号==', this.globalData.jkhtbh)
   },
   setDkxx: function (event) {
-    this.data.dkxx = event
-    console.log('=======贷款信息==', this.data.jkhtbh)
+    this.globalData.dkxx = event
+    console.log('=======贷款信息==', this.globalData.jkhtbh)
   },
   //存放姓名和证件号码
   setXingming: function (event) {
-    this.data.xingming = event;
+    this.globalData.xingming = event;
   },
 
   //存放广告url
   setGuanggaourl: function (event) {
-    this.data.gruangaourl = event;
+    this.globalData.gruangaourl = event;
   },
   setZjbzxbm: function (event) {
-    this.data.zjbzxbm = event;
+    this.globalData.zjbzxbm = event;
   },
   setZjhm: function (event) {
-    this.data.zjhm = event;
+    this.globalData.zjhm = event;
   },
   setDwmc: function (event) {
-    this.data.dwmc = event;
+    this.globalData.dwmc = event;
   },
 
   fmoney(s = 0, n = 2) {
@@ -165,7 +165,7 @@ App({
     return CurrentDate;
   },
   getSign(a, b) {
-    //const key= fun_aes.CryptoJS.enc.Utf8.parse(this.data.pkey.substr(0, 16));  
+    //const key= fun_aes.CryptoJS.enc.Utf8.parse(this.globalData.pkey.substr(0, 16));  
     return fun_sign.Appsign(a, b);
   },
   EncryptBASE64: function (word, keys) {
