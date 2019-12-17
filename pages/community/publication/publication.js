@@ -53,14 +53,14 @@ Page({
 
   user_publication: (that) => {
     var obj = new Object();
-    obj.appid = app.data.appid;//'20181127000101'//
+    obj.appid = app.globalData.appid;//'20181127000101'//
     obj.userid = that.data.data_userid;//userid
     obj.type = '1';
     obj.page = that.data.data_page;
     obj.size = that.data.data_size;
-    obj.sign = app.getSign(obj, app.data.pkey);
+    obj.sign = app.getSign(obj, app.globalData.pkey);
     my.request({
-      url: app.data.url + '/app/community/mine_fbcg.service',
+      url: app.globalData.url + '/app/community/mine_fbcg.service',
       //url:' https://api.sjgjj.cn/app/community/titleck_list.service',
       method: 'POST',
       headers: {

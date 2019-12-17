@@ -38,8 +38,8 @@ Page({
   },
   onShowPopoverTap() {
     //判断是否登录app 未登录跳转登陆页面
-    console.log("app.data.pdsfdl", app.data.pdsfdl);
-    if (app.data.pdsfdl) {
+    console.log("app.globalData.pdsfdl", app.globalData.pdsfdl);
+    if (app.globalData.pdsfdl) {
       this.setData({
         show: true,
       });
@@ -120,7 +120,7 @@ Page({
     var avatar = "";
     var nick_name = "";
     //判断用户是否注册、登录-未登录状态下不可添加回复
-    if (app.data.virtual_user == '1') {
+    if (app.globalData.virtual_user == '1') {
       avatar = virtual_user_info.avatar;
       nick_name = virtual_user_info.nick_name;
     }
@@ -151,12 +151,12 @@ Page({
   //虚拟用户信息查询
   userinfo: (that) => {
     var obj = new Object();
-    obj.appid = app.data.appid;//'20181127000101'//
-    obj.zjhm = app.data.pdsfdl ? app.data.zjhm : '';// '13062619921201003X';////'130582199311173016';////
+    obj.appid = app.globalData.appid;//'20181127000101'//
+    obj.zjhm = app.globalData.pdsfdl ? app.globalData.zjhm : '';// '13062619921201003X';////'130582199311173016';////
     obj.user_type = '0';//0个人用户 1机构用户 //手机登录都是个人用户
-    obj.sign = app.getSign(obj, app.data.pkey);
+    obj.sign = app.getSign(obj, app.globalData.pkey);
     my.request({
-      url: app.data.url + '/app/community/tuser.service',
+      url: app.globalData.url + '/app/community/tuser.service',
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
@@ -172,12 +172,12 @@ Page({
           console.log("存在虚拟用户：", result.data.data);
            virtual_user_info = result.data.data[0];
           //存在虚拟用户
-          app.data.virtual_user = '1';
+          app.globalData.virtual_user = '1';
           that.setData({
             data_userid: result.data.data[0].userid,
             head_img: result.data.data[0].avatar,
           })
-          app.data.virtual_user_state = result.data.data[0].state;//个人审核是否通过  0未通过审批，1通过审批 2审批拒绝通过
+          app.globalData.virtual_user_state = result.data.data[0].state;//个人审核是否通过  0未通过审批，1通过审批 2审批拒绝通过
 
           if (result.data.data[0].state == '1') {
             //通过审核后，校验个人发布权限 0不能发布，1能发布
@@ -197,12 +197,12 @@ Page({
         } else {
           console.log("不存在虚拟用户>>>>>", result);
           //不存在虚拟用户 - 判断用是否初在登录在状态 登录未注册则自动注册
-          if (app.data.pdsfdl) {
+          if (app.globalData.pdsfdl) {
             //用户登录，虚拟用户未注册，注册虚拟用户
             that.addUser(that);
           } else {
             //用户未登录
-            app.data.virtual_user = '0'
+            app.globalData.virtual_user = '0'
             that.setData({
               data_userid: '0',//游客登录
               head_img: '/image/community/head_img.png',
@@ -222,14 +222,14 @@ Page({
   addUser: (that) => {
     var random_number = new Date().getTime() + '';
     var obj = new Object();
-    obj.appid = app.data.appid;
-    obj.zjhm = app.data.zjhm;
+    obj.appid = app.globalData.appid;
+    obj.zjhm = app.globalData.zjhm;
     obj.avatar = '/image/community/head_img.png';
     obj.nick_name = '用户' + random_number.substr(5, 13);
     obj.user_hobby = '';
-    obj.sign = app.getSign(obj, app.data.pkey);
+    obj.sign = app.getSign(obj, app.globalData.pkey);
     my.request({
-      url: app.data.url + '/app/community/tuser_add.service',
+      url: app.globalData.url + '/app/community/tuser_add.service',
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
@@ -260,14 +260,14 @@ Page({
   //社区主题列表查询（list）
   sqztlbcx: (that) => {
     var obj = new Object();
-    obj.appid = app.data.appid;//'20181127000101'//
+    obj.appid = app.globalData.appid;//'20181127000101'//
     obj.userid = that.data.data_userid;
     obj.isshow = '1';//是否展示
     obj.page = that.data.data_page;
     obj.size = that.data.data_size;
-    obj.sign = app.getSign(obj, app.data.pkey);
+    obj.sign = app.getSign(obj, app.globalData.pkey);
     my.request({
-      url: app.data.url + '/app/community/titleck_list.service',
+      url: app.globalData.url + '/app/community/titleck_list.service',
       method: 'POST',
       headers: {
         "Content-Type": "application/json",

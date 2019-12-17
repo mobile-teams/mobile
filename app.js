@@ -8,7 +8,7 @@ var fun_aes = require('/utils/aes/aes.js')
 var iv = fun_aes.CryptoJS.enc.Utf8.parse('A-16-Byte-String');
 
 App({
-  data: {
+  globalData: {
     grzh: 0,
     jkhtbh: 0,
     dwmc: " ",
@@ -58,17 +58,17 @@ App({
      * 强制更新
      */
     const updateManager = my.getUpdateManager()
-    updateManager.onCheckForUpdate(function(res) {
+    updateManager.onCheckForUpdate(function (res) {
       // 请求完新版本信息的回调
       console.log("请求完新版本信息的回调", res.hasUpdate)
       if (res.hasUpdate) {
-        updateManager.onUpdateReady(function(res) {
+        updateManager.onUpdateReady(function (res) {
           //清除缓存
           my.clearStorage();
           my.alert({
             title: '更新提示',
             content: '新版本已经准备好，是否重启应用？',
-            success: function() {
+            success: function () {
               // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
               updateManager.applyUpdate();
             }
@@ -76,7 +76,7 @@ App({
         })
 
         // 新版本下载失败
-        updateManager.onUpdateFailed(function() {
+        updateManager.onUpdateFailed(function () {
           my.alert({
             title: '提示',
             content: '新版本已经上线啦~，请您删除当前小程序，重新搜索打开~'
@@ -89,34 +89,34 @@ App({
     //热启动
   },
   //存放全局变量
-  setGrzh: function(event) {
+  setGrzh: function (event) {
     this.data.grzh = event
     console.log('=======个人账号==', this.data.grzh)
   },
-  setJkhtbh: function(event) {
+  setJkhtbh: function (event) {
     this.data.jkhtbh = event
     console.log('=======借款合同编号==', this.data.jkhtbh)
   },
-  setDkxx: function(event) {
+  setDkxx: function (event) {
     this.data.dkxx = event
     console.log('=======贷款信息==', this.data.jkhtbh)
   },
   //存放姓名和证件号码
-  setXingming: function(event) {
+  setXingming: function (event) {
     this.data.xingming = event;
   },
 
   //存放广告url
-  setGuanggaourl: function(event) {
+  setGuanggaourl: function (event) {
     this.data.gruangaourl = event;
   },
-  setZjbzxbm: function(event) {
+  setZjbzxbm: function (event) {
     this.data.zjbzxbm = event;
   },
-  setZjhm: function(event) {
+  setZjhm: function (event) {
     this.data.zjhm = event;
   },
-  setDwmc: function(event) {
+  setDwmc: function (event) {
     this.data.dwmc = event;
   },
 
@@ -168,14 +168,14 @@ App({
     //const key= fun_aes.CryptoJS.enc.Utf8.parse(this.data.pkey.substr(0, 16));  
     return fun_sign.Appsign(a, b);
   },
-  EncryptBASE64: function(word, keys) {
+  EncryptBASE64: function (word, keys) {
     var key = fun_aes.CryptoJS.enc.Utf8.parse(keys.substr(0, 16));
     var srcs1 = fun_aes.CryptoJS.enc.Utf8.parse(word);
     var encrypted1 = fun_aes.CryptoJS.AES.encrypt(srcs1, key, { iv: iv, mode: fun_aes.CryptoJS.mode.CBC, padding: fun_aes.CryptoJS.pad.Pkcs7 });
     //返回base64加密结果
     return encrypted1.toString();
   },
-  Decrypt: function(word, keys) {
+  Decrypt: function (word, keys) {
     var key = fun_aes.CryptoJS.enc.Utf8.parse(keys.substr(0, 16));
     var decrypt = fun_aes.CryptoJS.AES.decrypt(word, key, { iv: iv, mode: fun_aes.CryptoJS.mode.CBC, padding: fun_aes.CryptoJS.pad.Pkcs7 });
 

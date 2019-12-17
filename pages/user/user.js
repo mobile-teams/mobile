@@ -55,24 +55,24 @@ Page({
 
   onLoad() {
     var obj = new Object();
-    obj.appid = app.data.appid;
-    obj.citybm = app.data.zjbzxbm;
+    obj.appid = app.globalData.appid;
+    obj.citybm = app.globalData.zjbzxbm;
     obj.id = "zjhm";
-    obj.msg = app.data.zjhm;
-    obj.sign = app.getSign(obj, app.data.pkey);
+    obj.msg = app.globalData.zjhm;
+    obj.sign = app.getSign(obj, app.globalData.pkey);
     var obj1 = new Object();
-    obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.data.grkey);
-    obj1.appid = app.data.appid;
-    obj1.citybm = app.data.zjbzxbm;
-    obj1.sign = app.getSign(obj1, app.data.pkey);
-    if (app.data.pdsfdl) {
+    obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.globalData.grkey);
+    obj1.appid = app.globalData.appid;
+    obj1.citybm = app.globalData.zjbzxbm;
+    obj1.sign = app.getSign(obj1, app.globalData.pkey);
+    if (app.globalData.pdsfdl) {
       my.request({
-        url: app.data.url + '/app-web/public/auth/userinfo.service?token=' + app.data.token,
+        url: app.globalData.url + '/app-web/public/auth/userinfo.service?token=' + app.globalData.token,
         method: 'POST',
         headers: {
           "Content-Type": "application/json",
-          "citycode": app.data.zjbzxbm,
-          "appid": app.data.appid
+          "citycode": app.globalData.zjbzxbm,
+          "appid": app.globalData.appid
         },
         data: JSON.stringify(obj1),
 
@@ -81,13 +81,13 @@ Page({
         success: (result) => {
           console.log("info接口返回结果res ：", result);
           if (result.data.ret == 0) {
-            var res = app.Decrypt(result.data.data, app.data.grkey);
+            var res = app.Decrypt(result.data.data, app.globalData.grkey);
             console.log("返回结果解密：：", res);
             if (res.ret == 0) {
               console.log("12312312", res.data);
               this.setData({
-                xingming: this.plusXing(app.data.xingming, 1, 1),
-                dwmc: this.plusXing(app.data.dwmc, 2, 2),
+                xingming: this.plusXing(app.globalData.xingming, 1, 1),
+                dwmc: this.plusXing(app.globalData.dwmc, 2, 2),
                 sjhm: this.plusXing(res.sjhm, 3, 4),
               })
               console.log('99999999', this.data.sjhm);
@@ -135,11 +135,11 @@ Page({
         });
       }
     });
-    console.log(app.data.xingming, app.data.dwmc);
+    console.log(app.globalData.xingming, app.globalData.dwmc);
 
-    console.log("app.data.urls", app.data.urls);
-    console.log("app.data.pdsfdl", app.data.pdsfdl);
-    if (app.data.urls != "" || !app.data.pdsfdl) {
+    console.log("app.globalData.urls", app.globalData.urls);
+    console.log("app.globalData.pdsfdl", app.globalData.pdsfdl);
+    if (app.globalData.urls != "" || !app.globalData.pdsfdl) {
       this.setData({
         iscf: false,
       })
@@ -154,7 +154,7 @@ Page({
    * 问题反馈
    */
   wtfkClick: function(ev) {
-    if (app.data.pdsfdl) {
+    if (app.globalData.pdsfdl) {
       my.navigateTo({ url: '../ywbl/yw/ywmx/ywmx?style=wtfk&ywbm=ywbl/feedback/index1.html' })
     } else {
       my.alert({ content: '请登陆后使用该功能' });
@@ -165,7 +165,7 @@ Page({
 
 
   onCardClick: function(ev) {
-    if (app.data.pdsfdl) {
+    if (app.globalData.pdsfdl) {
       my.navigateTo({ url: '../grzx/grzx' })
     } else {
       my.navigateTo({ url: '/citychose/citychose' })
@@ -191,7 +191,7 @@ Page({
     my.alert({ content: '删除成功' });
   },
   onExit(ev) {
-    app.data.pdsfdl = false;
+    app.globalData.pdsfdl = false;
     this.setData({
       xingming: "欢迎使用手机公积金",
       dwmc: "请授权登录后查看账户信息",

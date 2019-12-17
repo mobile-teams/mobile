@@ -9,14 +9,14 @@ Page({
   onLoad(e) {
     console.log("接收传入参数：", e);
     //判断用户是否未登录
-    if (!app.data.pdsfdl && app.data.zjbzxbm == "") {
-      app.data.zjbzxbm = 'C13010'
+    if (!app.globalData.pdsfdl && app.globalData.zjbzxbm == "") {
+      app.globalData.zjbzxbm = 'C13010'
     }
-    console.log("城市编码：", app.data.zjbzxbm);
+    console.log("城市编码：", app.globalData.zjbzxbm);
     //主题详情页面
     if (e.h5param == 'detail') {
       this.setData({
-        H5_url: app.data.url + '/alipay/community/detail/index1.html?date=' + new Date().getTime() + '&citybm=' + app.data.zjbzxbm + '&appid=' + app.data.appid + '&zjhm=' + app.data.zjhm + '&szsx=' + e.szsx  + '&avatar=' + e.avatar+ '&btid=' + e.title_id + '&nick_name=' + encodeURI(encodeURI(e.nick_name)) ,
+        H5_url: app.globalData.url + '/alipay/community/detail/index1.html?date=' + new Date().getTime() + '&citybm=' + app.globalData.zjbzxbm + '&appid=' + app.globalData.appid + '&zjhm=' + app.globalData.zjhm + '&szsx=' + e.szsx  + '&avatar=' + e.avatar+ '&btid=' + e.title_id + '&nick_name=' + encodeURI(encodeURI(e.nick_name)) ,
         userid: e.userid,
         title_id: e.title_id,
       });
@@ -24,7 +24,7 @@ Page({
     //主题发布页面
     else if (e.h5param == 'edit_detail') {
       this.setData({
-        H5_url: app.data.url + '/alipay/community/editor/publish.html?date=' + new Date().getTime() + '&citybm=' + app.data.zjbzxbm + '&zjhm=' + app.data.zjhm,
+        H5_url: app.globalData.url + '/alipay/community/editor/publish.html?date=' + new Date().getTime() + '&citybm=' + app.globalData.zjbzxbm + '&zjhm=' + app.globalData.zjhm,
         userid: e.userid,
       });
     }
@@ -32,7 +32,7 @@ Page({
     //草稿箱编辑页面
     else if (e.h5param == 'edit_draft') {
       this.setData({
-        H5_url: app.data.url + '/alipay/community/editor/draftbox.html?date=' + new Date().getTime() + '&citybm=' + app.data.zjbzxbm,
+        H5_url: app.globalData.url + '/alipay/community/editor/draftbox.html?date=' + new Date().getTime() + '&citybm=' + app.globalData.zjbzxbm,
         userid: e.userid,
         title_id: e.title_id,
       });

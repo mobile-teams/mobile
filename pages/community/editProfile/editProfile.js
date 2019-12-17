@@ -57,12 +57,12 @@ Page({
    */
   userinfo: (that) => {
     var obj = new Object();
-    obj.appid = app.data.appid;//'20181127000101'//
-    obj.zjhm = app.data.zjhm; //'13062619921201003X';//'130102199508132441';//'13062619921201003X';
+    obj.appid = app.globalData.appid;//'20181127000101'//
+    obj.zjhm = app.globalData.zjhm; //'13062619921201003X';//'130102199508132441';//'13062619921201003X';
     obj.user_type = '0';//0个人用户 1机构用户
-    obj.sign = app.getSign(obj, app.data.pkey);
+    obj.sign = app.getSign(obj, app.globalData.pkey);
     my.request({
-      url: app.data.url + '/app/community/tuser.service',
+      url: app.globalData.url + '/app/community/tuser.service',
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
@@ -199,14 +199,14 @@ Page({
    */
   addUser: (that) => {
     var obj = new Object();
-    obj.appid = app.data.appid;//'20181127000101'//
-    obj.zjhm = app.data.zjhm; //'13062619921201003X'//app.data.zjhm;//
+    obj.appid = app.globalData.appid;//'20181127000101'//
+    obj.zjhm = app.globalData.zjhm; //'13062619921201003X'//app.globalData.zjhm;//
     obj.avatar = that.data.head_img;
     obj.nick_name = that.data.nick_name;
     obj.user_hobby = that.data.user_hobby;
-    obj.sign = app.getSign(obj, app.data.pkey);
+    obj.sign = app.getSign(obj, app.globalData.pkey);
     my.request({
-      url: app.data.url + '/app/community/tuser_add.service',
+      url: app.globalData.url + '/app/community/tuser_add.service',
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
@@ -238,15 +238,15 @@ Page({
    */
   updateUser: (that) => {
     var obj = new Object();
-    obj.appid = app.data.appid;//'20181127000101'//
+    obj.appid = app.globalData.appid;//'20181127000101'//
     obj.userid = that.data.data_userid;
     obj.avatar = that.data.head_img;
     obj.nick_name = that.data.nick_name;
     obj.user_hobby = that.data.user_hobby;
-    obj.sign = app.getSign(obj, app.data.pkey);
+    obj.sign = app.getSign(obj, app.globalData.pkey);
     console.log("tuser_updateobj", obj);
     my.request({
-      url: app.data.url + '/app/community/tuser_update.service',
+      url: app.globalData.url + '/app/community/tuser_update.service',
       method: 'POST',
       headers: {
         "Content-Type": "application/json",

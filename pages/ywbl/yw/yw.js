@@ -9,56 +9,56 @@ Page({
     my.setNavigationBar({
       title: '业务办理',
     });
-    console.log("onShow zjbzxbm<<<<<<<<<", app.data.zjbzxbm);
+    console.log("onShow zjbzxbm<<<<<<<<<", app.globalData.zjbzxbm);
   },
 
   onLoad() {
-    console.log("onLoad app.data.pdsfdl<<<<<<<<<", app.data.pdsfdl);
-    console.log("onLoad app.data.zjbzxbm<<<<<<<<<", app.data.zjbzxbm);
+    console.log("onLoad app.globalData.pdsfdl<<<<<<<<<", app.globalData.pdsfdl);
+    console.log("onLoad app.globalData.zjbzxbm<<<<<<<<<", app.globalData.zjbzxbm);
     this.ywpage();
   },
   ywpage: function () {
     console.log("进入ywpage方法：");
 
-    if (app.data.pdsfdl) {
+    if (app.globalData.pdsfdl) {
       this.setData({
         //跳转ywbl下对应城市yw页面（已登录）
-        ywurl: app.data.url + '/alipay/ywbl/yw/' + app.data.zjbzxbm + '/yw_cx.html?date=' + new Date().getTime()
+        ywurl: app.globalData.url + '/alipay/ywbl/yw/' + app.globalData.zjbzxbm + '/yw_cx.html?date=' + new Date().getTime()
       });
-      console.log("（已登录）app.url>>>>>>--", app.data.url)
+      console.log("（已登录）app.url>>>>>>--", app.globalData.url)
       console.log('（已登录）url>>>>>>>>-', this.data.ywurl);
       // this.webViewContext = my.createWebViewContext('web-view_yw');
     }
     else {
-      if (app.data.zjbzxbm == '') {
+      if (app.globalData.zjbzxbm == '') {
         var that = this
         my.getStorage({
           key: 'city',
           success(res) {
             if (res.data != null) {
-              app.data.zjbzxbm = res.data.citybm;
+              app.globalData.zjbzxbm = res.data.citybm;
               that.setData({
                 citybm: res.data.citybm,
               });
-              console.log("缓存zjbzxbm<<<<<<<<<", app.data.zjbzxbm);
+              console.log("缓存zjbzxbm<<<<<<<<<", app.globalData.zjbzxbm);
             }
           },
         });
       }
       this.setData({
-        ywurl: app.data.url + '/alipay/ywbl/yw_simple.html?date=' + new Date().getTime()
+        ywurl: app.globalData.url + '/alipay/ywbl/yw_simple.html?date=' + new Date().getTime()
       });
-      console.log("《《未登录》》app.url>>>>>>--", app.data.url)
+      console.log("《《未登录》》app.url>>>>>>--", app.globalData.url)
       console.log('《《未登录》》url>>>>>>>>-', this.data.ywurl);
     }
     // this.setData({
-    //   yw_zjbzxbm: app.data.zjbzxbm
+    //   yw_zjbzxbm: app.globalData.zjbzxbm
     // });
     this.webViewContext = my.createWebViewContext('web-view_yw');
   },
 
   yw_onMessage(e) {
     console.log("接收业务选择页面H5参数！！！", e.detail);
-    this.webViewContext.postMessage({ 'xingming': app.data.xingming, 'zjhm': app.data.zjhm, 'citycode': app.data.zjbzxbm, 'token': app.data.token, 'grkey': app.data.grkey, 'pkey': app.data.pkey });
+    this.webViewContext.postMessage({ 'xingming': app.globalData.xingming, 'zjhm': app.globalData.zjhm, 'citycode': app.globalData.zjbzxbm, 'token': app.globalData.token, 'grkey': app.globalData.grkey, 'pkey': app.globalData.pkey });
   },
 });

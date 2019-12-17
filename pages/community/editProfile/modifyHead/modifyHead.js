@@ -7,10 +7,10 @@ Page({
   //头像列表信息
   photochk: (that) => {
     var obj = new Object();
-    obj.appid = app.data.appid;//'20181127000101'
-    obj.sign = app.getSign(obj, app.data.pkey);
+    obj.appid = app.globalData.appid;//'20181127000101'
+    obj.sign = app.getSign(obj, app.globalData.pkey);
     my.request({
-      url: app.data.url + '/app/community/photochk.service',
+      url: app.globalData.url + '/app/community/photochk.service',
       method: 'POST',
       headers: {
         "Content-Type": "application/json",

@@ -5,9 +5,9 @@ Page({
   },
   onLoad() {
       this.setData({
-        ggurl: app.data.gruangaourl
+        ggurl: app.globalData.gruangaourl
       });
-      console.log('url', this.data.ggurl, app.data.gruangaourl);
+      console.log('url', this.data.ggurl, app.globalData.gruangaourl);
       this.webViewContext = my.createWebViewContext('web-view-1');
     
     // 向H5发送消息

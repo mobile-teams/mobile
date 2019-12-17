@@ -105,14 +105,14 @@ Page({
   //title_search查询
   titleSearch: (that) => {
     var obj = new Object();
-    obj.appid = app.data.appid;//'20181127000101'//
+    obj.appid = app.globalData.appid;//'20181127000101'//
     obj.page = that.data.page;
     obj.title_key = that.data.titleKey;
     obj.userid = v_userid == '' ? '0' : v_userid;
-    obj.sign = app.getSign(obj, app.data.pkey);
+    obj.sign = app.getSign(obj, app.globalData.pkey);
     console.log("obj", obj);
     my.request({
-      url: app.data.url + '/app/community/title_search.service',
+      url: app.globalData.url + '/app/community/title_search.service',
       method: 'POST',
       headers: {
         "Content-Type": "application/json",

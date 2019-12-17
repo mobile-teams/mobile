@@ -7,33 +7,33 @@ Page({
     var ywmxurl = '';
     console.log("ywmx_接参数eee》》》", e);
     if (e.style != '' && e.style != null && e.style == 'public') {
-      ywmxurl = app.data.url + '/alipay/' + e.ywbm+'?date=' + new Date().getTime();
+      ywmxurl = app.globalData.url + '/alipay/' + e.ywbm+'?date=' + new Date().getTime();
     }
     //跳转公共页面 - 年度账单
     else if (e.style && e.style === 'ndzd') {
-      ywmxurl = app.data.url + '/alipay/' + e.ywbm +
-        '?citybm=' + app.data.zjbzxbm +
-        '&grzh=' + app.data.grzh +
-        '&jkhtbh=' + encodeURI(encodeURI(app.data.jkhtbh)) +
-        '&appid=' + app.data.appid +
-        '&grkey=' + app.data.grkey +
-        '&token=' + app.data.token +
+      ywmxurl = app.globalData.url + '/alipay/' + e.ywbm +
+        '?citybm=' + app.globalData.zjbzxbm +
+        '&grzh=' + app.globalData.grzh +
+        '&jkhtbh=' + encodeURI(encodeURI(app.globalData.jkhtbh)) +
+        '&appid=' + app.globalData.appid +
+        '&grkey=' + app.globalData.grkey +
+        '&token=' + app.globalData.token +
         '&location=' + e.location +
         '&date=' + new Date().getTime();
     }
     //跳转公共页面 - 问题反馈
     else if (e.style && e.style === 'wtfk') {
-      ywmxurl = app.data.url + '/alipay/' + e.ywbm +
-        '?citybm=' + app.data.zjbzxbm +
-        '&grzh=' + app.data.grzh +
-        '&zjhm=' + app.data.zjhm +
-        '&appid=' + app.data.appid +
-        '&grkey=' + app.data.grkey +
-        '&token=' + app.data.token +
+      ywmxurl = app.globalData.url + '/alipay/' + e.ywbm +
+        '?citybm=' + app.globalData.zjbzxbm +
+        '&grzh=' + app.globalData.grzh +
+        '&zjhm=' + app.globalData.zjhm +
+        '&appid=' + app.globalData.appid +
+        '&grkey=' + app.globalData.grkey +
+        '&token=' + app.globalData.token +
         '&date=' + new Date().getTime();
 
     } else {
-      ywmxurl = app.data.url + '/alipay/' + e.ywbm + '?citycode=' + app.data.zjbzxbm + '&date=' + new Date().getTime();
+      ywmxurl = app.globalData.url + '/alipay/' + e.ywbm + '?citycode=' + app.globalData.zjbzxbm + '&date=' + new Date().getTime();
     }
 
     this.setData({
@@ -64,23 +64,23 @@ Page({
             console.log("刷脸111成功成功成功返回》》》：", res);
             //向后台发送刷脸请求222
             var obj = new Object();
-            obj.appid = app.data.appid;
+            obj.appid = app.globalData.appid;
             obj.zimid = res.zimId;
             obj.bizid = e.detail.bizid;
-            obj.sign = app.getSign(obj, app.data.pkey);
+            obj.sign = app.getSign(obj, app.globalData.pkey);
             console.log("刷脸--JSON.stringify(obj):::", JSON.stringify(obj))
             var obj1 = new Object();
-            obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.data.pkey);
-            obj1.appid = app.data.appid;
-            obj1.citybm = app.data.zjbzxbm;
-            obj1.sign = app.getSign(obj1, app.data.pkey);
+            obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.globalData.pkey);
+            obj1.appid = app.globalData.appid;
+            obj1.citybm = app.globalData.zjbzxbm;
+            obj1.sign = app.getSign(obj1, app.globalData.pkey);
             my.request({
-              url: app.data.url + '/app-web/personal/common/aliface.service',
+              url: app.globalData.url + '/app-web/personal/common/aliface.service',
               method: 'POST',
               headers: {
                 "Content-Type": "application/json",
                 "citycode": "CSY001",
-                "appid": app.data.appid
+                "appid": app.globalData.appid
               },
               data: JSON.stringify(obj1),
               dataType: 'json',
@@ -89,7 +89,7 @@ Page({
                 //判断刷脸是否成功
                 console.log("刷脸接口222成功成功返回》》》：", result);
                 //向H5发送成功信息
-                var res = app.Decrypt(result.data.data, app.data.pkey);
+                var res = app.Decrypt(result.data.data, app.globalData.pkey);
                 this.webViewContext.postMessage({ 'success': res.success, 'zimmsg': res.zimMsg });
               },
               fail: (res) => {

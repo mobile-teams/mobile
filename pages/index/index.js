@@ -22,7 +22,7 @@ Page({
     dkzt: '',
     indexgrzh: 0,
     xingming: '',
-    notlogged_img: app.data.url + '/alipay/img/icon_zhcx_notlogged.png',//index未登录图片
+    notlogged_img: app.globalData.url + '/alipay/img/icon_zhcx_notlogged.png',//index未登录图片
     // 轮播图变量
     images: [],
     indicatorDots: true,
@@ -66,7 +66,7 @@ Page({
     })
   },
   sqdltab() {
-    app.data.jmtzbz = '/index/index',
+    app.globalData.jmtzbz = '/index/index',
       my.navigateTo({ url: '/citychose/citychose' });
   },
   onShow() {
@@ -76,19 +76,19 @@ Page({
   },
 
   onLoad() {
-    console.log(">>>>>>xingming:", app.data.xingming)
+    console.log(">>>>>>xingming:", app.globalData.xingming)
     this.setData({
-      pdsfdl: app.data.pdsfdl,
+      pdsfdl: app.globalData.pdsfdl,
     });
-    console.log("pdsfdl<<<<<<", app.data.pdsfdl);
-    if (app.data.pdsfdl) {
-         my.reportAnalytics('p_login', { "xingming": app.data.xingming, "zjbzxbm": app.data.zjbzxbm,"zjhm":app.getSign(app.data.zjhm , app.data.pkey)});
+    console.log("pdsfdl<<<<<<", app.globalData.pdsfdl);
+    if (app.globalData.pdsfdl) {
+         my.reportAnalytics('p_login', { "xingming": app.globalData.xingming, "zjbzxbm": app.globalData.zjbzxbm,"zjhm":app.getSign(app.globalData.zjhm , app.globalData.pkey)});
       this.setData({
-        xingming: app.data.xingming,
+        xingming: app.globalData.xingming,
         images: [
-          { imgUrl: app.data.url + '/alipay/banner/' + app.data.zjbzxbm + '/banna3.jpg?date=' + new Date().getTime(), url: app.data.url + '/alipay/banner/' + app.data.zjbzxbm + '/banna3.html?date=' + new Date().getTime(), style: 'banna' },
-          { imgUrl: app.data.url + '/alipay/ywbl/ndzd/ndzd_banner.png', url: app.data.url + '/alipay/ywbl/ndzd/index.html', style: 'ndzd' },
-          { imgUrl: app.data.url + '/alipay/banner/' + app.data.zjbzxbm + '/banna1.jpg?date=' + new Date().getTime(), url: app.data.url + '/alipay/banner/' + app.data.zjbzxbm + '/banna1.html?date=' + new Date().getTime(), style: 'banna' },],
+          { imgUrl: app.globalData.url + '/alipay/banner/' + app.globalData.zjbzxbm + '/banna3.jpg?date=' + new Date().getTime(), url: app.globalData.url + '/alipay/banner/' + app.globalData.zjbzxbm + '/banna3.html?date=' + new Date().getTime(), style: 'banna' },
+          { imgUrl: app.globalData.url + '/alipay/ywbl/ndzd/ndzd_banner.png', url: app.globalData.url + '/alipay/ywbl/ndzd/index.html', style: 'ndzd' },
+          { imgUrl: app.globalData.url + '/alipay/banner/' + app.globalData.zjbzxbm + '/banna1.jpg?date=' + new Date().getTime(), url: app.globalData.url + '/alipay/banner/' + app.globalData.zjbzxbm + '/banna1.html?date=' + new Date().getTime(), style: 'banna' },],
       });
       this.gjjdkjbxxcx(this);
        
@@ -100,7 +100,7 @@ Page({
   onPullDownRefresh() {
     //判断是否登录状态
     //刷新
-    if (app.data.pdsfdl) {
+    if (app.globalData.pdsfdl) {
       this.gjjdkjbxxcx(this);
     }
 
@@ -111,27 +111,27 @@ Page({
 
     that.zhcxinfo(that);
     var obj = new Object();
-    obj.appid = app.data.appid;
-    obj.zjbzxbm = app.data.zjbzxbm;
-    obj.xingming = app.data.xingming;
-    obj.zjhm = app.data.zjhm;
+    obj.appid = app.globalData.appid;
+    obj.zjbzxbm = app.globalData.zjbzxbm;
+    obj.xingming = app.globalData.xingming;
+    obj.zjhm = app.globalData.zjhm;
     obj.login_way = '05';
-    obj.sign = app.getSign(obj, app.data.pkey)
+    obj.sign = app.getSign(obj, app.globalData.pkey)
 
     var obj1 = new Object();
-    obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.data.grkey);
-    obj1.appid = app.data.appid;
-    obj1.citybm = app.data.zjbzxbm;
-    obj1.sign = app.getSign(obj1, app.data.pkey);
+    obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.globalData.grkey);
+    obj1.appid = app.globalData.appid;
+    obj1.citybm = app.globalData.zjbzxbm;
+    obj1.sign = app.getSign(obj1, app.globalData.pkey);
 
     my.request({
-      url: app.data.url + '/app-web/personal/public/gjjdkjbxxcx.service?token=' + app.data.token,
-      //url: 'http://192.168.54.64:8000/app-web/personal/public/gjjdkjbxxcx.service?token='+app.data.token,
+      url: app.globalData.url + '/app-web/personal/public/gjjdkjbxxcx.service?token=' + app.globalData.token,
+      //url: 'http://192.168.54.64:8000/app-web/personal/public/gjjdkjbxxcx.service?token='+app.globalData.token,
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm,
-        "appid": app.data.appid
+        "citycode": app.globalData.zjbzxbm,
+        "appid": app.globalData.appid
       },
       data: JSON.stringify(obj1),
       dataType: 'json',
@@ -143,8 +143,8 @@ Page({
             title: "提示",
             content: result.data.msg,
             success: () => {
-              app.data.urls = "";//如 从城服进入，没有查到信息，需置空urls。否则导致死循环。
-              app.data.pdsfdl = false;
+              app.globalData.urls = "";//如 从城服进入，没有查到信息，需置空urls。否则导致死循环。
+              app.globalData.pdsfdl = false;
               my.removeStorage({
                 key: 'token_issue',
                 success: function () {
@@ -157,7 +157,7 @@ Page({
           });
           return;
         }
-        var res = app.Decrypt(result.data.data, app.data.grkey);
+        var res = app.Decrypt(result.data.data, app.globalData.grkey);
         console.log("返回结果解密：：", res);
 
         if (res.data == null) {
@@ -166,8 +166,8 @@ Page({
             content: '未查询到您的公积金信息!',
             success: () => {
               //my.navigateBack();
-              app.data.urls = "";//如 从城服进入，没有查到信息，需置空urls。否则导致死循环。
-              app.data.pdsfdl = false;
+              app.globalData.urls = "";//如 从城服进入，没有查到信息，需置空urls。否则导致死循环。
+              app.globalData.pdsfdl = false;
               my.reLaunch({
                 url: '/pages/index/index'
               });
@@ -239,12 +239,12 @@ Page({
             grzhxx1.push(res.data[0].gjjxx[i]);
             grzhxx[i] = res.data[0].gjjxx[i].grzh + " " + res.data[0].gjjxx[i].grzhzt;
           }
- //my.reportAnalytics('p_login', { "xingming": that.data.xingming, "zjbzxbm": app.data.zjbzxbm,"grzh":that.data.grzh });
+ //my.reportAnalytics('p_login', { "xingming": that.data.xingming, "zjbzxbm": app.globalData.zjbzxbm,"grzh":that.data.grzh });
         }
        
       },
       fail: function (result) {
-        app.data.pdsfdl = false;
+        app.globalData.pdsfdl = false;
         my.alert({
           title: "提示",
           content: '服务正在维护。。。',
@@ -267,27 +267,27 @@ Page({
   //账户信息查询
   zhcxinfo: (that) => {
     var obj = new Object();
-    obj.appid = app.data.appid;
-    obj.zjbzxbm = app.data.zjbzxbm;
-    obj.citybm = app.data.zjbzxbm;
-    obj.xingming = app.data.xingming;
-    obj.zjhm = app.data.zjhm;
+    obj.appid = app.globalData.appid;
+    obj.zjbzxbm = app.globalData.zjbzxbm;
+    obj.citybm = app.globalData.zjbzxbm;
+    obj.xingming = app.globalData.xingming;
+    obj.zjhm = app.globalData.zjhm;
     obj.login_way = '05';
-    obj.sign = app.getSign(obj, app.data.pkey)
+    obj.sign = app.getSign(obj, app.globalData.pkey)
 
     var obj1 = new Object();
-    obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.data.grkey);
-    obj1.appid = app.data.appid;
-    obj1.citybm = app.data.zjbzxbm;
-    obj1.sign = app.getSign(obj1, app.data.pkey);
+    obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.globalData.grkey);
+    obj1.appid = app.globalData.appid;
+    obj1.citybm = app.globalData.zjbzxbm;
+    obj1.sign = app.getSign(obj1, app.globalData.pkey);
 
     my.request({
-      url: app.data.url + '/app-web/public/zhcx/info.service?token=' + app.data.token,
+      url: app.globalData.url + '/app-web/public/zhcx/info.service?token=' + app.globalData.token,
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        "citycode": app.data.zjbzxbm,
-        "appid": app.data.appid
+        "citycode": app.globalData.zjbzxbm,
+        "appid": app.globalData.appid
       },
       data: JSON.stringify(obj1),
       dataType: 'json',
@@ -299,8 +299,8 @@ Page({
             title: "提示",
             content: result.data.msg,
             success: () => {
-              app.data.urls = "";//如 从城服进入，没有查到信息，需置空urls。否则导致死循环。
-              app.data.pdsfdl = false;
+              app.globalData.urls = "";//如 从城服进入，没有查到信息，需置空urls。否则导致死循环。
+              app.globalData.pdsfdl = false;
               my.removeStorage({
                 key: 'token_issue',
                 success: function () {
@@ -313,7 +313,7 @@ Page({
           });
           return;
         }
-        var res = app.Decrypt(result.data.data, app.data.grkey);
+        var res = app.Decrypt(result.data.data, app.globalData.grkey);
         console.log("返回结果解密：：", res);
 
         if (res.ret == 0) {
@@ -371,7 +371,7 @@ Page({
   //缴存提取信息
   zjjctqxx: (that) => {
     for (var i = 0; i < gjjxxArr.length; i++) {
-      if (app.data.grzh == gjjxxArr[i].grzh) {
+      if (app.globalData.grzh == gjjxxArr[i].grzh) {
         var gjjxxmx = gjjxxArr[i];
       }
     }
@@ -511,7 +511,7 @@ Page({
 
 
           });
-          app.data.jkhtbh = wddk[i].jkhtbh;
+          app.globalData.jkhtbh = wddk[i].jkhtbh;
         }
       },
     });
