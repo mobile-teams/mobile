@@ -88,7 +88,8 @@ Page({
           var obj = new Object();
           obj.appid = app.globalData.appid;
           obj.authCode = authCode;
-          obj.citybm = "CSY001";
+         // obj.citybm = "CSY001";
+         obj.citybm = app.globalData.zjbzxbm;
           obj.sign = app.getSign(obj, app.globalData.pkey)
           var obj1 = new Object();
           obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.globalData.pkey);
@@ -125,7 +126,7 @@ Page({
                   // app.globalData.xingming = '古次爱';  app.globalData.zjhm = '130102197909202165';
                 //  app.globalData.xingming = '凌感日'; app.globalData.zjhm = '130104198208162129';
                   app.globalData.zjbzxbm = this.data.citybm;
-                  this.getissue();//获取token令牌
+                this.getissue();//获取token令牌
                 } else {
                   my.hideLoading({
                     page: that,  // 防止执行时已经切换到其它页面，page 指向不准确
@@ -148,6 +149,7 @@ Page({
 
             },
             fail: () => {
+              let that = this;
               my.hideLoading({
                 page: that,  // 防止执行时已经切换到其它页面，page 指向不准确
               });
