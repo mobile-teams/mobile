@@ -60,6 +60,7 @@ Page({
     obj.appid = app.globalData.appid;//'20181127000101'//
     obj.zjhm = app.globalData.zjhm; //'13062619921201003X';//'130102199508132441';//'13062619921201003X';
     obj.user_type = '0';//0个人用户 1机构用户
+    obj.citybm = app.globalData.zjbzxbm; //新增citybm字段，区分城市不同内容
     obj.sign = app.getSign(obj, app.globalData.pkey);
     my.request({
       url: app.globalData.url + '/app/community/tuser.service',
@@ -204,6 +205,7 @@ Page({
     obj.avatar = that.data.head_img;
     obj.nick_name = that.data.nick_name;
     obj.user_hobby = that.data.user_hobby;
+    obj.citybm = app.globalData.zjbzxbm; //新增citybm字段，区分城市不同内容
     obj.sign = app.getSign(obj, app.globalData.pkey);
     my.request({
       url: app.globalData.url + '/app/community/tuser_add.service',
@@ -243,6 +245,7 @@ Page({
     obj.avatar = that.data.head_img;
     obj.nick_name = that.data.nick_name;
     obj.user_hobby = that.data.user_hobby;
+    obj.citybm = app.globalData.zjbzxbm; //新增citybm字段，区分城市不同内容
     obj.sign = app.getSign(obj, app.globalData.pkey);
     console.log("tuser_updateobj", obj);
     my.request({

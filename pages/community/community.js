@@ -154,6 +154,7 @@ Page({
     obj.appid = app.globalData.appid;//'20181127000101'//
     obj.zjhm = app.globalData.pdsfdl ? app.globalData.zjhm : '';// '13062619921201003X';////'130582199311173016';////
     obj.user_type = '0';//0个人用户 1机构用户 //手机登录都是个人用户
+    obj.citybm = app.globalData.zjbzxbm; //新增citybm字段，区分城市不同内容
     obj.sign = app.getSign(obj, app.globalData.pkey);
     my.request({
       url: app.globalData.url + '/app/community/tuser.service',
@@ -227,6 +228,7 @@ Page({
     obj.avatar = '/image/community/head_img.png';
     obj.nick_name = '用户' + random_number.substr(5, 13);
     obj.user_hobby = '';
+    obj.citybm = app.globalData.zjbzxbm; //新增citybm字段，区分城市不同内容
     obj.sign = app.getSign(obj, app.globalData.pkey);
     my.request({
       url: app.globalData.url + '/app/community/tuser_add.service',
@@ -265,6 +267,7 @@ Page({
     obj.isshow = '1';//是否展示
     obj.page = that.data.data_page;
     obj.size = that.data.data_size;
+    obj.citybm = app.globalData.zjbzxbm; //新增citybm字段，区分城市不同内容
     obj.sign = app.getSign(obj, app.globalData.pkey);
     my.request({
       url: app.globalData.url + '/app/community/titleck_list.service',

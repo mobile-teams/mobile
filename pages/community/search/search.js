@@ -108,6 +108,7 @@ Page({
     obj.appid = app.globalData.appid;//'20181127000101'//
     obj.page = that.data.page;
     obj.title_key = that.data.titleKey;
+    obj.citybm = app.globalData.zjbzxbm; //新增citybm字段，区分城市不同内容
     obj.userid = v_userid == '' ? '0' : v_userid;
     obj.sign = app.getSign(obj, app.globalData.pkey);
     console.log("obj", obj);

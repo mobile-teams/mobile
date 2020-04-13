@@ -8,6 +8,7 @@ Page({
   photochk: (that) => {
     var obj = new Object();
     obj.appid = app.globalData.appid;//'20181127000101'
+    obj.citybm = app.globalData.zjbzxbm; //新增citybm字段，区分城市不同内容
     obj.sign = app.getSign(obj, app.globalData.pkey);
     my.request({
       url: app.globalData.url + '/app/community/photochk.service',
