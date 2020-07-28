@@ -16,8 +16,8 @@ App({
     xingming: "",
     zjhm: "",
     urls: "",   //城服接入标志参数，慎改
-    // url: "https://openapi.sjgjj.cn",
-    url: "https://apics.sjgjj.cn",//测试环境。
+     url: "https://openapi.sjgjj.cn",
+    //url: "https://apics.sjgjj.cn",//测试环境。
     zjbzxbm: "",
     gruangaourl: " ",
     appid: "20170815290101",
