@@ -267,7 +267,7 @@ Page({
     obj.isshow = '1';//是否展示
     obj.page = that.data.data_page;
     obj.size = that.data.data_size;
-    obj.citybm = app.globalData.zjbzxbm; //新增citybm字段，区分城市不同内容
+    obj.citybm = app.globalData.zjbzxbm ? app.globalData.zjbzxbm:"1"; //新增citybm字段，区分城市不同内容,未选择城市随便传一个不为空的字符串。
     obj.sign = app.getSign(obj, app.globalData.pkey);
     my.request({
       url: app.globalData.url + '/app/community/titleck_list.service',
