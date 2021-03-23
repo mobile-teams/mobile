@@ -73,6 +73,7 @@ Page({
     my.setNavigationBar({
       title: '账户查询',
     });
+    // this.onLoad(); //开发工具测试时放开
   },
 
   onLoad() {

@@ -62,19 +62,37 @@ Page({
     obj.user_type = '0';//0个人用户 1机构用户
     obj.citybm = app.globalData.zjbzxbm; //新增citybm字段，区分城市不同内容
     obj.sign = app.getSign(obj, app.globalData.pkey);
+
+    var obj1 = new Object();
+    obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.globalData.pkey);
+    obj1.appid = app.globalData.appid;
+    obj1.citybm = app.globalData.zjbzxbm;
+    obj1.sign = app.getSign(obj1, app.globalData.pkey);
+
     my.request({
       url: app.globalData.url + '/app/community/tuser.service',
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
         "citycode": 'CSY001',
+        "appid": app.globalData.appid
       },
-      data: JSON.stringify(obj),
+      data: JSON.stringify(obj1),
 
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
-      success: (result) => {
-        console.log("result#@@@", result.data);
+      success: (res) => {
+        console.log("用户信息查询 res.data:", res.data);
+        if (res.data.ret == 0) {
+          var result = new Object();
+          result.data = app.Decrypt(res.data.data, app.globalData.pkey);
+          console.log("用户信息查询 tuser:", result);
+        } else {
+          my.alert({
+            title: res.data.msg
+          });
+          return;
+        }
         if (result.data.msg && result.data.msg === "查询为空") {
           that.getUserMsg(that);
           that.setData({
@@ -207,19 +225,39 @@ Page({
     obj.user_hobby = that.data.user_hobby;
     obj.citybm = app.globalData.zjbzxbm; //新增citybm字段，区分城市不同内容
     obj.sign = app.getSign(obj, app.globalData.pkey);
+
+    var obj1 = new Object();
+    obj1.data = app.EncryptBASE64(JSON.stringify(obj), app.globalData.pkey);
+    obj1.appid = app.globalData.appid;
+    obj1.citybm = app.globalData.zjbzxbm;
+    obj1.sign = app.getSign(obj1, app.globalData.pkey);
+
+
     my.request({
       url: app.globalData.url + '/app/community/tuser_add.service',
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
         "citycode": 'CSY001',
+        "appid": app.globalData.appid
       },
-      data: JSON.stringify(obj),
+      data: JSON.stringify(obj1),
 
       dataType: 'json',
       contentType: 'application/json;charset=UTF-8', //contentType很重要    
-      success: (result) => {
-        console.log("虚拟用户新增result.data:", result.data);
+      success: (res) => {
+        console.log("虚拟用户自动注册 res.data:", res.data);
+        if (res.data.ret == 0) {
+          var result = new Object();
+          result.data = app.Decrypt(res.data.data, app.globalData.pkey);
+          console.log("虚拟用户自动注册 result:", result);
+        } else {
+          my.alert({
+            title: res.data.msg
+          });
+          return;
+        }
+
         if (result.data.ret === '0') {
           my.reLaunch({
             url: '/pages/community/community'

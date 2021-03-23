@@ -118,10 +118,8 @@ Page({
                 if (res.msg == null) {
                   app.globalData.xingming = res.param.userName;
                   app.globalData.zjhm = res.param.certNo;
-                  // app.globalData.xingming = '闽意常';
-                  // app.globalData.zjhm = '210603198210280037'
-                  // app.globalData.xingming = '况后文最';
-                  // app.globalData.zjhm = '130102197012030629'
+                  // app.globalData.xingming = '闽意常'; app.globalData.zjhm = '210603198210280037'
+                  // app.globalData.xingming = '况后文最'; app.globalData.zjhm = '130102197012030629'
                   //app.globalData.urls = "";  初次登入不再置空，需通过该变量，控制退出登录按钮的存在与否，若未查到信息，在index页面置空，防止造成死循环。
                   // app.globalData.xingming = '古次爱';  app.globalData.zjhm = '130102197909202165';
                 //  app.globalData.xingming = '凌感日'; app.globalData.zjhm = '130104198208162129';
@@ -207,6 +205,7 @@ Page({
           app.globalData.grkey = result.data.grkey;
           app.globalData.pdsfdl = true;
           my.hideLoading();
+          // my.switchTab({  //开发工具使用
           my.reLaunch({
             url: '/pages/index/index', // 页面路径。如果页面不为 tabbar 页面则路径后可以带参数。参数规则如下：路径与参数之间使用
           });
@@ -254,6 +253,7 @@ Page({
                   }
                 });
                 app.globalData.pdsfdl = true;
+                // my.switchTab({  //开发工具使用
                 my.reLaunch({
                   url: '/pages/index/index', // 页面路径。如果页面不为 tabbar 页面则路径后可以带参数。参数规则如下：路径与参数之间使用
                 });
