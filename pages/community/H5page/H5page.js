@@ -16,7 +16,7 @@ Page({
     //主题详情页面
     if (e.h5param == 'detail') {
       this.setData({
-        H5_url: app.globalData.url + '/alipay/community/detail/index1.html?date=' + new Date().getTime() + '&citybm=' + app.globalData.zjbzxbm + '&appid=' + app.globalData.appid + '&zjhm=' + app.globalData.zjhm + '&szsx=' + e.szsx  + '&avatar=' + e.avatar+ '&btid=' + e.title_id + '&nick_name=' + encodeURI(encodeURI(e.nick_name)) ,
+        H5_url: app.globalData.url + '/alipay/community/detail/index1.html?date=' + new Date().getTime() + '&citybm=' + app.globalData.zjbzxbm + '&appid=' + app.globalData.appid + '&szsx=' + e.szsx + '&avatar=' + e.avatar + '&btid=' + e.title_id + '&nick_name=' + encodeURI(encodeURI(e.nick_name)),
         userid: e.userid,
         title_id: e.title_id,
       });
@@ -24,7 +24,7 @@ Page({
     //主题发布页面
     else if (e.h5param == 'edit_detail') {
       this.setData({
-        H5_url: app.globalData.url + '/alipay/community/editor/publish.html?date=' + new Date().getTime() + '&citybm=' + app.globalData.zjbzxbm + '&zjhm=' + app.globalData.zjhm,
+        H5_url: app.globalData.url + '/alipay/community/editor/publish.html?date=' + new Date().getTime() + '&citybm=' + app.globalData.zjbzxbm,
         userid: e.userid,
       });
     }
